@@ -24,8 +24,7 @@ my_filters <- paste(c(
                 ror, 
                 "is_paratext:false",
                 "type:article|book|book-chapter",
-                "from_publication_date:2020-01-01",
-                "to_publication_date:2022-12-31",
+                "publication_year:2022",
                 "is_retracted:false"), 
                 collapse = ",")
 
