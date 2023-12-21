@@ -1,23 +1,22 @@
 ---
-title: "open-alex-query"
+title: "Open Alex API Query"
 author: "Tom Saunders"
 date: "2023-12-20"
 output: html_document
+knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
 ---
 
-```{r}
+```{r, message=FALSE}
 library(jsonlite)
 library(dplyr)
 library(ggplot2)
-
-options(stringsAsFactors = FALSE)
 ```
 
 ```{r}
-# Set base url to OpenAlex API with 'works' endpoint
+# Set base url to OpenAlex API and 'works' endpoint
 base_url <- "https://api.openalex.org/works"
 
-# Choose relevant institution based on ROR
+# Choose institution based on ROR
 ror <- "institutions.ror:https://ror.org/03b94tp07"
 
 # Choose filters
@@ -48,6 +47,10 @@ oa_status <- oa_status |>
     pc = (count/sum(count)*100),
   )
 
+oa_status
+```
+
+```{r}
 # Plot
 ggplot(oa_status, aes(reorder(key, -pc), pc)) +
   geom_col() +

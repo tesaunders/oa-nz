@@ -13,7 +13,7 @@
 
 <meta name="date" content="2023-12-20" />
 
-<title>open-alex-query</title>
+<title>Open Alex API Query</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,7 +350,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">open-alex-query</h1>
+<h1 class="title toc-ignore">Open Alex API Query</h1>
 <h4 class="author">Tom Saunders</h4>
 <h4 class="date">2023-12-20</h4>
 
@@ -358,22 +358,12 @@ display: none;
 
 
 <pre class="r"><code>library(jsonlite)
-library(dplyr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>library(ggplot2)
-
-options(stringsAsFactors = FALSE)</code></pre>
-<pre class="r"><code># Set base url to OpenAlex API with &#39;works&#39; endpoint
+library(dplyr)
+library(ggplot2)</code></pre>
+<pre class="r"><code># Set base url to OpenAlex API and &#39;works&#39; endpoint
 base_url &lt;- &quot;https://api.openalex.org/works&quot;
 
-# Choose relevant institution based on ROR
+# Choose institution based on ROR
 ror &lt;- &quot;institutions.ror:https://ror.org/03b94tp07&quot;
 
 # Choose filters
@@ -404,7 +394,14 @@ oa_status &lt;- oa_status |&gt;
     pc = (count/sum(count)*100),
   )
 
-# Plot
+oa_status</code></pre>
+<pre><code>##      key key_display_name count        pc
+## 1 closed           closed  9181 49.978225
+## 2   gold             gold  3857 20.996189
+## 3  green            green  2309 12.569407
+## 4 hybrid           hybrid  1742  9.482852
+## 5 bronze           bronze  1281  6.973326</code></pre>
+<pre class="r"><code># Plot
 ggplot(oa_status, aes(reorder(key, -pc), pc)) +
   geom_col() +
   theme_classic() +
