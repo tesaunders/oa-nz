@@ -29,10 +29,10 @@ my_filters <- paste(c(
                 collapse = ",")
 
 # Select grouping
-group <- "&group_by=oa_status"
+group <- "group_by=oa_status"
 
 # Create url
-url <- paste0(base_url, "?", "filter=", my_filters, group)
+url <- paste0(base_url, "?", "filter=", my_filters, "&", group)
 
 # Make request and parse output
 json <- (fromJSON(url)) 
@@ -56,5 +56,31 @@ ggplot(oa_status, aes(reorder(key, -pc), pc)) +
   theme_classic() +
   xlab("") +
   ylab("%")
+```
+
+```{r}
+# Plots for all universities
+
+## Get RORs
+
+nz_unis <- data.frame(institution  = c("University of Auckland",
+                                        "Auckland University of Technology",
+                                        "University of Waikato",
+                                        "Massey University",
+                                        "Victoria University of Auckland",
+                                        "University of Canterbury",
+                                        "Lincoln University",
+                                        "University of Otago"),
+                       ror = c("https://ror.org/03b94tp07",
+                               "https://ror.org/01zvqw119",
+                               "https://ror.org/013fsnh78",
+                               "https://ror.org/052czxv31",
+                               "https://ror.org/0040r6f76",
+                               "https://ror.org/03y7q9t39",
+                               "https://ror.org/04ps1r162",
+                               "https://ror.org/01jmxt844")
+                      )
+
+
 ```
 
