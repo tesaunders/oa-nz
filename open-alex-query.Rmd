@@ -9,10 +9,13 @@ knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = e
 ```{r, message=FALSE}
 library(jsonlite)
 library(dplyr)
+library(purrr)
 library(ggplot2)
 ```
 
 ```{r}
+# Single institution
+
 # Set base url to OpenAlex API and 'works' endpoint
 base_url <- "https://api.openalex.org/works"
 
@@ -57,30 +60,54 @@ ggplot(oa_status, aes(reorder(key, -pc), pc)) +
   xlab("") +
   ylab("%")
 ```
-
 ```{r}
-# Plots for all universities
+# Multiple institutions
 
-## Get RORs
+## Get institutions and rors
 
 nz_unis <- data.frame(institution  = c("University of Auckland",
-                                        "Auckland University of Technology",
-                                        "University of Waikato",
-                                        "Massey University",
-                                        "Victoria University of Auckland",
-                                        "University of Canterbury",
-                                        "Lincoln University",
-                                        "University of Otago"),
-                       ror = c("https://ror.org/03b94tp07",
-                               "https://ror.org/01zvqw119",
-                               "https://ror.org/013fsnh78",
-                               "https://ror.org/052czxv31",
-                               "https://ror.org/0040r6f76",
-                               "https://ror.org/03y7q9t39",
-                               "https://ror.org/04ps1r162",
-                               "https://ror.org/01jmxt844")
-                      )
+                                       "Auckland University of Technology",
+                                       "University of Waikato",
+                                       "Massey University",
+                                       "Victoria University of Auckland",
+                                       "University of Canterbury",
+                                       "Lincoln University",
+                                       "University of Otago"),
+                      ror = c("https://ror.org/03b94tp07",
+                              "https://ror.org/01zvqw119",
+                              "https://ror.org/013fsnh78",
+                              "https://ror.org/052czxv31",
+                              "https://ror.org/0040r6f76",
+                              "https://ror.org/03y7q9t39",
+                              "https://ror.org/04ps1r162",
+                              "https://ror.org/01jmxt844")
+)
 
+## Choose filters
 
+my_filters <- paste(c(
+  "is_paratext:false",
+  "type:article|book|book-chapter",
+  "publication_year:2022",
+  "is_retracted:false"), 
+  collapse = ",")
+
+## Create query URLs and save to a list
+
+url_list <- paste0("https://api.openalex.org/works?filter=institutions.ror:", 
+                   nz_unis$ror, 
+                   ",", 
+                   my_filters,
+                   "&group_by=oa_status")
+
+## Loop through URLs to fetch JSON, build dataframe with result
+
+response <- list()
+
+for (i in 1:length(url_list)) {
+  response[[i]] <- (fromJSON(url_list[[i]]))
+}
+
+newdf1 <- as.data.frame(response[[1]])
 ```
 
