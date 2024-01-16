@@ -35,9 +35,11 @@ institutions <- data.frame(institution  = c("University of Auckland",
                               "https://ror.org/01jmxt844")
 )
 
-# Define filters
+# Get publication year
 
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
+
+# Define filters
 
 parameters <- paste(c(
   "is_paratext:false",
@@ -54,14 +56,20 @@ institutions$request <- paste0("https://api.openalex.org/works?filter=institutio
                    parameters,
                    "&group_by=oa_status")
 
+# Loop through URLs to retrieve JSON data from API
+
 raw_json <- NULL
 
 for (i in 1:length(institutions$request)) {
   raw_json[[i]] <- (read_json(institutions$request[[i]], simplifyVector = TRUE))
 }
 
+# Flatten into a dataframe
+
 raw_data <- enframe(unlist(raw_json))
 raw_data$value <- as.numeric(raw_data$value)
+
+# Filter to relevant values, add institution name and oa type
 
 oa_status <- raw_data |> 
   filter(str_detect(raw_data$name, "group_by.count")) |> 
@@ -87,12 +95,18 @@ oa_status <- raw_data |>
   ) |> 
   select(institution, oa_type, value, pc)
 
-write.csv(oa_status, "data/oa_status.csv", row.names = FALSE)
+# Export data to .csv file with year appended
+
+write.csv(oa_status, paste0("data/oa_status_", prev_year, ".csv"), row.names = FALSE)
+
+# Reorder factor levels and define title for plot
 
 oa_status$oa_type <- factor(oa_status$oa_type, 
                             levels = c("bronze","green", "hybrid", "gold", "closed"))
 
 title <- (paste("OA Status for", prev_year, "Publications"))
+
+# Plot 
 
 ggplot(oa_status, aes(x = institution, y = pc, fill = oa_type)) +
   geom_bar(position="dodge", stat="identity") +

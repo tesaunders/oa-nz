@@ -385,9 +385,11 @@ institutions &lt;- data.frame(institution  = c(&quot;University of Auckland&quot
                               &quot;https://ror.org/01jmxt844&quot;)
 )
 
-# Define filters
+# Get publication year
 
 prev_year &lt;- as.numeric(format(Sys.Date(), &quot;%Y&quot;))-1
+
+# Define filters
 
 parameters &lt;- paste(c(
   &quot;is_paratext:false&quot;,
@@ -404,14 +406,20 @@ institutions$request &lt;- paste0(&quot;https://api.openalex.org/works?filter=in
                    parameters,
                    &quot;&amp;group_by=oa_status&quot;)
 
+# Loop through URLs to retrieve JSON data from API
+
 raw_json &lt;- NULL
 
 for (i in 1:length(institutions$request)) {
   raw_json[[i]] &lt;- (read_json(institutions$request[[i]], simplifyVector = TRUE))
 }
 
+# Flatten into a dataframe
+
 raw_data &lt;- enframe(unlist(raw_json))
 raw_data$value &lt;- as.numeric(raw_data$value)
+
+# Filter to relevant values, add institution name and oa type
 
 oa_status &lt;- raw_data |&gt; 
   filter(str_detect(raw_data$name, &quot;group_by.count&quot;)) |&gt; 
@@ -437,12 +445,18 @@ oa_status &lt;- raw_data |&gt;
   ) |&gt; 
   select(institution, oa_type, value, pc)
 
-write.csv(oa_status, &quot;data/oa_status.csv&quot;, row.names = FALSE)
+# Export data to .csv file with year appended
+
+write.csv(oa_status, paste0(&quot;data/oa_status_&quot;, prev_year, &quot;.csv&quot;), row.names = FALSE)
+
+# Reorder factor levels and define title for plot
 
 oa_status$oa_type &lt;- factor(oa_status$oa_type, 
                             levels = c(&quot;bronze&quot;,&quot;green&quot;, &quot;hybrid&quot;, &quot;gold&quot;, &quot;closed&quot;))
 
 title &lt;- (paste(&quot;OA Status for&quot;, prev_year, &quot;Publications&quot;))
+
+# Plot 
 
 ggplot(oa_status, aes(x = institution, y = pc, fill = oa_type)) +
   geom_bar(position=&quot;dodge&quot;, stat=&quot;identity&quot;) +
