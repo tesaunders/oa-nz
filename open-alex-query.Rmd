@@ -1,64 +1,109 @@
 ---
-title: "Open Alex API Query"
+title: "Open Alex Query (2022)"
 author: "Tom Saunders"
-date: "2023-12-20"
+date: "2024-01-14"
 output: html_document
 knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
 ---
+This script queries the Open Alex API to retrieve the publication status for articles, books, and book chapters with an author affiliated with a NZ university. It determines the current year, retrieves data for the previous year, and automatically uses the appropriate year in the title of the plot.
 
 ```{r, message=FALSE}
 library(jsonlite)
+library(tibble)
+library(stringr)
 library(dplyr)
-library(purrr)
 library(ggplot2)
 ```
 
-```{r}
-# Single institution
+```{r, warning=FALSE}
+# Get institutions and rors
 
-# Set base url to OpenAlex API and 'works' endpoint
-base_url <- "https://api.openalex.org/works"
+institutions <- data.frame(institution  = c("University of Auckland",
+                                            "Auckland University of Technology",
+                                            "University of Waikato",
+                                            "Massey University",
+                                            "Victoria University of Auckland",
+                                            "University of Canterbury",
+                                            "Lincoln University",
+                                            "University of Otago"),
+                      ror = c("https://ror.org/03b94tp07",
+                              "https://ror.org/01zvqw119",
+                              "https://ror.org/013fsnh78",
+                              "https://ror.org/052czxv31",
+                              "https://ror.org/0040r6f76",
+                              "https://ror.org/03y7q9t39",
+                              "https://ror.org/04ps1r162",
+                              "https://ror.org/01jmxt844")
+)
 
-# Choose institution based on ROR
-ror <- "institutions.ror:https://ror.org/03b94tp07"
+# Define filters
 
-# Choose filters
-my_filters <- paste(c(
-                ror, 
-                "is_paratext:false",
-                "type:article|book|book-chapter",
-                "publication_year:2022",
-                "is_retracted:false"), 
-                collapse = ",")
+prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
 
-# Select grouping
-group <- "group_by=oa_status"
+parameters <- paste(c(
+  "is_paratext:false",
+  "type:article|book|book-chapter",
+  (paste0("publication_year:", prev_year)),
+  "is_retracted:false"), 
+  collapse = ",")
 
-# Create url
-url <- paste0(base_url, "?", "filter=", my_filters, "&", group)
+# Create URLs
 
-# Make request and parse output
-json <- (fromJSON(url)) 
+institutions$request <- paste0("https://api.openalex.org/works?filter=institutions.ror:", 
+                   institutions$ror, 
+                   ",", 
+                   parameters,
+                   "&group_by=oa_status")
 
-# Convert to data frame
-oa_status <- as.data.frame(json$group_by)
+raw_json <- NULL
 
-# Calculate percentages for each oa type
-oa_status <- oa_status |> 
+for (i in 1:length(institutions$request)) {
+  raw_json[[i]] <- (read_json(institutions$request[[i]], simplifyVector = TRUE))
+}
+
+raw_data <- enframe(unlist(raw_json))
+raw_data$value <- as.numeric(raw_data$value)
+
+oa_status <- raw_data |> 
+  filter(str_detect(raw_data$name, "group_by.count")) |> 
   mutate(
-    pc = (count/sum(count)*100),
+    institution = case_when(row_number() %in% 1:5 ~ institutions$institution[1],
+                            row_number() %in% 6:10 ~ institutions$institution[2],
+                            row_number() %in% 11:15 ~ institutions$institution[3],
+                            row_number() %in% 16:20 ~ institutions$institution[4],
+                            row_number() %in% 21:25 ~ institutions$institution[5],
+                            row_number() %in% 26:30 ~ institutions$institution[6],
+                            row_number() %in% 31:35 ~ institutions$institution[7],
+                            row_number() %in% 36:40 ~ institutions$institution[8]),
+    oa_type = rep(c("closed", 
+                    "gold", 
+                    "hybrid", 
+                    "green", 
+                    "bronze"),
+                  8),
+  ) |> 
+  group_by(institution) |> 
+  mutate(
+    pc = (value / sum(value) * 100),
   )
 
-oa_status
-```
+oa_status$oa_type <- factor(oa_status$oa_type, 
+                            levels = c("bronze","green", "hybrid", "gold", "closed"))
 
-```{r}
-# Plot
-ggplot(oa_status, aes(reorder(key, -pc), pc)) +
-  geom_col() +
+title <- (paste("OA Status for", prev_year, "Publications"))
+
+ggplot(oa_status, aes(x = institution, y = pc, fill = oa_type)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_fill_manual( name = "OA Type", 
+                     values = c("bronze" = "#ffdfba",
+                                "hybrid" = "#bae1ff",
+                                "gold" = "#ffffba",
+                                "green" = "#baffc9",
+                                "closed" = "#ffb3ba")) +
+  coord_flip() +
   theme_classic() +
   xlab("") +
-  ylab("%")
+  ylab("%") +
+  ggtitle(title)
 ```
-
 
