@@ -84,7 +84,10 @@ oa_status <- raw_data |>
   group_by(institution) |> 
   mutate(
     pc = (value / sum(value) * 100),
-  )
+  ) |> 
+  select(institution, oa_type, value, pc)
+
+write.csv(oa_status, "data/oa_status.csv", row.names = FALSE)
 
 oa_status$oa_type <- factor(oa_status$oa_type, 
                             levels = c("bronze","green", "hybrid", "gold", "closed"))
