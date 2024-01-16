@@ -434,7 +434,10 @@ oa_status &lt;- raw_data |&gt;
   group_by(institution) |&gt; 
   mutate(
     pc = (value / sum(value) * 100),
-  )
+  ) |&gt; 
+  select(institution, oa_type, value, pc)
+
+write.csv(oa_status, &quot;data/oa_status.csv&quot;, row.names = FALSE)
 
 oa_status$oa_type &lt;- factor(oa_status$oa_type, 
                             levels = c(&quot;bronze&quot;,&quot;green&quot;, &quot;hybrid&quot;, &quot;gold&quot;, &quot;closed&quot;))
