@@ -1,7 +1,6 @@
 ---
-title: "Open Alex Query (2022)"
+title: "Open Alex Query"
 author: "Tom Saunders"
-date: "2024-01-14"
 output: html_document
 knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
 ---
