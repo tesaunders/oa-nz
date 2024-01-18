@@ -1,0 +1,135 @@
+---
+title: "OA Dashboard"
+author: "Tom Saunders"
+output: html_document
+knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
+---
+```{r, message=FALSE}
+library(jsonlite)
+library(tibble)
+library(stringr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+# https://api.openalex.org/works?filter=institutions.ror:https://ror.org/03b94tp07|https://ror.org/01zvqw119,publication_year:2023&group_by=oa_status
+```
+
+First, retrieve publication access status for all 8 New Zealand universities from 2010 until the previous year. 
+
+You can use select to limit the fields that are returned in results:
+https://docs.openalex.org/how-to-use-the-api/get-lists-of-entities/select-fields
+
+```{r}
+# Get institutions and rors
+
+institutions <- data.frame(institution  = c("University of Auckland",
+                                            "Auckland University of Technology",
+                                            "University of Waikato",
+                                            "Massey University",
+                                            "Victoria University of Wellington",
+                                            "University of Canterbury",
+                                            "Lincoln University",
+                                            "University of Otago"),
+                      ror = c("https://ror.org/03b94tp07",
+                              "https://ror.org/01zvqw119",
+                              "https://ror.org/013fsnh78",
+                              "https://ror.org/052czxv31",
+                              "https://ror.org/0040r6f76",
+                              "https://ror.org/03y7q9t39",
+                              "https://ror.org/04ps1r162",
+                              "https://ror.org/01jmxt844")
+)
+
+# Get most current full year
+
+prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
+pub_years <- data.frame("years" = as.factor(2010:prev_year))
+
+# Define query parameters
+
+parameters <- paste(c(
+  "is_paratext:false",
+  "type:article|book|book-chapter",
+  "is_retracted:false"), 
+  collapse = ",")
+
+group <- "&group_by=oa_status"
+
+# Assemble queries
+
+ror_year <- do.call(paste0, (expand.grid(paste0(institutions$ror, ",", "publication_year:"), pub_years$years)))
+
+req_nz <- paste0("https://api.openalex.org/works?filter=institutions.ror:",
+                 ror_year,
+                 ",",
+                 parameters,
+                 group)
+
+# Loop through URLs to make requests
+
+raw_nz <- NULL
+
+for (i in 1:length(req_nz)) {
+  raw_nz[[i]] <- (read_json(req_nz[[i]], simplifyVector = TRUE))
+}
+
+# Flatten raw JSON
+
+oa_nz <- enframe(unlist(raw_nz))
+oa_nz$value <- as.numeric(oa_nz$value)
+
+# Filter to relevant rows
+
+oa_nz <- oa_nz |> 
+  filter(str_detect(oa_nz$name, "group_by.count")) |> 
+  mutate(
+    institution = rep(institutions$institution, each = 5, times = 14),
+    year = rep(c(2010:prev_year), each = 40),
+    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), times = 112),
+  ) |> 
+  group_by(institution, year) |> 
+  mutate(
+    pc = (value / sum(value) * 100),
+  ) |> 
+  select(institution, year, oa_type, value, pc)
+
+# Export data to .csv with latest year appended
+
+write.csv(oa_nz, paste0("data/oa_nz_", prev_year, ".csv"), row.names = FALSE)
+
+# Calculate overall access status percentages for each year
+
+oa_nz_trend <- oa_nz |> 
+  group_by(year,oa_type) |> 
+  summarise(
+    value = sum(value),
+  ) |> 
+  group_by(year) |> 
+  summarise(
+    year = year,
+    oa_type = oa_type,
+    value = value,
+    pc = value / sum(value) * 100,
+  )
+
+# Plot
+
+oa_nz_trend_title <- (paste0("Access Status for NZ University Publications, 2010-", prev_year))
+
+ggplot(oa_nz_trend, aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  theme_classic() +
+  scale_colour_manual(name = "OA Type", 
+                     values = c("bronze" = "#A65628",
+                                "hybrid" = "#377EB8",
+                                "gold" = "#FFFF33",
+                                "green" = "#4DAF4A",
+                                "closed" = "#E41A1C")) +
+  xlab("") +
+  ylab("%") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010) +
+  ggtitle(oa_nz_trend_title)
+```
+
