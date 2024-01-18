@@ -11,16 +11,11 @@ library(stringr)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-
-# https://api.openalex.org/works?filter=institutions.ror:https://ror.org/03b94tp07|https://ror.org/01zvqw119,publication_year:2023&group_by=oa_status
 ```
 
-First, retrieve publication access status for all 8 New Zealand universities from 2010 until the previous year. 
 
-You can use select to limit the fields that are returned in results:
-https://docs.openalex.org/how-to-use-the-api/get-lists-of-entities/select-fields
 
-```{r}
+```{r, warning=FALSE}
 # Get institutions and rors
 
 institutions <- data.frame(institution  = c("University of Auckland",
@@ -111,13 +106,55 @@ oa_nz_trend <- oa_nz |>
     oa_type = oa_type,
     value = value,
     pc = value / sum(value) * 100,
-  )
+  ) |> 
+  mutate(
+    open = case_when(oa_type != "closed" ~ "open", .default = oa_type),
+  ) |> 
+  group_by(year, open) |> 
+  summarise(
+    pc = sum(pc),
+  ) |> 
+  filter(open == "open")
 
-# Plot
+# Plot by open type
 
-oa_nz_trend_title <- (paste0("Access Status for NZ University Publications, 2010-", prev_year))
+oa_nz_trend_title <- paste0("Open Access Publication Output by New Zealand Universities, 2010-", prev_year)
 
-ggplot(oa_nz_trend, aes(x = year, y = pc, colour = oa_type)) +
+ggplot(oa_nz_trend, aes(x = year, y = pc)) +
+  geom_line(size = 1, colour = "#4DAF4A", show.legend = FALSE) +
+  theme_classic() +
+  xlab("") +
+  ylab("%") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010) +
+  ggtitle(oa_nz_trend_title)
+
+
+```
+
+Plot broken down by access type.
+
+```{r}
+# Plot by access type
+
+oa_nz_types_title <- (paste0("Access Status for NZ University Publications, 2010-", prev_year))
+
+oa_nz_types <- oa_nz |> 
+  group_by(year,oa_type) |> 
+  summarise(
+    value = sum(value),
+  ) |> 
+  group_by(year) |> 
+  summarise(
+    year = year,
+    oa_type = oa_type,
+    value = value,
+    pc = value / sum(value) * 100,
+  ) |> 
+  ungroup()
+  
+
+ggplot(oa_nz_types, aes(x = year, y = pc, colour = oa_type)) +
   geom_line(size = 1) +
   theme_classic() +
   scale_colour_manual(name = "OA Type", 
@@ -130,6 +167,33 @@ ggplot(oa_nz_trend, aes(x = year, y = pc, colour = oa_type)) +
   ylab("%") +
   ylim(0, 80) +
   scale_x_continuous(n.breaks = prev_year-2010) +
-  ggtitle(oa_nz_trend_title)
+  ggtitle(oa_nz_types_title)
+```
+
+Plot broken down by institution.
+
+```{r}
+oa_nz_unis <- oa_nz |> 
+  filter(year == 2023) 
+
+oa_nz_unis$oa_type <- factor(oa_nz_unis$oa_type, 
+                            levels = c("bronze","green", "hybrid", "gold", "closed"))
+
+oa_nz_unis_title <- (paste0("OA Type by Institution, ", prev_year))
+  
+ggplot(oa_nz_unis, aes(x = institution, y = pc, fill = oa_type)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_fill_manual( name = "OA Type", 
+                     values = c("bronze" = "#A65628",
+                                "hybrid" = "#377EB8",
+                                "gold" = "#FFFF33",
+                                "green" = "#4DAF4A",
+                                "closed" = "#E41A1C")) +
+  coord_flip() +
+  theme_classic() +
+  xlab("") +
+  ylab("%") +
+  ggtitle(oa_nz_unis_title)
+
 ```
 
