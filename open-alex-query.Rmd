@@ -2,19 +2,16 @@
 title: "Open Alex Query"
 author: "Tom Saunders"
 output: html_document
-knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
 ---
-This script queries the Open Alex API to retrieve the publication status for articles, books, and book chapters with an author affiliated with a NZ university. It determines the current year, retrieves data for the previous year, and automatically uses the appropriate year in the title of the plot.
+This script queries the Open Alex API to retrieve the publication status for articles, books, and book chapters with an author affiliated with a NZ university. It determines the current year, retrieves data from 2010 up to the previous year, and saves the data as `/data/oa_nz_[year].csv` with the latest year of data appended.
+
+This data is read in by the [OA Dashboard](oa-dashboard-Rmd), manipulated, and visualised in a series of plots.
 
 ```{r, message=FALSE}
 library(jsonlite)
 library(tibble)
-library(stringr)
 library(dplyr)
-library(ggplot2)
-```
 
-```{r, warning=FALSE}
 # Get institutions and rors
 
 institutions <- data.frame(institution  = c("University of Auckland",
@@ -35,91 +32,61 @@ institutions <- data.frame(institution  = c("University of Auckland",
                               "https://ror.org/01jmxt844")
 )
 
-# Get publication year
+# Get most current full year
 
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
+pub_years <- data.frame("years" = as.factor(2010:prev_year))
 
-# Define filters
+# Define query parameters
 
 parameters <- paste(c(
   "is_paratext:false",
   "type:article|book|book-chapter",
-  (paste0("publication_year:", prev_year)),
   "is_retracted:false"), 
   collapse = ",")
 
-# Create URLs
+group <- "&group_by=oa_status"
 
-institutions$request <- paste0("https://api.openalex.org/works?filter=institutions.ror:", 
-                   institutions$ror, 
-                   ",", 
-                   parameters,
-                   "&group_by=oa_status")
+# Assemble queries
 
-# Loop through URLs to retrieve JSON data from API
+ror_year <- do.call(paste0, (expand.grid(paste0(institutions$ror, ",", "publication_year:"), pub_years$years)))
 
-raw_json <- NULL
+req_nz <- paste0("https://api.openalex.org/works?filter=institutions.ror:",
+                 ror_year,
+                 ",",
+                 parameters,
+                 group)
 
-for (i in 1:length(institutions$request)) {
-  raw_json[[i]] <- (read_json(institutions$request[[i]], simplifyVector = TRUE))
+# Loop through URLs to make requests
+
+raw_nz <- NULL
+
+for (i in 1:length(req_nz)) {
+  raw_nz[[i]] <- (read_json(req_nz[[i]], simplifyVector = TRUE))
 }
 
-# Flatten into a dataframe
+# Flatten raw JSON
 
-raw_data <- enframe(unlist(raw_json))
-raw_data$value <- as.numeric(raw_data$value)
+oa_nz <- enframe(unlist(raw_nz))
+oa_nz$value <- as.numeric(oa_nz$value)
 
-# Filter to relevant values, add institution name and oa type
+# Filter to relevant rows
 
-oa_status <- raw_data |> 
-  filter(str_detect(raw_data$name, "group_by.count")) |> 
+oa_nz <- oa_nz |> 
+  filter(str_detect(oa_nz$name, "group_by.count")) |> 
   mutate(
-    institution = case_when(row_number() %in% 1:5 ~ institutions$institution[1],
-                            row_number() %in% 6:10 ~ institutions$institution[2],
-                            row_number() %in% 11:15 ~ institutions$institution[3],
-                            row_number() %in% 16:20 ~ institutions$institution[4],
-                            row_number() %in% 21:25 ~ institutions$institution[5],
-                            row_number() %in% 26:30 ~ institutions$institution[6],
-                            row_number() %in% 31:35 ~ institutions$institution[7],
-                            row_number() %in% 36:40 ~ institutions$institution[8]),
-    oa_type = rep(c("closed", 
-                    "gold", 
-                    "hybrid", 
-                    "green", 
-                    "bronze"),
-                  8),
+    institution = rep(institutions$institution, each = 5, times = 14),
+    year = rep(c(2010:prev_year), each = 40),
+    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), times = 112),
   ) |> 
-  group_by(institution) |> 
+  group_by(institution, year) |> 
   mutate(
     pc = (value / sum(value) * 100),
   ) |> 
-  select(institution, oa_type, value, pc)
+  select(institution, year, oa_type, value, pc)
 
-# Export data to .csv file with year appended
+# Export data to .csv with latest year appended
 
-write.csv(oa_status, paste0("data/oa_status_", prev_year, ".csv"), row.names = FALSE)
-
-# Reorder factor levels and define title for plot
-
-oa_status$oa_type <- factor(oa_status$oa_type, 
-                            levels = c("bronze","green", "hybrid", "gold", "closed"))
-
-title <- (paste("OA Status for", prev_year, "Publications"))
-
-# Plot 
-
-ggplot(oa_status, aes(x = institution, y = pc, fill = oa_type)) +
-  geom_bar(position="dodge", stat="identity") +
-  scale_fill_manual( name = "OA Type", 
-                     values = c("bronze" = "#ffdfba",
-                                "hybrid" = "#bae1ff",
-                                "gold" = "#ffffba",
-                                "green" = "#baffc9",
-                                "closed" = "#ffb3ba")) +
-  coord_flip() +
-  theme_classic() +
-  xlab("") +
-  ylab("%") +
-  ggtitle(title)
+write.csv(oa_nz, paste0("data/oa_nz_", prev_year, ".csv"), row.names = FALSE)
 ```
 
