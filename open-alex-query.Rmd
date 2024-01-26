@@ -5,12 +5,11 @@ output: html_document
 ---
 This script queries the Open Alex API to retrieve the publication status for articles, books, and book chapters with an author affiliated with a NZ university. It determines the current year, retrieves data from 2010 up to the previous year, and saves the data as `/data/oa_nz_[year].csv` with the latest year of data appended.
 
-This data is read in by the [OA Dashboard](oa-dashboard-Rmd), manipulated, and visualised in a series of plots.
+This data is manipulated and visualised in a series of plots by the [OA Dashboard](oa-dashboard-Rmd).
 
 ```{r, message=FALSE}
 library(jsonlite)
-library(tibble)
-library(dplyr)
+library(tidyverse)
 
 # Get institutions and rors
 

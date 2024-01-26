@@ -1,19 +1,22 @@
 ---
 title: "OA Dashboard"
 author: "Tom Saunders"
-output: html_document
+output:
+  html_document:
+    css: "style.css"
 knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
 ---
 ```{r, echo=FALSE, message=FALSE}
-library(stringr)
-library(dplyr)
-library(tidyr)
-library(ggplot2)
+knitr::opts_chunk$set(echo=FALSE)
+knitr::opts_chunk$set(warning=FALSE)
+knitr::opts_chunk$set(message=FALSE)
+knitr::opts_chunk$set(fig.align="center")
+library(tidyverse)
 ```
 
-This dashboard reads in data extracted from the Open Alex API in [this query](open-alex-query.Rmd), calculates a variety of metrics, and visualises the data in a series of plots to show trends at a national and institution-specific level since 2010. Plots are shown on the page and saved into the `/fig` directory.
+This dashboard reads in data extracted from the Open Alex API via [this query](open-alex-query.Rmd), calculates a variety of metrics, and visualises the data in a series of plots to show trends at a national and institution-specific level since 2010. Plots are shown on the page and saved into the `/fig` directory.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r}
 # Get most current full year
 
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
@@ -44,7 +47,9 @@ oa_nz_trend <- oa_nz |>
     pc = sum(pc),
   ) |> 
   filter(open == "open")
+```
 
+```{r}
 # Plot by open type
 
 oa_nz_trend_title <- paste0("Open Access Publication Output by New Zealand Universities, 2010-", prev_year)
@@ -61,7 +66,7 @@ ggplot(oa_nz_trend, aes(x = year, y = pc)) +
 ggsave("fig/1-nz-oa-output.png")
 ```
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r}
 # Plot by access type
 
 oa_nz_types_title <- (paste0("Access Status for NZ University Publications, 2010-", prev_year))
@@ -97,7 +102,7 @@ ggplot(oa_nz_types, aes(x = year, y = pc, colour = oa_type)) +
 ggsave("fig/2-access-status-all.png")
 ```
 
-```{r, echo=FALSE, message=FALSE}
+```{r}
 oa_nz_unis <- oa_nz |> 
   filter(year == 2023) 
 
@@ -123,33 +128,37 @@ ggplot(oa_nz_unis, aes(x = institution, y = pc, fill = oa_type)) +
 ggsave("fig/3-type-institution.png")
 ```
 
-```{r, echo=FALSE, message=FALSE, fig.width=6, fig.height=25}
+```{r, fig.width=7, fig.height=25}
 plot_titles_all <- paste0("Access Status for ", unique(oa_nz$institution), ", 2010-", prev_year)
 
-oa_nz_trend_all <- lapply(split(oa_nz, oa_nz$institution), function(x)
-{
-  ggplot(oa_nz_types, aes(x = year, y = pc, colour = oa_type)) +
-    geom_line(size = 1) +
+plot_function <- function(oa_nz) {
+  p <- ggplot(oa_nz, aes(x = year, y = pc, colour = oa_type))
+  p <- p + geom_line(size = 1) +
     scale_colour_manual(name = "OA Type", 
-                     values = c("bronze" = "#A65628",
-                                "hybrid" = "#377EB8",
-                                "gold" = "#FFFF33",
-                                "green" = "#4DAF4A",
-                                "closed" = "#E41A1C")) +
+                        values = c("bronze" = "#A65628",
+                                   "hybrid" = "#377EB8",
+                                   "gold" = "#FFFF33",
+                                   "green" = "#4DAF4A",
+                                   "closed" = "#E41A1C")) +
     theme_classic() +
     xlab("") +
     ylab("%") +
     ylim(0, 80) +
     scale_x_continuous(n.breaks = prev_year-2010)
+  return(p)
+}
+
+plot_list <- oa_nz |> 
+  group_split(institution) |> 
+  map(~ plot_function(.x))
+
+plot_list <- lapply(seq_along(plot_list), function(i) { 
+  plot_list[[i]] + ggtitle(plot_titles_all[i])
 })
 
-oa_nz_trend_all <- lapply(seq_along(oa_nz_trend_all), function(i) { 
-  oa_nz_trend_all[[i]] + ggtitle(plot_titles_all[i])
-})
+wrapped_plot <- patchwork::wrap_plots(plot_list, ncol = 1)
 
-wrapped_plot <- patchwork::wrap_plots(oa_nz_trend_all, ncol = 1)
-
-nb_plots <- length(oa_nz_trend_all)
+nb_plots <- length(plot_list)
 baseheight <- grDevices::dev.size(units = "px")[1]
 ggsave("fig/4-trend-all.png",
        wrapped_plot,
