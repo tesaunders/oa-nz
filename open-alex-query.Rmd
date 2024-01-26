@@ -1,13 +1,16 @@
 ---
 title: "Open Alex Query"
 author: "Tom Saunders"
-output: html_document
+output:
+  html_document:
+    css: "style.css"
+knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'query.html')) })
 ---
 This script queries the Open Alex API to retrieve the publication status for articles, books, and book chapters with an author affiliated with a NZ university. It determines the current year, retrieves data from 2010 up to the previous year, and saves the data as `/data/oa_nz_[year].csv` with the latest year of data appended.
 
-This data is manipulated and visualised in a series of plots by the [OA Dashboard](oa-dashboard-Rmd).
+This data is manipulated and visualised in a series of plots by the [OA Dashboard](index.html).
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(jsonlite)
 library(tidyverse)
 
