@@ -14,7 +14,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(tidyverse)
 ```
 
-This dashboard reads in data extracted from the Open Alex API via [this query](query.html), calculates a variety of metrics, and visualises the data in a series of plots to show trends at a national and institution-specific level since 2010. Plots are shown on the page and saved into the `/fig` directory.
+This dashboard reads in data extracted from the Open Alex API via [this query](query.html), calculates a variety of metrics, and visualises the data in a series of plots to show trends at a national and institution-specific level since 2010. All code and plots can be found [here](https://github.com/tesaunders/oa-nz).
 
 ```{r}
 # Get most current full year
