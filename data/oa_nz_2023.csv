@@ -1,561 +1,71 @@
-"institution","year","oa_type","value","pc"
-"University of Auckland",2010,"closed",2207,73.1278992710404
-"University of Auckland",2010,"gold",291,9.64214711729622
-"University of Auckland",2010,"hybrid",272,9.01259111994698
-"University of Auckland",2010,"green",149,4.93704440026508
-"University of Auckland",2010,"bronze",99,3.28031809145129
-"Auckland University of Technology",2010,"closed",446,76.1092150170648
-"Auckland University of Technology",2010,"gold",66,11.2627986348123
-"Auckland University of Technology",2010,"hybrid",55,9.38566552901024
-"Auckland University of Technology",2010,"green",12,2.04778156996587
-"Auckland University of Technology",2010,"bronze",7,1.19453924914676
-"University of Waikato",2010,"closed",502,70.6047819971871
-"University of Waikato",2010,"gold",123,17.2995780590717
-"University of Waikato",2010,"hybrid",38,5.34458509142053
-"University of Waikato",2010,"green",37,5.20393811533052
-"University of Waikato",2010,"bronze",11,1.54711673699015
-"Massey University",2010,"closed",1079,76.5248226950355
-"Massey University",2010,"gold",123,8.72340425531915
-"Massey University",2010,"hybrid",100,7.09219858156028
-"Massey University",2010,"green",67,4.75177304964539
-"Massey University",2010,"bronze",41,2.90780141843972
-"Victoria University of Wellington",2010,"closed",934,79.1525423728814
-"Victoria University of Wellington",2010,"gold",104,8.8135593220339
-"Victoria University of Wellington",2010,"hybrid",88,7.45762711864407
-"Victoria University of Wellington",2010,"green",40,3.38983050847458
-"Victoria University of Wellington",2010,"bronze",14,1.1864406779661
-"University of Canterbury",2010,"closed",837,70.9322033898305
-"University of Canterbury",2010,"gold",171,14.4915254237288
-"University of Canterbury",2010,"hybrid",91,7.71186440677966
-"University of Canterbury",2010,"green",51,4.32203389830508
-"University of Canterbury",2010,"bronze",30,2.54237288135593
-"Lincoln University",2010,"closed",201,71.2765957446808
-"Lincoln University",2010,"gold",33,11.7021276595745
-"Lincoln University",2010,"hybrid",33,11.7021276595745
-"Lincoln University",2010,"green",8,2.83687943262411
-"Lincoln University",2010,"bronze",7,2.4822695035461
-"University of Otago",2010,"closed",1471,69.6496212121212
-"University of Otago",2010,"gold",256,12.1212121212121
-"University of Otago",2010,"hybrid",189,8.94886363636364
-"University of Otago",2010,"green",122,5.77651515151515
-"University of Otago",2010,"bronze",74,3.50378787878788
-"University of Auckland",2011,"closed",2610,74.3166287015945
-"University of Auckland",2011,"gold",328,9.33940774487472
-"University of Auckland",2011,"hybrid",273,7.77334851936219
-"University of Auckland",2011,"green",206,5.86560364464692
-"University of Auckland",2011,"bronze",95,2.70501138952164
-"Auckland University of Technology",2011,"closed",555,73.0263157894737
-"Auckland University of Technology",2011,"gold",91,11.9736842105263
-"Auckland University of Technology",2011,"hybrid",65,8.55263157894737
-"Auckland University of Technology",2011,"green",43,5.65789473684211
-"Auckland University of Technology",2011,"bronze",6,0.789473684210526
-"University of Waikato",2011,"closed",578,68.7277051129608
-"University of Waikato",2011,"gold",145,17.2413793103448
-"University of Waikato",2011,"hybrid",54,6.42092746730083
-"University of Waikato",2011,"green",54,6.42092746730083
-"University of Waikato",2011,"bronze",10,1.18906064209275
-"Massey University",2011,"closed",1182,75.3346080305927
-"Massey University",2011,"gold",162,10.3250478011472
-"Massey University",2011,"hybrid",96,6.11854684512428
-"Massey University",2011,"green",71,4.52517527087317
-"Massey University",2011,"bronze",58,3.69662205226259
-"Victoria University of Wellington",2011,"closed",1099,78.6123032904149
-"Victoria University of Wellington",2011,"gold",124,8.86981402002861
-"Victoria University of Wellington",2011,"hybrid",100,7.15307582260372
-"Victoria University of Wellington",2011,"green",52,3.71959942775393
-"Victoria University of Wellington",2011,"bronze",23,1.64520743919886
-"University of Canterbury",2011,"closed",970,70.4941860465116
-"University of Canterbury",2011,"gold",203,14.7529069767442
-"University of Canterbury",2011,"hybrid",105,7.63081395348837
-"University of Canterbury",2011,"green",60,4.36046511627907
-"University of Canterbury",2011,"bronze",38,2.76162790697674
-"Lincoln University",2011,"closed",252,75.9036144578313
-"Lincoln University",2011,"gold",32,9.63855421686747
-"Lincoln University",2011,"hybrid",26,7.83132530120482
-"Lincoln University",2011,"green",17,5.12048192771084
-"Lincoln University",2011,"bronze",5,1.50602409638554
-"University of Otago",2011,"closed",1636,67.7713338856669
-"University of Otago",2011,"gold",344,14.2502071251036
-"University of Otago",2011,"hybrid",175,7.24937862468931
-"University of Otago",2011,"green",174,7.2079536039768
-"University of Otago",2011,"bronze",85,3.52112676056338
-"University of Auckland",2012,"closed",2527,70.6457925636008
-"University of Auckland",2012,"gold",358,10.0083869164104
-"University of Auckland",2012,"hybrid",300,8.38691641039978
-"University of Auckland",2012,"green",275,7.68800670953313
-"University of Auckland",2012,"bronze",117,3.27089740005591
-"Auckland University of Technology",2012,"closed",533,74.6498599439776
-"Auckland University of Technology",2012,"gold",89,12.4649859943978
-"Auckland University of Technology",2012,"hybrid",46,6.44257703081232
-"Auckland University of Technology",2012,"green",37,5.18207282913165
-"Auckland University of Technology",2012,"bronze",9,1.26050420168067
-"University of Waikato",2012,"closed",625,72.5058004640371
-"University of Waikato",2012,"gold",101,11.7169373549884
-"University of Waikato",2012,"hybrid",83,9.62877030162413
-"University of Waikato",2012,"green",44,5.10440835266821
-"University of Waikato",2012,"bronze",9,1.04408352668213
-"Massey University",2012,"closed",1090,76.2237762237762
-"Massey University",2012,"gold",136,9.51048951048951
-"Massey University",2012,"hybrid",79,5.52447552447552
-"Massey University",2012,"green",78,5.45454545454545
-"Massey University",2012,"bronze",47,3.28671328671329
-"Victoria University of Wellington",2012,"closed",982,75.8301158301158
-"Victoria University of Wellington",2012,"gold",130,10.03861003861
-"Victoria University of Wellington",2012,"hybrid",105,8.10810810810811
-"Victoria University of Wellington",2012,"green",59,4.55598455598456
-"Victoria University of Wellington",2012,"bronze",19,1.46718146718147
-"University of Canterbury",2012,"closed",935,67.6555716353111
-"University of Canterbury",2012,"gold",184,13.3140376266281
-"University of Canterbury",2012,"hybrid",150,10.8538350217077
-"University of Canterbury",2012,"green",87,6.29522431259045
-"University of Canterbury",2012,"bronze",26,1.88133140376266
-"Lincoln University",2012,"closed",228,69.5121951219512
-"Lincoln University",2012,"gold",46,14.0243902439024
-"Lincoln University",2012,"hybrid",23,7.01219512195122
-"Lincoln University",2012,"green",22,6.70731707317073
-"Lincoln University",2012,"bronze",9,2.74390243902439
-"University of Otago",2012,"closed",1671,65.1970347249317
-"University of Otago",2012,"gold",389,15.1775263363246
-"University of Otago",2012,"hybrid",231,9.01287553648069
-"University of Otago",2012,"green",180,7.02301989855638
-"University of Otago",2012,"bronze",92,3.58954350370659
-"University of Auckland",2013,"closed",2746,67.8527304175933
-"University of Auckland",2013,"gold",428,10.575735112429
-"University of Auckland",2013,"hybrid",364,8.99431677786014
-"University of Auckland",2013,"green",359,8.87076847047195
-"University of Auckland",2013,"bronze",150,3.70644922164566
-"Auckland University of Technology",2013,"closed",653,71.7582417582418
-"Auckland University of Technology",2013,"gold",115,12.6373626373626
-"Auckland University of Technology",2013,"hybrid",65,7.14285714285714
-"Auckland University of Technology",2013,"green",59,6.48351648351648
-"Auckland University of Technology",2013,"bronze",18,1.97802197802198
-"University of Waikato",2013,"closed",623,67.4972914409534
-"University of Waikato",2013,"gold",130,14.0845070422535
-"University of Waikato",2013,"hybrid",94,10.1841820151679
-"University of Waikato",2013,"green",54,5.85048754062839
-"University of Waikato",2013,"bronze",22,2.38353196099675
-"Massey University",2013,"closed",1039,71.0670314637483
-"Massey University",2013,"gold",144,9.84952120383037
-"Massey University",2013,"hybrid",128,8.75512995896033
-"Massey University",2013,"green",108,7.38714090287278
-"Massey University",2013,"bronze",43,2.94117647058824
-"Victoria University of Wellington",2013,"closed",1169,74.4585987261146
-"Victoria University of Wellington",2013,"gold",165,10.5095541401274
-"Victoria University of Wellington",2013,"hybrid",144,9.17197452229299
-"Victoria University of Wellington",2013,"green",65,4.14012738853503
-"Victoria University of Wellington",2013,"bronze",27,1.71974522292994
-"University of Canterbury",2013,"closed",922,65.6227758007117
-"University of Canterbury",2013,"gold",202,14.3772241992883
-"University of Canterbury",2013,"hybrid",131,9.32384341637011
-"University of Canterbury",2013,"green",98,6.97508896797153
-"University of Canterbury",2013,"bronze",52,3.70106761565836
-"Lincoln University",2013,"closed",230,64.9717514124294
-"Lincoln University",2013,"gold",42,11.864406779661
-"Lincoln University",2013,"hybrid",41,11.5819209039548
-"Lincoln University",2013,"green",28,7.90960451977401
-"Lincoln University",2013,"bronze",13,3.67231638418079
-"University of Otago",2013,"closed",1698,63.882618510158
-"University of Otago",2013,"gold",344,12.9420617005267
-"University of Otago",2013,"hybrid",298,11.2114371708051
-"University of Otago",2013,"green",215,8.0887885628292
-"University of Otago",2013,"bronze",103,3.87509405568096
-"University of Auckland",2014,"closed",2898,66.6666666666667
-"University of Auckland",2014,"gold",452,10.3979756153669
-"University of Auckland",2014,"hybrid",451,10.3749712445365
-"University of Auckland",2014,"green",384,8.83367839889579
-"University of Auckland",2014,"bronze",162,3.72670807453416
-"Auckland University of Technology",2014,"closed",554,64.4935972060536
-"Auckland University of Technology",2014,"gold",135,15.7159487776484
-"Auckland University of Technology",2014,"hybrid",82,9.54598370197905
-"Auckland University of Technology",2014,"green",66,7.68335273573923
-"Auckland University of Technology",2014,"bronze",22,2.56111757857974
-"University of Waikato",2014,"closed",586,64.0437158469945
-"University of Waikato",2014,"gold",164,17.9234972677596
-"University of Waikato",2014,"hybrid",94,10.2732240437158
-"University of Waikato",2014,"green",52,5.68306010928962
-"University of Waikato",2014,"bronze",19,2.07650273224044
-"Massey University",2014,"closed",1047,67.987012987013
-"Massey University",2014,"gold",159,10.3246753246753
-"Massey University",2014,"hybrid",137,8.8961038961039
-"Massey University",2014,"green",136,8.83116883116883
-"Massey University",2014,"bronze",61,3.96103896103896
-"Victoria University of Wellington",2014,"closed",1075,74.0868366643694
-"Victoria University of Wellington",2014,"gold",149,10.2687801516196
-"Victoria University of Wellington",2014,"hybrid",120,8.27015851137147
-"Victoria University of Wellington",2014,"green",81,5.58235699517574
-"Victoria University of Wellington",2014,"bronze",26,1.79186767746382
-"University of Canterbury",2014,"closed",918,66.2815884476534
-"University of Canterbury",2014,"gold",183,13.2129963898917
-"University of Canterbury",2014,"hybrid",133,9.6028880866426
-"University of Canterbury",2014,"green",102,7.36462093862816
-"University of Canterbury",2014,"bronze",49,3.53790613718412
-"Lincoln University",2014,"closed",219,64.0350877192982
-"Lincoln University",2014,"gold",47,13.7426900584795
-"Lincoln University",2014,"hybrid",34,9.94152046783626
-"Lincoln University",2014,"green",29,8.47953216374269
-"Lincoln University",2014,"bronze",13,3.80116959064327
-"University of Otago",2014,"closed",1780,62.259531304652
-"University of Otago",2014,"gold",366,12.8016789087093
-"University of Otago",2014,"hybrid",362,12.6617698495978
-"University of Otago",2014,"green",233,8.14970269324939
-"University of Otago",2014,"bronze",118,4.12731724379154
-"University of Auckland",2015,"closed",2861,63.7335709512141
-"University of Auckland",2015,"gold",517,11.5170416573847
-"University of Auckland",2015,"hybrid",516,11.4947649810648
-"University of Auckland",2015,"green",393,8.75473379371798
-"University of Auckland",2015,"bronze",202,4.4998886166184
-"Auckland University of Technology",2015,"closed",689,63.9740018570102
-"Auckland University of Technology",2015,"gold",157,14.577530176416
-"Auckland University of Technology",2015,"hybrid",121,11.2349117920149
-"Auckland University of Technology",2015,"green",82,7.61374187558032
-"Auckland University of Technology",2015,"bronze",28,2.59981429897864
-"University of Waikato",2015,"closed",597,62.3173277661795
-"University of Waikato",2015,"gold",165,17.223382045929
-"University of Waikato",2015,"hybrid",104,10.8559498956159
-"University of Waikato",2015,"green",65,6.78496868475992
-"University of Waikato",2015,"bronze",27,2.81837160751566
-"Massey University",2015,"closed",1030,64.4555694618273
-"Massey University",2015,"gold",169,10.575719649562
-"Massey University",2015,"hybrid",166,10.3879849812265
-"Massey University",2015,"green",159,9.94993742177722
-"Massey University",2015,"bronze",74,4.63078848560701
-"Victoria University of Wellington",2015,"closed",1077,67.7358490566038
-"Victoria University of Wellington",2015,"gold",186,11.6981132075472
-"Victoria University of Wellington",2015,"hybrid",153,9.62264150943396
-"Victoria University of Wellington",2015,"green",131,8.23899371069182
-"Victoria University of Wellington",2015,"bronze",43,2.70440251572327
-"University of Canterbury",2015,"closed",798,58.980044345898
-"University of Canterbury",2015,"gold",228,16.8514412416851
-"University of Canterbury",2015,"hybrid",143,10.5691056910569
-"University of Canterbury",2015,"green",118,8.72135994087214
-"University of Canterbury",2015,"bronze",66,4.8780487804878
-"Lincoln University",2015,"closed",207,62.5377643504532
-"Lincoln University",2015,"gold",50,15.1057401812689
-"Lincoln University",2015,"hybrid",35,10.5740181268882
-"Lincoln University",2015,"green",31,9.36555891238671
-"Lincoln University",2015,"bronze",8,2.41691842900302
-"University of Otago",2015,"closed",1768,59.0317195325543
-"University of Otago",2015,"gold",442,14.7579298831386
-"University of Otago",2015,"hybrid",412,13.7562604340568
-"University of Otago",2015,"green",226,7.54590984974958
-"University of Otago",2015,"bronze",147,4.90818030050083
-"University of Auckland",2016,"closed",3067,62.4135124135124
-"University of Auckland",2016,"gold",596,12.1286121286121
-"University of Auckland",2016,"hybrid",535,10.8872608872609
-"University of Auckland",2016,"green",452,9.1982091982092
-"University of Auckland",2016,"bronze",264,5.37240537240537
-"Auckland University of Technology",2016,"closed",804,65.8476658476659
-"Auckland University of Technology",2016,"gold",203,16.6257166257166
-"Auckland University of Technology",2016,"hybrid",110,9.00900900900901
-"Auckland University of Technology",2016,"green",63,5.15970515970516
-"Auckland University of Technology",2016,"bronze",41,3.35790335790336
-"University of Waikato",2016,"closed",518,54.8148148148148
-"University of Waikato",2016,"gold",213,22.5396825396825
-"University of Waikato",2016,"hybrid",92,9.73544973544974
-"University of Waikato",2016,"green",77,8.14814814814815
-"University of Waikato",2016,"bronze",45,4.76190476190476
-"Massey University",2016,"closed",1136,64.472190692395
-"Massey University",2016,"gold",220,12.4858115777526
-"Massey University",2016,"hybrid",168,9.53461975028377
-"Massey University",2016,"green",138,7.83200908059024
-"Massey University",2016,"bronze",100,5.67536889897843
-"Victoria University of Wellington",2016,"closed",1196,68.5779816513761
-"Victoria University of Wellington",2016,"gold",247,14.1628440366972
-"Victoria University of Wellington",2016,"hybrid",144,8.25688073394496
-"Victoria University of Wellington",2016,"green",100,5.73394495412844
-"Victoria University of Wellington",2016,"bronze",57,3.26834862385321
-"University of Canterbury",2016,"closed",806,60.374531835206
-"University of Canterbury",2016,"gold",219,16.4044943820225
-"University of Canterbury",2016,"hybrid",122,9.13857677902622
-"University of Canterbury",2016,"green",106,7.94007490636704
-"University of Canterbury",2016,"bronze",82,6.14232209737828
-"Lincoln University",2016,"closed",237,60.613810741688
-"Lincoln University",2016,"gold",45,11.5089514066496
-"Lincoln University",2016,"hybrid",45,11.5089514066496
-"Lincoln University",2016,"green",39,9.97442455242967
-"Lincoln University",2016,"bronze",25,6.39386189258312
-"University of Otago",2016,"closed",1822,58.2294662831576
-"University of Otago",2016,"gold",445,14.2217961009907
-"University of Otago",2016,"hybrid",422,13.4867369766699
-"University of Otago",2016,"green",267,8.53307766059444
-"University of Otago",2016,"bronze",173,5.52892297858741
-"University of Auckland",2017,"closed",2937,59.0233118971061
-"University of Auckland",2017,"gold",678,13.6254019292605
-"University of Auckland",2017,"hybrid",551,11.0731511254019
-"University of Auckland",2017,"green",534,10.7315112540193
-"University of Auckland",2017,"bronze",276,5.54662379421222
-"Auckland University of Technology",2017,"closed",825,61.5671641791045
-"Auckland University of Technology",2017,"gold",204,15.2238805970149
-"Auckland University of Technology",2017,"hybrid",187,13.955223880597
-"Auckland University of Technology",2017,"green",76,5.67164179104478
-"Auckland University of Technology",2017,"bronze",48,3.58208955223881
-"University of Waikato",2017,"closed",688,58.8034188034188
-"University of Waikato",2017,"gold",227,19.4017094017094
-"University of Waikato",2017,"hybrid",118,10.0854700854701
-"University of Waikato",2017,"green",85,7.26495726495727
-"University of Waikato",2017,"bronze",52,4.44444444444444
-"Massey University",2017,"closed",1214,62.128966223132
-"Massey University",2017,"gold",275,14.0736949846469
-"Massey University",2017,"hybrid",187,9.57011258955988
-"Massey University",2017,"green",163,8.34186284544524
-"Massey University",2017,"bronze",115,5.88536335721597
-"Victoria University of Wellington",2017,"closed",1224,64.8992576882291
-"Victoria University of Wellington",2017,"gold",260,13.7857900318134
-"Victoria University of Wellington",2017,"hybrid",178,9.43796394485684
-"Victoria University of Wellington",2017,"green",138,7.31707317073171
-"Victoria University of Wellington",2017,"bronze",86,4.55991516436903
-"University of Canterbury",2017,"closed",815,56.5972222222222
-"University of Canterbury",2017,"gold",230,15.9722222222222
-"University of Canterbury",2017,"hybrid",192,13.3333333333333
-"University of Canterbury",2017,"green",103,7.15277777777778
-"University of Canterbury",2017,"bronze",100,6.94444444444444
-"Lincoln University",2017,"closed",260,59.3607305936073
-"Lincoln University",2017,"gold",69,15.7534246575342
-"Lincoln University",2017,"hybrid",44,10.0456621004566
-"Lincoln University",2017,"green",34,7.76255707762557
-"Lincoln University",2017,"bronze",31,7.07762557077625
-"University of Otago",2017,"closed",1801,54.3452021726011
-"University of Otago",2017,"gold",563,16.9885334942667
-"University of Otago",2017,"hybrid",416,12.5528062764031
-"University of Otago",2017,"green",355,10.7121303560652
-"University of Otago",2017,"bronze",179,5.40132770066385
-"University of Auckland",2018,"closed",2882,56.0046638165565
-"University of Auckland",2018,"gold",762,14.8076175670424
-"University of Auckland",2018,"hybrid",669,13.0003886513797
-"University of Auckland",2018,"green",576,11.1931597357171
-"University of Auckland",2018,"bronze",257,4.99417022930431
-"Auckland University of Technology",2018,"closed",841,60.243553008596
-"Auckland University of Technology",2018,"gold",205,14.6848137535817
-"Auckland University of Technology",2018,"hybrid",204,14.6131805157593
-"Auckland University of Technology",2018,"green",108,7.73638968481375
-"Auckland University of Technology",2018,"bronze",38,2.72206303724928
-"University of Waikato",2018,"closed",598,56.952380952381
-"University of Waikato",2018,"gold",219,20.8571428571429
-"University of Waikato",2018,"hybrid",116,11.047619047619
-"University of Waikato",2018,"green",69,6.57142857142857
-"University of Waikato",2018,"bronze",48,4.57142857142857
-"Massey University",2018,"closed",993,56.1016949152542
-"Massey University",2018,"gold",312,17.6271186440678
-"Massey University",2018,"hybrid",213,12.0338983050847
-"Massey University",2018,"green",158,8.92655367231638
-"Massey University",2018,"bronze",94,5.31073446327684
-"Victoria University of Wellington",2018,"closed",1178,61.8697478991597
-"Victoria University of Wellington",2018,"gold",300,15.7563025210084
-"Victoria University of Wellington",2018,"hybrid",202,10.609243697479
-"Victoria University of Wellington",2018,"green",141,7.40546218487395
-"Victoria University of Wellington",2018,"bronze",83,4.35924369747899
-"University of Canterbury",2018,"closed",807,53.8358905937292
-"University of Canterbury",2018,"gold",281,18.7458305537025
-"University of Canterbury",2018,"hybrid",224,14.9432955303536
-"University of Canterbury",2018,"green",124,8.27218145430287
-"University of Canterbury",2018,"bronze",63,4.20280186791194
-"Lincoln University",2018,"closed",234,54.6728971962617
-"Lincoln University",2018,"gold",79,18.4579439252336
-"Lincoln University",2018,"hybrid",51,11.9158878504673
-"Lincoln University",2018,"green",39,9.11214953271028
-"Lincoln University",2018,"bronze",25,5.8411214953271
-"University of Otago",2018,"closed",1801,52.2634939059779
-"University of Otago",2018,"gold",630,18.282066163668
-"University of Otago",2018,"hybrid",453,13.1456761462565
-"University of Otago",2018,"green",379,10.9982588508416
-"University of Otago",2018,"bronze",183,5.31050493325595
-"University of Auckland",2019,"closed",3244,57.0323488045007
-"University of Auckland",2019,"gold",960,16.8776371308017
-"University of Auckland",2019,"hybrid",682,11.9901547116737
-"University of Auckland",2019,"green",504,8.86075949367089
-"University of Auckland",2019,"bronze",298,5.23909985935302
-"Auckland University of Technology",2019,"closed",838,57.2795625427204
-"Auckland University of Technology",2019,"gold",285,19.4805194805195
-"Auckland University of Technology",2019,"hybrid",192,13.1237183868763
-"Auckland University of Technology",2019,"green",82,5.60492139439508
-"Auckland University of Technology",2019,"bronze",66,4.51127819548872
-"University of Waikato",2019,"closed",630,56.350626118068
-"University of Waikato",2019,"gold",225,20.1252236135957
-"University of Waikato",2019,"hybrid",148,13.2379248658318
-"University of Waikato",2019,"green",66,5.90339892665474
-"University of Waikato",2019,"bronze",49,4.38282647584973
-"Massey University",2019,"closed",1045,54.3704474505723
-"Massey University",2019,"gold",394,20.4994797086368
-"Massey University",2019,"hybrid",226,11.7585848074922
-"Massey University",2019,"green",130,6.76378772112383
-"Massey University",2019,"bronze",127,6.60770031217482
-"Victoria University of Wellington",2019,"closed",1078,57.3404255319149
-"Victoria University of Wellington",2019,"gold",355,18.8829787234043
-"Victoria University of Wellington",2019,"hybrid",236,12.5531914893617
-"Victoria University of Wellington",2019,"green",137,7.28723404255319
-"Victoria University of Wellington",2019,"bronze",74,3.93617021276596
-"University of Canterbury",2019,"closed",790,51.2987012987013
-"University of Canterbury",2019,"gold",303,19.6753246753247
-"University of Canterbury",2019,"hybrid",255,16.5584415584416
-"University of Canterbury",2019,"green",100,6.49350649350649
-"University of Canterbury",2019,"bronze",92,5.97402597402597
-"Lincoln University",2019,"closed",288,59.3814432989691
-"Lincoln University",2019,"gold",105,21.6494845360825
-"Lincoln University",2019,"hybrid",41,8.45360824742268
-"Lincoln University",2019,"green",29,5.97938144329897
-"Lincoln University",2019,"bronze",22,4.5360824742268
-"University of Otago",2019,"closed",1860,51.0428100987925
-"University of Otago",2019,"gold",717,19.6761800219539
-"University of Otago",2019,"hybrid",439,12.0472008781559
-"University of Otago",2019,"green",392,10.7574094401756
-"University of Otago",2019,"bronze",236,6.47639956092206
-"University of Auckland",2020,"closed",3290,53.8197284475707
-"University of Auckland",2020,"gold",1108,18.1253067233764
-"University of Auckland",2020,"hybrid",779,12.7433338786193
-"University of Auckland",2020,"green",533,8.71912318010797
-"University of Auckland",2020,"bronze",403,6.59250777032554
-"Auckland University of Technology",2020,"closed",852,55.4326610279766
-"Auckland University of Technology",2020,"gold",317,20.6245933636955
-"Auckland University of Technology",2020,"hybrid",202,13.142485361093
-"Auckland University of Technology",2020,"green",94,6.11581001951854
-"Auckland University of Technology",2020,"bronze",72,4.68445022771633
-"University of Waikato",2020,"closed",567,49.1760624457936
-"University of Waikato",2020,"gold",233,20.2081526452732
-"University of Waikato",2020,"hybrid",195,16.9124024284475
-"University of Waikato",2020,"green",89,7.71899392888118
-"University of Waikato",2020,"bronze",69,5.98438855160451
-"Massey University",2020,"closed",1144,51.6711833785005
-"Massey University",2020,"gold",509,22.9900632339657
-"Massey University",2020,"hybrid",293,13.2339656729901
-"Massey University",2020,"green",143,6.45889792231256
-"Massey University",2020,"bronze",125,5.64588979223126
-"Victoria University of Wellington",2020,"closed",1040,51.8444666001994
-"Victoria University of Wellington",2020,"gold",458,22.8315054835494
-"Victoria University of Wellington",2020,"hybrid",279,13.9082751744766
-"Victoria University of Wellington",2020,"green",117,5.83250249252243
-"Victoria University of Wellington",2020,"bronze",112,5.58325024925224
-"University of Canterbury",2020,"closed",752,45.5757575757576
-"University of Canterbury",2020,"gold",359,21.7575757575758
-"University of Canterbury",2020,"hybrid",295,17.8787878787879
-"University of Canterbury",2020,"green",124,7.51515151515151
-"University of Canterbury",2020,"bronze",120,7.27272727272727
-"Lincoln University",2020,"closed",247,54.1666666666667
-"Lincoln University",2020,"gold",114,25
-"Lincoln University",2020,"hybrid",36,7.89473684210526
-"Lincoln University",2020,"green",36,7.89473684210526
-"Lincoln University",2020,"bronze",23,5.04385964912281
-"University of Otago",2020,"closed",1906,46.7042391570693
-"University of Otago",2020,"gold",877,21.4898309237932
-"University of Otago",2020,"hybrid",584,14.310218083803
-"University of Otago",2020,"green",417,10.2180838029895
-"University of Otago",2020,"bronze",297,7.27762803234501
-"University of Auckland",2021,"closed",3218,50.7490932029648
-"University of Auckland",2021,"gold",1344,21.1953950480997
-"University of Auckland",2021,"hybrid",829,13.0736476896389
-"University of Auckland",2021,"green",481,7.58555432897019
-"University of Auckland",2021,"bronze",469,7.39630973032645
-"Auckland University of Technology",2021,"closed",897,50.4215851602024
-"Auckland University of Technology",2021,"gold",375,21.079258010118
-"Auckland University of Technology",2021,"hybrid",217,12.1978639685216
-"Auckland University of Technology",2021,"green",178,10.0056211354694
-"Auckland University of Technology",2021,"bronze",112,6.29567172568859
-"University of Waikato",2021,"closed",613,50.9136212624585
-"University of Waikato",2021,"gold",220,18.2724252491694
-"University of Waikato",2021,"hybrid",199,16.5282392026578
-"University of Waikato",2021,"green",101,8.38870431893688
-"University of Waikato",2021,"bronze",71,5.89700996677741
-"Massey University",2021,"closed",1140,48.8641234462066
-"Massey University",2021,"gold",647,27.7325332190313
-"Massey University",2021,"hybrid",255,10.9301328761252
-"Massey University",2021,"green",151,6.47235319331333
-"Massey University",2021,"bronze",140,6.00085726532362
-"Victoria University of Wellington",2021,"closed",1000,49.800796812749
-"Victoria University of Wellington",2021,"gold",414,20.6175298804781
-"Victoria University of Wellington",2021,"hybrid",325,16.1852589641434
-"Victoria University of Wellington",2021,"green",150,7.47011952191235
-"Victoria University of Wellington",2021,"bronze",119,5.92629482071713
-"University of Canterbury",2021,"closed",801,45.8762886597938
-"University of Canterbury",2021,"gold",341,19.5303550973654
-"University of Canterbury",2021,"hybrid",324,18.5567010309278
-"University of Canterbury",2021,"green",163,9.33562428407789
-"University of Canterbury",2021,"bronze",117,6.70103092783505
-"Lincoln University",2021,"closed",287,52.1818181818182
-"Lincoln University",2021,"gold",146,26.5454545454545
-"Lincoln University",2021,"hybrid",52,9.45454545454546
-"Lincoln University",2021,"green",43,7.81818181818182
-"Lincoln University",2021,"bronze",22,4
-"University of Otago",2021,"closed",1855,45.6334563345633
-"University of Otago",2021,"gold",973,23.9360393603936
-"University of Otago",2021,"hybrid",566,13.9237392373924
-"University of Otago",2021,"green",344,8.46248462484625
-"University of Otago",2021,"bronze",327,8.04428044280443
-"University of Auckland",2022,"closed",2681,45.2871621621622
-"University of Auckland",2022,"gold",1396,23.5810810810811
-"University of Auckland",2022,"hybrid",863,14.5777027027027
-"University of Auckland",2022,"green",698,11.7905405405405
-"University of Auckland",2022,"bronze",282,4.76351351351351
-"Auckland University of Technology",2022,"closed",648,41.9961114711601
-"Auckland University of Technology",2022,"gold",418,27.0900842514582
-"Auckland University of Technology",2022,"hybrid",254,16.4614387556708
-"Auckland University of Technology",2022,"green",156,10.1101749837978
-"Auckland University of Technology",2022,"bronze",67,4.34219053791316
-"University of Waikato",2022,"closed",565,47.0833333333333
-"University of Waikato",2022,"gold",275,22.9166666666667
-"University of Waikato",2022,"hybrid",187,15.5833333333333
-"University of Waikato",2022,"green",140,11.6666666666667
-"University of Waikato",2022,"bronze",33,2.75
-"Massey University",2022,"closed",911,41.655235482396
-"Massey University",2022,"gold",655,29.949702789209
-"Massey University",2022,"hybrid",309,14.1289437585734
-"Massey University",2022,"green",227,10.3795153177869
-"Massey University",2022,"bronze",85,3.88660265203475
-"Victoria University of Wellington",2022,"closed",971,46.5261140392909
-"Victoria University of Wellington",2022,"gold",369,17.680881648299
-"Victoria University of Wellington",2022,"hybrid",336,16.099664590321
-"Victoria University of Wellington",2022,"green",295,14.1351221849545
-"Victoria University of Wellington",2022,"bronze",116,5.55821753713464
-"University of Canterbury",2022,"closed",698,42.0989143546442
-"University of Canterbury",2022,"gold",382,23.0398069963812
-"University of Canterbury",2022,"hybrid",280,16.8878166465621
-"University of Canterbury",2022,"green",232,13.9927623642943
-"University of Canterbury",2022,"bronze",66,3.98069963811821
-"Lincoln University",2022,"closed",209,44
-"Lincoln University",2022,"gold",175,36.8421052631579
-"Lincoln University",2022,"hybrid",51,10.7368421052632
-"Lincoln University",2022,"green",30,6.31578947368421
-"Lincoln University",2022,"bronze",10,2.10526315789474
-"University of Otago",2022,"closed",1430,38.8586956521739
-"University of Otago",2022,"gold",943,25.625
-"University of Otago",2022,"hybrid",581,15.7880434782609
-"University of Otago",2022,"green",530,14.4021739130435
-"University of Otago",2022,"bronze",196,5.32608695652174
-"University of Auckland",2023,"closed",2381,42.4420677361854
-"University of Auckland",2023,"gold",1292,23.030303030303
-"University of Auckland",2023,"hybrid",1128,20.1069518716578
-"University of Auckland",2023,"green",457,8.14616755793226
-"University of Auckland",2023,"bronze",352,6.27450980392157
-"Auckland University of Technology",2023,"closed",529,37.4645892351275
-"Auckland University of Technology",2023,"gold",365,25.8498583569405
-"Auckland University of Technology",2023,"hybrid",322,22.8045325779037
-"Auckland University of Technology",2023,"green",122,8.64022662889518
-"Auckland University of Technology",2023,"bronze",74,5.24079320113314
-"University of Waikato",2023,"closed",518,45.5584872471416
-"University of Waikato",2023,"gold",281,24.7141600703606
-"University of Waikato",2023,"hybrid",199,17.5021987686895
-"University of Waikato",2023,"green",70,6.15655233069481
-"University of Waikato",2023,"bronze",69,6.06860158311346
-"Massey University",2023,"closed",687,37.2156013001083
-"Massey University",2023,"gold",508,27.5189599133261
-"Massey University",2023,"hybrid",458,24.8104008667389
-"Massey University",2023,"green",112,6.06717226435536
-"Massey University",2023,"bronze",81,4.38786565547129
-"Victoria University of Wellington",2023,"closed",767,42.4930747922438
-"Victoria University of Wellington",2023,"gold",445,24.6537396121884
-"Victoria University of Wellington",2023,"hybrid",283,15.6786703601108
-"Victoria University of Wellington",2023,"green",169,9.36288088642659
-"Victoria University of Wellington",2023,"bronze",141,7.81163434903047
-"University of Canterbury",2023,"closed",625,35.8783008036739
-"University of Canterbury",2023,"gold",482,27.6693455797933
-"University of Canterbury",2023,"hybrid",353,20.264064293915
-"University of Canterbury",2023,"green",151,8.66819747416762
-"University of Canterbury",2023,"bronze",131,7.52009184845006
-"Lincoln University",2023,"closed",154,34.5291479820628
-"Lincoln University",2023,"gold",131,29.372197309417
-"Lincoln University",2023,"hybrid",114,25.5605381165919
-"Lincoln University",2023,"green",32,7.17488789237668
-"Lincoln University",2023,"bronze",15,3.36322869955157
-"University of Otago",2023,"closed",1176,34.7517730496454
-"University of Otago",2023,"gold",875,25.8569739952719
-"University of Otago",2023,"hybrid",789,23.3156028368794
-"University of Otago",2023,"green",299,8.83569739952719
-"University of Otago",2023,"bronze",245,7.23995271867612
+"year","oa_type","value","pc"
+2010,"closed",7167,70.9955423476969
+2010,"gold",1072,10.6191183754334
+2010,"hybrid",1000,9.90589400693413
+2010,"green",531,5.26002971768202
+2010,"bronze",325,3.21941555225359
+2011,"closed",8464,71.2877958392992
+2011,"gold",1247,10.5028215278363
+2011,"hybrid",1077,9.0710014318201
+2011,"green",718,6.04733428788006
+2011,"bronze",367,3.09104691316432
+2012,"closed",8012,68.6487875931797
+2012,"gold",1367,11.7127923913975
+2012,"hybrid",1015,8.69676977122783
+2012,"green",898,7.69428497986462
+2012,"bronze",379,3.24736526433039
+2013,"closed",8457,66.4440603394092
+2013,"gold",1460,11.4707730986801
+2013,"hybrid",1232,9.67944688874922
+2013,"green",1138,8.94091766184789
+2013,"bronze",441,3.46480201131364
+2014,"closed",8487,65.2093737994622
+2014,"gold",1467,11.2716096811372
+2014,"hybrid",1310,10.0653092585478
+2014,"green",1292,9.92700729927007
+2014,"bronze",459,3.52669996158279
+2015,"closed",8402,61.8612869974967
+2015,"gold",1650,12.1484317479016
+2015,"hybrid",1543,11.360624355765
+2015,"green",1406,10.3519363863938
+2015,"bronze",581,4.27772051244294
+2016,"closed",8730,60.8447170337329
+2016,"gold",1691,11.7856147198216
+2016,"hybrid",1606,11.1931976582102
+2016,"green",1558,10.858656258712
+2016,"bronze",763,5.31781432952328
+2017,"closed",8939,58.321915573824
+2017,"gold",2225,14.5168656619038
+2017,"hybrid",1804,11.7700789456515
+2017,"green",1520,9.91713968813205
+2017,"bronze",839,5.47400013048868
+2018,"closed",8442,55.7890563045202
+2018,"gold",2406,15.9000793021412
+2018,"hybrid",1933,12.7742532381708
+2018,"green",1612,10.6529209621993
+2018,"bronze",739,4.88369019296854
+2019,"closed",8855,54.7551323274796
+2019,"gold",2976,18.4021766015335
+2019,"hybrid",2009,12.4227059114519
+2019,"green",1435,8.87336136532278
+2019,"bronze",897,5.54662379421222
+2020,"closed",8775,48.5396614669764
+2020,"gold",3502,19.3716119039717
+2020,"hybrid",3135,17.3415200796548
+2020,"green",1500,8.29737802854298
+2020,"bronze",1166,6.44982852085408
+2021,"closed",8663,47.2587420217119
+2021,"gold",4034,22.0064371829142
+2021,"hybrid",2748,14.9909988543997
+2021,"green",1513,8.25377775353227
+2021,"bronze",1373,7.49004418744204
+2022,"closed",7278,44.0237115896443
+2022,"gold",4125,24.9516090007259
+2022,"hybrid",2566,15.5214130171788
+2022,"green",1676,10.1379143479313
+2022,"bronze",887,5.36535204451972
+2023,"closed",5927,38.9985524411107
+2023,"gold",4027,26.4969074878273
+2023,"hybrid",3377,22.2200289511778
+2023,"green",1273,8.37610211869983
+2023,"bronze",594,3.90840900118437
