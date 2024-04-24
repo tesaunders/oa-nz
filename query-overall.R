@@ -1,8 +1,6 @@
 library(jsonlite)
 library(tidyverse)
 
-# Universities - publication years 2010-previous year
-
 # Get most current full year
 
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
@@ -17,7 +15,17 @@ institutions <- data.frame(institution  = c("University of Auckland",
                                             "Victoria University of Wellington",
                                             "University of Canterbury",
                                             "Lincoln University",
-                                            "University of Otago"),
+                                            "University of Otago",
+                                            "AgResearch",
+                                            "ESR",
+                                            "GNS",
+                                            "Landcare Research",
+                                            "NIWA",
+                                            "Plant & Food Research",
+                                            "Scion",
+                                            "Te Pūkenga",
+                                            "Cawthron Institute",
+                                            "Malaghan Institute"),
                            ror = c("https://ror.org/03b94tp07",
                                    "https://ror.org/01zvqw119",
                                    "https://ror.org/013fsnh78",
@@ -25,9 +33,19 @@ institutions <- data.frame(institution  = c("University of Auckland",
                                    "https://ror.org/0040r6f76",
                                    "https://ror.org/03y7q9t39",
                                    "https://ror.org/04ps1r162",
-                                   "https://ror.org/01jmxt844")
+                                   "https://ror.org/01jmxt844",
+                                   "https://ror.org/0124gwh94",
+                                   "https://ror.org/0405trq15",
+                                   "https://ror.org/03vaqfv64",
+                                   "https://ror.org/02p9cyn66",
+                                   "https://ror.org/04hxcaz34",
+                                   "https://ror.org/02bchch95",
+                                   "https://ror.org/048r72142",
+                                   "https://ror.org/00tsqex91",
+                                   "https://ror.org/03sffqe64",
+                                   "https://ror.org/02487ts63")
                           )
-                           
+
 # Define query parameters
 
 parameters <- paste(c(
