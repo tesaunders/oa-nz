@@ -68,9 +68,7 @@ req_nz <- paste0("https://api.openalex.org/works?filter=",
                  pub_years$years,
                  group)
 
-# institutions.country_code:"NZ" does not work
-
-# Loop through URLs to make requests
+# Loop through queries
 
 raw_nz <- NULL
 
@@ -78,7 +76,7 @@ for (i in 1:length(req_nz)) {
   raw_nz[[i]] <- (read_json(req_nz[[i]], simplifyVector = TRUE))
 }
 
-# Flatten raw JSON
+# Flatten raw JSON response
 
 oa_nz <- enframe(unlist(raw_nz))
 oa_nz$value <- as.numeric(oa_nz$value)
@@ -89,7 +87,7 @@ oa_nz <- oa_nz |>
   filter(str_detect(oa_nz$name, "group_by.count")) |> 
   mutate(
     year = rep(c(2010:prev_year), each = 5),
-    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), times = 14),
+    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), times = (prev_year-2010+1)),
   ) |> 
   group_by(year) |> 
   mutate(
