@@ -81,6 +81,8 @@ flat$value <- as.numeric(flat$value)
 flat_clean <- flat |> 
   filter(str_detect(flat$name, "group_by.count")) |> 
   mutate(
+    institution = rep(institutions$institution, 
+                      each = 5, times = 14),
     year = rep(c(2010:prev_year), each = length(institutions$institution)*5),
     oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), 
                   times = length(2010:prev_year)*length(institutions$institution)),
@@ -89,7 +91,7 @@ flat_clean <- flat |>
   mutate(
     pc = (value / sum(value) * 100),
   ) |> 
-  select(year, oa_type, value, pc)
+  select(year, institution, oa_type, value, pc)
 
 # Export data to .csv with latest year appended
 

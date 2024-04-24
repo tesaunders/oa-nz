@@ -78,13 +78,13 @@ for (i in 1:length(req_nz)) {
 
 # Flatten raw JSON response
 
-oa_nz <- enframe(unlist(raw_nz))
-oa_nz$value <- as.numeric(oa_nz$value)
+flat <- enframe(unlist(raw_nz))
+flat$value <- as.numeric(flat$value)
 
 # Filter to relevant rows
 
-oa_nz <- oa_nz |> 
-  filter(str_detect(oa_nz$name, "group_by.count")) |> 
+flat_clean <- flat |> 
+  filter(str_detect(flat$name, "group_by.count")) |> 
   mutate(
     year = rep(c(2010:prev_year), each = 5),
     oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), times = (prev_year-2010+1)),
@@ -97,4 +97,4 @@ oa_nz <- oa_nz |>
 
 # Export data to .csv with latest year appended
 
-write.csv(oa_nz, paste0("data/overall_", prev_year, ".csv"), row.names = FALSE)
+write.csv(flat_clean, paste0("data/overall_", prev_year, ".csv"), row.names = FALSE)
