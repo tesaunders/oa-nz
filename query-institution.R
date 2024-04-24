@@ -44,7 +44,7 @@ institutions <- data.frame(institution  = c("University of Auckland",
                                    "https://ror.org/00tsqex91",
                                    "https://ror.org/03sffqe64",
                                    "https://ror.org/02487ts63")
-                          )
+                           )
 
 # Define query parameters
 
@@ -56,38 +56,34 @@ parameters <- paste(c(
 
 group <- "&group_by=oa_status"
 
-# Assemble queries
+# Get list of requests from all institution x year combinations
 
-req_nz <- paste0("https://api.openalex.org/works?filter=",
-                 parameters,
-                 ",",
-                 "institutions.ror:",
-                 paste0(institutions$ror, collapse = "|"),
-                 ",",
-                 "publication_year:",
-                 pub_years$years,
-                 group)
+ror_year <- do.call(paste0, (expand.grid(paste0(institutions$ror, ",", "publication_year:"), pub_years$years)))
+
+req <- paste0("https://api.openalex.org/works?filter=institutions.ror:",
+                                   ror_year, ",", parameters, group)
 
 # Loop through queries
 
-raw_nz <- NULL
+raw_response <- NULL
 
-for (i in 1:length(req_nz)) {
-  raw_nz[[i]] <- (read_json(req_nz[[i]], simplifyVector = TRUE))
+for (i in 1:length(req)) {
+  raw_response[[i]] <- (read_json(req[[i]], simplifyVector = TRUE))
 }
 
 # Flatten raw JSON response
 
-oa_nz <- enframe(unlist(raw_nz))
-oa_nz$value <- as.numeric(oa_nz$value)
+flat <- enframe(unlist(raw_response))
+flat$value <- as.numeric(flat$value)
 
 # Filter to relevant rows
 
-oa_nz <- oa_nz |> 
-  filter(str_detect(oa_nz$name, "group_by.count")) |> 
+flat_clean <- flat |> 
+  filter(str_detect(flat$name, "group_by.count")) |> 
   mutate(
-    year = rep(c(2010:prev_year), each = 5),
-    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), times = (prev_year-2010+1)),
+    year = rep(c(2010:prev_year), each = length(institutions$institution)*5),
+    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), 
+                  times = length(2010:prev_year)*length(institutions$institution)),
   ) |> 
   group_by(year) |> 
   mutate(
@@ -97,4 +93,4 @@ oa_nz <- oa_nz |>
 
 # Export data to .csv with latest year appended
 
-write.csv(oa_nz, paste0("data/overall_", prev_year, ".csv"), row.names = FALSE)
+write.csv(flat_clean, paste0("data/institutions_", prev_year, ".csv"), row.names = FALSE)
