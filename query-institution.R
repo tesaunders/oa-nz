@@ -63,13 +63,16 @@ ror_year <- do.call(paste0, (expand.grid(paste0(institutions$ror, ",", "publicat
 req <- paste0("https://api.openalex.org/works?filter=institutions.ror:",
                                    ror_year, ",", parameters, group)
 
-# Loop through queries
+# Loop through queries and save raw JSON output
 
 raw_response <- NULL
 
 for (i in 1:length(req)) {
   raw_response[[i]] <- (read_json(req[[i]], simplifyVector = TRUE))
 }
+
+exportJSON <- toJSON(raw_response)
+write(exportJSON, "data/raw_response_institution.json")
 
 # Flatten raw JSON response
 
@@ -87,7 +90,7 @@ flat_clean <- flat |>
     oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), 
                   times = length(2010:prev_year)*length(institutions$institution)),
   ) |> 
-  group_by(year) |> 
+  group_by(institution, year) |> 
   mutate(
     pc = (value / sum(value) * 100),
   ) |> 
@@ -95,4 +98,4 @@ flat_clean <- flat |>
 
 # Export data to .csv with latest year appended
 
-write.csv(flat_clean, paste0("data/institutions_", prev_year, ".csv"), row.names = FALSE)
+write.csv(flat_clean, paste0("data/institutions.csv"), row.names = FALSE)

@@ -97,4 +97,4 @@ flat_clean <- flat |>
 
 # Export data to .csv with latest year appended
 
-write.csv(flat_clean, paste0("data/overall_", prev_year, ".csv"), row.names = FALSE)
+write.csv(flat_clean, paste0("data/overall.csv"), row.names = FALSE)
