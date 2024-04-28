@@ -14,7 +14,7 @@ knitr::opts_chunk$set(fig.align="center")
 library(tidyverse)
 ```
 
-This dashboard displays data extracted from the Open Alex API relating to scholarly publication output in Aotearoa New Zealand. [This query](query-overall.R) extracts national-level data to see how the country is tracking against the Universities New Zealand target of 70% open access output, while [this query](query-institution.R) extracts data relating to individual research institutions (or at least the ones with the largest publication output). 
+This dashboard displays data extracted from the Open Alex API relating to scholarly publication output in Aotearoa New Zealand. [This query](https://github.com/tesaunders/oa-nz/blob/main/query-overall.R) extracts national-level data to see how the country is tracking against the Universities New Zealand target of 70% open access output, while [this query](https://github.com/tesaunders/oa-nz/blob/main/query-institution.R) extracts data relating to individual research institutions (or at least the ones with the largest publication output). 
 
 The below dashboard displays a series of plots to show trends in open access publications since 2010. OpenAlex data for some institutions is very incomplete (such as NIWA). Institutions like Te Pūkenga do not currently have publications from child organisations pooled at the parent level, but I've added Te Pūkenga here in the hope this changes at some point. 
 
