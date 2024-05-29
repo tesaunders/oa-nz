@@ -1,0 +1,561 @@
+"year","institution","oa_type","value","pc"
+2010,"University of Melbourne","closed",4576,67.4230145867099
+2010,"University of Melbourne","gold",871,12.833357890084
+2010,"University of Melbourne","hybrid",675,9.94548401355533
+2010,"University of Melbourne","green",413,6.08516281125682
+2010,"University of Melbourne","bronze",252,3.71298069839399
+2010,"Australian National University","closed",2344,59.3718338399189
+2010,"Australian National University","gold",832,21.0739614994934
+2010,"Australian National University","hybrid",472,11.9554204660588
+2010,"Australian National University","green",217,5.49645390070922
+2010,"Australian National University","bronze",83,2.10233029381966
+2010,"University of Sydney","closed",5179,68.8788402713127
+2010,"University of Sydney","gold",974,12.9538502460434
+2010,"University of Sydney","hybrid",687,9.13685330496077
+2010,"University of Sydney","green",430,5.71884559116904
+2010,"University of Sydney","bronze",249,3.31161058651416
+2010,"University of Queensland","closed",4317,69.7978981406629
+2010,"University of Queensland","gold",677,10.9458367016977
+2010,"University of Queensland","hybrid",596,9.63621665319321
+2010,"University of Queensland","green",354,5.72352465642684
+2010,"University of Queensland","bronze",241,3.8965238480194
+2010,"University of Western Australia","closed",2112,64.8847926267281
+2010,"University of Western Australia","gold",530,16.2826420890937
+2010,"University of Western Australia","hybrid",317,9.73886328725038
+2010,"University of Western Australia","green",190,5.83717357910906
+2010,"University of Western Australia","bronze",106,3.25652841781874
+2010,"University of Adelaide","closed",2048,69.49440108585
+2010,"University of Adelaide","gold",369,12.5212080081439
+2010,"University of Adelaide","hybrid",263,8.92432982694265
+2010,"University of Adelaide","green",158,5.36138445877163
+2010,"University of Adelaide","bronze",109,3.69867662029182
+2010,"Monash University","closed",3888,71.9866691353453
+2010,"Monash University","gold",636,11.775597111646
+2010,"Monash University","hybrid",451,8.35030549898167
+2010,"Monash University","green",265,4.90649879651916
+2010,"Monash University","bronze",161,2.98092945750787
+2010,"UNSW Sydney","closed",4006,71.8951902368988
+2010,"UNSW Sydney","gold",632,11.3424264178033
+2010,"UNSW Sydney","hybrid",502,9.00933237616655
+2010,"UNSW Sydney","green",282,5.06101938262742
+2010,"UNSW Sydney","bronze",150,2.69203158650395
+2011,"University of Melbourne","closed",4763,62.2207707380797
+2011,"University of Melbourne","gold",1190,15.5453951665578
+2011,"University of Melbourne","hybrid",796,10.3984323971261
+2011,"University of Melbourne","green",583,7.61593729588504
+2011,"University of Melbourne","bronze",323,4.2194644023514
+2011,"Australian National University","closed",2409,57.302568981922
+2011,"Australian National University","gold",906,21.5509039010466
+2011,"Australian National University","hybrid",562,13.3682207421503
+2011,"Australian National University","green",207,4.92388201712655
+2011,"Australian National University","bronze",120,2.85442435775452
+2011,"University of Sydney","closed",5400,65.781459373858
+2011,"University of Sydney","gold",1142,13.9115604823974
+2011,"University of Sydney","hybrid",771,9.39213058837861
+2011,"University of Sydney","green",554,6.74869046168839
+2011,"University of Sydney","bronze",342,4.16615909367767
+2011,"University of Queensland","closed",4573,66.9448104230713
+2011,"University of Queensland","gold",812,11.8869858000293
+2011,"University of Queensland","hybrid",617,9.03235251061338
+2011,"University of Queensland","green",570,8.34431269213878
+2011,"University of Queensland","bronze",259,3.79153857414727
+2011,"University of Western Australia","closed",2366,63.5338345864662
+2011,"University of Western Australia","gold",635,17.0515574650913
+2011,"University of Western Australia","hybrid",356,9.55961331901181
+2011,"University of Western Australia","green",228,6.12244897959184
+2011,"University of Western Australia","bronze",139,3.73254564983888
+2011,"University of Adelaide","closed",2065,65.4516640253566
+2011,"University of Adelaide","gold",440,13.946117274168
+2011,"University of Adelaide","hybrid",308,9.76228209191759
+2011,"University of Adelaide","green",227,7.19492868462758
+2011,"University of Adelaide","bronze",115,3.64500792393027
+2011,"Monash University","closed",4811,70.9273182957394
+2011,"Monash University","gold",823,12.1332743623765
+2011,"Monash University","hybrid",510,7.5187969924812
+2011,"Monash University","green",413,6.08875128998968
+2011,"Monash University","bronze",226,3.33185905941324
+2011,"UNSW Sydney","closed",4728,72.1611721611722
+2011,"UNSW Sydney","gold",671,10.2411477411477
+2011,"UNSW Sydney","hybrid",533,8.13492063492063
+2011,"UNSW Sydney","green",408,6.22710622710623
+2011,"UNSW Sydney","bronze",212,3.23565323565324
+2012,"University of Melbourne","closed",4747,58.8957816377171
+2012,"University of Melbourne","gold",1085,13.4615384615385
+2012,"University of Melbourne","hybrid",968,12.0099255583127
+2012,"University of Melbourne","green",834,10.3473945409429
+2012,"University of Melbourne","bronze",426,5.28535980148883
+2012,"Australian National University","closed",2502,57.1755027422303
+2012,"Australian National University","gold",870,19.8811700182815
+2012,"Australian National University","hybrid",558,12.7513711151737
+2012,"Australian National University","green",311,7.10694698354662
+2012,"Australian National University","bronze",135,3.08500914076782
+2012,"University of Sydney","closed",5700,64.2036494706015
+2012,"University of Sydney","gold",1238,13.9445821130885
+2012,"University of Sydney","hybrid",822,9.2588420815499
+2012,"University of Sydney","green",726,8.17751745888714
+2012,"University of Sydney","bronze",392,4.41540887587294
+2012,"University of Queensland","closed",4787,63.7586574320725
+2012,"University of Queensland","gold",903,12.0271710175812
+2012,"University of Queensland","hybrid",788,10.4954714970698
+2012,"University of Queensland","green",695,9.25679275439531
+2012,"University of Queensland","bronze",335,4.46190729888119
+2012,"University of Western Australia","closed",2569,60.9345351043643
+2012,"University of Western Australia","gold",653,15.488614800759
+2012,"University of Western Australia","hybrid",433,10.2703984819734
+2012,"University of Western Australia","green",379,8.98956356736243
+2012,"University of Western Australia","bronze",182,4.3168880455408
+2012,"University of Adelaide","closed",2359,62.4900662251656
+2012,"University of Adelaide","gold",528,13.9867549668874
+2012,"University of Adelaide","hybrid",377,9.98675496688742
+2012,"University of Adelaide","green",322,8.52980132450331
+2012,"University of Adelaide","bronze",189,5.00662251655629
+2012,"Monash University","closed",4524,64.8974322191938
+2012,"Monash University","gold",1035,14.8472242146034
+2012,"Monash University","hybrid",584,8.37756419452016
+2012,"Monash University","green",523,7.50251040022952
+2012,"Monash University","bronze",305,4.37526897145316
+2012,"UNSW Sydney","closed",4666,67.3790613718411
+2012,"UNSW Sydney","gold",756,10.9169675090253
+2012,"UNSW Sydney","hybrid",666,9.6173285198556
+2012,"UNSW Sydney","green",625,9.02527075812274
+2012,"UNSW Sydney","bronze",212,3.06137184115523
+2013,"University of Melbourne","closed",4995,55.0959629384514
+2013,"University of Melbourne","gold",1339,14.7694683432605
+2013,"University of Melbourne","hybrid",1283,14.1517758658725
+2013,"University of Melbourne","green",1032,11.3831899404368
+2013,"University of Melbourne","bronze",417,4.59960291197882
+2013,"Australian National University","closed",2701,55.8866128698531
+2013,"Australian National University","gold",944,19.5323815435547
+2013,"Australian National University","hybrid",624,12.911235257604
+2013,"Australian National University","green",411,8.504034761018
+2013,"Australian National University","bronze",153,3.1657355679702
+2013,"University of Sydney","closed",5887,60.4663105998357
+2013,"University of Sydney","gold",1283,13.1778964667214
+2013,"University of Sydney","hybrid",1080,11.0928512736237
+2013,"University of Sydney","green",1006,10.3327855382087
+2013,"University of Sydney","bronze",480,4.93015612161052
+2013,"University of Queensland","closed",5211,62.0800571837026
+2013,"University of Queensland","gold",1002,11.9370979270908
+2013,"University of Queensland","hybrid",982,11.6988324994043
+2013,"University of Queensland","green",832,9.91184179175602
+2013,"University of Queensland","bronze",367,4.37217059804622
+2013,"University of Western Australia","closed",2464,54.046940118447
+2013,"University of Western Australia","gold",734,16.1000219346348
+2013,"University of Western Australia","hybrid",597,13.0949769686335
+2013,"University of Western Australia","green",550,12.0640491335819
+2013,"University of Western Australia","bronze",214,4.69401184470279
+2013,"University of Adelaide","closed",2422,59.5085995085995
+2013,"University of Adelaide","gold",581,14.2751842751843
+2013,"University of Adelaide","hybrid",457,11.2285012285012
+2013,"University of Adelaide","green",416,10.2211302211302
+2013,"University of Adelaide","bronze",194,4.76658476658477
+2013,"Monash University","closed",4950,62.7774254914394
+2013,"Monash University","gold",1120,14.2041851616994
+2013,"Monash University","hybrid",728,9.23272035510463
+2013,"Monash University","green",720,9.13126188966392
+2013,"Monash University","bronze",367,4.65440710209258
+2013,"UNSW Sydney","closed",5116,64.9073839127125
+2013,"UNSW Sydney","gold",882,11.190053285968
+2013,"UNSW Sydney","hybrid",826,10.4795737122558
+2013,"UNSW Sydney","green",786,9.97208830246131
+2013,"UNSW Sydney","bronze",272,3.45090078660239
+2014,"University of Melbourne","closed",5221,53.8469471947195
+2014,"University of Melbourne","gold",1375,14.1811056105611
+2014,"University of Melbourne","hybrid",1354,13.9645214521452
+2014,"University of Melbourne","green",1200,12.3762376237624
+2014,"University of Melbourne","bronze",546,5.63118811881188
+2014,"Australian National University","closed",2680,52.2926829268293
+2014,"Australian National University","gold",1002,19.5512195121951
+2014,"Australian National University","hybrid",757,14.7707317073171
+2014,"Australian National University","green",478,9.32682926829268
+2014,"Australian National University","bronze",208,4.05853658536585
+2014,"University of Sydney","closed",5998,59.1518737672584
+2014,"University of Sydney","gold",1416,13.9644970414201
+2014,"University of Sydney","hybrid",1206,11.8934911242604
+2014,"University of Sydney","green",1024,10.0986193293886
+2014,"University of Sydney","bronze",496,4.89151873767258
+2014,"University of Queensland","closed",5293,59.4652286259971
+2014,"University of Queensland","gold",1122,12.6053252443546
+2014,"University of Queensland","hybrid",1115,12.5266823952365
+2014,"University of Queensland","green",958,10.7628356364453
+2014,"University of Queensland","bronze",413,4.63992809796652
+2014,"University of Western Australia","closed",2584,52.9616724738676
+2014,"University of Western Australia","gold",733,15.0235704037713
+2014,"University of Western Australia","hybrid",703,14.4086903053904
+2014,"University of Western Australia","green",610,12.5025620004099
+2014,"University of Western Australia","bronze",249,5.10350481656077
+2014,"University of Adelaide","closed",2539,58.9916356877323
+2014,"University of Adelaide","gold",583,13.5455390334572
+2014,"University of Adelaide","hybrid",511,11.8726765799257
+2014,"University of Adelaide","green",476,11.0594795539033
+2014,"University of Adelaide","bronze",195,4.53066914498141
+2014,"Monash University","closed",4918,61.4442778610695
+2014,"Monash University","gold",1115,13.9305347326337
+2014,"Monash University","hybrid",852,10.6446776611694
+2014,"Monash University","green",760,9.49525237381309
+2014,"Monash University","bronze",359,4.48525737131434
+2014,"UNSW Sydney","closed",5035,62.2604179547422
+2014,"UNSW Sydney","gold",927,11.4628415976258
+2014,"UNSW Sydney","hybrid",888,10.980586125881
+2014,"UNSW Sydney","green",867,10.7209101026339
+2014,"UNSW Sydney","bronze",370,4.5752442191171
+2015,"University of Melbourne","closed",5240,51.0373039836369
+2015,"University of Melbourne","gold",1669,16.2559657153989
+2015,"University of Melbourne","hybrid",1431,13.9378591604169
+2015,"University of Melbourne","green",1323,12.8859452615175
+2015,"University of Melbourne","bronze",604,5.8829258790299
+2015,"Australian National University","closed",2636,50.1808490386446
+2015,"Australian National University","gold",949,18.0658671235484
+2015,"Australian National University","hybrid",798,15.1913192461451
+2015,"Australian National University","green",621,11.8218161050828
+2015,"Australian National University","bronze",249,4.7401484865791
+2015,"University of Sydney","closed",5900,55.765595463138
+2015,"University of Sydney","gold",1630,15.406427221172
+2015,"University of Sydney","hybrid",1422,13.4404536862004
+2015,"University of Sydney","green",1067,10.0850661625709
+2015,"University of Sydney","bronze",561,5.30245746691871
+2015,"University of Queensland","closed",5263,57.2127405152734
+2015,"University of Queensland","gold",1251,13.5993042722035
+2015,"University of Queensland","hybrid",1214,13.1970866398522
+2015,"University of Queensland","green",994,10.8055223393847
+2015,"University of Queensland","bronze",477,5.18534623328623
+2015,"University of Western Australia","closed",2539,49.3201243201243
+2015,"University of Western Australia","gold",809,15.7148407148407
+2015,"University of Western Australia","hybrid",771,14.97668997669
+2015,"University of Western Australia","green",734,14.2579642579643
+2015,"University of Western Australia","bronze",295,5.73038073038073
+2015,"University of Adelaide","closed",2858,58.5415813191315
+2015,"University of Adelaide","gold",701,14.3588693158542
+2015,"University of Adelaide","hybrid",571,11.6960262187628
+2015,"University of Adelaide","green",485,9.93445309299467
+2015,"University of Adelaide","bronze",267,5.46907005325686
+2015,"Monash University","closed",4713,56.2679083094556
+2015,"Monash University","gold",1307,15.6041069723018
+2015,"Monash University","hybrid",1046,12.4880611270296
+2015,"Monash University","green",855,10.2077363896848
+2015,"Monash University","bronze",455,5.43218720152818
+2015,"UNSW Sydney","closed",5409,61.6480510599499
+2015,"UNSW Sydney","gold",1030,11.7392295418281
+2015,"UNSW Sydney","hybrid",1028,11.7164349213586
+2015,"UNSW Sydney","green",882,10.05242762708
+2015,"UNSW Sydney","bronze",425,4.84385684978345
+2016,"University of Melbourne","closed",5052,46.7085798816568
+2016,"University of Melbourne","gold",1878,17.3631656804734
+2016,"University of Melbourne","hybrid",1644,15.1997041420118
+2016,"University of Melbourne","green",1503,13.8960798816568
+2016,"University of Melbourne","bronze",739,6.83247041420118
+2016,"Australian National University","closed",2613,48.0595916865919
+2016,"Australian National University","gold",1057,19.4408681258047
+2016,"Australian National University","hybrid",832,15.3025565569248
+2016,"Australian National University","green",635,11.6792348721722
+2016,"Australian National University","bronze",300,5.51774875850653
+2016,"University of Sydney","closed",6052,53.9490105188091
+2016,"University of Sydney","gold",1601,14.271706186486
+2016,"University of Sydney","hybrid",1593,14.2003922267784
+2016,"University of Sydney","green",1276,11.3745765733642
+2016,"University of Sydney","bronze",696,6.20431449456231
+2016,"University of Queensland","closed",5494,56.4355418592707
+2016,"University of Queensland","gold",1428,14.6687211093991
+2016,"University of Queensland","hybrid",1156,11.8746789933231
+2016,"University of Queensland","green",1150,11.8130457113508
+2016,"University of Queensland","bronze",507,5.20801232665639
+2016,"University of Western Australia","closed",2624,46.8404141378079
+2016,"University of Western Australia","gold",916,16.3513031060336
+2016,"University of Western Australia","hybrid",894,15.9585862192074
+2016,"University of Western Australia","green",809,14.4412709746519
+2016,"University of Western Australia","bronze",359,6.40842556229918
+2016,"University of Adelaide","closed",2787,54.840613931523
+2016,"University of Adelaide","gold",680,13.3805588351043
+2016,"University of Adelaide","hybrid",678,13.3412042502952
+2016,"University of Adelaide","green",643,12.6524990161354
+2016,"University of Adelaide","bronze",294,5.78512396694215
+2016,"Monash University","closed",4883,54.7974413646055
+2016,"Monash University","gold",1229,13.7919425429245
+2016,"Monash University","hybrid",1173,13.1635057793738
+2016,"Monash University","green",1102,12.3667377398721
+2016,"Monash University","bronze",524,5.88037257322411
+2016,"UNSW Sydney","closed",5598,59.9293437533455
+2016,"UNSW Sydney","gold",1159,12.4076651322128
+2016,"UNSW Sydney","hybrid",1048,11.2193555293866
+2016,"UNSW Sydney","green",1010,10.8125468365271
+2016,"UNSW Sydney","bronze",526,5.631088748528
+2017,"University of Melbourne","closed",5149,44.0499615022671
+2017,"University of Melbourne","gold",2154,18.427581486868
+2017,"University of Melbourne","hybrid",1910,16.3401488579006
+2017,"University of Melbourne","green",1713,14.6548036615622
+2017,"University of Melbourne","bronze",763,6.52750449140217
+2017,"Australian National University","closed",2454,44.6100708962007
+2017,"Australian National University","gold",1150,20.9052899472823
+2017,"Australian National University","hybrid",886,16.1061625159062
+2017,"Australian National University","green",684,12.4341028903836
+2017,"Australian National University","bronze",327,5.94437375022723
+2017,"University of Sydney","closed",6046,51.3155661178068
+2017,"University of Sydney","gold",1890,16.0414191139026
+2017,"University of Sydney","hybrid",1633,13.8601256153454
+2017,"University of Sydney","green",1534,13.0198608046172
+2017,"University of Sydney","bronze",679,5.76302834832796
+2017,"University of Queensland","closed",5396,54.1386575699809
+2017,"University of Queensland","gold",1674,16.7954249021772
+2017,"University of Queensland","hybrid",1213,12.1701615330591
+2017,"University of Queensland","green",1160,11.6384067422494
+2017,"University of Queensland","bronze",524,5.25734925253336
+2017,"University of Western Australia","closed",2634,46.3895737935893
+2017,"University of Western Australia","gold",959,16.8897499119408
+2017,"University of Western Australia","hybrid",937,16.5022895385699
+2017,"University of Western Australia","green",802,14.1246917928848
+2017,"University of Western Australia","bronze",346,6.09369496301515
+2017,"University of Adelaide","closed",2705,52.2503380336102
+2017,"University of Adelaide","gold",789,15.2404867683987
+2017,"University of Adelaide","hybrid",719,13.8883523276029
+2017,"University of Adelaide","green",661,12.768012362372
+2017,"University of Adelaide","bronze",303,5.85281050801623
+2017,"Monash University","closed",4960,50.0403551251009
+2017,"Monash University","gold",1503,15.1634382566586
+2017,"Monash University","hybrid",1485,14.9818401937046
+2017,"Monash University","green",1384,13.9628732849072
+2017,"Monash University","bronze",580,5.85149313962873
+2017,"UNSW Sydney","closed",5371,56.793909273554
+2017,"UNSW Sydney","gold",1423,15.0470550914666
+2017,"UNSW Sydney","hybrid",1132,11.9699693348842
+2017,"UNSW Sydney","green",1004,10.6164745691023
+2017,"UNSW Sydney","bronze",527,5.57259173099292
+2018,"University of Melbourne","closed",5292,43.112016293279
+2018,"University of Melbourne","gold",2195,17.8818737270876
+2018,"University of Melbourne","hybrid",2134,17.3849287169043
+2018,"University of Melbourne","green",1729,14.0855397148676
+2018,"University of Melbourne","bronze",925,7.53564154786151
+2018,"Australian National University","closed",2356,42.7353528024669
+2018,"Australian National University","gold",1302,23.6169054961001
+2018,"Australian National University","hybrid",804,14.5837112280065
+2018,"Australian National University","green",739,13.4046798476329
+2018,"Australian National University","bronze",312,5.65935062579358
+2018,"University of Sydney","closed",6166,49.8021161457071
+2018,"University of Sydney","gold",2085,16.8403198449237
+2018,"University of Sydney","hybrid",1823,14.7241741377918
+2018,"University of Sydney","green",1536,12.406106130361
+2018,"University of Sydney","bronze",771,6.22728374121638
+2018,"University of Queensland","closed",5246,50.9122670807453
+2018,"University of Queensland","gold",1843,17.8862577639752
+2018,"University of Queensland","hybrid",1330,12.9076086956522
+2018,"University of Queensland","green",1229,11.9274068322981
+2018,"University of Queensland","bronze",656,6.36645962732919
+2018,"University of Western Australia","closed",2660,45.7280385078219
+2018,"University of Western Australia","gold",1029,17.6895306859206
+2018,"University of Western Australia","hybrid",960,16.5033522434244
+2018,"University of Western Australia","green",805,13.8387484957882
+2018,"University of Western Australia","bronze",363,6.24033006704487
+2018,"University of Adelaide","closed",2664,50.752524290341
+2018,"University of Adelaide","gold",896,17.0699180796342
+2018,"University of Adelaide","hybrid",759,14.4598971232616
+2018,"University of Adelaide","green",625,11.9070299104591
+2018,"University of Adelaide","bronze",305,5.81063059630406
+2018,"Monash University","closed",5196,49.0976093735236
+2018,"Monash University","gold",1632,15.4209581404139
+2018,"Monash University","hybrid",1550,14.6461305867901
+2018,"Monash University","green",1532,14.4760464896532
+2018,"Monash University","bronze",673,6.3592554096192
+2018,"UNSW Sydney","closed",5556,54.4545721846516
+2018,"UNSW Sydney","gold",1650,16.1717142017054
+2018,"UNSW Sydney","hybrid",1203,11.7906498088797
+2018,"UNSW Sydney","green",1194,11.7024404586886
+2018,"UNSW Sydney","bronze",600,5.88062334607468
+2019,"University of Melbourne","closed",5731,41.6436564452841
+2019,"University of Melbourne","gold",2726,19.8081674175265
+2019,"University of Melbourne","hybrid",2477,17.998837378288
+2019,"University of Melbourne","green",1790,13.0068304025578
+2019,"University of Melbourne","bronze",1038,7.54250835634356
+2019,"Australian National University","closed",2498,43.6636951581891
+2019,"Australian National University","gold",1219,21.3074637301171
+2019,"Australian National University","hybrid",822,14.3681174619822
+2019,"Australian National University","green",783,13.6864184583115
+2019,"Australian National University","bronze",399,6.9743051914001
+2019,"University of Sydney","closed",6611,49.2769827072153
+2019,"University of Sydney","gold",2605,19.4171138938581
+2019,"University of Sydney","hybrid",1722,12.8354203935599
+2019,"University of Sydney","green",1640,12.2242098986285
+2019,"University of Sydney","bronze",838,6.24627310673822
+2019,"University of Queensland","closed",5614,51.3679202122793
+2019,"University of Queensland","gold",2127,19.4619818830634
+2019,"University of Queensland","hybrid",1376,12.5903559337542
+2019,"University of Queensland","green",1160,10.61396285113
+2019,"University of Queensland","bronze",652,5.96577911977308
+2019,"University of Western Australia","closed",2848,46.1214574898785
+2019,"University of Western Australia","gold",1161,18.8016194331984
+2019,"University of Western Australia","hybrid",997,16.1457489878543
+2019,"University of Western Australia","green",793,12.8421052631579
+2019,"University of Western Australia","bronze",376,6.08906882591093
+2019,"University of Adelaide","closed",2849,51.2871287128713
+2019,"University of Adelaide","gold",1040,18.7218721872187
+2019,"University of Adelaide","hybrid",691,12.4392439243924
+2019,"University of Adelaide","green",643,11.5751575157516
+2019,"University of Adelaide","bronze",332,5.97659765976598
+2019,"Monash University","closed",5447,47.3734562532614
+2019,"Monash University","gold",2121,18.44668638024
+2019,"Monash University","hybrid",1629,14.1676813358845
+2019,"Monash University","green",1572,13.6719429465994
+2019,"Monash University","bronze",729,6.34023308401461
+2019,"UNSW Sydney","closed",5874,53.1487513572204
+2019,"UNSW Sydney","gold",2010,18.1867535287731
+2019,"UNSW Sydney","hybrid",1305,11.8078175895765
+2019,"UNSW Sydney","green",1205,10.9030039811799
+2019,"UNSW Sydney","bronze",658,5.95367354325009
+2020,"University of Melbourne","closed",5382,37.4582405345212
+2020,"University of Melbourne","gold",3201,22.2786748329621
+2020,"University of Melbourne","hybrid",2762,19.2232739420935
+2020,"University of Melbourne","green",1786,12.4304008908686
+2020,"University of Melbourne","bronze",1237,8.60940979955457
+2020,"Australian National University","closed",2588,42.8689746562862
+2020,"Australian National University","gold",1230,20.3743581248965
+2020,"Australian National University","hybrid",1028,17.0283253271492
+2020,"Australian National University","green",757,12.5393407321517
+2020,"Australian National University","bronze",434,7.18900115951632
+2020,"University of Sydney","closed",6483,46.4032639038007
+2020,"University of Sydney","gold",2905,20.7930713621072
+2020,"University of Sydney","hybrid",1855,13.2775033998998
+2020,"University of Sydney","green",1732,12.3971082957555
+2020,"University of Sydney","bronze",996,7.12905303843676
+2020,"University of Queensland","closed",5446,46.7026841608781
+2020,"University of Queensland","gold",2508,21.507589400566
+2020,"University of Queensland","hybrid",1470,12.606122974016
+2020,"University of Queensland","green",1262,10.822399451162
+2020,"University of Queensland","bronze",975,8.36120401337793
+2020,"University of Western Australia","closed",2657,42.924071082391
+2020,"University of Western Australia","gold",1344,21.7124394184168
+2020,"University of Western Australia","hybrid",967,15.6219709208401
+2020,"University of Western Australia","green",749,12.1001615508885
+2020,"University of Western Australia","bronze",473,7.64135702746365
+2020,"University of Adelaide","closed",2869,48.2834062605183
+2020,"University of Adelaide","gold",1214,20.4308313699091
+2020,"University of Adelaide","hybrid",740,12.4537192864355
+2020,"University of Adelaide","green",683,11.4944463143723
+2020,"University of Adelaide","bronze",436,7.33759676876473
+2020,"Monash University","closed",5453,43.5751957807256
+2020,"Monash University","gold",2431,19.4262426082787
+2020,"Monash University","hybrid",1893,15.1270576953812
+2020,"Monash University","green",1762,14.0802301422407
+2020,"Monash University","bronze",975,7.79127377337382
+2020,"UNSW Sydney","closed",5819,48.9114902916702
+2020,"UNSW Sydney","gold",2472,20.7783474825586
+2020,"UNSW Sydney","hybrid",1481,12.4485164327141
+2020,"UNSW Sydney","green",1292,10.8598806421787
+2020,"UNSW Sydney","bronze",833,7.00176515087837
+2021,"University of Melbourne","closed",5682,37.2908052766293
+2021,"University of Melbourne","gold",3818,25.0574260024939
+2021,"University of Melbourne","hybrid",2550,16.7355778696594
+2021,"University of Melbourne","green",1764,11.5770821027761
+2021,"University of Melbourne","bronze",1423,9.33910874844129
+2021,"Australian National University","closed",2665,43.2208887447292
+2021,"Australian National University","gold",1120,18.1641258514434
+2021,"Australian National University","hybrid",1110,18.0019461563412
+2021,"Australian National University","green",701,11.3687966266623
+2021,"Australian National University","bronze",570,9.24424262082387
+2021,"University of Sydney","closed",6300,43.574491630931
+2021,"University of Sydney","gold",3521,24.3532992115092
+2021,"University of Sydney","hybrid",1797,12.4291049937751
+2021,"University of Sydney","green",1641,11.3501175819615
+2021,"University of Sydney","bronze",1199,8.29298658182321
+2021,"University of Queensland","closed",5629,46.4400627010973
+2021,"University of Queensland","gold",2955,24.3791766355911
+2021,"University of Queensland","hybrid",1477,12.1854632456068
+2021,"University of Queensland","green",1112,9.17416054780959
+2021,"University of Queensland","bronze",948,7.82113686989522
+2021,"University of Western Australia","closed",2600,41.1652944901837
+2021,"University of Western Australia","gold",1563,24.7466751108296
+2021,"University of Western Australia","hybrid",936,14.8195060164661
+2021,"University of Western Australia","green",620,9.81633945535149
+2021,"University of Western Australia","bronze",597,9.45218492716909
+2021,"University of Adelaide","closed",2810,47.5304465493911
+2021,"University of Adelaide","gold",1366,23.105548037889
+2021,"University of Adelaide","hybrid",727,12.2970230040595
+2021,"University of Adelaide","green",544,9.20162381596752
+2021,"University of Adelaide","bronze",465,7.86535859269283
+2021,"Monash University","closed",5674,42.4256019141618
+2021,"Monash University","gold",2975,22.244653805892
+2021,"Monash University","hybrid",1968,14.7151188873934
+2021,"Monash University","green",1683,12.5841184387618
+2021,"Monash University","bronze",1074,8.03050695379094
+2021,"UNSW Sydney","closed",5885,46.8401782871697
+2021,"UNSW Sydney","gold",3004,23.9095829353709
+2021,"UNSW Sydney","hybrid",1510,12.0184654568609
+2021,"UNSW Sydney","green",1192,9.48742438713785
+2021,"UNSW Sydney","bronze",973,7.74434893346068
+2022,"University of Melbourne","closed",5319,37.3001402524544
+2022,"University of Melbourne","gold",3918,27.4754558204769
+2022,"University of Melbourne","hybrid",2439,17.1037868162693
+2022,"University of Melbourne","green",1548,10.8555399719495
+2022,"University of Melbourne","bronze",1036,7.26507713884993
+2022,"Australian National University","closed",2116,38.2363570654138
+2022,"Australian National University","gold",1235,22.3165883628478
+2022,"Australian National University","hybrid",910,16.4438019515721
+2022,"Australian National University","green",825,14.9078424286231
+2022,"Australian National University","bronze",448,8.09541019154319
+2022,"University of Sydney","closed",5312,39.2928471040757
+2022,"University of Sydney","gold",3507,25.9412678452548
+2022,"University of Sydney","hybrid",2197,16.2512020119831
+2022,"University of Sydney","green",1492,11.0363192543827
+2022,"University of Sydney","bronze",1011,7.47836378430357
+2022,"University of Queensland","closed",4780,40.9702579926288
+2022,"University of Queensland","gold",2992,25.6449815719551
+2022,"University of Queensland","hybrid",1913,16.396674380732
+2022,"University of Queensland","green",1240,10.6282677637782
+2022,"University of Queensland","bronze",742,6.35981829090597
+2022,"University of Western Australia","closed",2357,38.3189725247927
+2022,"University of Western Australia","gold",1611,26.1908632742643
+2022,"University of Western Australia","hybrid",994,16.1599739879694
+2022,"University of Western Australia","green",709,11.5265810437327
+2022,"University of Western Australia","bronze",480,7.80360916924077
+2022,"University of Adelaide","closed",2305,42.2548120989917
+2022,"University of Adelaide","gold",1302,23.8680109990834
+2022,"University of Adelaide","hybrid",878,16.0953253895509
+2022,"University of Adelaide","green",594,10.8890925756187
+2022,"University of Adelaide","bronze",376,6.89275893675527
+2022,"Monash University","closed",5008,39.7618102421596
+2022,"Monash University","gold",3106,24.6605795950774
+2022,"Monash University","hybrid",1995,15.8396188963875
+2022,"Monash University","green",1506,11.9571258435887
+2022,"Monash University","bronze",980,7.78086542278682
+2022,"UNSW Sydney","closed",5142,43.0689337465449
+2022,"UNSW Sydney","gold",3069,25.705670491666
+2022,"UNSW Sydney","hybrid",1736,14.5405812882151
+2022,"UNSW Sydney","green",1286,10.7714213920764
+2022,"UNSW Sydney","bronze",706,5.91339308149761
+2023,"University of Melbourne","closed",4464,32.5839416058394
+2023,"University of Melbourne","gold",3804,27.7664233576642
+2023,"University of Melbourne","hybrid",3615,26.3868613138686
+2023,"University of Melbourne","green",1392,10.1605839416058
+2023,"University of Melbourne","bronze",425,3.1021897810219
+2023,"Australian National University","closed",1865,35.9206471494607
+2023,"Australian National University","gold",1439,27.7157164869029
+2023,"Australian National University","hybrid",1111,21.3983050847458
+2023,"Australian National University","green",497,9.57241910631741
+2023,"Australian National University","bronze",280,5.39291217257319
+2023,"University of Sydney","closed",4705,35.8230546672758
+2023,"University of Sydney","gold",3350,25.5063194761687
+2023,"University of Sydney","hybrid",3191,24.2957210293894
+2023,"University of Sydney","green",1438,10.9486828079793
+2023,"University of Sydney","bronze",450,3.42622201918684
+2023,"University of Queensland","closed",3806,34.7231092053645
+2023,"University of Queensland","gold",3170,28.920718912508
+2023,"University of Queensland","hybrid",2697,24.6054192135754
+2023,"University of Queensland","green",939,8.56673661162303
+2023,"University of Queensland","bronze",349,3.18401605692911
+2023,"University of Western Australia","closed",2119,36.1727552065551
+2023,"University of Western Australia","gold",1534,26.1864117446227
+2023,"University of Western Australia","hybrid",1514,25.8449982929327
+2023,"University of Western Australia","green",489,8.34755889382042
+2023,"University of Western Australia","bronze",202,3.44827586206897
+2023,"University of Adelaide","closed",2094,38.0588876772083
+2023,"University of Adelaide","gold",1433,26.045074518357
+2023,"University of Adelaide","hybrid",1286,23.3733187931661
+2023,"University of Adelaide","green",519,9.43293347873501
+2023,"University of Adelaide","bronze",170,3.08978553253362
+2023,"Monash University","closed",4131,33.8912133891213
+2023,"Monash University","gold",3358,27.5494298137665
+2023,"Monash University","hybrid",2910,23.8739847403397
+2023,"Monash University","green",1328,10.895069324801
+2023,"Monash University","bronze",462,3.79030273197145
+2023,"UNSW Sydney","closed",4232,38.2018414876331
+2023,"UNSW Sydney","gold",2714,24.4990070409821
+2023,"UNSW Sydney","hybrid",2701,24.3816573388698
+2023,"UNSW Sydney","green",1025,9.25257266654631
+2023,"UNSW Sydney","bronze",406,3.66492146596859
