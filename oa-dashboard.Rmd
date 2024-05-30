@@ -47,6 +47,7 @@ data_institutions_au <- read_csv("data/institutions_au.csv") |>
 data_overall <- rbind(data_overall_nz, data_overall_au)
 data_institutions <- rbind(data_institutions_nz, data_institutions_au)
 
+
 # Summarise and plot overall trend data
 
 overall_trend <- data_overall |>
@@ -133,7 +134,7 @@ data_institutions_sum <- data_institutions |>
     pc = sum(pc),
   )
 
-institution_title <- paste0("Open Access Publication Output for ", unique(data_institutions$institution), ", 2010-", prev_year)
+institution_title <- paste0("Open Access Publication Output for ", sort(unique(data_institutions$institution)), ", 2010-", prev_year)
 
 plot_function_open <- function(data_institutions_sum) {
   p <- ggplot(data_institutions_sum, aes(x = year, y = pc, colour = open))
@@ -151,8 +152,12 @@ plot_function_open <- function(data_institutions_sum) {
 
 plot_list <- data_institutions_sum |>
   group_by(institution) |> 
-  group_split(institution) |> 
-  map(~ plot_function_open(.x))
+  group_split(institution)
+
+plot_list <- plot_list[order(sapply(plot_list, function(x) sort(unique(x$institution))))]
+
+plot_list <- plot_list |> 
+map(~ plot_function_open(.x))
 
 plot_list <- lapply(seq_along(plot_list), function(i) { 
   plot_list[[i]] + ggtitle(institution_title[i])
@@ -174,7 +179,7 @@ wrapped_plot
 ### Access type over time
 
 ```{r, fig.dim = c(8, 60)}
-institution_type_title <- paste0("Access Type Trend for ", unique(data_institutions$institution), ", 2010-", prev_year)
+institution_type_title <- paste0("Access Type Trend for ", sort(unique(data_institutions$institution)), ", 2010-", prev_year)
 
 plot_function_type <- function(data_institutions) {
   p <- ggplot(data_institutions, aes(x = year, y = pc, colour = oa_type))
@@ -194,9 +199,13 @@ plot_function_type <- function(data_institutions) {
 }
 
 plot_list_type <- data_institutions |>
-  group_by(institution, .add = TRUE) |>
-  group_split() |> 
-  map(~ plot_function_type(.x))
+  group_by(institution) |>
+  group_split()
+
+plot_list_type <- plot_list_type[order(sapply(plot_list_type, 
+                                              function(x) sort(unique(x$institution))))]
+plot_list_type <- plot_list_type |> 
+map(~ plot_function_type(.x))
 
 plot_list_type <- lapply(seq_along(plot_list_type), function(i) { 
   plot_list_type[[i]] + ggtitle(institution_type_title[i])
