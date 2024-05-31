@@ -7,10 +7,12 @@ output:
 knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
 ---
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo=FALSE)
-knitr::opts_chunk$set(warning=FALSE)
-knitr::opts_chunk$set(message=FALSE)
-knitr::opts_chunk$set(fig.align="center")
+knitr::opts_chunk$set(
+  echo=FALSE,
+  warning=FALSE,
+  message=FALSE,
+  fig.align="center"
+)
 library(tidyverse)
 ```
 
@@ -60,8 +62,6 @@ overall_trend <- data_overall |>
   ) |> 
   filter(open == "open")
 
-overall_trend_title <- paste0("Open Access Publication Output, 2010-", prev_year)
-
 ggplot(overall_trend, aes(x = year, y = pc)) +
   geom_line(data = overall_trend |> filter(country == "nz"), size = 1, aes(colour = "NZ")) +
   geom_line(data = overall_trend |> filter(country == "au"), size = 1, aes(colour = "AU")) +
@@ -73,7 +73,7 @@ ggplot(overall_trend, aes(x = year, y = pc)) +
   ylab("%") +
   ylim(0, 80) +
   scale_x_continuous(n.breaks = prev_year-2010) +
-  ggtitle(overall_trend_title)
+  ggtitle(paste0("Open Access Publication Output, 2010-", prev_year))
 
 ggsave("fig/1-overall-trend.png")
 
@@ -81,9 +81,6 @@ ggsave("fig/1-overall-trend.png")
 
 data_overall$oa_type <- factor(data_overall$oa_type, 
                              levels = c("bronze","green", "hybrid", "gold", "closed"))
-
-overall_types_title_nz <- (paste0("Access Status for New Zealand Research Publications, 2010-", prev_year))
-overall_types_title_au <- (paste0("Access Status for Australian Research Publications, 2010-", prev_year))
 
 ggplot(data_overall, aes(x = year, y = pc, fill = oa_type)) +
   geom_bar(data = data_overall |> filter(country == "nz"),
@@ -98,7 +95,7 @@ ggplot(data_overall, aes(x = year, y = pc, fill = oa_type)) +
   xlab("") +
   ylab("%") +
   scale_x_continuous(n.breaks = prev_year-2010) +
-  ggtitle(overall_types_title_nz)
+  ggtitle(paste0("Access Status for New Zealand Research Publications, 2010-", prev_year))
 
 ggsave("fig/2-overall-types-nz.png")
 
@@ -115,7 +112,7 @@ ggplot(data_overall, aes(x = year, y = pc, fill = oa_type)) +
   xlab("") +
   ylab("%") +
   scale_x_continuous(n.breaks = prev_year-2010) +
-  ggtitle(overall_types_title_au)
+  ggtitle(paste0("Access Status for Australian Research Publications, 2010-", prev_year))
 
 ggsave("fig/2-overall-types-au.png")
 ```
@@ -134,8 +131,6 @@ data_institutions_sum <- data_institutions |>
     pc = sum(pc),
   )
 
-institution_title <- paste0("Open Access Publication Output for ", sort(unique(data_institutions$institution)), ", 2010-", prev_year)
-
 plot_function_open <- function(data_institutions_sum) {
   p <- ggplot(data_institutions_sum, aes(x = year, y = pc, colour = open))
   p <- p + geom_line(size = 1) +
@@ -146,22 +141,17 @@ plot_function_open <- function(data_institutions_sum) {
     xlab("") +
     ylab("%") +
     ylim(0, 80) +
-    scale_x_continuous(n.breaks = prev_year-2010)
+    scale_x_continuous(n.breaks = prev_year-2010) +
+    ggtitle(paste0("Open Access Publication Output for ", 
+                   data_institutions_sum$institution[1], 
+                   ", 2010-", prev_year))
   return(p)
 }
 
 plot_list <- data_institutions_sum |>
   group_by(institution) |> 
-  group_split(institution)
-
-plot_list <- plot_list[order(sapply(plot_list, function(x) sort(unique(x$institution))))]
-
-plot_list <- plot_list |> 
-map(~ plot_function_open(.x))
-
-plot_list <- lapply(seq_along(plot_list), function(i) { 
-  plot_list[[i]] + ggtitle(institution_title[i])
-})
+  group_split(institution) |> 
+  map(~ plot_function_open(.x))
 
 wrapped_plot <- patchwork::wrap_plots(plot_list, ncol = 1)
 
@@ -179,8 +169,6 @@ wrapped_plot
 ### Access type over time
 
 ```{r, fig.dim = c(8, 60)}
-institution_type_title <- paste0("Access Type Trend for ", sort(unique(data_institutions$institution)), ", 2010-", prev_year)
-
 plot_function_type <- function(data_institutions) {
   p <- ggplot(data_institutions, aes(x = year, y = pc, colour = oa_type))
   p <- p + geom_line(size = 1) +
@@ -194,22 +182,17 @@ plot_function_type <- function(data_institutions) {
     xlab("") +
     ylab("%") +
     ylim(0, 80) +
-    scale_x_continuous(n.breaks = prev_year-2010)
+    scale_x_continuous(n.breaks = prev_year-2010) +
+    ggtitle(paste0("Access Type Trend for ", 
+                   data_institutions$institution[1], 
+                   ", 2010-", prev_year))
   return(p)
 }
 
 plot_list_type <- data_institutions |>
   group_by(institution) |>
-  group_split()
-
-plot_list_type <- plot_list_type[order(sapply(plot_list_type, 
-                                              function(x) sort(unique(x$institution))))]
-plot_list_type <- plot_list_type |> 
-map(~ plot_function_type(.x))
-
-plot_list_type <- lapply(seq_along(plot_list_type), function(i) { 
-  plot_list_type[[i]] + ggtitle(institution_type_title[i])
-})
+  group_split() |> 
+  map(~ plot_function_type(.x))
 
 wrapped_plot_type <- patchwork::wrap_plots(plot_list_type, ncol = 1)
 
@@ -240,8 +223,6 @@ institutions_access$institution <- factor(institutions_access$institution,
 institutions_access$oa_type <- factor(institutions_access$oa_type, 
                              levels = c("bronze","green", "hybrid", "gold", "closed"))
 
-institutions_access_title <- (paste0("Access Type by Institution, ", prev_year))
-
 ggplot(institutions_access, aes(x = institution, y = pc, fill = oa_type)) +
   geom_bar(position = "dodge", stat = "identity") +
   scale_fill_manual(name = "Access Type", 
@@ -254,7 +235,7 @@ ggplot(institutions_access, aes(x = institution, y = pc, fill = oa_type)) +
   theme_classic() +
   xlab("") +
   ylab("%") +
-  ggtitle(institutions_access_title)
+  ggtitle(paste0("Access Type by Institution, ", prev_year))
 
 ggsave("fig/5-institutions-type-now.png")
 
