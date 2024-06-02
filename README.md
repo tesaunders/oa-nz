@@ -1,6 +1,6 @@
 # oa-nz
 
-Querying Open Alex for rates of open access for publications authored by researchers affiliated with NZ universities. 
+A dashboard to display rates of open access for publications authored by researchers affiliated with NZ universities and Australian 'group of 8' universities, for comparison. 
 
 ## Background
 
@@ -17,7 +17,7 @@ This dashboard is an attempt to monitor rates of open access across New Zealand 
 
 ## Data
 
-Data is parsed from the [Open Alex API](https://docs.openalex.org/).
+Data is parsed from the [Open Alex API](https://docs.openalex.org/). Publications are included if they have an author affiliated with an NZ or Australian 'group of 8' university, based on the university's Research Organisation Registry (ROR) code. Publications include peer reviewed articles, books, and book chapters, but exclude paratext (material about the journal such as covers, editorial board, or issue information) and retracted items.
 
 ## Licence
 
