@@ -80,7 +80,7 @@ ggsave("fig/1-overall-trend.png")
 # Plot break down of access type
 
 data_overall$oa_type <- factor(data_overall$oa_type, 
-                             levels = c("bronze","green", "hybrid", "gold", "closed"))
+                             levels = c("bronze","green", "hybrid", "gold", "diamond", "closed"))
 
 ggplot(data_overall, aes(x = year, y = pc, fill = oa_type)) +
   geom_bar(data = data_overall |> filter(country == "nz"),
@@ -89,6 +89,7 @@ ggplot(data_overall, aes(x = year, y = pc, fill = oa_type)) +
                      values = c("bronze" = "#A65628",
                                 "hybrid" = "#377EB8",
                                 "gold" = "#FFFF33",
+                                "diamond" = "lightgrey",
                                 "green" = "#4DAF4A",
                                 "closed" = "#E41A1C")) +
   theme_classic() +
@@ -106,6 +107,7 @@ ggplot(data_overall, aes(x = year, y = pc, fill = oa_type)) +
                      values = c("bronze" = "#A65628",
                                 "hybrid" = "#377EB8",
                                 "gold" = "#FFFF33",
+                                "diamond" = "lightgrey",
                                 "green" = "#4DAF4A",
                                 "closed" = "#E41A1C")) +
   theme_classic() +
@@ -174,10 +176,11 @@ plot_function_type <- function(data_institutions) {
   p <- p + geom_line(size = 1) +
     scale_colour_manual(name = "Access Type", 
                        values = c("bronze" = "#A65628",
-                                  "hybrid" = "#377EB8",
-                                  "gold" = "#FFFF33",
-                                  "green" = "#4DAF4A",
-                                  "closed" = "#E41A1C")) +
+                                "hybrid" = "#377EB8",
+                                "gold" = "#FFFF33",
+                                "diamond" = "lightgrey",
+                                "green" = "#4DAF4A",
+                                "closed" = "#E41A1C")) +
     theme_classic() +
     xlab("") +
     ylab("%") +
@@ -221,7 +224,7 @@ institutions_access$institution <- factor(institutions_access$institution,
                                           levels = pull(order_closed, institution))
 
 institutions_access$oa_type <- factor(institutions_access$oa_type, 
-                             levels = c("bronze","green", "hybrid", "gold", "closed"))
+                             levels = c("bronze","green", "hybrid", "gold", "diamond", "closed"))
 
 ggplot(institutions_access, aes(x = institution, y = pc, fill = oa_type)) +
   geom_bar(position = "dodge", stat = "identity") +
@@ -229,6 +232,7 @@ ggplot(institutions_access, aes(x = institution, y = pc, fill = oa_type)) +
                      values = c("bronze" = "#A65628",
                                 "hybrid" = "#377EB8",
                                 "gold" = "#FFFF33",
+                                "diamond" = "lightgrey",
                                 "green" = "#4DAF4A",
                                 "closed" = "#E41A1C")) +
   coord_flip() +

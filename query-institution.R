@@ -128,9 +128,9 @@ flat_clean_nz <- flat_nz |>
   filter(str_detect(flat_nz$name, "group_by.count")) |> 
   mutate(
     institution = rep(inst_nz$institution, 
-                      each = 5, times = 14),
-    year = rep(c(2010:prev_year), each = length(inst_nz$institution)*5),
-    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), 
+                      each = 6, times = 14),
+    year = rep(c(2010:prev_year), each = length(inst_nz$institution)*6),
+    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze", "diamond"), 
                   times = length(2010:prev_year)*length(inst_nz$institution)),
   ) |> 
   group_by(institution, year) |> 
@@ -143,9 +143,9 @@ flat_clean_au <- flat_au |>
   filter(str_detect(flat_au$name, "group_by.count")) |> 
   mutate(
     institution = rep(inst_au$institution, 
-                      each = 5, times = 14),
-    year = rep(c(2010:prev_year), each = length(inst_au$institution)*5),
-    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), 
+                      each = 6, times = 14),
+    year = rep(c(2010:prev_year), each = length(inst_au$institution)*6),
+    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze", "diamond"), 
                   times = length(2010:prev_year)*length(inst_au$institution)),
   ) |> 
   group_by(institution, year) |> 

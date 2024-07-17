@@ -125,8 +125,8 @@ flat_au$value <- as.numeric(flat_au$value)
 flat_clean_nz <- flat_nz |> 
   filter(str_detect(flat_nz$name, "group_by.count")) |> 
   mutate(
-    year = rep(c(2010:prev_year), each = 5),
-    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), times = (prev_year-2010+1)),
+    year = rep(c(2010:prev_year), each = 6),
+    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze", "diamond"), times = (prev_year-2010+1)),
   ) |> 
   group_by(year) |> 
   mutate(
@@ -137,8 +137,8 @@ flat_clean_nz <- flat_nz |>
 flat_clean_au <- flat_au |> 
   filter(str_detect(flat_au$name, "group_by.count")) |> 
   mutate(
-    year = rep(c(2010:prev_year), each = 5),
-    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze"), times = (prev_year-2010+1)),
+    year = rep(c(2010:prev_year), each = 6),
+    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze", "diamond"), times = (prev_year-2010+1)),
   ) |> 
   group_by(year) |> 
   mutate(
