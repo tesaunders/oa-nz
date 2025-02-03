@@ -22,3 +22,5 @@ Data is parsed from the [Open Alex API](https://docs.openalex.org/). Publication
 ## Licence
 
 All code in this repository is licensed under the MIT license.
+
+[Open Access logo image](https://en.m.wikipedia.org/wiki/File:Open_Access_PLoS.svg) by 'art designer at PLoS' is licensed under the [Creative Commons Attribution-Share Alike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license. No changes were made.
