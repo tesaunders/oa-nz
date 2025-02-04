@@ -1,0 +1,737 @@
+---
+title: "OA Dashboard"
+format: 
+  dashboard:
+    nav-buttons: [github]
+    github: https://github.com/tesaunders/oa-nz
+logo: images/oa.png
+theme: darkly
+# fig-width: 8
+fig-asp: 0.4
+---
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(DT)
+theme_set(theme_minimal(base_size = 24, base_family = "Atkinson Hyperlegible"))
+```
+
+```{r}
+#| label: load-data
+#| message: false
+
+oa_data <- read_csv("data/oa-data.csv")
+```
+
+```{r}
+#| label: define-values
+#| results: hide
+
+prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
+```
+
+#  {.sidebar}
+
+This dashboard displays data relating to open access publication output from all 8 Aotearoa New Zealand universities and the Australian 'Group of 8' universities.
+
+------------------------------------------------------------------------
+
+Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since 2010. Currently, data is only included from the most recent full year (`r prev_year`). All data and plots are available on [GitHub](https://github.com/tesaunders/oa-nz/).
+
+------------------------------------------------------------------------
+
+Created and maintained by [Tom Saunders](https://tomsaunders.me).
+
+------------------------------------------------------------------------
+
+::: {.callout-note collapse="true"}
+## Notes on data
+
+Data includes all journal articles, books, and book chapters with an author affiliated with at least one of the institutions named above. Works about the publication venue ("paratext") have been excluded (e.g. covers, table of contents, editorial board listing, issue information), as have retracted works.
+
+:::
+
+```{r}
+total <- oa_data |> 
+  mutate(
+    open = case_when(oa_type != "closed" ~ "open", .default = oa_type),
+  ) |> 
+  filter(open == "open") |> 
+  group_by(year, country, institution) |> 
+  summarise(
+    pc = sum(pc),
+  ) |> 
+  group_by(year, country) |> 
+  summarise(
+    pc = mean(pc),
+  )
+
+total_nz <- total |> 
+  filter(country == "nz", year == prev_year) |> 
+  pull(pc)
+
+total_au <- total |> 
+  filter(country == "au", year == prev_year) |> 
+  pull(pc)
+
+```
+
+# New Zealand
+
+## Row {height="20%"}
+
+```{r}
+#| content: valuebox
+#| title: "Current OA rate"
+
+list(
+  icon = "unlock",
+  color = "success",
+  value = paste0(round(total_nz), "%")
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Universities NZ 2025 Target"
+
+list(
+  icon = "bullseye",
+  color = "warning",
+  value = print("70%")
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Last Updated"
+
+format(Sys.Date(), format="%d %b %Y")
+```
+
+## Row {height=80%}
+
+### Column {width=50%}
+
+```{r}
+#| title: Total OA rate over time
+
+trend_nz <- total |> 
+  filter(country == "nz")
+
+ggplot(trend_nz, aes(x = year, y = pc)) +
+  geom_line(size = 1) +
+  geom_hline(yintercept = 70, color = "red", linewidth = 1) +
+  annotate("text", x = prev_year - 1, y = 73, label = "UNZ Target", colour = "red") +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion Open Access (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: Access type over time
+
+type_nz <- oa_data |> 
+  filter(country == "nz") |> 
+  group_by(year, oa_type) |> 
+  summarise(
+    pc = mean(pc),
+  )
+
+ggplot(type_nz, aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+### Column {width=50%}
+
+```{r}
+cat("title=", "OA rate by institution", "(", prev_year, ")")
+  
+recent_nz <- oa_data |> 
+  filter(country == "nz", year == max(year), oa_type == "closed") |>
+  summarise(
+    institution = institution,
+    percent = 100 - pc,
+  ) |> 
+  arrange(desc(percent))
+
+recent_nz |> 
+  datatable(options = list(dom = 't'), rownames = FALSE) |> 
+  formatRound(columns = "percent", digits = 0)
+
+```
+
+# Australia G8
+
+## Row {height="20%"}
+
+```{r}
+#| content: valuebox
+#| title: "Current OA rate"
+
+list(
+  icon = "unlock",
+  color = "success",
+  value = paste0(round(total_au), "%")
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "OA target"
+
+list(
+  icon = "bullseye",
+  color = "warning",
+  value = print("-")
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Last Updated"
+
+format(Sys.Date(), format="%d %b %Y")
+```
+
+## Row {height=80%}
+
+### Column {width=50%}
+
+```{r}
+#| title: Total OA rate over time
+
+trend_au <- total |> 
+  filter(country == "au")
+
+ggplot(trend_au, aes(x = year, y = pc)) +
+  geom_line(size = 1) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion Open Access (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: Access type over time
+
+type_au <- oa_data |> 
+  filter(country == "au") |> 
+  group_by(year, oa_type) |> 
+  summarise(
+    pc = mean(pc),
+  )
+
+ggplot(type_au, aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+### Column {width=50%}
+
+```{r}
+cat("title=", "OA rate by institution", "(", prev_year, ")")
+  
+recent_au <- oa_data |> 
+  filter(country == "au", year == max(year), oa_type == "closed") |>
+  summarise(
+    institution = institution,
+    percent = 100 - pc,
+  ) |> 
+  arrange(desc(percent))
+
+recent_au |> 
+  datatable(options = list(dom = 't'), rownames = FALSE) |> 
+  formatRound(columns = "percent", digits = 0)
+
+```
+
+# Comparison
+
+## Row {height="20%"}
+
+```{r}
+#| content: valuebox
+#| title: "Current OA rate (NZ)"
+
+list(
+  icon = "unlock",
+  color = "success",
+  value = paste0(round(total_nz), "%")
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Current OA rate (AU)"
+
+list(
+  icon = "unlock",
+  color = "success",
+  value = paste0(round(total_au), "%")
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Last Updated"
+
+format(Sys.Date(), format="%d %b %Y")
+```
+
+## Row {height="40%"}
+
+```{r}
+#| title: NZ vs AU OA rate over time
+
+ggplot(total, aes(x = year, y = pc)) +
+  geom_line(data = total |> filter(country == "nz"), size = 1, aes(colour = "NZ")) +
+  geom_line(data = total |> filter(country == "au"), size = 1, aes(colour = "AU")) +
+  theme_classic() +
+  scale_color_manual(name = "Country",
+                     values = c("NZ" = "black",
+                                "AU" = "gold")) +
+  xlab("") +
+  ylab("Proportion Open Access (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+## Row {height="40%"}
+
+```{r}
+#| title: Institutional trend over time (NZ)
+
+unis_nz <- oa_data |>
+  filter(country == "nz", oa_type == "closed") |>
+  summarise(
+    institution = institution,
+    year = year,
+    percent = 100 - pc,
+  )
+
+ggplot(unis_nz, aes(x = year, y = percent, colour = institution)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Institution",
+                      values = c("University of Auckland" = "#00467f",
+                                 "Auckland University of Technology" = "#000000",
+                                 "University of Waikato" = "#ffa400",
+                                 "Massey University" = "#8998b9",
+                                 "Victoria University of Wellington" = "#004b34",
+                                 "University of Canterbury" = "#ce0818",
+                                 "Lincoln University" = "#2d4ce5",
+                                 "University of Otago" = "#f2b043")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion Open Access (%)") +
+  ylim(20, 70) +
+  scale_x_continuous(n.breaks = prev_year-2010) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+```{r}
+#| title: Institutional trend over time (AU)
+
+unis_au <- oa_data |>
+  filter(country == "au", oa_type == "closed") |>
+  summarise(
+    institution = institution,
+    year = year,
+    percent = 100 - pc,
+  )
+
+ggplot(unis_au, aes(x = year, y = percent, colour = institution)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Institution",
+                      values = c("University of Melbourne" = "#000c38",
+                                 "Australian National University" = "#bf872b",
+                                 "University of Sydney" = "#141414",
+                                 "University of Queensland" = "#411d62",
+                                 "University of Western Australia" = "#e2b600",
+                                 "University of Adelaide" = "#005a9c",
+                                 "Monash University" = "#004b34",
+                                 "UNSW Sydney" = "#da4726")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion Open Access (%)") +
+  ylim(20, 70) +
+  scale_x_continuous(n.breaks = prev_year-2010) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+# Institutions 
+
+## Row {.tabset}
+
+```{r}
+#| title: "University of Auckland"
+
+oa_data |> 
+  filter(institution == "University of Auckland") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "Auckland University of Technology" 
+
+oa_data |> 
+  filter(institution == "Auckland University of Technology") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "University of Waikato" 
+
+oa_data |> 
+  filter(institution == "University of Waikato") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "Massey University" 
+
+oa_data |> 
+  filter(institution == "Massey University") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "Victoria University of Wellington"
+
+oa_data |> 
+  filter(institution == "Auckland University of Technology") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "University of Canterbury" 
+
+oa_data |> 
+  filter(institution == "University of Canterbury") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "Lincoln University" 
+
+oa_data |> 
+  filter(institution == "Lincoln University") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "University of Otago" 
+
+oa_data |> 
+  filter(institution == "University of Otago") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+## Row {.tabset}
+
+```{r}
+#| title: "University of Melbourne"
+
+oa_data |> 
+  filter(institution == "University of Melbourne") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "Australian National University" 
+
+oa_data |> 
+  filter(institution == "Australian National University") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "University of Sydney" 
+
+oa_data |> 
+  filter(institution == "University of Sydney") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "University of Queensland" 
+
+oa_data |> 
+  filter(institution == "University of Queensland") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "University of Western Australia"
+
+oa_data |> 
+  filter(institution == "University of Western Australia") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "University of Adelaide" 
+
+oa_data |> 
+  filter(institution == "University of Adelaide") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "Monash University" 
+
+oa_data |> 
+  filter(institution == "Monash University") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
+
+```{r}
+#| title: "UNSW Sydney" 
+
+oa_data |> 
+  filter(institution == "UNSW Sydney") |> 
+  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  geom_line(size = 1) +
+  scale_colour_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C")) +
+  theme_classic() +
+  xlab("") +
+  ylab("Proportion (%)") +
+  ylim(0, 80) +
+  scale_x_continuous(n.breaks = prev_year-2010)
+```
