@@ -5,7 +5,9 @@ format:
     nav-buttons: [github]
     github: https://github.com/tesaunders/oa-nz
 logo: images/oa.png
-theme: darkly
+theme:
+  - darkly
+  - custom.scss
 # fig-width: 8
 fig-asp: 0.4
 ---
