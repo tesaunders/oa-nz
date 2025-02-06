@@ -4,6 +4,7 @@ format:
   dashboard:
     nav-buttons: [github]
     github: https://github.com/tesaunders/oa-nz
+    output-file: index.html
 logo: images/oa.png
 theme:
   - darkly
@@ -40,7 +41,7 @@ This dashboard displays data relating to open access publication output from all
 
 ------------------------------------------------------------------------
 
-Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since 2010. Currently, data is only included from the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
+Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since 2010. Currently, data is only included up to the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
 
 ------------------------------------------------------------------------
 
@@ -114,7 +115,7 @@ list(
 #| title: "Last Updated"
 #| message: false
 
-format(Sys.Date(), format="%d %b %Y")
+format(file.info("data/oa-data.csv")$mtime, format = "%d %b %Y")
 ```
 
 ## Row {height=80%}
