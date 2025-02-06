@@ -1,5 +1,5 @@
 library(jsonlite)
-library(dplyr)
+library(tidyverse)
 
 # Define most current full year and publication years of interest
 
@@ -96,5 +96,5 @@ flat_clean <- flat |>
 
 # Combine and export data
 
-write.csv(flat_clean, paste0("data/oa-data.csv"),
+write.csv(flat_clean, "data/oa-data.csv",
           row.names = FALSE)

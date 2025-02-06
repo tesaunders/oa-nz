@@ -40,7 +40,7 @@ This dashboard displays data relating to open access publication output from all
 
 ------------------------------------------------------------------------
 
-Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since 2010. Currently, data is only included from the most recent full year (`r prev_year`). All data and plots are available on [GitHub](https://github.com/tesaunders/oa-nz/).
+Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since 2010. Currently, data is only included from the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
 
 ------------------------------------------------------------------------
 
