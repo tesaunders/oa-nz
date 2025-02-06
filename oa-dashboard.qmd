@@ -8,7 +8,6 @@ logo: images/oa.png
 theme:
   - darkly
   - custom.scss
-# fig-width: 8
 fig-asp: 0.4
 ---
 
@@ -57,6 +56,9 @@ Data includes all journal articles, books, and book chapters with an author affi
 :::
 
 ```{r}
+#| label: summarise-data
+#| message: false
+
 total <- oa_data |> 
   mutate(
     open = case_when(oa_type != "closed" ~ "open", .default = oa_type),
@@ -71,14 +73,6 @@ total <- oa_data |>
     pc = mean(pc),
   )
 
-total_nz <- total |> 
-  filter(country == "nz", year == prev_year) |> 
-  pull(pc)
-
-total_au <- total |> 
-  filter(country == "au", year == prev_year) |> 
-  pull(pc)
-
 ```
 
 # New Zealand
@@ -88,6 +82,11 @@ total_au <- total |>
 ```{r}
 #| content: valuebox
 #| title: "Current OA rate"
+#| message: false
+
+total_nz <- total |> 
+  filter(country == "nz", year == prev_year) |> 
+  pull(pc)
 
 list(
   icon = "unlock",
@@ -100,6 +99,7 @@ list(
 ```{r}
 #| content: valuebox
 #| title: "Universities NZ 2025 Target"
+#| message: false
 
 list(
   icon = "bullseye",
@@ -112,6 +112,7 @@ list(
 ```{r}
 #| content: valuebox
 #| title: "Last Updated"
+#| message: false
 
 format(Sys.Date(), format="%d %b %Y")
 ```
@@ -189,6 +190,10 @@ recent_nz |>
 ```{r}
 #| content: valuebox
 #| title: "Current OA rate"
+
+total_au <- total |> 
+  filter(country == "au", year == prev_year) |> 
+  pull(pc)
 
 list(
   icon = "unlock",
@@ -288,6 +293,7 @@ recent_au |>
 ```{r}
 #| content: valuebox
 #| title: "Current OA rate (NZ)"
+#| message: false
 
 list(
   icon = "unlock",
@@ -300,6 +306,7 @@ list(
 ```{r}
 #| content: valuebox
 #| title: "Current OA rate (AU)"
+#| message: false
 
 list(
   icon = "unlock",
@@ -312,6 +319,7 @@ list(
 ```{r}
 #| content: valuebox
 #| title: "Last Updated"
+#| message: false
 
 format(Sys.Date(), format="%d %b %Y")
 ```
