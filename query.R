@@ -1,5 +1,8 @@
 library(jsonlite)
-library(tidyverse)
+library(purrr)
+library(tibble)
+library(dplyr)
+library(stringr)
 
 # Define most current full year and publication years of interest
 

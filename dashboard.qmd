@@ -16,7 +16,10 @@ fig-asp: 0.4
 #| label: load-packages
 #| message: false
 
-library(tidyverse)
+library(readr)
+library(dplyr)
+library(purrr)
+library(ggplot2)
 library(DT)
 theme_set(theme_minimal(base_size = 24, base_family = "Atkinson Hyperlegible"))
 ```
