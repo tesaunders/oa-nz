@@ -3,6 +3,7 @@ library(purrr)
 library(tibble)
 library(dplyr)
 library(stringr)
+library(tidyr)
 
 # Define most current full year and publication years of interest
 
@@ -11,41 +12,54 @@ pub_years <- data.frame("years" = as.factor(2010:prev_year))
 
 # Define institutions and rors
 
-institutions <- data.frame(institution  = c("University of Auckland",
-                                            "Auckland University of Technology",
-                                            "University of Waikato",
-                                            "Massey University",
-                                            "Victoria University of Wellington",
-                                            "University of Canterbury",
-                                            "Lincoln University",
-                                            "University of Otago",
-                                            "University of Melbourne",
-                                            "Australian National University",
-                                            "University of Sydney",
-                                            "University of Queensland",
-                                            "University of Western Australia",
-                                            "University of Adelaide",
-                                            "Monash University",
-                                            "UNSW Sydney"),
-                           ror = c("https://ror.org/03b94tp07",
-                                   "https://ror.org/01zvqw119",
-                                   "https://ror.org/013fsnh78",
-                                   "https://ror.org/052czxv31",
-                                   "https://ror.org/0040r6f76",
-                                   "https://ror.org/03y7q9t39",
-                                   "https://ror.org/04ps1r162",
-                                   "https://ror.org/01jmxt844",
-                                   "https://ror.org/01ej9dk98",
-                                   "https://ror.org/019wvm592",
-                                   "https://ror.org/0384j8v12",
-                                   "https://ror.org/00rqy9422",
-                                   "https://ror.org/047272k79",
-                                   "https://ror.org/00892tw58",
-                                   "https://ror.org/02bfwt286",
-                                   "https://ror.org/03r8z3t63")
-                           )
+universities <- data.frame(institution = c("University of Auckland",
+                                           "Auckland University of Technology",
+                                           "University of Waikato",
+                                           "Massey University",
+                                           "Victoria University of Wellington",
+                                           "University of Canterbury",
+                                           "Lincoln University",
+                                           "University of Otago",
+                                           "University of Melbourne",
+                                           "Australian National University",
+                                           "University of Sydney",
+                                           "University of Queensland",
+                                           "University of Western Australia",
+                                           "University of Adelaide",
+                                           "Monash University",
+                                           "UNSW Sydney")
+                          )
 
-# Define query parameters
+# Retrieve institutional ROR IDs from OpenAlex by searching for each institution
+
+ror_query <- paste0("https://api.openalex.org/institutions?search=",
+                    '"',
+                    paste0(universities$institution, collapse = '" OR "'),
+                    '"',
+                    "&filter=country_code:nz|au",
+                    "&select=display_name,ror,country_code")
+
+ror_query <- str_replace_all(ror_query, " ", "%20")
+
+ror_query_resp <- fromJSON(ror_query)
+
+universities <- left_join(universities,
+                          unnest(ror_query_resp[["results"]]),
+                          by = join_by(institution == display_name))
+
+# Retrieve OpenAlex IDs from OpenAlex by matching ROR IDs
+
+id_query <- paste0("https://api.openalex.org/institutions?filter=ror:", 
+                     paste0(universities$ror, collapse = "|"),
+                     "&select=display_name,id")
+
+id_query_resp <- fromJSON(id_query)
+
+universities <- left_join(universities,
+                          unnest(id_query_resp[["results"]]),
+                          by = join_by(institution == display_name))
+
+# Prepare main query
 
 parameters <- paste(c(
   "is_paratext:false",
@@ -59,10 +73,10 @@ mail <- "&mailto=tom.saunders@auckland.ac.nz"
 
 # Get list of requests from all institution x year combinations
 
-ror_year <- do.call(paste0, (expand.grid(paste0(institutions$ror, ",", "publication_year:"), pub_years$years)))
+id_year <- do.call(paste0, (expand.grid(paste0(universities$id, ",", "publication_year:"), pub_years$years)))
 
-req <- paste0("https://api.openalex.org/works?filter=institutions.ror:",
-                 ror_year, 
+req <- paste0("https://api.openalex.org/works?filter=institutions.id:",
+                 id_year, 
                  ",", 
                  parameters,
                  group,
@@ -73,31 +87,29 @@ req <- paste0("https://api.openalex.org/works?filter=institutions.ror:",
 raw_response <- req |> 
   map(fromJSON)
 
-# Wrangle into data frame
+write_json(raw_response, "data/raw_response.json")
 
-flat <- enframe(unlist(raw_response))
-flat$value <- as.numeric(flat$value)
+raw_data <- raw_response |> 
+  map(pluck, "group_by") |> 
+  bind_rows()
 
-# Filter to relevant rows
+# Add relevant labels
 
-flat_clean <- flat |> 
-  filter(str_detect(flat$name, "group_by.count")) |> 
+oa_data <- raw_data |> 
   mutate(
-    institution = rep(institutions$institution, 
+    institution = rep(universities$institution, 
                       each = 6, times = nrow(pub_years)),
-    year = rep(c(2010:prev_year), each = length(institutions$institution)*6),
-    oa_type = rep(c("closed", "gold", "hybrid", "green", "bronze", "diamond"), 
-                  times = length(2010:prev_year)*length(institutions$institution)),
+    year = rep(c(2010:prev_year), each = length(universities$institution)*6),
     country = case_when(str_detect(institution, pattern = "Auc|Wai|Mas|Well|Can|Lin|Ota") ~ "nz",
                         .default = "au"),
   ) |> 
   group_by(institution, year) |> 
   mutate(
-    pc = (value / sum(value) * 100),
+    pc = (count / sum(count) * 100),
   ) |> 
-  select(year, institution, country, oa_type, value, pc)
+  select(year, institution, country, key, count, pc)
 
 # Combine and export data
 
-write.csv(flat_clean, "data/oa-data.csv",
+write.csv(oa_data, "data/oa-data.csv",
           row.names = FALSE)

@@ -65,7 +65,7 @@ Data includes all journal articles, books, and book chapters with an author affi
 
 total <- oa_data |> 
   mutate(
-    open = case_when(oa_type != "closed" ~ "open", .default = oa_type),
+    open = case_when(key != "closed" ~ "open", .default = key),
   ) |> 
   filter(open == "open") |> 
   group_by(year, country, institution) |> 
@@ -147,12 +147,12 @@ ggplot(trend_nz, aes(x = year, y = pc)) +
 
 type_nz <- oa_data |> 
   filter(country == "nz") |> 
-  group_by(year, oa_type) |> 
+  group_by(year, key) |> 
   summarise(
     pc = mean(pc),
   )
 
-ggplot(type_nz, aes(x = year, y = pc, colour = oa_type)) +
+ggplot(type_nz, aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -174,7 +174,7 @@ ggplot(type_nz, aes(x = year, y = pc, colour = oa_type)) +
 cat("title=", "OA rate by institution", "(", prev_year, ")")
   
 recent_nz <- oa_data |> 
-  filter(country == "nz", year == max(year), oa_type == "closed") |>
+  filter(country == "nz", year == max(year), key == "closed") |>
   summarise(
     institution = institution,
     percent = 100 - pc,
@@ -250,12 +250,12 @@ ggplot(trend_au, aes(x = year, y = pc)) +
 
 type_au <- oa_data |> 
   filter(country == "au") |> 
-  group_by(year, oa_type) |> 
+  group_by(year, key) |> 
   summarise(
     pc = mean(pc),
   )
 
-ggplot(type_au, aes(x = year, y = pc, colour = oa_type)) +
+ggplot(type_au, aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -277,7 +277,7 @@ ggplot(type_au, aes(x = year, y = pc, colour = oa_type)) +
 cat("title=", "OA rate by institution", "(", prev_year, ")")
   
 recent_au <- oa_data |> 
-  filter(country == "au", year == max(year), oa_type == "closed") |>
+  filter(country == "au", year == max(year), key == "closed") |>
   summarise(
     institution = institution,
     percent = 100 - pc,
@@ -352,7 +352,7 @@ ggplot(total, aes(x = year, y = pc)) +
 #| title: Institutional trend over time (NZ)
 
 unis_nz <- oa_data |>
-  filter(country == "nz", oa_type == "closed") |>
+  filter(country == "nz", key == "closed") |>
   summarise(
     institution = institution,
     year = year,
@@ -382,7 +382,7 @@ ggplot(unis_nz, aes(x = year, y = percent, colour = institution)) +
 #| title: Institutional trend over time (AU)
 
 unis_au <- oa_data |>
-  filter(country == "au", oa_type == "closed") |>
+  filter(country == "au", key == "closed") |>
   summarise(
     institution = institution,
     year = year,
@@ -417,7 +417,7 @@ ggplot(unis_au, aes(x = year, y = percent, colour = institution)) +
 
 oa_data |> 
   filter(institution == "University of Auckland") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -438,7 +438,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "Auckland University of Technology") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -459,7 +459,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "University of Waikato") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -480,7 +480,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "Massey University") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -501,7 +501,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "Auckland University of Technology") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -522,7 +522,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "University of Canterbury") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -543,7 +543,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "Lincoln University") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -564,7 +564,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "University of Otago") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -587,7 +587,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "University of Melbourne") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -608,7 +608,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "Australian National University") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -629,7 +629,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "University of Sydney") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -650,7 +650,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "University of Queensland") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -671,7 +671,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "University of Western Australia") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -692,7 +692,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "University of Adelaide") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -713,7 +713,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "Monash University") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
@@ -734,7 +734,7 @@ oa_data |>
 
 oa_data |> 
   filter(institution == "UNSW Sydney") |> 
-  ggplot(aes(x = year, y = pc, colour = oa_type)) +
+  ggplot(aes(x = year, y = pc, colour = key)) +
   geom_line(size = 1) +
   scale_colour_manual(name = "Access Type",
                       values = c("bronze" = "#A65628",
