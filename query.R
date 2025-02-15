@@ -1,6 +1,5 @@
 library(jsonlite)
 library(purrr)
-library(tibble)
 library(dplyr)
 library(stringr)
 library(tidyr)
@@ -8,7 +7,7 @@ library(tidyr)
 # Define most current full year and publication years of interest
 
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
-pub_years <- data.frame("years" = as.factor(2010:prev_year))
+pub_years <- data.frame("years" = as.factor(2015:prev_year))
 
 # Define institutions and rors
 
@@ -30,28 +29,16 @@ universities <- data.frame(institution = c("University of Auckland",
                                            "UNSW Sydney")
                           )
 
-# Retrieve institutional ROR IDs from OpenAlex by searching for each institution
+# Retrieve OpenAlex IDs 
 
-ror_query <- paste0("https://api.openalex.org/institutions?search=",
-                    '"',
-                    paste0(universities$institution, collapse = '" OR "'),
-                    '"',
-                    "&filter=country_code:nz|au",
-                    "&select=display_name,ror,country_code")
+id_query <- paste0("https://api.openalex.org/institutions?search=",
+                   '"',
+                   paste0(universities$institution, collapse = '" OR "'),
+                   '"',
+                   "&filter=country_code:nz|au",
+                   "&select=display_name,id,country_code")
 
-ror_query <- str_replace_all(ror_query, " ", "%20")
-
-ror_query_resp <- fromJSON(ror_query)
-
-universities <- left_join(universities,
-                          unnest(ror_query_resp[["results"]]),
-                          by = join_by(institution == display_name))
-
-# Retrieve OpenAlex IDs from OpenAlex by matching ROR IDs
-
-id_query <- paste0("https://api.openalex.org/institutions?filter=ror:", 
-                     paste0(universities$ror, collapse = "|"),
-                     "&select=display_name,id")
+id_query <- str_replace_all(id_query, " ", "%20")
 
 id_query_resp <- fromJSON(id_query)
 
@@ -61,13 +48,7 @@ universities <- left_join(universities,
 
 # Prepare main query
 
-parameters <- paste(c(
-  "is_paratext:false",
-  "type:article|book|book-chapter",
-  "is_retracted:false"),
-  collapse = ",")
-
-group <- "&group_by=oa_status"
+group <- "&group_by=open_access.oa_status"
 
 mail <- "&mailto=tom.saunders@auckland.ac.nz"
 
@@ -75,10 +56,10 @@ mail <- "&mailto=tom.saunders@auckland.ac.nz"
 
 id_year <- do.call(paste0, (expand.grid(paste0(universities$id, ",", "publication_year:"), pub_years$years)))
 
-req <- paste0("https://api.openalex.org/works?filter=institutions.id:",
+req <- paste0("https://api.openalex.org/works?filter=authorships.institutions.lineage:",
                  id_year, 
                  ",", 
-                 parameters,
+                 "type:article|book|book-chapter,is_retracted:false",
                  group,
                  mail)
 
@@ -99,7 +80,7 @@ oa_data <- raw_data |>
   mutate(
     institution = rep(universities$institution, 
                       each = 6, times = nrow(pub_years)),
-    year = rep(c(2010:prev_year), each = length(universities$institution)*6),
+    year = rep(pub_years$years, each = length(universities$institution)*6),
     country = case_when(str_detect(institution, pattern = "Auc|Wai|Mas|Well|Can|Lin|Ota") ~ "nz",
                         .default = "au"),
   ) |> 
