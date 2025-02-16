@@ -1,15 +1,15 @@
 library(jsonlite)
-library(purrr)
 library(dplyr)
-library(stringr)
 library(tidyr)
+library(stringr)
+library(purrr)
 
-# Define most current full year and publication years of interest
+# Define publication years of interest
 
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
-pub_years <- data.frame("years" = as.factor(2015:prev_year))
+pub_years <- 2015:prev_year
 
-# Define institutions and rors
+# Define institutions
 
 universities <- data.frame(institution = c("University of Auckland",
                                            "Auckland University of Technology",
@@ -52,9 +52,7 @@ group <- "&group_by=open_access.oa_status"
 
 mail <- "&mailto=tom.saunders@auckland.ac.nz"
 
-# Get list of requests from all institution x year combinations
-
-id_year <- do.call(paste0, (expand.grid(paste0(universities$id, ",", "publication_year:"), pub_years$years)))
+id_year <- do.call(paste0, (expand.grid(paste0(universities$id, ",", "publication_year:"), pub_years)))
 
 req <- paste0("https://api.openalex.org/works?filter=authorships.institutions.lineage:",
                  id_year, 
@@ -74,13 +72,12 @@ raw_data <- raw_response |>
   map(pluck, "group_by") |> 
   bind_rows()
 
-# Add relevant labels
+# Add relevant labels and calculate percentages
 
 oa_data <- raw_data |> 
   mutate(
-    institution = rep(universities$institution, 
-                      each = 6, times = nrow(pub_years)),
-    year = rep(pub_years$years, each = length(universities$institution)*6),
+    institution = rep(universities$institution, each = 6, times = length(pub_years)),
+    year = rep(pub_years, each = length(universities$institution)*6),
     country = case_when(str_detect(institution, pattern = "Auc|Wai|Mas|Well|Can|Lin|Ota") ~ "nz",
                         .default = "au"),
   ) |> 
