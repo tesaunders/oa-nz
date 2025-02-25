@@ -1,961 +1,961 @@
 "year","institution","country","key","count","pc"
-"2015","University of Auckland","nz","closed",2764,63.9075144508671
-"2015","University of Auckland","nz","bronze",494,11.4219653179191
-"2015","University of Auckland","nz","gold",459,10.6127167630058
-"2015","University of Auckland","nz","green",410,9.47976878612717
-"2015","University of Auckland","nz","hybrid",125,2.89017341040462
-"2015","University of Auckland","nz","diamond",73,1.6878612716763
-"2015","Auckland University of Technology","nz","closed",690,64.6672914714152
-"2015","Auckland University of Technology","nz","green",135,12.6522961574508
-"2015","Auckland University of Technology","nz","gold",110,10.3092783505155
-"2015","Auckland University of Technology","nz","bronze",79,7.40393626991565
-"2015","Auckland University of Technology","nz","hybrid",27,2.53045923149016
-"2015","Auckland University of Technology","nz","diamond",26,2.43673851921275
-"2015","University of Waikato","nz","closed",627,60.1150527325024
-"2015","University of Waikato","nz","green",184,17.6414189837009
-"2015","University of Waikato","nz","bronze",85,8.14956855225311
-"2015","University of Waikato","nz","gold",63,6.04026845637584
-"2015","University of Waikato","nz","diamond",53,5.08149568552253
-"2015","University of Waikato","nz","hybrid",31,2.97219558964525
-"2015","Massey University","nz","closed",1051,63.81299332119
-"2015","Massey University","nz","bronze",176,10.6860959319976
-"2015","Massey University","nz","green",166,10.0789313904068
-"2015","Massey University","nz","gold",165,10.0182149362477
-"2015","Massey University","nz","hybrid",62,3.76442015786278
-"2015","Massey University","nz","diamond",27,1.63934426229508
-"2015","Victoria University of Wellington","nz","closed",1240,66.3101604278075
-"2015","Victoria University of Wellington","nz","green",208,11.1229946524064
-"2015","Victoria University of Wellington","nz","bronze",206,11.0160427807487
-"2015","Victoria University of Wellington","nz","gold",135,7.2192513368984
-"2015","Victoria University of Wellington","nz","hybrid",53,2.83422459893048
-"2015","Victoria University of Wellington","nz","diamond",28,1.49732620320856
-"2015","University of Canterbury","nz","closed",860,61.2972202423378
-"2015","University of Canterbury","nz","green",180,12.8296507483963
-"2015","University of Canterbury","nz","bronze",144,10.263720598717
-"2015","University of Canterbury","nz","gold",138,9.83606557377049
-"2015","University of Canterbury","nz","hybrid",54,3.84889522451889
-"2015","University of Canterbury","nz","diamond",27,1.92444761225944
-"2015","Lincoln University","nz","closed",194,55.5873925501433
-"2015","Lincoln University","nz","bronze",55,15.7593123209169
-"2015","Lincoln University","nz","gold",48,13.7535816618911
-"2015","Lincoln University","nz","green",32,9.16905444126074
-"2015","Lincoln University","nz","hybrid",16,4.58452722063037
-"2015","Lincoln University","nz","diamond",4,1.14613180515759
-"2015","University of Otago","nz","closed",1727,59.6545768566494
-"2015","University of Otago","nz","bronze",435,15.0259067357513
-"2015","University of Otago","nz","gold",364,12.573402417962
-"2015","University of Otago","nz","green",206,7.11571675302245
-"2015","University of Otago","nz","hybrid",115,3.97236614853195
-"2015","University of Otago","nz","diamond",48,1.6580310880829
-"2015","University of Melbourne","au","closed",5271,54.3570176343199
-"2015","University of Melbourne","au","bronze",1477,15.2315149015159
-"2015","University of Melbourne","au","gold",1233,12.7152727647726
-"2015","University of Melbourne","au","green",1127,11.6221511807776
-"2015","University of Melbourne","au","hybrid",458,4.7231102402805
-"2015","University of Melbourne","au","diamond",131,1.35093327833351
-"2015","Australian National University","au","closed",2941,54.9411544928078
-"2015","Australian National University","au","bronze",830,15.5053241173174
-"2015","Australian National University","au","green",765,14.2910517466841
-"2015","Australian National University","au","gold",514,9.60209228470017
-"2015","Australian National University","au","hybrid",200,3.73622267887166
-"2015","Australian National University","au","diamond",103,1.92415467961891
-"2015","University of Sydney","au","closed",5631,58.1774976753797
-"2015","University of Sydney","au","bronze",1463,15.1151978510177
-"2015","University of Sydney","au","gold",1116,11.5301167475979
-"2015","University of Sydney","au","green",889,9.18483314391983
-"2015","University of Sydney","au","hybrid",406,4.19464820745945
-"2015","University of Sydney","au","diamond",174,1.79770637462548
-"2015","University of Queensland","au","closed",5475,60.5172985520062
-"2015","University of Queensland","au","gold",1120,12.3797944069857
-"2015","University of Queensland","au","bronze",1101,12.1697800375815
-"2015","University of Queensland","au","green",919,10.1580634464463
-"2015","University of Queensland","au","hybrid",357,3.9460594672267
-"2015","University of Queensland","au","diamond",75,0.829004089753509
-"2015","University of Western Australia","au","closed",2493,51.2962962962963
-"2015","University of Western Australia","au","bronze",790,16.2551440329218
-"2015","University of Western Australia","au","green",672,13.8271604938272
-"2015","University of Western Australia","au","gold",611,12.5720164609053
-"2015","University of Western Australia","au","hybrid",224,4.60905349794239
-"2015","University of Western Australia","au","diamond",70,1.440329218107
-"2015","University of Adelaide","au","closed",2750,60.4262799384751
-"2015","University of Adelaide","au","bronze",645,14.1727092946605
-"2015","University of Adelaide","au","gold",464,10.1955614150736
-"2015","University of Adelaide","au","green",435,9.55833882663151
-"2015","University of Adelaide","au","hybrid",185,4.0650406504065
-"2015","University of Adelaide","au","diamond",72,1.5820698747528
-"2015","Monash University","au","closed",4869,59.8819333415324
-"2015","Monash University","au","bronze",1169,14.3770753904809
-"2015","Monash University","au","gold",870,10.6997909236256
-"2015","Monash University","au","green",805,9.90038125691797
-"2015","Monash University","au","hybrid",321,3.94785389251015
-"2015","Monash University","au","diamond",97,1.19296519493297
-"2015","UNSW Sydney","au","closed",5483,62.6199177706715
-"2015","UNSW Sydney","au","bronze",1005,11.4778437642759
-"2015","UNSW Sydney","au","green",941,10.7469164001827
-"2015","UNSW Sydney","au","gold",899,10.2672453174966
-"2015","UNSW Sydney","au","hybrid",317,3.6203746002741
-"2015","UNSW Sydney","au","diamond",111,1.26770214709913
-"2016","University of Auckland","nz","closed",2828,59.8645215918713
-"2016","University of Auckland","nz","bronze",578,12.2353937341236
-"2016","University of Auckland","nz","green",541,11.4521591871296
-"2016","University of Auckland","nz","gold",518,10.965283657917
-"2016","University of Auckland","nz","hybrid",184,3.89500423370025
-"2016","University of Auckland","nz","diamond",75,1.58763759525826
-"2016","Auckland University of Technology","nz","closed",798,66.3893510815308
-"2016","Auckland University of Technology","nz","green",164,13.6439267886855
-"2016","Auckland University of Technology","nz","gold",103,8.56905158069883
-"2016","Auckland University of Technology","nz","bronze",80,6.65557404326123
-"2016","Auckland University of Technology","nz","hybrid",37,3.07820299500832
-"2016","Auckland University of Technology","nz","diamond",20,1.66389351081531
-"2016","University of Waikato","nz","closed",597,55.1246537396122
-"2016","University of Waikato","nz","green",223,20.5909510618652
-"2016","University of Waikato","nz","bronze",94,8.67959372114497
-"2016","University of Waikato","nz","gold",74,6.83287165281625
-"2016","University of Waikato","nz","diamond",50,4.61680517082179
-"2016","University of Waikato","nz","hybrid",45,4.15512465373961
-"2016","Massey University","nz","closed",1206,65.0485436893204
-"2016","Massey University","nz","gold",193,10.4099244875944
-"2016","Massey University","nz","bronze",170,9.16936353829558
-"2016","Massey University","nz","green",168,9.06148867313916
-"2016","Massey University","nz","hybrid",91,4.90830636461704
-"2016","Massey University","nz","diamond",26,1.40237324703344
-"2016","Victoria University of Wellington","nz","closed",1288,66.1870503597122
-"2016","Victoria University of Wellington","nz","green",280,14.3884892086331
-"2016","Victoria University of Wellington","nz","bronze",190,9.76361767728674
-"2016","Victoria University of Wellington","nz","gold",103,5.2929085303186
-"2016","Victoria University of Wellington","nz","hybrid",56,2.87769784172662
-"2016","Victoria University of Wellington","nz","diamond",29,1.49023638232271
-"2016","University of Canterbury","nz","closed",862,60.7042253521127
-"2016","University of Canterbury","nz","green",188,13.2394366197183
-"2016","University of Canterbury","nz","bronze",149,10.4929577464789
-"2016","University of Canterbury","nz","gold",123,8.66197183098592
-"2016","University of Canterbury","nz","hybrid",76,5.35211267605634
-"2016","University of Canterbury","nz","diamond",22,1.54929577464789
-"2016","Lincoln University","nz","closed",241,57.2446555819477
-"2016","Lincoln University","nz","bronze",59,14.0142517814727
-"2016","Lincoln University","nz","gold",54,12.8266033254157
-"2016","Lincoln University","nz","hybrid",39,9.26365795724466
-"2016","Lincoln University","nz","green",25,5.93824228028503
-"2016","Lincoln University","nz","diamond",3,0.712589073634204
-"2016","University of Otago","nz","closed",1729,58.4516565246788
-"2016","University of Otago","nz","bronze",430,14.5368492224476
-"2016","University of Otago","nz","gold",374,12.6436781609195
-"2016","University of Otago","nz","green",245,8.28262339418526
-"2016","University of Otago","nz","hybrid",119,4.02298850574713
-"2016","University of Otago","nz","diamond",61,2.06220419202164
-"2016","University of Melbourne","au","closed",5030,49.5127473176494
-"2016","University of Melbourne","au","green",1582,15.5723988581553
-"2016","University of Melbourne","au","bronze",1464,14.4108672113397
-"2016","University of Melbourne","au","gold",1371,13.4954227778325
-"2016","University of Melbourne","au","hybrid",520,5.11861403681465
-"2016","University of Melbourne","au","diamond",192,1.88994979820849
-"2016","Australian National University","au","closed",2808,51.2689428519262
-"2016","Australian National University","au","green",951,17.3635201752784
-"2016","Australian National University","au","bronze",857,15.647252145335
-"2016","Australian National University","au","gold",523,9.54902318787657
-"2016","Australian National University","au","hybrid",228,4.16286288113931
-"2016","Australian National University","au","diamond",110,2.0083987584444
-"2016","University of Sydney","au","closed",5735,56.2199784334869
-"2016","University of Sydney","au","bronze",1473,14.4397608077639
-"2016","University of Sydney","au","gold",1263,12.3811391040094
-"2016","University of Sydney","au","green",1126,11.0381335163219
-"2016","University of Sydney","au","hybrid",435,4.26428781492011
-"2016","University of Sydney","au","diamond",169,1.6567003234977
-"2016","University of Queensland","au","closed",5326,57.9290841853383
-"2016","University of Queensland","au","gold",1207,13.1281270393735
-"2016","University of Queensland","au","green",1109,12.0622144877094
-"2016","University of Queensland","au","bronze",1091,11.8664346312813
-"2016","University of Queensland","au","hybrid",344,3.7415705895149
-"2016","University of Queensland","au","diamond",117,1.27256906678268
-"2016","University of Western Australia","au","closed",2517,47.815349544073
-"2016","University of Western Australia","au","bronze",838,15.919452887538
-"2016","University of Western Australia","au","green",834,15.8434650455927
-"2016","University of Western Australia","au","gold",732,13.9057750759878
-"2016","University of Western Australia","au","hybrid",244,4.63525835866261
-"2016","University of Western Australia","au","diamond",99,1.8806990881459
-"2016","University of Adelaide","au","closed",2723,58.2335329341317
-"2016","University of Adelaide","au","bronze",606,12.9597946963216
-"2016","University of Adelaide","au","green",521,11.142001710864
-"2016","University of Adelaide","au","gold",500,10.6928999144568
-"2016","University of Adelaide","au","hybrid",215,4.59794696321642
-"2016","University of Adelaide","au","diamond",111,2.37382378100941
-"2016","Monash University","au","closed",4798,56.7139479905437
-"2016","Monash University","au","bronze",1176,13.9007092198582
-"2016","Monash University","au","green",1053,12.4468085106383
-"2016","Monash University","au","gold",987,11.6666666666667
-"2016","Monash University","au","hybrid",321,3.79432624113475
-"2016","Monash University","au","diamond",125,1.47754137115839
-"2016","UNSW Sydney","au","closed",5427,60.4881854658939
-"2016","UNSW Sydney","au","green",1143,12.7396344181899
-"2016","UNSW Sydney","au","bronze",977,10.8894337940259
-"2016","UNSW Sydney","au","gold",968,10.7891217119929
-"2016","UNSW Sydney","au","hybrid",357,3.979045920642
-"2016","UNSW Sydney","au","diamond",100,1.11457868925546
-"2017","University of Auckland","nz","closed",2659,57.1091065292096
-"2017","University of Auckland","nz","gold",591,12.6932989690722
-"2017","University of Auckland","nz","green",590,12.6718213058419
-"2017","University of Auckland","nz","bronze",538,11.5549828178694
-"2017","University of Auckland","nz","hybrid",208,4.46735395189003
-"2017","University of Auckland","nz","diamond",70,1.50343642611684
-"2017","Auckland University of Technology","nz","closed",828,61.2879348630644
-"2017","Auckland University of Technology","nz","green",187,13.8415988156921
-"2017","Auckland University of Technology","nz","gold",159,11.7690599555885
-"2017","Auckland University of Technology","nz","bronze",91,6.73575129533679
-"2017","Auckland University of Technology","nz","hybrid",50,3.70096225018505
-"2017","Auckland University of Technology","nz","diamond",36,2.66469282013323
-"2017","University of Waikato","nz","closed",1341,70.2462022001048
-"2017","University of Waikato","nz","green",241,12.6244106862232
-"2017","University of Waikato","nz","gold",109,5.70979570455736
-"2017","University of Waikato","nz","bronze",92,4.81927710843374
-"2017","University of Waikato","nz","hybrid",64,3.35254059717129
-"2017","University of Waikato","nz","diamond",62,3.24777370350969
-"2017","Massey University","nz","closed",1242,61.6683217477656
-"2017","Massey University","nz","gold",257,12.7606752730884
-"2017","Massey University","nz","bronze",191,9.48361469712016
-"2017","Massey University","nz","green",191,9.48361469712016
-"2017","Massey University","nz","hybrid",94,4.66732869910626
-"2017","Massey University","nz","diamond",39,1.9364448857994
-"2017","Victoria University of Wellington","nz","closed",1342,62.7983153954141
-"2017","Victoria University of Wellington","nz","green",300,14.0383715489003
-"2017","Victoria University of Wellington","nz","bronze",204,9.54609265325222
-"2017","Victoria University of Wellington","nz","gold",172,8.04866635470285
-"2017","Victoria University of Wellington","nz","hybrid",77,3.60318203088442
-"2017","Victoria University of Wellington","nz","diamond",42,1.96537201684605
-"2017","University of Canterbury","nz","closed",849,56.1507936507937
-"2017","University of Canterbury","nz","green",213,14.0873015873016
-"2017","University of Canterbury","nz","gold",186,12.3015873015873
-"2017","University of Canterbury","nz","bronze",136,8.99470899470899
-"2017","University of Canterbury","nz","hybrid",95,6.28306878306878
-"2017","University of Canterbury","nz","diamond",33,2.18253968253968
-"2017","Lincoln University","nz","closed",258,57.9775280898876
-"2017","Lincoln University","nz","gold",62,13.9325842696629
-"2017","Lincoln University","nz","bronze",49,11.0112359550562
-"2017","Lincoln University","nz","hybrid",34,7.64044943820225
-"2017","Lincoln University","nz","green",31,6.96629213483146
-"2017","Lincoln University","nz","diamond",11,2.47191011235955
-"2017","University of Otago","nz","closed",1771,55.656819610308
-"2017","University of Otago","nz","gold",496,15.5876807039598
-"2017","University of Otago","nz","bronze",386,12.1307353865493
-"2017","University of Otago","nz","green",312,9.8051539912005
-"2017","University of Otago","nz","hybrid",155,4.87115021998743
-"2017","University of Otago","nz","diamond",62,1.94846008799497
-"2017","University of Melbourne","au","closed",5177,47.6352594773647
-"2017","University of Melbourne","au","green",1789,16.4611704085388
-"2017","University of Melbourne","au","gold",1597,14.6945160103055
-"2017","University of Melbourne","au","bronze",1573,14.4736842105263
-"2017","University of Melbourne","au","hybrid",520,4.78468899521531
-"2017","University of Melbourne","au","diamond",212,1.95068089804932
-"2017","Australian National University","au","closed",2604,47.0290771175727
-"2017","Australian National University","au","green",1067,19.2703630124616
-"2017","Australian National University","au","bronze",922,16.6516163987719
-"2017","Australian National University","au","gold",569,10.276322918548
-"2017","Australian National University","au","hybrid",269,4.85822647643128
-"2017","Australian National University","au","diamond",106,1.91439407621456
-"2017","University of Sydney","au","closed",5704,53.189108541589
-"2017","University of Sydney","au","bronze",1524,14.2111152555017
-"2017","University of Sydney","au","gold",1495,13.940693770981
-"2017","University of Sydney","au","green",1373,12.8030585602387
-"2017","University of Sydney","au","hybrid",435,4.05632226781052
-"2017","University of Sydney","au","diamond",193,1.79970160387915
-"2017","University of Queensland","au","closed",5225,56.3342318059299
-"2017","University of Queensland","au","gold",1429,15.4070080862534
-"2017","University of Queensland","au","bronze",1075,11.5902964959569
-"2017","University of Queensland","au","green",1072,11.5579514824798
-"2017","University of Queensland","au","hybrid",344,3.7088948787062
-"2017","University of Queensland","au","diamond",130,1.40161725067385
-"2017","University of Western Australia","au","closed",2544,47.9457218243498
-"2017","University of Western Australia","au","green",881,16.6038447041086
-"2017","University of Western Australia","au","bronze",785,14.794572182435
-"2017","University of Western Australia","au","gold",785,14.794572182435
-"2017","University of Western Australia","au","hybrid",231,4.35356200527704
-"2017","University of Western Australia","au","diamond",80,1.50772710139465
-"2017","University of Adelaide","au","closed",2529,54.9424288507495
-"2017","University of Adelaide","au","bronze",615,13.3608516185097
-"2017","University of Adelaide","au","gold",613,13.317401694547
-"2017","University of Adelaide","au","green",546,11.8618292417988
-"2017","University of Adelaide","au","hybrid",204,4.43189224418857
-"2017","University of Adelaide","au","diamond",96,2.08559635020639
-"2017","Monash University","au","closed",5343,54.9465240641711
-"2017","Monash University","au","bronze",1429,14.6955985191279
-"2017","Monash University","au","green",1247,12.8239407651172
-"2017","Monash University","au","gold",1197,12.309749074455
-"2017","Monash University","au","hybrid",364,3.74331550802139
-"2017","Monash University","au","diamond",144,1.48087206910736
-"2017","UNSW Sydney","au","closed",5456,57.5466722919523
-"2017","UNSW Sydney","au","green",1378,14.5343318215378
-"2017","UNSW Sydney","au","gold",1202,12.6779875540555
-"2017","UNSW Sydney","au","bronze",972,10.2520831135956
-"2017","UNSW Sydney","au","hybrid",345,3.6388566606898
-"2017","UNSW Sydney","au","diamond",128,1.35006855816897
-"2018","University of Auckland","nz","closed",2787,56.4741641337386
-"2018","University of Auckland","nz","gold",673,13.6372847011145
-"2018","University of Auckland","nz","green",612,12.4012158054711
-"2018","University of Auckland","nz","bronze",564,11.4285714285714
-"2018","University of Auckland","nz","hybrid",204,4.13373860182371
-"2018","University of Auckland","nz","diamond",95,1.92502532928065
-"2018","Auckland University of Technology","nz","closed",824,60.9467455621302
-"2018","Auckland University of Technology","nz","gold",180,13.3136094674556
-"2018","Auckland University of Technology","nz","green",151,11.1686390532544
-"2018","Auckland University of Technology","nz","bronze",108,7.98816568047337
-"2018","Auckland University of Technology","nz","hybrid",49,3.62426035502959
-"2018","Auckland University of Technology","nz","diamond",40,2.9585798816568
-"2018","University of Waikato","nz","closed",653,56.9311246730602
-"2018","University of Waikato","nz","green",231,20.1394943330427
-"2018","University of Waikato","nz","gold",106,9.24149956408021
-"2018","University of Waikato","nz","bronze",78,6.80034873583261
-"2018","University of Waikato","nz","hybrid",49,4.2720139494333
-"2018","University of Waikato","nz","diamond",30,2.615518744551
-"2018","Massey University","nz","closed",1102,57.7568134171908
-"2018","Massey University","nz","gold",279,14.622641509434
-"2018","Massey University","nz","green",203,10.6394129979036
-"2018","Massey University","nz","bronze",189,9.90566037735849
-"2018","Massey University","nz","hybrid",83,4.35010482180294
-"2018","Massey University","nz","diamond",52,2.72536687631027
-"2018","Victoria University of Wellington","nz","closed",1249,59.6751075011945
-"2018","Victoria University of Wellington","nz","green",349,16.674629718108
-"2018","Victoria University of Wellington","nz","gold",188,8.98232202580029
-"2018","Victoria University of Wellington","nz","bronze",172,8.21786908743431
-"2018","Victoria University of Wellington","nz","hybrid",78,3.72670807453416
-"2018","Victoria University of Wellington","nz","diamond",57,2.72336359292881
-"2018","University of Canterbury","nz","closed",924,57.4984443061605
-"2018","University of Canterbury","nz","green",222,13.8145612943373
-"2018","University of Canterbury","nz","gold",209,13.005600497822
-"2018","University of Canterbury","nz","bronze",154,9.58307405102676
-"2018","University of Canterbury","nz","hybrid",59,3.67143746110765
-"2018","University of Canterbury","nz","diamond",39,2.42688238954574
-"2018","Lincoln University","nz","closed",275,59.5238095238095
-"2018","Lincoln University","nz","gold",68,14.7186147186147
-"2018","Lincoln University","nz","bronze",44,9.52380952380952
-"2018","Lincoln University","nz","green",39,8.44155844155844
-"2018","Lincoln University","nz","hybrid",27,5.84415584415584
-"2018","Lincoln University","nz","diamond",9,1.94805194805195
-"2018","University of Otago","nz","closed",1730,53.8940809968847
-"2018","University of Otago","nz","gold",548,17.0716510903427
-"2018","University of Otago","nz","bronze",427,13.3021806853583
-"2018","University of Otago","nz","green",315,9.81308411214953
-"2018","University of Otago","nz","hybrid",123,3.83177570093458
-"2018","University of Otago","nz","diamond",67,2.08722741433022
-"2018","University of Melbourne","au","closed",5310,46.4282591588703
-"2018","University of Melbourne","au","green",1839,16.0793914488065
-"2018","University of Melbourne","au","gold",1834,16.0356736906531
-"2018","University of Melbourne","au","bronze",1571,13.7361196117863
-"2018","University of Melbourne","au","hybrid",670,5.85817959255049
-"2018","University of Melbourne","au","diamond",213,1.86237649733322
-"2018","Australian National University","au","closed",2653,48.0354879594423
-"2018","Australian National University","au","green",1085,19.6451204055767
-"2018","Australian National University","au","bronze",826,14.9556400506971
-"2018","Australian National University","au","gold",593,10.7369183414811
-"2018","Australian National University","au","hybrid",245,4.43599493029151
-"2018","Australian National University","au","diamond",121,2.19083831251132
-"2018","University of Sydney","au","closed",5846,52.2197409557838
-"2018","University of Sydney","au","bronze",1681,15.0156319785619
-"2018","University of Sydney","au","gold",1662,14.845913354176
-"2018","University of Sydney","au","green",1333,11.9071013845467
-"2018","University of Sydney","au","hybrid",503,4.49307726663689
-"2018","University of Sydney","au","diamond",170,1.51853506029477
-"2018","University of Queensland","au","closed",5176,53.5208354875401
-"2018","University of Queensland","au","gold",1545,15.9755971461069
-"2018","University of Queensland","au","bronze",1207,12.4806121393858
-"2018","University of Queensland","au","green",1138,11.767138868783
-"2018","University of Queensland","au","hybrid",433,4.47730327784097
-"2018","University of Queensland","au","diamond",172,1.77851308034329
-"2018","University of Western Australia","au","closed",2650,48.1993452164423
-"2018","University of Western Australia","au","green",871,15.842124408876
-"2018","University of Western Australia","au","gold",851,15.478355765733
-"2018","University of Western Australia","au","bronze",784,14.2597308112041
-"2018","University of Western Australia","au","hybrid",254,4.61986176791561
-"2018","University of Western Australia","au","diamond",88,1.60058202982903
-"2018","University of Adelaide","au","closed",2568,53.8364779874214
-"2018","University of Adelaide","au","gold",709,14.8637316561845
-"2018","University of Adelaide","au","bronze",639,13.3962264150943
-"2018","University of Adelaide","au","green",533,11.1740041928721
-"2018","University of Adelaide","au","hybrid",210,4.40251572327044
-"2018","University of Adelaide","au","diamond",111,2.32704402515723
-"2018","Monash University","au","closed",5162,51.7234468937876
-"2018","Monash University","au","green",1436,14.3887775551102
-"2018","Monash University","au","bronze",1418,14.2084168336673
-"2018","Monash University","au","gold",1369,13.7174348697395
-"2018","Monash University","au","hybrid",443,4.43887775551102
-"2018","Monash University","au","diamond",152,1.52304609218437
-"2018","UNSW Sydney","au","closed",5176,53.114417650077
-"2018","UNSW Sydney","au","green",1496,15.351462288353
-"2018","UNSW Sydney","au","gold",1357,13.9250897896357
-"2018","UNSW Sydney","au","bronze",1150,11.8009235505387
-"2018","UNSW Sydney","au","hybrid",402,4.12519240636224
-"2018","UNSW Sydney","au","diamond",164,1.68291431503335
-"2019","University of Auckland","nz","closed",3083,56.8504517794579
-"2019","University of Auckland","nz","gold",837,15.4342614788862
-"2019","University of Auckland","nz","green",600,11.0639867232159
-"2019","University of Auckland","nz","bronze",498,9.18310898026922
-"2019","University of Auckland","nz","hybrid",283,5.21851373778351
-"2019","University of Auckland","nz","diamond",122,2.24967730038724
-"2019","Auckland University of Technology","nz","closed",819,57.5949367088608
-"2019","Auckland University of Technology","nz","gold",233,16.3853727144866
-"2019","Auckland University of Technology","nz","green",166,11.6736990154712
-"2019","Auckland University of Technology","nz","bronze",87,6.11814345991561
-"2019","Auckland University of Technology","nz","hybrid",66,4.64135021097046
-"2019","Auckland University of Technology","nz","diamond",51,3.58649789029536
-"2019","University of Waikato","nz","closed",682,57.2147651006711
-"2019","University of Waikato","nz","green",212,17.7852348993289
-"2019","University of Waikato","nz","gold",140,11.744966442953
-"2019","University of Waikato","nz","bronze",74,6.20805369127517
-"2019","University of Waikato","nz","hybrid",47,3.94295302013423
-"2019","University of Waikato","nz","diamond",37,3.10402684563758
-"2019","Massey University","nz","closed",1094,54.809619238477
-"2019","Massey University","nz","gold",364,18.2364729458918
-"2019","Massey University","nz","green",194,9.71943887775551
-"2019","Massey University","nz","bronze",160,8.01603206412826
-"2019","Massey University","nz","hybrid",133,6.66332665330661
-"2019","Massey University","nz","diamond",51,2.55511022044088
-"2019","Victoria University of Wellington","nz","closed",1187,55.4154995331466
-"2019","Victoria University of Wellington","nz","green",393,18.3473389355742
-"2019","Victoria University of Wellington","nz","gold",236,11.0177404295051
-"2019","Victoria University of Wellington","nz","bronze",200,9.33706816059757
-"2019","Victoria University of Wellington","nz","hybrid",67,3.12791783380019
-"2019","Victoria University of Wellington","nz","diamond",59,2.75443510737628
-"2019","University of Canterbury","nz","closed",891,55.2386856788593
-"2019","University of Canterbury","nz","gold",241,14.941103533788
-"2019","University of Canterbury","nz","green",232,14.3831370117793
-"2019","University of Canterbury","nz","bronze",124,7.68753874767514
-"2019","University of Canterbury","nz","hybrid",87,5.39367637941724
-"2019","University of Canterbury","nz","diamond",38,2.35585864848109
-"2019","Lincoln University","nz","closed",290,59.7938144329897
-"2019","Lincoln University","nz","gold",104,21.4432989690722
-"2019","Lincoln University","nz","bronze",35,7.21649484536082
-"2019","Lincoln University","nz","hybrid",25,5.15463917525773
-"2019","Lincoln University","nz","green",24,4.94845360824742
-"2019","Lincoln University","nz","diamond",7,1.44329896907216
-"2019","University of Otago","nz","closed",1795,53.0908015380065
-"2019","University of Otago","nz","gold",627,18.544809228039
-"2019","University of Otago","nz","bronze",363,10.7364685004437
-"2019","University of Otago","nz","green",313,9.25761608991423
-"2019","University of Otago","nz","hybrid",208,6.15202602780243
-"2019","University of Otago","nz","diamond",75,2.21827861579414
-"2019","University of Melbourne","au","closed",5632,44.9840255591054
-"2019","University of Melbourne","au","gold",2247,17.9472843450479
-"2019","University of Melbourne","au","green",2032,16.2300319488818
-"2019","University of Melbourne","au","bronze",1648,13.1629392971246
-"2019","University of Melbourne","au","hybrid",740,5.91054313099042
-"2019","University of Melbourne","au","diamond",221,1.76517571884984
-"2019","Australian National University","au","closed",2663,46.6211484593838
-"2019","Australian National University","au","green",1105,19.3452380952381
-"2019","Australian National University","au","bronze",812,14.2156862745098
-"2019","Australian National University","au","gold",683,11.9572829131653
-"2019","Australian National University","au","hybrid",334,5.84733893557423
-"2019","Australian National University","au","diamond",115,2.01330532212885
-"2019","University of Sydney","au","closed",6560,52.6611543710364
-"2019","University of Sydney","au","gold",2078,16.6813839608252
-"2019","University of Sydney","au","bronze",1565,12.5632174680902
-"2019","University of Sydney","au","green",1494,11.9932568034037
-"2019","University of Sydney","au","hybrid",575,4.61587862246127
-"2019","University of Sydney","au","diamond",185,1.48510877418319
-"2019","University of Queensland","au","closed",5403,53.8791384124452
-"2019","University of Queensland","au","gold",1718,17.1320303151177
-"2019","University of Queensland","au","green",1183,11.7969684882329
-"2019","University of Queensland","au","bronze",1074,10.7100119664938
-"2019","University of Queensland","au","hybrid",475,4.73673713601915
-"2019","University of Queensland","au","diamond",175,1.74511368169126
-"2019","University of Western Australia","au","closed",2776,48.7787735020207
-"2019","University of Western Australia","au","gold",941,16.5348796345106
-"2019","University of Western Australia","au","green",859,15.094008082938
-"2019","University of Western Australia","au","bronze",754,13.2489896327535
-"2019","University of Western Australia","au","hybrid",282,4.95519240906695
-"2019","University of Western Australia","au","diamond",79,1.38815673871024
-"2019","University of Adelaide","au","closed",2752,53.7920250195465
-"2019","University of Adelaide","au","gold",805,15.7349491790461
-"2019","University of Adelaide","au","green",625,12.21657544957
-"2019","University of Adelaide","au","bronze",556,10.8678655199375
-"2019","University of Adelaide","au","hybrid",268,5.23846755277561
-"2019","University of Adelaide","au","diamond",110,2.15011727912432
-"2019","Monash University","au","closed",5354,50.1404757445215
-"2019","Monash University","au","gold",1762,16.5012174564525
-"2019","Monash University","au","green",1479,13.8509084098146
-"2019","Monash University","au","bronze",1406,13.1672597864769
-"2019","Monash University","au","hybrid",499,4.67315976774677
-"2019","Monash University","au","diamond",178,1.66697883498783
-"2019","UNSW Sydney","au","closed",5397,51.5965583173996
-"2019","UNSW Sydney","au","gold",1644,15.717017208413
-"2019","UNSW Sydney","au","green",1629,15.5736137667304
-"2019","UNSW Sydney","au","bronze",1159,11.0803059273423
-"2019","UNSW Sydney","au","hybrid",449,4.2925430210325
-"2019","UNSW Sydney","au","diamond",182,1.73996175908222
-"2020","University of Auckland","nz","closed",3131,54.1976804569846
-"2020","University of Auckland","nz","gold",1007,17.4311926605505
-"2020","University of Auckland","nz","green",648,11.216894581963
-"2020","University of Auckland","nz","bronze",501,8.67232127401766
-"2020","University of Auckland","nz","hybrid",362,6.26622814609659
-"2020","University of Auckland","nz","diamond",128,2.21568288038774
-"2020","Auckland University of Technology","nz","closed",828,55.8704453441296
-"2020","Auckland University of Technology","nz","gold",283,19.0958164642375
-"2020","Auckland University of Technology","nz","green",170,11.4709851551957
-"2020","Auckland University of Technology","nz","hybrid",81,5.46558704453441
-"2020","Auckland University of Technology","nz","bronze",74,4.99325236167341
-"2020","Auckland University of Technology","nz","diamond",46,3.10391363022942
-"2020","University of Waikato","nz","closed",631,51.5522875816993
-"2020","University of Waikato","nz","green",192,15.6862745098039
-"2020","University of Waikato","nz","gold",179,14.6241830065359
-"2020","University of Waikato","nz","hybrid",108,8.82352941176471
-"2020","University of Waikato","nz","bronze",70,5.71895424836601
-"2020","University of Waikato","nz","diamond",44,3.59477124183007
-"2020","Massey University","nz","closed",1203,54.5578231292517
-"2020","Massey University","nz","gold",459,20.8163265306122
-"2020","Massey University","nz","green",223,10.1133786848073
-"2020","Massey University","nz","bronze",144,6.53061224489796
-"2020","Massey University","nz","hybrid",122,5.5328798185941
-"2020","Massey University","nz","diamond",54,2.44897959183673
-"2020","Victoria University of Wellington","nz","closed",1177,52.5681107637338
-"2020","Victoria University of Wellington","nz","green",464,20.7235372934346
-"2020","Victoria University of Wellington","nz","gold",294,13.1308619919607
-"2020","Victoria University of Wellington","nz","bronze",135,6.02947744528807
-"2020","Victoria University of Wellington","nz","hybrid",112,5.00223313979455
-"2020","Victoria University of Wellington","nz","diamond",57,2.5457793657883
-"2020","University of Canterbury","nz","closed",851,50.5945303210464
-"2020","University of Canterbury","nz","gold",284,16.884661117717
-"2020","University of Canterbury","nz","green",240,14.268727705113
-"2020","University of Canterbury","nz","bronze",152,9.03686087990488
-"2020","University of Canterbury","nz","hybrid",112,6.65873959571938
-"2020","University of Canterbury","nz","diamond",43,2.55648038049941
-"2020","Lincoln University","nz","closed",259,54.4117647058823
-"2020","Lincoln University","nz","gold",118,24.7899159663866
-"2020","Lincoln University","nz","hybrid",34,7.14285714285714
-"2020","Lincoln University","nz","bronze",31,6.51260504201681
-"2020","Lincoln University","nz","green",30,6.30252100840336
-"2020","Lincoln University","nz","diamond",4,0.840336134453782
-"2020","University of Otago","nz","closed",1851,50.2715915263444
-"2020","University of Otago","nz","gold",768,20.8582292232482
-"2020","University of Otago","nz","green",357,9.6958174904943
-"2020","University of Otago","nz","bronze",348,9.45138511678436
-"2020","University of Otago","nz","hybrid",266,7.22433460076046
-"2020","University of Otago","nz","diamond",92,2.49864204236828
-"2020","University of Melbourne","au","closed",5463,41.7660550458716
-"2020","University of Melbourne","au","gold",2643,20.2064220183486
-"2020","University of Melbourne","au","green",2246,17.17125382263
-"2020","University of Melbourne","au","bronze",1445,11.0474006116208
-"2020","University of Melbourne","au","hybrid",991,7.57645259938838
-"2020","University of Melbourne","au","diamond",292,2.23241590214067
-"2020","Australian National University","au","closed",2730,45.3563714902808
-"2020","Australian National University","au","green",1163,19.3221465359694
-"2020","Australian National University","au","gold",853,14.1717893337764
-"2020","Australian National University","au","bronze",734,12.1947167303539
-"2020","Australian National University","au","hybrid",405,6.72869247383286
-"2020","Australian National University","au","diamond",134,2.22628343578668
-"2020","University of Sydney","au","closed",6244,48.8499452354874
-"2020","University of Sydney","au","gold",2298,17.9784071350336
-"2020","University of Sydney","au","green",1619,12.6662494132374
-"2020","University of Sydney","au","bronze",1590,12.4393678610546
-"2020","University of Sydney","au","hybrid",801,6.26662494132374
-"2020","University of Sydney","au","diamond",230,1.79940541386325
-"2020","University of Queensland","au","closed",5346,49.0323764101623
-"2020","University of Queensland","au","gold",2031,18.6279005778226
-"2020","University of Queensland","au","green",1391,12.7579565257269
-"2020","University of Queensland","au","bronze",1089,9.98807667614418
-"2020","University of Queensland","au","hybrid",808,7.41080436577089
-"2020","University of Queensland","au","diamond",238,2.18288544437311
-"2020","University of Western Australia","au","closed",2563,44.3502336044298
-"2020","University of Western Australia","au","gold",1095,18.9479148641634
-"2020","University of Western Australia","au","green",913,15.7985810693892
-"2020","University of Western Australia","au","bronze",734,12.7011593701332
-"2020","University of Western Australia","au","hybrid",370,6.40249178058488
-"2020","University of Western Australia","au","diamond",104,1.79961931129953
-"2020","University of Adelaide","au","closed",2789,51.5431528368139
-"2020","University of Adelaide","au","gold",950,17.5568286823138
-"2020","University of Adelaide","au","green",658,12.1604139715395
-"2020","University of Adelaide","au","bronze",544,10.0535945296618
-"2020","University of Adelaide","au","hybrid",352,6.50526704860469
-"2020","University of Adelaide","au","diamond",118,2.18074293106635
-"2020","Monash University","au","closed",5475,46.5521639316385
-"2020","Monash University","au","gold",1992,16.9373352606071
-"2020","Monash University","au","green",1767,15.0242326332795
-"2020","Monash University","au","bronze",1484,12.6179746620185
-"2020","Monash University","au","hybrid",825,7.01470963353456
-"2020","Monash University","au","diamond",218,1.85358387892186
-"2020","UNSW Sydney","au","closed",5230,46.7298070050036
-"2020","UNSW Sydney","au","gold",2024,18.084345961401
-"2020","UNSW Sydney","au","green",1893,16.9138670478914
-"2020","UNSW Sydney","au","bronze",1150,10.2751965689778
-"2020","UNSW Sydney","au","hybrid",646,5.77197998570407
-"2020","UNSW Sydney","au","diamond",249,2.22480343102216
-"2021","University of Auckland","nz","closed",3015,51.4592933947773
-"2021","University of Auckland","nz","gold",1176,20.0716845878136
-"2021","University of Auckland","nz","green",676,11.5378050861922
-"2021","University of Auckland","nz","hybrid",443,7.56101723843659
-"2021","University of Auckland","nz","bronze",415,7.08311998634579
-"2021","University of Auckland","nz","diamond",134,2.28707970643454
-"2021","Auckland University of Technology","nz","closed",823,52.055660974067
-"2021","Auckland University of Technology","nz","gold",320,20.2403542061986
-"2021","Auckland University of Technology","nz","green",176,11.1321948134092
-"2021","Auckland University of Technology","nz","hybrid",110,6.95762175838077
-"2021","Auckland University of Technology","nz","bronze",102,6.45161290322581
-"2021","Auckland University of Technology","nz","diamond",50,3.16255534471853
-"2021","University of Waikato","nz","closed",672,52.4590163934426
-"2021","University of Waikato","nz","gold",211,16.4715066354411
-"2021","University of Waikato","nz","green",183,14.2857142857143
-"2021","University of Waikato","nz","hybrid",99,7.72833723653396
-"2021","University of Waikato","nz","bronze",61,4.76190476190476
-"2021","University of Waikato","nz","diamond",55,4.29352068696331
-"2021","Massey University","nz","closed",1160,49.530315969257
-"2021","Massey University","nz","gold",598,25.533731853117
-"2021","Massey University","nz","green",228,9.73526900085397
-"2021","Massey University","nz","hybrid",154,6.57557643040137
-"2021","Massey University","nz","bronze",129,5.50811272416738
-"2021","Massey University","nz","diamond",73,3.11699402220325
-"2021","Victoria University of Wellington","nz","closed",1152,51.1772545535318
-"2021","Victoria University of Wellington","nz","green",408,18.1252776543758
-"2021","Victoria University of Wellington","nz","gold",340,15.1043980453132
-"2021","Victoria University of Wellington","nz","hybrid",155,6.88582852065749
-"2021","Victoria University of Wellington","nz","bronze",128,5.68636161705908
-"2021","Victoria University of Wellington","nz","diamond",68,3.02087960906264
-"2021","University of Canterbury","nz","closed",848,48.2366325369738
-"2021","University of Canterbury","nz","gold",343,19.5108077360637
-"2021","University of Canterbury","nz","green",233,13.2536973833902
-"2021","University of Canterbury","nz","hybrid",177,10.0682593856655
-"2021","University of Canterbury","nz","bronze",120,6.8259385665529
-"2021","University of Canterbury","nz","diamond",37,2.10466439135381
-"2021","Lincoln University","nz","closed",287,54.0489642184557
-"2021","Lincoln University","nz","gold",142,26.7419962335217
-"2021","Lincoln University","nz","green",34,6.4030131826742
-"2021","Lincoln University","nz","hybrid",32,6.02636534839925
-"2021","Lincoln University","nz","bronze",26,4.89642184557439
-"2021","Lincoln University","nz","diamond",10,1.88323917137476
-"2021","University of Otago","nz","closed",1779,48.8870568837593
-"2021","University of Otago","nz","gold",867,23.8252267106348
-"2021","University of Otago","nz","green",376,10.332508931025
-"2021","University of Otago","nz","hybrid",265,7.28222039021709
-"2021","University of Otago","nz","bronze",264,7.25474031327288
-"2021","University of Otago","nz","diamond",88,2.41824677109096
-"2021","University of Melbourne","au","closed",5403,39.8480713916956
-"2021","University of Melbourne","au","gold",3127,23.0621727266023
-"2021","University of Melbourne","au","green",2185,16.114757725496
-"2021","University of Melbourne","au","bronze",1389,10.2441182978096
-"2021","University of Melbourne","au","hybrid",1155,8.51832731027362
-"2021","University of Melbourne","au","diamond",300,2.21255254812302
-"2021","Australian National University","au","closed",2647,42.9568321973385
-"2021","Australian National University","au","green",1207,19.5877961700747
-"2021","Australian National University","au","gold",921,14.9464459591042
-"2021","Australian National University","au","bronze",724,11.7494320025966
-"2021","Australian National University","au","hybrid",517,8.39013307367738
-"2021","Australian National University","au","diamond",146,2.3693605972087
-"2021","University of Sydney","au","closed",5800,45.2135952603679
-"2021","University of Sydney","au","gold",2735,21.3205487995011
-"2021","University of Sydney","au","green",1681,13.104147178048
-"2021","University of Sydney","au","bronze",1359,10.5940130963517
-"2021","University of Sydney","au","hybrid",947,7.38228874337387
-"2021","University of Sydney","au","diamond",306,2.38540692235734
-"2021","University of Queensland","au","closed",5322,47.7052707063464
-"2021","University of Queensland","au","gold",2429,21.7730369307996
-"2021","University of Queensland","au","green",1417,12.701685191825
-"2021","University of Queensland","au","bronze",951,8.52456077447114
-"2021","University of Queensland","au","hybrid",784,7.02760846181427
-"2021","University of Queensland","au","diamond",253,2.26783793474364
-"2021","University of Western Australia","au","closed",2424,41.5566603805932
-"2021","University of Western Australia","au","gold",1276,21.8755357448997
-"2021","University of Western Australia","au","green",923,15.8237613577919
-"2021","University of Western Australia","au","bronze",579,9.9262815018001
-"2021","University of Western Australia","au","hybrid",500,8.57191839533688
-"2021","University of Western Australia","au","diamond",131,2.24584261957826
-"2021","University of Adelaide","au","closed",2582,49.1248097412481
-"2021","University of Adelaide","au","gold",1078,20.5098934550989
-"2021","University of Adelaide","au","green",644,12.2526636225266
-"2021","University of Adelaide","au","bronze",442,8.40943683409437
-"2021","University of Adelaide","au","hybrid",394,7.49619482496195
-"2021","University of Adelaide","au","diamond",116,2.20700152207002
-"2021","Monash University","au","closed",5438,44.3122555410691
-"2021","Monash University","au","gold",2506,20.4204693611473
-"2021","Monash University","au","green",1870,15.2379400260756
-"2021","Monash University","au","bronze",1366,11.1310299869622
-"2021","Monash University","au","hybrid",855,6.96707953063885
-"2021","Monash University","au","diamond",237,1.93122555410691
-"2021","UNSW Sydney","au","closed",5351,45.8055127546653
-"2021","UNSW Sydney","au","gold",2472,21.160760143811
-"2021","UNSW Sydney","au","green",1764,15.1001540832049
-"2021","UNSW Sydney","au","bronze",1036,8.8683444615648
-"2021","UNSW Sydney","au","hybrid",797,6.82246190720767
-"2021","UNSW Sydney","au","diamond",262,2.24276664954631
-"2022","University of Auckland","nz","closed",2333,43.3723740472207
-"2022","University of Auckland","nz","gold",1248,23.2013385387619
-"2022","University of Auckland","nz","hybrid",818,15.2072875999256
-"2022","University of Auckland","nz","green",521,9.6858152072876
-"2022","University of Auckland","nz","bronze",318,5.91187953151143
-"2022","University of Auckland","nz","diamond",141,2.62130507529281
-"2022","Auckland University of Technology","nz","closed",599,40.9993155373032
-"2022","Auckland University of Technology","nz","gold",360,24.6406570841889
-"2022","Auckland University of Technology","nz","hybrid",251,17.1800136892539
-"2022","Auckland University of Technology","nz","green",128,8.76112251882272
-"2022","Auckland University of Technology","nz","bronze",64,4.38056125941136
-"2022","Auckland University of Technology","nz","diamond",59,4.03832991101985
-"2022","University of Waikato","nz","closed",587,46.2933753943218
-"2022","University of Waikato","nz","gold",240,18.9274447949527
-"2022","University of Waikato","nz","hybrid",194,15.2996845425867
-"2022","University of Waikato","nz","green",146,11.5141955835962
-"2022","University of Waikato","nz","diamond",67,5.28391167192429
-"2022","University of Waikato","nz","bronze",34,2.6813880126183
-"2022","Massey University","nz","closed",922,42.6851851851852
-"2022","Massey University","nz","gold",589,27.2685185185185
-"2022","Massey University","nz","hybrid",292,13.5185185185185
-"2022","Massey University","nz","green",192,8.88888888888889
-"2022","Massey University","nz","bronze",90,4.16666666666667
-"2022","Massey University","nz","diamond",75,3.47222222222222
-"2022","Victoria University of Wellington","nz","closed",1012,46.4433226250574
-"2022","Victoria University of Wellington","nz","gold",357,16.3836622303809
-"2022","Victoria University of Wellington","nz","hybrid",316,14.502065167508
-"2022","Victoria University of Wellington","nz","green",284,13.0335016062414
-"2022","Victoria University of Wellington","nz","bronze",137,6.28728774667279
-"2022","Victoria University of Wellington","nz","diamond",73,3.35016062413951
-"2022","University of Canterbury","nz","closed",709,42.6081730769231
-"2022","University of Canterbury","nz","gold",372,22.3557692307692
-"2022","University of Canterbury","nz","hybrid",282,16.9471153846154
-"2022","University of Canterbury","nz","green",182,10.9375
-"2022","University of Canterbury","nz","bronze",68,4.08653846153846
-"2022","University of Canterbury","nz","diamond",51,3.06490384615385
-"2022","Lincoln University","nz","closed",202,43.9130434782609
-"2022","Lincoln University","nz","gold",158,34.3478260869565
-"2022","Lincoln University","nz","hybrid",57,12.3913043478261
-"2022","Lincoln University","nz","green",18,3.91304347826087
-"2022","Lincoln University","nz","bronze",13,2.82608695652174
-"2022","Lincoln University","nz","diamond",12,2.60869565217391
-"2022","University of Otago","nz","closed",1274,39.2483056069008
-"2022","University of Otago","nz","gold",831,25.6007393715342
-"2022","University of Otago","nz","hybrid",548,16.8823166974738
-"2022","University of Otago","nz","green",319,9.82747997535428
-"2022","University of Otago","nz","bronze",193,5.94577942082563
-"2022","University of Otago","nz","diamond",81,2.49537892791128
-"2022","University of Melbourne","au","closed",4672,37.4209050861033
-"2022","University of Melbourne","au","gold",3162,25.326391670004
-"2022","University of Melbourne","au","hybrid",2011,16.1073287945535
-"2022","University of Melbourne","au","green",1347,10.7889467360833
-"2022","University of Melbourne","au","bronze",927,7.42490989187024
-"2022","University of Melbourne","au","diamond",366,2.93151782138566
-"2022","Australian National University","au","closed",2045,38.4398496240602
-"2022","Australian National University","au","gold",1037,19.4924812030075
-"2022","Australian National University","au","green",804,15.1127819548872
-"2022","Australian National University","au","hybrid",804,15.1127819548872
-"2022","Australian National University","au","bronze",468,8.79699248120301
-"2022","Australian National University","au","diamond",162,3.04511278195489
-"2022","University of Sydney","au","closed",4629,39.0896807971626
-"2022","University of Sydney","au","gold",2790,23.5602094240838
-"2022","University of Sydney","au","hybrid",1811,15.2930248268874
-"2022","University of Sydney","au","green",1351,11.4085458537409
-"2022","University of Sydney","au","bronze",969,8.18273940212802
-"2022","University of Sydney","au","diamond",292,2.4657996959973
-"2022","University of Queensland","au","closed",4159,39.8371647509579
-"2022","University of Queensland","au","gold",2442,23.3908045977011
-"2022","University of Queensland","au","hybrid",1627,15.5842911877395
-"2022","University of Queensland","au","green",1209,11.5804597701149
-"2022","University of Queensland","au","bronze",731,7.00191570881226
-"2022","University of Queensland","au","diamond",272,2.60536398467433
-"2022","University of Western Australia","au","closed",2090,37.3948828055108
-"2022","University of Western Australia","au","gold",1328,23.7609590266595
-"2022","University of Western Australia","au","hybrid",879,15.727321524423
-"2022","University of Western Australia","au","green",721,12.90033995348
-"2022","University of Western Australia","au","bronze",450,8.05152979066023
-"2022","University of Western Australia","au","diamond",121,2.16496689926642
-"2022","University of Adelaide","au","closed",1988,41.8967334035827
-"2022","University of Adelaide","au","gold",1026,21.622760800843
-"2022","University of Adelaide","au","hybrid",739,15.5742887249737
-"2022","University of Adelaide","au","green",545,11.4857744994731
-"2022","University of Adelaide","au","bronze",340,7.1654373024236
-"2022","University of Adelaide","au","diamond",107,2.2550052687039
-"2022","Monash University","au","closed",4565,40.0825357801387
-"2022","Monash University","au","gold",2560,22.4778294845904
-"2022","Monash University","au","hybrid",1707,14.9881464571077
-"2022","Monash University","au","green",1337,11.739397664413
-"2022","Monash University","au","bronze",919,8.06918956888225
-"2022","Monash University","au","diamond",301,2.64290104486785
-"2022","UNSW Sydney","au","closed",4610,42.2470674486804
-"2022","UNSW Sydney","au","gold",2493,22.8464076246334
-"2022","UNSW Sydney","au","hybrid",1462,13.3980938416422
-"2022","UNSW Sydney","au","green",1378,12.6282991202346
-"2022","UNSW Sydney","au","bronze",685,6.2774926686217
-"2022","UNSW Sydney","au","diamond",284,2.60263929618768
-"2023","University of Auckland","nz","closed",2009,37.516339869281
-"2023","University of Auckland","nz","hybrid",1456,27.1895424836601
-"2023","University of Auckland","nz","gold",1118,20.8776844070962
-"2023","University of Auckland","nz","bronze",339,6.33053221288515
-"2023","University of Auckland","nz","green",256,4.78057889822596
-"2023","University of Auckland","nz","diamond",177,3.30532212885154
-"2023","Auckland University of Technology","nz","closed",482,36.5428354814253
-"2023","Auckland University of Technology","nz","hybrid",391,29.6436694465504
-"2023","Auckland University of Technology","nz","gold",276,20.9249431387415
-"2023","Auckland University of Technology","nz","diamond",58,4.3972706595906
-"2023","Auckland University of Technology","nz","green",57,4.32145564821835
-"2023","Auckland University of Technology","nz","bronze",55,4.16982562547384
-"2023","University of Waikato","nz","closed",490,40.4290429042904
-"2023","University of Waikato","nz","hybrid",347,28.6303630363036
-"2023","University of Waikato","nz","gold",232,19.1419141914191
-"2023","University of Waikato","nz","green",55,4.53795379537954
-"2023","University of Waikato","nz","diamond",49,4.04290429042904
-"2023","University of Waikato","nz","bronze",39,3.21782178217822
-"2023","Massey University","nz","closed",634,33.5095137420719
-"2023","Massey University","nz","hybrid",584,30.8668076109937
-"2023","Massey University","nz","gold",443,23.4143763213531
-"2023","Massey University","nz","bronze",90,4.7568710359408
-"2023","Massey University","nz","green",73,3.85835095137421
-"2023","Massey University","nz","diamond",68,3.59408033826638
-"2023","Victoria University of Wellington","nz","closed",769,39.3350383631714
-"2023","Victoria University of Wellington","nz","hybrid",514,26.2915601023018
-"2023","Victoria University of Wellington","nz","gold",325,16.6240409207161
-"2023","Victoria University of Wellington","nz","green",159,8.13299232736573
-"2023","Victoria University of Wellington","nz","bronze",108,5.52429667519182
-"2023","Victoria University of Wellington","nz","diamond",80,4.0920716112532
-"2023","University of Canterbury","nz","closed",623,34.0996168582375
-"2023","University of Canterbury","nz","hybrid",603,33.0049261083744
-"2023","University of Canterbury","nz","gold",403,22.0580186097427
-"2023","University of Canterbury","nz","green",72,3.94088669950739
-"2023","University of Canterbury","nz","bronze",71,3.88615216201423
-"2023","University of Canterbury","nz","diamond",55,3.0103995621237
-"2023","Lincoln University","nz","closed",168,36.3636363636364
-"2023","Lincoln University","nz","hybrid",144,31.1688311688312
-"2023","Lincoln University","nz","gold",112,24.2424242424242
-"2023","Lincoln University","nz","diamond",13,2.81385281385281
-"2023","Lincoln University","nz","green",13,2.81385281385281
-"2023","Lincoln University","nz","bronze",12,2.5974025974026
-"2023","University of Otago","nz","closed",966,31.373822669698
-"2023","University of Otago","nz","hybrid",960,31.178954205911
-"2023","University of Otago","nz","gold",758,24.6183825917506
-"2023","University of Otago","nz","bronze",171,5.5537512179279
-"2023","University of Otago","nz","green",114,3.70250081195193
-"2023","University of Otago","nz","diamond",110,3.57258850276064
-"2023","University of Melbourne","au","closed",3779,30.6339169909209
-"2023","University of Melbourne","au","hybrid",3493,28.3154993514916
-"2023","University of Melbourne","au","gold",3009,24.3920233463035
-"2023","University of Melbourne","au","bronze",1037,8.40629053177691
-"2023","University of Melbourne","au","green",630,5.10700389105058
-"2023","University of Melbourne","au","diamond",388,3.14526588845655
-"2023","Australian National University","au","closed",1725,32.8196347031963
-"2023","Australian National University","au","hybrid",1469,27.9490106544901
-"2023","Australian National University","au","gold",1006,19.1400304414003
-"2023","Australian National University","au","green",468,8.9041095890411
-"2023","Australian National University","au","bronze",411,7.81963470319635
-"2023","Australian National University","au","diamond",177,3.3675799086758
-"2023","University of Sydney","au","closed",3977,33.5413679682888
-"2023","University of Sydney","au","hybrid",3074,25.9256135616092
-"2023","University of Sydney","au","gold",2700,22.7713586910686
-"2023","University of Sydney","au","bronze",1031,8.69528548536729
-"2023","University of Sydney","au","green",771,6.50248798178291
-"2023","University of Sydney","au","diamond",304,2.56388631188328
-"2023","University of Queensland","au","closed",3197,32.3027179953521
-"2023","University of Queensland","au","hybrid",2913,29.4331615641103
-"2023","University of Queensland","au","gold",2283,23.0675962412852
-"2023","University of Queensland","au","bronze",684,6.91118520763868
-"2023","University of Queensland","au","green",525,5.30463776902091
-"2023","University of Queensland","au","diamond",295,2.9807012225927
-"2023","University of Western Australia","au","closed",1799,32.5316455696203
-"2023","University of Western Australia","au","hybrid",1504,27.1971066907776
-"2023","University of Western Australia","au","gold",1331,24.0687160940325
-"2023","University of Western Australia","au","bronze",403,7.2875226039783
-"2023","University of Western Australia","au","green",350,6.32911392405063
-"2023","University of Western Australia","au","diamond",143,2.58589511754069
-"2023","University of Adelaide","au","closed",1770,35.077288941736
-"2023","University of Adelaide","au","hybrid",1395,27.6456599286564
-"2023","University of Adelaide","au","gold",1025,20.3131193024178
-"2023","University of Adelaide","au","bronze",397,7.86761791518034
-"2023","University of Adelaide","au","green",277,5.48949663099485
-"2023","University of Adelaide","au","diamond",182,3.60681728101467
-"2023","Monash University","au","closed",3495,31.5205627705628
-"2023","Monash University","au","hybrid",3140,28.3189033189033
-"2023","Monash University","au","gold",2444,22.041847041847
-"2023","Monash University","au","bronze",1003,9.0458152958153
-"2023","Monash University","au","green",705,6.35822510822511
-"2023","Monash University","au","diamond",301,2.71464646464646
-"2023","UNSW Sydney","au","closed",3560,34.857534514834
-"2023","UNSW Sydney","au","hybrid",2564,25.1052580045041
-"2023","UNSW Sydney","au","gold",2248,22.0111622441986
-"2023","UNSW Sydney","au","bronze",758,7.4219132478214
-"2023","UNSW Sydney","au","green",758,7.4219132478214
-"2023","UNSW Sydney","au","diamond",325,3.18221874082052
-"2024","University of Auckland","nz","closed",1648,37.56553453385
-"2024","University of Auckland","nz","hybrid",1382,31.5021654889446
-"2024","University of Auckland","nz","gold",972,22.1563710964212
-"2024","University of Auckland","nz","diamond",139,3.16845224527012
-"2024","University of Auckland","nz","bronze",132,3.00888990198313
-"2024","University of Auckland","nz","green",114,2.59858673353089
-"2024","Auckland University of Technology","nz","closed",364,35.1351351351351
-"2024","Auckland University of Technology","nz","gold",296,28.5714285714286
-"2024","Auckland University of Technology","nz","hybrid",286,27.6061776061776
-"2024","Auckland University of Technology","nz","diamond",43,4.15057915057915
-"2024","Auckland University of Technology","nz","bronze",29,2.7992277992278
-"2024","Auckland University of Technology","nz","green",18,1.73745173745174
-"2024","University of Waikato","nz","hybrid",353,39.1786903440622
-"2024","University of Waikato","nz","closed",307,34.0732519422863
-"2024","University of Waikato","nz","gold",161,17.8690344062153
-"2024","University of Waikato","nz","green",31,3.44062153163152
-"2024","University of Waikato","nz","diamond",29,3.21864594894562
-"2024","University of Waikato","nz","bronze",20,2.21975582685905
-"2024","Massey University","nz","hybrid",516,35.7836338418863
-"2024","Massey University","nz","closed",409,28.3633841886269
-"2024","Massey University","nz","gold",361,25.0346740638003
-"2024","Massey University","nz","bronze",69,4.78502080443828
-"2024","Massey University","nz","diamond",61,4.23023578363384
-"2024","Massey University","nz","green",26,1.80305131761442
-"2024","Victoria University of Wellington","nz","closed",641,40.6984126984127
-"2024","Victoria University of Wellington","nz","hybrid",475,30.1587301587302
-"2024","Victoria University of Wellington","nz","gold",262,16.6349206349206
-"2024","Victoria University of Wellington","nz","diamond",75,4.76190476190476
-"2024","Victoria University of Wellington","nz","green",68,4.31746031746032
-"2024","Victoria University of Wellington","nz","bronze",54,3.42857142857143
-"2024","University of Canterbury","nz","hybrid",463,33.7217771303714
-"2024","University of Canterbury","nz","closed",452,32.9206117989803
-"2024","University of Canterbury","nz","gold",320,23.306627822287
-"2024","University of Canterbury","nz","diamond",51,3.71449380917698
-"2024","University of Canterbury","nz","green",44,3.20466132556446
-"2024","University of Canterbury","nz","bronze",43,3.13182811361981
-"2024","Lincoln University","nz","hybrid",140,35.9897172236504
-"2024","Lincoln University","nz","gold",115,29.5629820051414
-"2024","Lincoln University","nz","closed",104,26.7352185089974
-"2024","Lincoln University","nz","bronze",13,3.34190231362468
-"2024","Lincoln University","nz","diamond",10,2.5706940874036
-"2024","Lincoln University","nz","green",7,1.79948586118252
-"2024","University of Otago","nz","closed",874,32.9686910599774
-"2024","University of Otago","nz","hybrid",850,32.063372312335
-"2024","University of Otago","nz","gold",654,24.6699358732554
-"2024","University of Otago","nz","bronze",113,4.2625424368163
-"2024","University of Otago","nz","diamond",93,3.5081101471143
-"2024","University of Otago","nz","green",67,2.5273481705017
-"2024","University of Melbourne","au","closed",3696,34.231731036399
-"2024","University of Melbourne","au","hybrid",3380,31.3049921274428
-"2024","University of Melbourne","au","gold",2784,25.7849402611837
-"2024","University of Melbourne","au","green",351,3.25090302861906
-"2024","University of Melbourne","au","diamond",345,3.19533203667685
-"2024","University of Melbourne","au","bronze",241,2.23210150967861
-"2024","Australian National University","au","closed",1395,32.8235294117647
-"2024","Australian National University","au","hybrid",1351,31.7882352941176
-"2024","Australian National University","au","gold",998,23.4823529411765
-"2024","Australian National University","au","green",214,5.03529411764706
-"2024","Australian National University","au","bronze",157,3.69411764705882
-"2024","Australian National University","au","diamond",135,3.17647058823529
-"2024","University of Sydney","au","closed",3811,36.1163760424564
-"2024","University of Sydney","au","hybrid",3125,29.6152388172858
-"2024","University of Sydney","au","gold",2689,25.4833206974981
-"2024","University of Sydney","au","green",365,3.45905989385898
-"2024","University of Sydney","au","diamond",284,2.69143290371494
-"2024","University of Sydney","au","bronze",278,2.63457164518575
-"2024","University of Queensland","au","closed",2960,33.8363054412437
-"2024","University of Queensland","au","hybrid",2805,32.0644718792867
-"2024","University of Queensland","au","gold",2154,24.6227709190672
-"2024","University of Queensland","au","green",322,3.68084133516232
-"2024","University of Queensland","au","diamond",255,2.91495198902606
-"2024","University of Queensland","au","bronze",252,2.88065843621399
-"2024","University of Western Australia","au","closed",1653,35.1926761762827
-"2024","University of Western Australia","au","hybrid",1396,29.7210985735576
-"2024","University of Western Australia","au","gold",1281,27.2727272727273
-"2024","University of Western Australia","au","green",151,3.21481796891633
-"2024","University of Western Australia","au","diamond",112,2.38450074515648
-"2024","University of Western Australia","au","bronze",104,2.21417926335959
-"2024","University of Adelaide","au","closed",1681,39.1203164998836
-"2024","University of Adelaide","au","hybrid",1304,30.3467535489877
-"2024","University of Adelaide","au","gold",869,20.2234116825692
-"2024","University of Adelaide","au","bronze",167,3.88643239469397
-"2024","University of Adelaide","au","green",151,3.51407959041192
-"2024","University of Adelaide","au","diamond",125,2.90900628345357
-"2024","Monash University","au","closed",3383,35.0606280443569
-"2024","Monash University","au","hybrid",3096,32.0862265519743
-"2024","Monash University","au","gold",2283,23.6604829516012
-"2024","Monash University","au","green",341,3.53404497875427
-"2024","Monash University","au","bronze",306,3.17131308943932
-"2024","Monash University","au","diamond",240,2.48730438387398
-"2024","UNSW Sydney","au","closed",3382,37.511091393079
-"2024","UNSW Sydney","au","hybrid",2716,30.1242236024845
-"2024","UNSW Sydney","au","gold",2055,22.7928127772848
-"2024","UNSW Sydney","au","green",353,3.91526175687666
-"2024","UNSW Sydney","au","bronze",259,2.87267080745342
-"2024","UNSW Sydney","au","diamond",251,2.78393966282165
+2015,"University of Sydney","au","closed",6587,56.7795879665546
+2015,"University of Sydney","au","bronze",1874,16.153779846565
+2015,"University of Sydney","au","gold",1349,11.628307904491
+2015,"University of Sydney","au","green",1109,9.55952073097147
+2015,"University of Sydney","au","hybrid",489,4.21515386604603
+2015,"University of Sydney","au","diamond",193,1.66364968537195
+2015,"UNSW Sydney","au","closed",6067,61.3572006472492
+2015,"UNSW Sydney","au","bronze",1207,12.206715210356
+2015,"UNSW Sydney","au","green",1104,11.1650485436893
+2015,"UNSW Sydney","au","gold",1017,10.2851941747573
+2015,"UNSW Sydney","au","hybrid",372,3.7621359223301
+2015,"UNSW Sydney","au","diamond",121,1.22370550161812
+2015,"University of Melbourne","au","closed",6146,53.6019536019536
+2015,"University of Melbourne","au","bronze",1889,16.4747950462236
+2015,"University of Melbourne","au","gold",1424,12.419326705041
+2015,"University of Melbourne","au","green",1332,11.6169544740973
+2015,"University of Melbourne","au","hybrid",533,4.64852607709751
+2015,"University of Melbourne","au","diamond",142,1.23844409558695
+2015,"University of Queensland","au","closed",6139,58.9438310129621
+2015,"University of Queensland","au","bronze",1417,13.6053768602976
+2015,"University of Queensland","au","gold",1244,11.9443110897744
+2015,"University of Queensland","au","green",1113,10.6865098415747
+2015,"University of Queensland","au","hybrid",416,3.99423907825252
+2015,"University of Queensland","au","diamond",86,0.825732117138742
+2015,"Monash University","au","closed",5555,58.8079610417108
+2015,"Monash University","au","bronze",1470,15.5621427059073
+2015,"Monash University","au","gold",1005,10.639424094855
+2015,"Monash University","au","green",936,9.90895617192462
+2015,"Monash University","au","hybrid",377,3.9911073470252
+2015,"Monash University","au","diamond",103,1.09040863857718
+2015,"University of Western Australia","au","closed",2854,50.7377777777778
+2015,"University of Western Australia","au","bronze",958,17.0311111111111
+2015,"University of Western Australia","au","green",774,13.76
+2015,"University of Western Australia","au","gold",693,12.32
+2015,"University of Western Australia","au","hybrid",272,4.83555555555556
+2015,"University of Western Australia","au","diamond",74,1.31555555555556
+2015,"Australian National University","au","closed",3222,54.6286876907426
+2015,"Australian National University","au","bronze",938,15.9036961681926
+2015,"Australian National University","au","green",847,14.3608002712784
+2015,"Australian National University","au","gold",564,9.56256358087487
+2015,"Australian National University","au","hybrid",219,3.71312309257375
+2015,"Australian National University","au","diamond",108,1.83112919633774
+2015,"University of Adelaide","au","closed",3184,59.5696913002806
+2015,"University of Adelaide","au","bronze",802,15.0046772684752
+2015,"University of Adelaide","au","green",538,10.0654817586529
+2015,"University of Adelaide","au","gold",528,9.87839101964453
+2015,"University of Adelaide","au","hybrid",216,4.04115996258185
+2015,"University of Adelaide","au","diamond",77,1.44059869036483
+2015,"University of Auckland","nz","closed",3052,61.9947186674792
+2015,"University of Auckland","nz","bronze",615,12.4923826934796
+2015,"University of Auckland","nz","gold",525,10.6642291285801
+2015,"University of Auckland","nz","green",500,10.1564086938858
+2015,"University of Auckland","nz","hybrid",154,3.12817387771684
+2015,"University of Auckland","nz","diamond",77,1.56408693885842
+2015,"University of Otago","nz","closed",1997,58.7352941176471
+2015,"University of Otago","nz","bronze",533,15.6764705882353
+2015,"University of Otago","nz","gold",421,12.3823529411765
+2015,"University of Otago","nz","green",249,7.32352941176471
+2015,"University of Otago","nz","hybrid",144,4.23529411764706
+2015,"University of Otago","nz","diamond",56,1.64705882352941
+2015,"Victoria University of Wellington","nz","closed",1333,54.3859649122807
+2015,"Victoria University of Wellington","nz","bronze",600,24.4798041615667
+2015,"Victoria University of Wellington","nz","green",235,9.58792329661363
+2015,"Victoria University of Wellington","nz","gold",139,5.67115463076295
+2015,"Victoria University of Wellington","nz","hybrid",115,4.69196246430029
+2015,"Victoria University of Wellington","nz","diamond",29,1.18319053447572
+2015,"Massey University","nz","closed",1140,63.1929046563193
+2015,"Massey University","nz","bronze",199,11.0310421286031
+2015,"Massey University","nz","green",182,10.0886917960089
+2015,"Massey University","nz","gold",180,9.97782705099778
+2015,"Massey University","nz","hybrid",73,4.04656319290466
+2015,"Massey University","nz","diamond",30,1.6629711751663
+2015,"University of Canterbury","nz","closed",920,60.5263157894737
+2015,"University of Canterbury","nz","green",204,13.4210526315789
+2015,"University of Canterbury","nz","bronze",163,10.7236842105263
+2015,"University of Canterbury","nz","gold",146,9.60526315789474
+2015,"University of Canterbury","nz","hybrid",58,3.81578947368421
+2015,"University of Canterbury","nz","diamond",29,1.90789473684211
+2015,"University of Waikato","nz","closed",661,60.0363306085377
+2015,"University of Waikato","nz","green",192,17.4386920980926
+2015,"University of Waikato","nz","bronze",89,8.08356039963669
+2015,"University of Waikato","nz","gold",69,6.26702997275204
+2015,"University of Waikato","nz","diamond",56,5.08628519527702
+2015,"University of Waikato","nz","hybrid",34,3.08810172570391
+2015,"Auckland University of Technology","nz","closed",749,62.106135986733
+2015,"Auckland University of Technology","nz","green",157,13.0182421227197
+2015,"Auckland University of Technology","nz","gold",128,10.6135986733002
+2015,"Auckland University of Technology","nz","bronze",100,8.29187396351576
+2015,"Auckland University of Technology","nz","hybrid",46,3.81426202321725
+2015,"Auckland University of Technology","nz","diamond",26,2.1558872305141
+2015,"Lincoln University","nz","closed",206,52.9562982005141
+2015,"Lincoln University","nz","bronze",64,16.452442159383
+2015,"Lincoln University","nz","gold",52,13.3676092544987
+2015,"Lincoln University","nz","green",37,9.51156812339332
+2015,"Lincoln University","nz","hybrid",25,6.426735218509
+2015,"Lincoln University","nz","diamond",5,1.2853470437018
+2016,"University of Sydney","au","closed",6607,54.5762431851974
+2016,"University of Sydney","au","bronze",1895,15.6533950107385
+2016,"University of Sydney","au","gold",1510,12.4731538080291
+2016,"University of Sydney","au","green",1376,11.366264662151
+2016,"University of Sydney","au","hybrid",541,4.46885841731373
+2016,"University of Sydney","au","diamond",177,1.4620849165703
+2016,"UNSW Sydney","au","closed",6012,58.9758681577399
+2016,"UNSW Sydney","au","green",1341,13.1547969393761
+2016,"UNSW Sydney","au","bronze",1203,11.8010594467334
+2016,"UNSW Sydney","au","gold",1101,10.8004708652148
+2016,"UNSW Sydney","au","hybrid",424,4.15930939768491
+2016,"UNSW Sydney","au","diamond",113,1.10849519325093
+2016,"University of Melbourne","au","closed",5830,48.2456140350877
+2016,"University of Melbourne","au","green",1961,16.2280701754386
+2016,"University of Melbourne","au","bronze",1852,15.3260509764978
+2016,"University of Melbourne","au","gold",1599,13.2323733862959
+2016,"University of Melbourne","au","hybrid",634,5.2466070837471
+2016,"University of Melbourne","au","diamond",208,1.7212843429328
+2016,"University of Queensland","au","closed",6090,55.9536934950386
+2016,"University of Queensland","au","bronze",1480,13.5979419331128
+2016,"University of Queensland","au","gold",1388,12.752664461595
+2016,"University of Queensland","au","green",1364,12.5321572951121
+2016,"University of Queensland","au","hybrid",428,3.93237780227857
+2016,"University of Queensland","au","diamond",134,1.23116501286292
+2016,"Monash University","au","closed",5527,55.6876574307305
+2016,"Monash University","au","bronze",1495,15.0629722921914
+2016,"Monash University","au","green",1252,12.6146095717884
+2016,"Monash University","au","gold",1146,11.5465994962217
+2016,"Monash University","au","hybrid",365,3.67758186397985
+2016,"Monash University","au","diamond",140,1.41057934508816
+2016,"University of Western Australia","au","closed",2913,47.6603403141361
+2016,"University of Western Australia","au","bronze",1025,16.7702879581152
+2016,"University of Western Australia","au","green",964,15.7722513089005
+2016,"University of Western Australia","au","gold",815,13.3344240837696
+2016,"University of Western Australia","au","hybrid",286,4.67931937172775
+2016,"University of Western Australia","au","diamond",109,1.78337696335079
+2016,"Australian National University","au","closed",3082,50.5577427821522
+2016,"Australian National University","au","green",1100,18.0446194225722
+2016,"Australian National University","au","bronze",966,15.8464566929134
+2016,"Australian National University","au","gold",570,9.3503937007874
+2016,"Australian National University","au","hybrid",261,4.28149606299213
+2016,"Australian National University","au","diamond",117,1.91929133858268
+2016,"University of Adelaide","au","closed",3096,56.7969179966979
+2016,"University of Adelaide","au","bronze",772,14.1625389836727
+2016,"University of Adelaide","au","green",641,11.7593102183086
+2016,"University of Adelaide","au","gold",571,10.4751421757476
+2016,"University of Adelaide","au","hybrid",254,4.65969546872134
+2016,"University of Adelaide","au","diamond",117,2.14639515685195
+2016,"University of Auckland","nz","closed",3133,57.9005729070412
+2016,"University of Auckland","nz","bronze",725,13.39863241545
+2016,"University of Auckland","nz","green",671,12.4006653114027
+2016,"University of Auckland","nz","gold",583,10.7743485492515
+2016,"University of Auckland","nz","hybrid",218,4.02883016078359
+2016,"University of Auckland","nz","diamond",81,1.49695065607097
+2016,"University of Otago","nz","closed",1991,57.7436194895592
+2016,"University of Otago","nz","bronze",529,15.3422273781903
+2016,"University of Otago","nz","gold",425,12.3259860788863
+2016,"University of Otago","nz","green",294,8.52668213457077
+2016,"University of Otago","nz","hybrid",140,4.06032482598608
+2016,"University of Otago","nz","diamond",69,2.00116009280742
+2016,"Victoria University of Wellington","nz","closed",1376,54.8644338118022
+2016,"Victoria University of Wellington","nz","bronze",537,21.4114832535885
+2016,"Victoria University of Wellington","nz","green",305,12.1610845295056
+2016,"Victoria University of Wellington","nz","hybrid",150,5.98086124401914
+2016,"Victoria University of Wellington","nz","gold",109,4.34609250398724
+2016,"Victoria University of Wellington","nz","diamond",31,1.23604465709729
+2016,"Massey University","nz","closed",1266,62.642256308758
+2016,"Massey University","nz","gold",219,10.8362196932212
+2016,"Massey University","nz","bronze",202,9.99505195447798
+2016,"Massey University","nz","green",199,9.84661058881742
+2016,"Massey University","nz","hybrid",105,5.19544779811974
+2016,"Massey University","nz","diamond",30,1.48441365660564
+2016,"University of Canterbury","nz","closed",959,56.7791592658378
+2016,"University of Canterbury","nz","bronze",265,15.6897572528123
+2016,"University of Canterbury","nz","green",204,12.0781527531083
+2016,"University of Canterbury","nz","gold",155,9.17702782711664
+2016,"University of Canterbury","nz","hybrid",83,4.9141503848431
+2016,"University of Canterbury","nz","diamond",23,1.36175251628182
+2016,"University of Waikato","nz","closed",636,55.4973821989529
+2016,"University of Waikato","nz","green",227,19.8080279232112
+2016,"University of Waikato","nz","bronze",100,8.7260034904014
+2016,"University of Waikato","nz","gold",79,6.8935427574171
+2016,"University of Waikato","nz","diamond",53,4.62478184991274
+2016,"University of Waikato","nz","hybrid",51,4.45026178010471
+2016,"Auckland University of Technology","nz","closed",848,64.4866920152091
+2016,"Auckland University of Technology","nz","green",187,14.2205323193916
+2016,"Auckland University of Technology","nz","gold",114,8.66920152091255
+2016,"Auckland University of Technology","nz","bronze",99,7.52851711026616
+2016,"Auckland University of Technology","nz","hybrid",47,3.57414448669202
+2016,"Auckland University of Technology","nz","diamond",20,1.52091254752852
+2016,"Lincoln University","nz","closed",265,54.7520661157025
+2016,"Lincoln University","nz","bronze",66,13.6363636363636
+2016,"Lincoln University","nz","gold",61,12.603305785124
+2016,"Lincoln University","nz","hybrid",49,10.1239669421488
+2016,"Lincoln University","nz","green",40,8.26446280991736
+2016,"Lincoln University","nz","diamond",3,0.619834710743802
+2017,"University of Sydney","au","closed",6679,51.9847447073475
+2017,"University of Sydney","au","bronze",1949,15.1696762141968
+2017,"University of Sydney","au","gold",1752,13.6363636363636
+2017,"University of Sydney","au","green",1716,13.3561643835616
+2017,"University of Sydney","au","hybrid",523,4.07067247820672
+2017,"University of Sydney","au","diamond",229,1.78237858032379
+2017,"UNSW Sydney","au","closed",6059,55.10185522008
+2017,"UNSW Sydney","au","green",1681,15.2873772280829
+2017,"UNSW Sydney","au","gold",1360,12.3681338668607
+2017,"UNSW Sydney","au","bronze",1328,12.0771189523463
+2017,"UNSW Sydney","au","hybrid",422,3.83775918515824
+2017,"UNSW Sydney","au","diamond",146,1.32775554747181
+2017,"University of Melbourne","au","closed",6035,46.0722192533781
+2017,"University of Melbourne","au","green",2286,17.4517138712879
+2017,"University of Melbourne","au","bronze",2022,15.4362928467822
+2017,"University of Melbourne","au","gold",1890,14.4285823345294
+2017,"University of Melbourne","au","hybrid",636,4.85533246812734
+2017,"University of Melbourne","au","diamond",230,1.75585922589511
+2017,"University of Queensland","au","closed",5931,54.1396622546782
+2017,"University of Queensland","au","gold",1677,15.3080785029667
+2017,"University of Queensland","au","green",1439,13.1355545413053
+2017,"University of Queensland","au","bronze",1353,12.3505248744865
+2017,"University of Queensland","au","hybrid",412,3.76083979917846
+2017,"University of Queensland","au","diamond",143,1.30534002738476
+2017,"Monash University","au","closed",6095,53.2360904882523
+2017,"Monash University","au","bronze",1778,15.5297405886977
+2017,"Monash University","au","green",1550,13.5383002882348
+2017,"Monash University","au","gold",1423,12.4290331033278
+2017,"Monash University","au","hybrid",441,3.85186479168486
+2017,"Monash University","au","diamond",162,1.4149707398026
+2017,"University of Western Australia","au","closed",2926,47.0872224010299
+2017,"University of Western Australia","au","green",1047,16.8490505310589
+2017,"University of Western Australia","au","bronze",978,15.7386546507885
+2017,"University of Western Australia","au","gold",908,14.6121660766012
+2017,"University of Western Australia","au","hybrid",270,4.34502735757966
+2017,"University of Western Australia","au","diamond",85,1.36787898294174
+2017,"Australian National University","au","closed",2860,46.1662631154157
+2017,"Australian National University","au","green",1239,20
+2017,"Australian National University","au","bronze",1031,16.6424535916061
+2017,"Australian National University","au","gold",658,10.6214689265537
+2017,"Australian National University","au","hybrid",290,4.68119451170299
+2017,"Australian National University","au","diamond",117,1.88861985472155
+2017,"University of Adelaide","au","closed",2930,53.0220774520449
+2017,"University of Adelaide","au","bronze",791,14.3141512848353
+2017,"University of Adelaide","au","green",736,13.318856315599
+2017,"University of Adelaide","au","gold",720,13.0293159609121
+2017,"University of Adelaide","au","hybrid",248,4.48787549764748
+2017,"University of Adelaide","au","diamond",101,1.82772348896127
+2017,"University of Auckland","nz","closed",3013,55.2539886301119
+2017,"University of Auckland","nz","green",748,13.7172198789657
+2017,"University of Auckland","nz","bronze",686,12.5802310654685
+2017,"University of Auckland","nz","gold",669,12.2684760682193
+2017,"University of Auckland","nz","hybrid",257,4.71300201723822
+2017,"University of Auckland","nz","diamond",80,1.46708233999633
+2017,"University of Otago","nz","closed",2031,53.9728939675791
+2017,"University of Otago","nz","gold",575,15.2803614137656
+2017,"University of Otago","nz","bronze",490,13.0215253786872
+2017,"University of Otago","nz","green",418,11.1081583842679
+2017,"University of Otago","nz","hybrid",181,4.80999202763752
+2017,"University of Otago","nz","diamond",68,1.80706882806272
+2017,"Victoria University of Wellington","nz","closed",1419,53.0070974971984
+2017,"Victoria University of Wellington","nz","bronze",512,19.1258871871498
+2017,"Victoria University of Wellington","nz","green",339,12.6634292118043
+2017,"Victoria University of Wellington","nz","gold",183,6.83601045946956
+2017,"Victoria University of Wellington","nz","hybrid",178,6.64923421740755
+2017,"Victoria University of Wellington","nz","diamond",46,1.71834142697049
+2017,"Massey University","nz","closed",1353,60.4287628405538
+2017,"Massey University","nz","gold",297,13.2648503796338
+2017,"Massey University","nz","green",229,10.2277802590442
+2017,"Massey University","nz","bronze",212,9.46851272889683
+2017,"Massey University","nz","hybrid",106,4.73425636444841
+2017,"Massey University","nz","diamond",42,1.87583742742296
+2017,"University of Canterbury","nz","closed",916,54.4589774078478
+2017,"University of Canterbury","nz","green",244,14.5065398335315
+2017,"University of Canterbury","nz","gold",236,14.0309155766944
+2017,"University of Canterbury","nz","bronze",153,9.09631391200951
+2017,"University of Canterbury","nz","hybrid",100,5.94530321046373
+2017,"University of Canterbury","nz","diamond",33,1.96195005945303
+2017,"University of Waikato","nz","closed",1407,69.4129255056734
+2017,"University of Waikato","nz","green",259,12.7775037000493
+2017,"University of Waikato","nz","gold",116,5.72274296990626
+2017,"University of Waikato","nz","bronze",104,5.13073507646769
+2017,"University of Waikato","nz","hybrid",75,3.70004933399112
+2017,"University of Waikato","nz","diamond",66,3.25604341391219
+2017,"Auckland University of Technology","nz","closed",880,59.2193808882907
+2017,"Auckland University of Technology","nz","green",212,14.2664872139973
+2017,"Auckland University of Technology","nz","gold",180,12.1130551816958
+2017,"Auckland University of Technology","nz","bronze",110,7.40242261103634
+2017,"Auckland University of Technology","nz","hybrid",66,4.4414535666218
+2017,"Auckland University of Technology","nz","diamond",38,2.55720053835801
+2017,"Lincoln University","nz","closed",277,56.1866125760649
+2017,"Lincoln University","nz","gold",68,13.7931034482759
+2017,"Lincoln University","nz","bronze",54,10.9533468559838
+2017,"Lincoln University","nz","green",42,8.51926977687627
+2017,"Lincoln University","nz","hybrid",41,8.31643002028398
+2017,"Lincoln University","nz","diamond",11,2.23123732251521
+2018,"University of Sydney","au","closed",6818,49.6143210595255
+2018,"University of Sydney","au","bronze",2192,15.9510988211323
+2018,"University of Sydney","au","gold",2059,14.9832629893756
+2018,"University of Sydney","au","green",1860,13.5351477223112
+2018,"University of Sydney","au","hybrid",614,4.46805414059089
+2018,"University of Sydney","au","diamond",199,1.44811526706447
+2018,"UNSW Sydney","au","closed",5767,47.5432811211871
+2018,"UNSW Sydney","au","gold",2367,19.5136026380874
+2018,"UNSW Sydney","au","green",1909,15.7378400659522
+2018,"UNSW Sydney","au","bronze",1407,11.5993404781533
+2018,"UNSW Sydney","au","hybrid",500,4.12201154163232
+2018,"UNSW Sydney","au","diamond",180,1.48392415498763
+2018,"University of Melbourne","au","closed",6221,44.3913229627515
+2018,"University of Melbourne","au","green",2544,18.1532752961324
+2018,"University of Melbourne","au","gold",2152,15.3560724989296
+2018,"University of Melbourne","au","bronze",2070,14.7709433423719
+2018,"University of Melbourne","au","hybrid",796,5.68003425146282
+2018,"University of Melbourne","au","diamond",231,1.64835164835165
+2018,"University of Queensland","au","closed",5922,51.1354805284518
+2018,"University of Queensland","au","gold",1818,15.6981262412572
+2018,"University of Queensland","au","green",1623,14.0143338226405
+2018,"University of Queensland","au","bronze",1498,12.9349797081426
+2018,"University of Queensland","au","hybrid",534,4.61100077713496
+2018,"University of Queensland","au","diamond",186,1.60607892237285
+2018,"Monash University","au","closed",5939,49.6738039478086
+2018,"Monash University","au","green",1876,15.6908665105386
+2018,"Monash University","au","bronze",1808,15.1221144195383
+2018,"Monash University","au","gold",1625,13.5915021746403
+2018,"Monash University","au","hybrid",545,4.55838072934092
+2018,"Monash University","au","diamond",163,1.36333221813315
+2018,"University of Western Australia","au","closed",2985,46.2575546257555
+2018,"University of Western Australia","au","green",1082,16.7673950100728
+2018,"University of Western Australia","au","gold",1009,15.6361382302805
+2018,"University of Western Australia","au","bronze",961,14.8922981558965
+2018,"University of Western Australia","au","hybrid",324,5.02092050209205
+2018,"University of Western Australia","au","diamond",92,1.42569347590268
+2018,"Australian National University","au","closed",2980,46.9069730835826
+2018,"Australian National University","au","green",1339,21.0766566976232
+2018,"Australian National University","au","bronze",943,14.8433810798048
+2018,"Australian National University","au","gold",680,10.7036045962537
+2018,"Australian National University","au","hybrid",281,4.42310719345191
+2018,"Australian National University","au","diamond",130,2.0462773492838
+2018,"University of Adelaide","au","closed",2961,45.4768852710797
+2018,"University of Adelaide","au","gold",1612,24.75810167409
+2018,"University of Adelaide","au","bronze",843,12.9473199201352
+2018,"University of Adelaide","au","green",736,11.3039471663339
+2018,"University of Adelaide","au","hybrid",240,3.68606972815236
+2018,"University of Adelaide","au","diamond",119,1.82767624020888
+2018,"University of Auckland","nz","closed",3129,54.0414507772021
+2018,"University of Auckland","nz","green",827,14.2832469775475
+2018,"University of Auckland","nz","gold",770,13.2987910189983
+2018,"University of Auckland","nz","bronze",708,12.2279792746114
+2018,"University of Auckland","nz","hybrid",258,4.4559585492228
+2018,"University of Auckland","nz","diamond",98,1.69257340241796
+2018,"University of Otago","nz","closed",1989,51.4884804556045
+2018,"University of Otago","nz","gold",659,17.059280352058
+2018,"University of Otago","nz","bronze",542,14.0305462076107
+2018,"University of Otago","nz","green",427,11.0535852964018
+2018,"University of Otago","nz","hybrid",166,4.29717835878851
+2018,"University of Otago","nz","diamond",80,2.07092932953663
+2018,"Victoria University of Wellington","nz","closed",1344,50.5453177886424
+2018,"Victoria University of Wellington","nz","bronze",421,15.8330199323054
+2018,"Victoria University of Wellington","nz","green",408,15.344114328695
+2018,"Victoria University of Wellington","nz","gold",227,8.53704400150433
+2018,"Victoria University of Wellington","nz","hybrid",201,7.55923279428357
+2018,"Victoria University of Wellington","nz","diamond",58,2.18127115456939
+2018,"Massey University","nz","closed",1181,55.4720526068577
+2018,"Massey University","nz","gold",327,15.3593236261155
+2018,"Massey University","nz","green",251,11.7895725692814
+2018,"Massey University","nz","bronze",219,10.2865194927196
+2018,"Massey University","nz","hybrid",92,4.32127759511508
+2018,"Massey University","nz","diamond",59,2.77125410991076
+2018,"University of Canterbury","nz","closed",976,53.5675082327113
+2018,"University of Canterbury","nz","gold",287,15.7519209659715
+2018,"University of Canterbury","nz","green",270,14.8188803512623
+2018,"University of Canterbury","nz","bronze",177,9.7145993413831
+2018,"University of Canterbury","nz","hybrid",71,3.89681668496158
+2018,"University of Canterbury","nz","diamond",41,2.25027442371021
+2018,"University of Waikato","nz","closed",689,55.654281098546
+2018,"University of Waikato","nz","green",252,20.3554119547657
+2018,"University of Waikato","nz","gold",121,9.77382875605816
+2018,"University of Waikato","nz","bronze",91,7.35056542810985
+2018,"University of Waikato","nz","hybrid",53,4.281098546042
+2018,"University of Waikato","nz","diamond",32,2.58481421647819
+2018,"Auckland University of Technology","nz","closed",883,58.7101063829787
+2018,"Auckland University of Technology","nz","gold",200,13.2978723404255
+2018,"Auckland University of Technology","nz","green",182,12.1010638297872
+2018,"Auckland University of Technology","nz","bronze",130,8.6436170212766
+2018,"Auckland University of Technology","nz","hybrid",67,4.45478723404255
+2018,"Auckland University of Technology","nz","diamond",42,2.79255319148936
+2018,"Lincoln University","nz","closed",293,55.7034220532319
+2018,"Lincoln University","nz","gold",75,14.2585551330798
+2018,"Lincoln University","nz","green",59,11.2167300380228
+2018,"Lincoln University","nz","bronze",50,9.50570342205323
+2018,"Lincoln University","nz","hybrid",39,7.41444866920152
+2018,"Lincoln University","nz","diamond",10,1.90114068441065
+2019,"University of Sydney","au","closed",7607,49.9146981627297
+2019,"University of Sydney","au","gold",2515,16.502624671916
+2019,"University of Sydney","au","green",2207,14.4816272965879
+2019,"University of Sydney","au","bronze",2001,13.1299212598425
+2019,"University of Sydney","au","hybrid",697,4.57349081364829
+2019,"University of Sydney","au","diamond",213,1.39763779527559
+2019,"UNSW Sydney","au","closed",6201,47.3648029330889
+2019,"UNSW Sydney","au","green",2232,17.0485792850596
+2019,"UNSW Sydney","au","gold",1979,15.1161014359914
+2019,"UNSW Sydney","au","bronze",1942,14.8334860983807
+2019,"UNSW Sydney","au","hybrid",536,4.09410326917201
+2019,"UNSW Sydney","au","diamond",202,1.54292697830736
+2019,"University of Melbourne","au","closed",6674,42.6317470456723
+2019,"University of Melbourne","au","green",3048,19.4698179495369
+2019,"University of Melbourne","au","gold",2711,17.3171510699457
+2019,"University of Melbourne","au","bronze",2089,13.3439795592462
+2019,"University of Melbourne","au","hybrid",895,5.71702331523475
+2019,"University of Melbourne","au","diamond",238,1.5202810603641
+2019,"University of Queensland","au","closed",6150,50.2040816326531
+2019,"University of Queensland","au","gold",2101,17.1510204081633
+2019,"University of Queensland","au","green",1829,14.930612244898
+2019,"University of Queensland","au","bronze",1390,11.3469387755102
+2019,"University of Queensland","au","hybrid",582,4.75102040816327
+2019,"University of Queensland","au","diamond",198,1.61632653061224
+2019,"Monash University","au","closed",6238,47.4516963334855
+2019,"Monash University","au","green",2141,16.2863228358436
+2019,"Monash University","au","gold",2132,16.2178609462955
+2019,"Monash University","au","bronze",1819,13.8369085653431
+2019,"Monash University","au","hybrid",623,4.73908413205538
+2019,"Monash University","au","diamond",193,1.46812718697703
+2019,"University of Western Australia","au","closed",3169,46.7266293128871
+2019,"University of Western Australia","au","gold",1145,16.8829253907402
+2019,"University of Western Australia","au","green",1114,16.4258330875848
+2019,"University of Western Australia","au","bronze",919,13.5505750516072
+2019,"University of Western Australia","au","hybrid",351,5.17546446475966
+2019,"University of Western Australia","au","diamond",84,1.23857269242111
+2019,"Australian National University","au","closed",2954,44.2679454518208
+2019,"Australian National University","au","green",1440,21.5794994754983
+2019,"Australian National University","au","bronze",916,13.7269593885808
+2019,"Australian National University","au","gold",875,13.1125430840701
+2019,"Australian National University","au","hybrid",362,5.42484639592387
+2019,"Australian National University","au","diamond",126,1.8882062041061
+2019,"University of Adelaide","au","closed",3174,50.8898508898509
+2019,"University of Adelaide","au","gold",1000,16.0333493666827
+2019,"University of Adelaide","au","green",887,14.2215808882476
+2019,"University of Adelaide","au","bronze",740,11.8646785313452
+2019,"University of Adelaide","au","hybrid",309,4.95430495430495
+2019,"University of Adelaide","au","diamond",127,2.0362353695687
+2019,"University of Auckland","nz","closed",3413,53.5288582183187
+2019,"University of Auckland","nz","gold",984,15.4328732747804
+2019,"University of Auckland","nz","green",857,13.4410288582183
+2019,"University of Auckland","nz","bronze",658,10.3199498117942
+2019,"University of Auckland","nz","hybrid",333,5.22271016311167
+2019,"University of Auckland","nz","diamond",131,2.05457967377666
+2019,"University of Otago","nz","closed",2065,49.4610778443114
+2019,"University of Otago","nz","gold",802,19.2095808383234
+2019,"University of Otago","nz","bronze",484,11.5928143712575
+2019,"University of Otago","nz","green",482,11.5449101796407
+2019,"University of Otago","nz","hybrid",253,6.05988023952096
+2019,"University of Otago","nz","diamond",89,2.13173652694611
+2019,"Victoria University of Wellington","nz","closed",1252,44.6823697359029
+2019,"Victoria University of Wellington","nz","bronze",521,18.5938615274804
+2019,"Victoria University of Wellington","nz","green",488,17.4161313347609
+2019,"Victoria University of Wellington","nz","gold",277,9.88579586009993
+2019,"Victoria University of Wellington","nz","hybrid",202,7.20913633119201
+2019,"Victoria University of Wellington","nz","diamond",62,2.21270521056388
+2019,"Massey University","nz","closed",1164,51.8716577540107
+2019,"Massey University","nz","gold",407,18.1372549019608
+2019,"Massey University","nz","green",275,12.2549019607843
+2019,"Massey University","nz","bronze",194,8.64527629233512
+2019,"Massey University","nz","hybrid",149,6.63992869875223
+2019,"Massey University","nz","diamond",55,2.45098039215686
+2019,"University of Canterbury","nz","closed",956,44.2592592592593
+2019,"University of Canterbury","nz","gold",620,28.7037037037037
+2019,"University of Canterbury","nz","green",300,13.8888888888889
+2019,"University of Canterbury","nz","bronze",146,6.75925925925926
+2019,"University of Canterbury","nz","hybrid",97,4.49074074074074
+2019,"University of Canterbury","nz","diamond",41,1.89814814814815
+2019,"University of Waikato","nz","closed",733,55.1542513167795
+2019,"University of Waikato","nz","green",241,18.1339352896915
+2019,"University of Waikato","nz","gold",158,11.8886380737397
+2019,"University of Waikato","nz","bronze",94,7.07298720842739
+2019,"University of Waikato","nz","hybrid",62,4.66516177577126
+2019,"University of Waikato","nz","diamond",41,3.08502633559067
+2019,"Auckland University of Technology","nz","closed",885,54.4615384615385
+2019,"Auckland University of Technology","nz","gold",308,18.9538461538462
+2019,"Auckland University of Technology","nz","green",202,12.4307692307692
+2019,"Auckland University of Technology","nz","bronze",104,6.4
+2019,"Auckland University of Technology","nz","hybrid",73,4.49230769230769
+2019,"Auckland University of Technology","nz","diamond",53,3.26153846153846
+2019,"Lincoln University","nz","closed",304,57.5757575757576
+2019,"Lincoln University","nz","gold",113,21.4015151515152
+2019,"Lincoln University","nz","bronze",41,7.76515151515152
+2019,"Lincoln University","nz","green",36,6.81818181818182
+2019,"Lincoln University","nz","hybrid",27,5.11363636363636
+2019,"Lincoln University","nz","diamond",7,1.32575757575758
+2020,"University of Sydney","au","closed",7268,44.2819716078718
+2020,"University of Sydney","au","gold",2949,17.9674648144763
+2020,"University of Sydney","au","green",2917,17.7724974105892
+2020,"University of Sydney","au","bronze",2007,12.228111862548
+2020,"University of Sydney","au","hybrid",1006,6.12928775970267
+2020,"University of Sydney","au","diamond",266,1.62066654481204
+2020,"UNSW Sydney","au","closed",5910,42.7548289083412
+2020,"UNSW Sydney","au","green",2964,21.4425233306807
+2020,"UNSW Sydney","au","gold",2460,17.7964262461116
+2020,"UNSW Sydney","au","bronze",1435,10.3812486435651
+2020,"UNSW Sydney","au","hybrid",778,5.62830065832309
+2020,"UNSW Sydney","au","diamond",276,1.99667221297837
+2020,"University of Melbourne","au","closed",6422,37.0742408497864
+2020,"University of Melbourne","au","green",3831,22.1163837894008
+2020,"University of Melbourne","au","gold",3603,20.8001385521302
+2020,"University of Melbourne","au","bronze",1904,10.9918023322942
+2020,"University of Melbourne","au","hybrid",1237,7.14120771273525
+2020,"University of Melbourne","au","diamond",325,1.87622676365316
+2020,"University of Queensland","au","closed",6080,44.7519505373178
+2020,"University of Queensland","au","gold",2445,17.9964669512734
+2020,"University of Queensland","au","green",2432,17.9007802149271
+2020,"University of Queensland","au","bronze",1390,10.2311202708671
+2020,"University of Queensland","au","hybrid",966,7.11026056234359
+2020,"University of Queensland","au","diamond",273,2.00942146327101
+2020,"Monash University","au","closed",6422,41.7990106743036
+2020,"Monash University","au","green",3026,19.6953918250456
+2020,"Monash University","au","gold",2787,18.1398073418381
+2020,"Monash University","au","bronze",1890,12.3014839885446
+2020,"Monash University","au","hybrid",998,6.49570424368654
+2020,"Monash University","au","diamond",241,1.56860192658162
+2020,"University of Western Australia","au","closed",2906,41.401909103861
+2020,"University of Western Australia","au","green",1325,18.8773329534122
+2020,"University of Western Australia","au","gold",1321,18.8203447784585
+2020,"University of Western Australia","au","bronze",884,12.5943866647671
+2020,"University of Western Australia","au","hybrid",472,6.72460464453626
+2020,"University of Western Australia","au","diamond",111,1.58142185496509
+2020,"Australian National University","au","closed",3043,41.7077850877193
+2020,"Australian National University","au","green",1759,24.109100877193
+2020,"Australian National University","au","gold",1065,14.5970394736842
+2020,"Australian National University","au","bronze",812,11.1293859649123
+2020,"Australian National University","au","hybrid",476,6.52412280701754
+2020,"Australian National University","au","diamond",141,1.93256578947368
+2020,"University of Adelaide","au","closed",3207,47.1548301720335
+2020,"University of Adelaide","au","gold",1191,17.512130569034
+2020,"University of Adelaide","au","green",1166,17.1445375680047
+2020,"University of Adelaide","au","bronze",690,10.1455668284076
+2020,"University of Adelaide","au","hybrid",420,6.17556241729157
+2020,"University of Adelaide","au","diamond",127,1.86737244522864
+2020,"University of Auckland","nz","closed",3465,50
+2020,"University of Auckland","nz","gold",1181,17.041847041847
+2020,"University of Auckland","nz","green",1096,15.8152958152958
+2020,"University of Auckland","nz","bronze",613,8.84559884559885
+2020,"University of Auckland","nz","hybrid",437,6.30591630591631
+2020,"University of Auckland","nz","diamond",138,1.99134199134199
+2020,"University of Otago","nz","closed",2130,45.4545454545455
+2020,"University of Otago","nz","gold",953,20.3371745625267
+2020,"University of Otago","nz","green",720,15.3649167733675
+2020,"University of Otago","nz","bronze",445,9.49637217242851
+2020,"University of Otago","nz","hybrid",328,6.9995731967563
+2020,"University of Otago","nz","diamond",110,2.34741784037559
+2020,"Victoria University of Wellington","nz","green",1481,38.2193548387097
+2020,"Victoria University of Wellington","nz","closed",1270,32.7741935483871
+2020,"Victoria University of Wellington","nz","bronze",471,12.1548387096774
+2020,"Victoria University of Wellington","nz","gold",354,9.13548387096774
+2020,"Victoria University of Wellington","nz","hybrid",241,6.21935483870968
+2020,"Victoria University of Wellington","nz","diamond",58,1.49677419354839
+2020,"Massey University","nz","closed",1293,50.0968616815188
+2020,"Massey University","nz","gold",520,20.1472297559086
+2020,"Massey University","nz","green",397,15.381635025184
+2020,"Massey University","nz","bronze",167,6.47036032545525
+2020,"Massey University","nz","hybrid",149,5.77295621851995
+2020,"Massey University","nz","diamond",55,2.13095699341341
+2020,"University of Canterbury","nz","closed",916,44.8360254527655
+2020,"University of Canterbury","nz","gold",417,20.4111600587372
+2020,"University of Canterbury","nz","green",370,18.1106216348507
+2020,"University of Canterbury","nz","bronze",168,8.22320117474302
+2020,"University of Canterbury","nz","hybrid",129,6.31424375917768
+2020,"University of Canterbury","nz","diamond",43,2.10474791972589
+2020,"University of Waikato","nz","closed",665,47.1965933286018
+2020,"University of Waikato","nz","green",289,20.5110007097232
+2020,"University of Waikato","nz","gold",209,14.833215046132
+2020,"University of Waikato","nz","hybrid",116,8.23278921220724
+2020,"University of Waikato","nz","bronze",85,6.03264726756565
+2020,"University of Waikato","nz","diamond",45,3.19375443577005
+2020,"Auckland University of Technology","nz","closed",891,53.0989272943981
+2020,"Auckland University of Technology","nz","gold",315,18.7723480333731
+2020,"Auckland University of Technology","nz","green",241,14.3623361144219
+2020,"Auckland University of Technology","nz","hybrid",91,5.42312276519666
+2020,"Auckland University of Technology","nz","bronze",90,5.36352800953516
+2020,"Auckland University of Technology","nz","diamond",50,2.97973778307509
+2020,"Lincoln University","nz","closed",267,50.4725897920605
+2020,"Lincoln University","nz","gold",132,24.952741020794
+2020,"Lincoln University","nz","green",50,9.45179584120983
+2020,"Lincoln University","nz","hybrid",42,7.93950850661626
+2020,"Lincoln University","nz","bronze",33,6.23818525519849
+2020,"Lincoln University","nz","diamond",5,0.945179584120983
+2021,"University of Sydney","au","closed",6866,41.9938837920489
+2021,"University of Sydney","au","gold",3460,21.1620795107034
+2021,"University of Sydney","au","green",2770,16.9418960244648
+2021,"University of Sydney","au","bronze",1754,10.7278287461774
+2021,"University of Sydney","au","hybrid",1166,7.13149847094801
+2021,"University of Sydney","au","diamond",334,2.04281345565749
+2021,"UNSW Sydney","au","closed",6145,41.8283302702335
+2021,"UNSW Sydney","au","gold",3221,21.924988087945
+2021,"UNSW Sydney","au","green",2744,18.6781022394663
+2021,"UNSW Sydney","au","bronze",1285,8.7468518140358
+2021,"UNSW Sydney","au","hybrid",996,6.77966101694915
+2021,"UNSW Sydney","au","diamond",300,2.04206657137023
+2021,"University of Melbourne","au","closed",6392,36.3781230436515
+2021,"University of Melbourne","au","gold",3910,22.2525752660634
+2021,"University of Melbourne","au","green",3646,20.7500995959251
+2021,"University of Melbourne","au","bronze",1851,10.5344032781287
+2021,"University of Melbourne","au","hybrid",1447,8.23516020715952
+2021,"University of Melbourne","au","diamond",325,1.84963860907177
+2021,"University of Queensland","au","closed",6122,43.8601518842241
+2021,"University of Queensland","au","gold",3008,21.5503653818599
+2021,"University of Queensland","au","green",2384,17.0798108611549
+2021,"University of Queensland","au","bronze",1199,8.59005588193151
+2021,"University of Queensland","au","hybrid",961,6.88494053589339
+2021,"University of Queensland","au","diamond",284,2.03467545493624
+2021,"Monash University","au","closed",6420,41.2119655925022
+2021,"Monash University","au","gold",3102,19.9126973937604
+2021,"Monash University","au","green",3006,19.2964437026576
+2021,"Monash University","au","bronze",1716,11.0155347284632
+2021,"Monash University","au","hybrid",1068,6.85582231351906
+2021,"Monash University","au","diamond",266,1.70753626909745
+2021,"University of Western Australia","au","closed",2820,39.182992913714
+2021,"University of Western Australia","au","gold",1533,21.3005418924552
+2021,"University of Western Australia","au","green",1328,18.4521328331249
+2021,"University of Western Australia","au","bronze",730,10.1431151868834
+2021,"University of Western Australia","au","hybrid",641,8.90648881478394
+2021,"University of Western Australia","au","diamond",145,2.01472835903849
+2021,"Australian National University","au","closed",2985,40.4416745698415
+2021,"Australian National University","au","green",1708,23.1404958677686
+2021,"Australian National University","au","gold",1150,15.5805446416475
+2021,"Australian National University","au","bronze",789,10.689608454139
+2021,"Australian National University","au","hybrid",595,8.06123831459152
+2021,"Australian National University","au","diamond",154,2.08643815201192
+2021,"University of Adelaide","au","closed",2983,45.0672306995014
+2021,"University of Adelaide","au","gold",1374,20.7584227224656
+2021,"University of Adelaide","au","green",1082,16.3468801933827
+2021,"University of Adelaide","au","bronze",583,8.80797703580601
+2021,"University of Adelaide","au","hybrid",469,7.08566248678048
+2021,"University of Adelaide","au","diamond",128,1.93382686206376
+2021,"University of Auckland","nz","closed",3387,47.2582670573462
+2021,"University of Auckland","nz","gold",1442,20.1199944188642
+2021,"University of Auckland","nz","green",1114,15.5434630947398
+2021,"University of Auckland","nz","hybrid",552,7.7019673503558
+2021,"University of Auckland","nz","bronze",525,7.3252406864797
+2021,"University of Auckland","nz","diamond",147,2.05106739221432
+2021,"University of Otago","nz","closed",2033,44.3499127399651
+2021,"University of Otago","nz","gold",1062,23.1675392670157
+2021,"University of Otago","nz","green",681,14.8560209424084
+2021,"University of Otago","nz","bronze",350,7.63525305410122
+2021,"University of Otago","nz","hybrid",350,7.63525305410122
+2021,"University of Otago","nz","diamond",108,2.35602094240838
+2021,"Victoria University of Wellington","nz","closed",1274,36.182902584493
+2021,"Victoria University of Wellington","nz","green",1159,32.9167850042601
+2021,"Victoria University of Wellington","nz","gold",404,11.4740130644703
+2021,"Victoria University of Wellington","nz","bronze",307,8.71911388809997
+2021,"Victoria University of Wellington","nz","hybrid",304,8.63391082078955
+2021,"Victoria University of Wellington","nz","diamond",73,2.07327463788696
+2021,"Massey University","nz","closed",1255,46.1227489893422
+2021,"Massey University","nz","gold",684,25.1378169790518
+2021,"Massey University","nz","green",355,13.0466740169055
+2021,"Massey University","nz","hybrid",192,7.05622932745314
+2021,"Massey University","nz","bronze",157,5.7699375229695
+2021,"Massey University","nz","diamond",78,2.86659316427784
+2021,"University of Canterbury","nz","closed",923,44.4177093358999
+2021,"University of Canterbury","nz","gold",387,18.623676612127
+2021,"University of Canterbury","nz","green",378,18.1905678537055
+2021,"University of Canterbury","nz","hybrid",214,10.2983638113571
+2021,"University of Canterbury","nz","bronze",137,6.59287776708373
+2021,"University of Canterbury","nz","diamond",39,1.87680461982676
+2021,"University of Waikato","nz","closed",725,49.5218579234973
+2021,"University of Waikato","nz","green",248,16.9398907103825
+2021,"University of Waikato","nz","gold",242,16.5300546448087
+2021,"University of Waikato","nz","hybrid",113,7.71857923497268
+2021,"University of Waikato","nz","bronze",75,5.12295081967213
+2021,"University of Waikato","nz","diamond",61,4.16666666666667
+2021,"Auckland University of Technology","nz","closed",901,49.7790055248619
+2021,"Auckland University of Technology","nz","gold",368,20.3314917127072
+2021,"Auckland University of Technology","nz","green",243,13.4254143646409
+2021,"Auckland University of Technology","nz","bronze",124,6.85082872928177
+2021,"Auckland University of Technology","nz","hybrid",120,6.62983425414365
+2021,"Auckland University of Technology","nz","diamond",54,2.98342541436464
+2021,"Lincoln University","nz","closed",301,51.2776831345826
+2021,"Lincoln University","nz","gold",157,26.7461669505963
+2021,"Lincoln University","nz","green",49,8.34752981260647
+2021,"Lincoln University","nz","hybrid",41,6.98466780238501
+2021,"Lincoln University","nz","bronze",27,4.59965928449745
+2021,"Lincoln University","nz","diamond",12,2.0442930153322
+2022,"University of Sydney","au","closed",5516,36.1538965720653
+2022,"University of Sydney","au","gold",3672,24.0676410827817
+2022,"University of Sydney","au","green",2277,14.9242970439798
+2022,"University of Sydney","au","hybrid",2204,14.4458281444583
+2022,"University of Sydney","au","bronze",1251,8.19951497673199
+2022,"University of Sydney","au","diamond",337,2.20882217998296
+2022,"UNSW Sydney","au","closed",5247,38.1378107283035
+2022,"UNSW Sydney","au","gold",3250,23.6226195667975
+2022,"UNSW Sydney","au","green",2239,16.2741677569414
+2022,"UNSW Sydney","au","hybrid",1800,13.0832969908417
+2022,"UNSW Sydney","au","bronze",906,6.58525948539032
+2022,"UNSW Sydney","au","diamond",316,2.29684547172554
+2022,"University of Melbourne","au","closed",5592,33.9423368740516
+2022,"University of Melbourne","au","gold",4204,25.5174506828528
+2022,"University of Melbourne","au","green",2585,15.690440060698
+2022,"University of Melbourne","au","hybrid",2456,14.907435508346
+2022,"University of Melbourne","au","bronze",1240,7.52655538694992
+2022,"University of Melbourne","au","diamond",398,2.41578148710167
+2022,"University of Queensland","au","closed",4879,36.2051053725141
+2022,"University of Queensland","au","gold",3281,24.3469872365687
+2022,"University of Queensland","au","green",2127,15.7836153161175
+2022,"University of Queensland","au","hybrid",1956,14.5146927871772
+2022,"University of Queensland","au","bronze",914,6.78242802018403
+2022,"University of Queensland","au","diamond",319,2.36717126743841
+2022,"Monash University","au","closed",5341,36.3185094519244
+2022,"Monash University","au","gold",3431,23.3306133550932
+2022,"Monash University","au","green",2307,15.687474500204
+2022,"Monash University","au","hybrid",2086,14.1846865225078
+2022,"Monash University","au","bronze",1208,8.21433428532572
+2022,"Monash University","au","diamond",333,2.26438188494492
+2022,"University of Western Australia","au","closed",2461,35.4151676500216
+2022,"University of Western Australia","au","gold",1685,24.2480932508275
+2022,"University of Western Australia","au","green",1093,15.7288818535041
+2022,"University of Western Australia","au","hybrid",1024,14.7359332278026
+2022,"University of Western Australia","au","bronze",552,7.94358900561232
+2022,"University of Western Australia","au","diamond",134,1.92833501223198
+2022,"Australian National University","au","closed",2241,34.6046942557134
+2022,"Australian National University","au","gold",1319,20.3675108091414
+2022,"Australian National University","au","green",1248,19.2711550339716
+2022,"Australian National University","au","hybrid",943,14.5614576899321
+2022,"Australian National University","au","bronze",550,8.49289684990735
+2022,"Australian National University","au","diamond",175,2.70228536133416
+2022,"University of Adelaide","au","closed",2303,38.2240663900415
+2022,"University of Adelaide","au","gold",1345,22.3236514522822
+2022,"University of Adelaide","au","green",911,15.1203319502075
+2022,"University of Adelaide","au","hybrid",894,14.8381742738589
+2022,"University of Adelaide","au","bronze",446,7.40248962655602
+2022,"University of Adelaide","au","diamond",126,2.09128630705394
+2022,"University of Auckland","nz","closed",2631,39.2745185848634
+2022,"University of Auckland","nz","gold",1616,24.1230034333483
+2022,"University of Auckland","nz","hybrid",991,14.7932527242872
+2022,"University of Auckland","nz","green",897,13.3900582176444
+2022,"University of Auckland","nz","bronze",408,6.09046126287506
+2022,"University of Auckland","nz","diamond",156,2.32870577698164
+2022,"University of Otago","nz","closed",1483,34.9434495758718
+2022,"University of Otago","nz","gold",1126,26.5315739868049
+2022,"University of Otago","nz","hybrid",681,16.0461828463713
+2022,"University of Otago","nz","green",597,14.066918001885
+2022,"University of Otago","nz","bronze",262,6.17342130065976
+2022,"University of Otago","nz","diamond",95,2.23845428840716
+2022,"Victoria University of Wellington","nz","closed",1126,41.0948905109489
+2022,"Victoria University of Wellington","nz","gold",445,16.2408759124088
+2022,"Victoria University of Wellington","nz","hybrid",419,15.2919708029197
+2022,"Victoria University of Wellington","nz","green",401,14.6350364963504
+2022,"Victoria University of Wellington","nz","bronze",270,9.85401459854015
+2022,"Victoria University of Wellington","nz","diamond",79,2.88321167883212
+2022,"Massey University","nz","closed",1005,39.7233201581028
+2022,"Massey University","nz","gold",707,27.9446640316206
+2022,"Massey University","nz","hybrid",339,13.399209486166
+2022,"Massey University","nz","green",299,11.8181818181818
+2022,"Massey University","nz","bronze",100,3.95256916996047
+2022,"Massey University","nz","diamond",80,3.16205533596838
+2022,"University of Canterbury","nz","closed",769,38.8580090955028
+2022,"University of Canterbury","nz","gold",463,23.3956543708944
+2022,"University of Canterbury","nz","hybrid",337,17.0288024254674
+2022,"University of Canterbury","nz","green",277,13.9969681657403
+2022,"University of Canterbury","nz","bronze",82,4.14350682162708
+2022,"University of Canterbury","nz","diamond",51,2.57705912076806
+2022,"University of Waikato","nz","closed",628,43.7935843793584
+2022,"University of Waikato","nz","gold",266,18.5495118549512
+2022,"University of Waikato","nz","hybrid",237,16.5271966527197
+2022,"University of Waikato","nz","green",190,13.2496513249651
+2022,"University of Waikato","nz","diamond",71,4.95118549511855
+2022,"University of Waikato","nz","bronze",42,2.92887029288703
+2022,"Auckland University of Technology","nz","closed",643,37.0818915801615
+2022,"Auckland University of Technology","nz","gold",439,25.3171856978085
+2022,"Auckland University of Technology","nz","hybrid",286,16.4936562860438
+2022,"Auckland University of Technology","nz","green",204,11.7647058823529
+2022,"Auckland University of Technology","nz","bronze",93,5.36332179930796
+2022,"Auckland University of Technology","nz","diamond",69,3.97923875432526
+2022,"Lincoln University","nz","closed",219,41.2429378531073
+2022,"Lincoln University","nz","gold",172,32.391713747646
+2022,"Lincoln University","nz","hybrid",75,14.1242937853107
+2022,"Lincoln University","nz","green",38,7.15630885122411
+2022,"Lincoln University","nz","diamond",14,2.63653483992467
+2022,"Lincoln University","nz","bronze",13,2.44821092278719
+2023,"University of Sydney","au","closed",5559,34.3593547190803
+2023,"University of Sydney","au","hybrid",3653,22.5786513381544
+2023,"University of Sydney","au","gold",3538,21.8678533901972
+2023,"University of Sydney","au","green",1763,10.8968415847704
+2023,"University of Sydney","au","bronze",1327,8.20199023425428
+2023,"University of Sydney","au","diamond",339,2.09530873354348
+2023,"UNSW Sydney","au","closed",4291,32.4412187192863
+2023,"UNSW Sydney","au","hybrid",3001,22.6884403114841
+2023,"UNSW Sydney","au","gold",2923,22.0987374310123
+2023,"UNSW Sydney","au","green",1668,12.6105692900885
+2023,"UNSW Sydney","au","bronze",971,7.3410448325395
+2023,"UNSW Sydney","au","diamond",373,2.81998941558932
+2023,"University of Melbourne","au","closed",4742,28.3324371153731
+2023,"University of Melbourne","au","hybrid",4170,24.9148592937802
+2023,"University of Melbourne","au","gold",3999,23.8931708191432
+2023,"University of Melbourne","au","green",2015,12.0391945987931
+2023,"University of Melbourne","au","bronze",1370,8.18545736989902
+2023,"University of Melbourne","au","diamond",441,2.63488080301129
+2023,"University of Queensland","au","closed",3865,29.6873799831016
+2023,"University of Queensland","au","hybrid",3438,26.4075581841923
+2023,"University of Queensland","au","gold",3005,23.0816498963054
+2023,"University of Queensland","au","green",1489,11.437130347953
+2023,"University of Queensland","au","bronze",876,6.72862739073662
+2023,"University of Queensland","au","diamond",346,2.65765419771104
+2023,"Monash University","au","closed",4328,29.5023858214042
+2023,"Monash University","au","hybrid",3773,25.7191547375596
+2023,"Monash University","au","gold",3151,21.4792092706203
+2023,"Monash University","au","green",1749,11.9222903885481
+2023,"Monash University","au","bronze",1330,9.06612133605999
+2023,"Monash University","au","diamond",339,2.31083844580777
+2023,"University of Western Australia","au","closed",2178,31.2437239994262
+2023,"University of Western Australia","au","hybrid",1724,24.7310285468369
+2023,"University of Western Australia","au","gold",1653,23.7125233108593
+2023,"University of Western Australia","au","green",761,10.9166547123799
+2023,"University of Western Australia","au","bronze",499,7.15822694018075
+2023,"University of Western Australia","au","diamond",156,2.23784249031703
+2023,"Australian National University","au","closed",1957,30.1494376829456
+2023,"Australian National University","au","hybrid",1648,25.3890001540595
+2023,"Australian National University","au","gold",1247,19.2112155291943
+2023,"Australian National University","au","green",958,14.7588969342166
+2023,"Australian National University","au","bronze",496,7.64134956093052
+2023,"Australian National University","au","diamond",185,2.85010013865352
+2023,"University of Adelaide","au","closed",2175,33.0396475770925
+2023,"University of Adelaide","au","hybrid",1654,25.1253228011545
+2023,"University of Adelaide","au","gold",1348,20.4769861765153
+2023,"University of Adelaide","au","green",687,10.435971441592
+2023,"University of Adelaide","au","bronze",516,7.83837156311712
+2023,"University of Adelaide","au","diamond",203,3.08370044052863
+2023,"University of Auckland","nz","closed",2317,34.6700583570253
+2023,"University of Auckland","nz","hybrid",1682,25.1683375729463
+2023,"University of Auckland","nz","gold",1390,20.7990423462517
+2023,"University of Auckland","nz","green",657,9.83091426006285
+2023,"University of Auckland","nz","bronze",442,6.61379619931169
+2023,"University of Auckland","nz","diamond",195,2.91785126440221
+2023,"University of Otago","nz","closed",1190,29.4190358467244
+2023,"University of Otago","nz","hybrid",1141,28.2076637824475
+2023,"University of Otago","nz","gold",971,24.0049443757726
+2023,"University of Otago","nz","green",372,9.19653893695921
+2023,"University of Otago","nz","bronze",246,6.08158220024722
+2023,"University of Otago","nz","diamond",125,3.0902348578492
+2023,"Victoria University of Wellington","nz","closed",864,33.5794792071512
+2023,"Victoria University of Wellington","nz","hybrid",668,25.9619121647882
+2023,"Victoria University of Wellington","nz","gold",406,15.7792460163234
+2023,"Victoria University of Wellington","nz","green",298,11.5818111154295
+2023,"Victoria University of Wellington","nz","bronze",255,9.91061018266615
+2023,"Victoria University of Wellington","nz","diamond",82,3.18694131364166
+2023,"Massey University","nz","closed",722,31.7921620431528
+2023,"Massey University","nz","hybrid",645,28.4015852047556
+2023,"Massey University","nz","gold",536,23.6019374724791
+2023,"Massey University","nz","green",181,7.97005724350506
+2023,"Massey University","nz","bronze",115,5.06384852487891
+2023,"Massey University","nz","diamond",72,3.17040951122853
+2023,"University of Canterbury","nz","closed",735,31.9565217391304
+2023,"University of Canterbury","nz","hybrid",707,30.7391304347826
+2023,"University of Canterbury","nz","gold",487,21.1739130434783
+2023,"University of Canterbury","nz","green",214,9.30434782608696
+2023,"University of Canterbury","nz","bronze",93,4.04347826086957
+2023,"University of Canterbury","nz","diamond",64,2.78260869565217
+2023,"University of Waikato","nz","closed",563,38.3514986376022
+2023,"University of Waikato","nz","hybrid",419,28.5422343324251
+2023,"University of Waikato","nz","gold",257,17.5068119891008
+2023,"University of Waikato","nz","green",126,8.58310626702997
+2023,"University of Waikato","nz","diamond",54,3.67847411444142
+2023,"University of Waikato","nz","bronze",49,3.33787465940055
+2023,"Auckland University of Technology","nz","closed",545,34.4283006948831
+2023,"Auckland University of Technology","nz","hybrid",433,27.3531269740998
+2023,"Auckland University of Technology","nz","gold",340,21.4782059380922
+2023,"Auckland University of Technology","nz","green",127,8.0227416298168
+2023,"Auckland University of Technology","nz","bronze",76,4.80101073910297
+2023,"Auckland University of Technology","nz","diamond",62,3.91661402400505
+2023,"Lincoln University","nz","closed",185,34.5149253731343
+2023,"Lincoln University","nz","hybrid",165,30.7835820895522
+2023,"Lincoln University","nz","gold",129,24.0671641791045
+2023,"Lincoln University","nz","green",31,5.78358208955224
+2023,"Lincoln University","nz","bronze",13,2.42537313432836
+2023,"Lincoln University","nz","diamond",13,2.42537313432836
+2024,"University of Sydney","au","closed",4737,35.4751741181757
+2024,"University of Sydney","au","hybrid",3719,27.8514191567438
+2024,"University of Sydney","au","gold",3135,23.4778701415412
+2024,"University of Sydney","au","green",1053,7.88586834419232
+2024,"University of Sydney","au","bronze",383,2.8682693027784
+2024,"University of Sydney","au","diamond",326,2.44139893656856
+2024,"UNSW Sydney","au","closed",4112,36.7602360092973
+2024,"UNSW Sydney","au","hybrid",3154,28.1959592347577
+2024,"UNSW Sydney","au","gold",2360,21.0978008224566
+2024,"UNSW Sydney","au","green",925,8.26926515286966
+2024,"UNSW Sydney","au","bronze",349,3.11997139281244
+2024,"UNSW Sydney","au","diamond",286,2.55676738780619
+2024,"University of Melbourne","au","closed",4722,33.7261624169702
+2024,"University of Melbourne","au","hybrid",3951,28.2194128990786
+2024,"University of Melbourne","au","gold",3247,23.1912006285265
+2024,"University of Melbourne","au","green",1317,9.40647096635955
+2024,"University of Melbourne","au","diamond",393,2.80694236125991
+2024,"University of Melbourne","au","bronze",371,2.64981072780516
+2024,"University of Queensland","au","closed",3628,32.7703007858369
+2024,"University of Queensland","au","hybrid",3303,29.8347032788366
+2024,"University of Queensland","au","gold",2542,22.960888808599
+2024,"University of Queensland","au","green",984,8.88808599042544
+2024,"University of Queensland","au","bronze",316,2.85430403757565
+2024,"University of Queensland","au","diamond",298,2.6917170987264
+2024,"Monash University","au","closed",4204,34.4026186579378
+2024,"Monash University","au","hybrid",3626,29.6726677577741
+2024,"Monash University","au","gold",2681,21.9394435351882
+2024,"Monash University","au","green",1021,8.35515548281506
+2024,"Monash University","au","bronze",405,3.31423895253682
+2024,"Monash University","au","diamond",283,2.31587561374795
+2024,"University of Western Australia","au","closed",2022,35.3434714210802
+2024,"University of Western Australia","au","hybrid",1571,27.4602342247859
+2024,"University of Western Australia","au","gold",1433,25.0480685194896
+2024,"University of Western Australia","au","green",436,7.62104527180563
+2024,"University of Western Australia","au","bronze",134,2.34224785876595
+2024,"University of Western Australia","au","diamond",125,2.18493270407271
+2024,"Australian National University","au","closed",1655,32.0054148133823
+2024,"Australian National University","au","hybrid",1461,28.2537226842004
+2024,"Australian National University","au","gold",1099,21.2531425256237
+2024,"Australian National University","au","green",624,12.0672983948946
+2024,"Australian National University","au","bronze",189,3.65499903306904
+2024,"Australian National University","au","diamond",143,2.76542254883001
+2024,"University of Adelaide","au","closed",2079,37.910284463895
+2024,"University of Adelaide","au","hybrid",1520,27.7169948942378
+2024,"University of Adelaide","au","gold",1065,19.4201312910284
+2024,"University of Adelaide","au","green",452,8.24215900802334
+2024,"University of Adelaide","au","bronze",218,3.97520058351568
+2024,"University of Adelaide","au","diamond",150,2.73522975929978
+2024,"University of Auckland","nz","closed",1966,36.7958075987273
+2024,"University of Auckland","nz","hybrid",1562,29.2345124461913
+2024,"University of Auckland","nz","gold",1097,20.5315365899308
+2024,"University of Auckland","nz","green",398,7.4489986898746
+2024,"University of Auckland","nz","bronze",165,3.08815272318922
+2024,"University of Auckland","nz","diamond",155,2.90099195208684
+2024,"University of Otago","nz","closed",1097,32.7756199581715
+2024,"University of Otago","nz","hybrid",979,29.2500746937556
+2024,"University of Otago","nz","gold",772,23.0654317299074
+2024,"University of Otago","nz","green",256,7.64864057364804
+2024,"University of Otago","nz","bronze",142,4.2426053181954
+2024,"University of Otago","nz","diamond",101,3.01762772632208
+2024,"Victoria University of Wellington","nz","closed",726,37.2689938398357
+2024,"Victoria University of Wellington","nz","hybrid",603,30.9548254620123
+2024,"Victoria University of Wellington","nz","gold",286,14.6817248459959
+2024,"Victoria University of Wellington","nz","green",172,8.82956878850103
+2024,"Victoria University of Wellington","nz","bronze",83,4.26078028747433
+2024,"Victoria University of Wellington","nz","diamond",78,4.0041067761807
+2024,"Massey University","nz","hybrid",558,33.2340678975581
+2024,"Massey University","nz","closed",483,28.7671232876712
+2024,"Massey University","nz","gold",401,23.8832638475283
+2024,"Massey University","nz","green",87,5.18165574746873
+2024,"Massey University","nz","bronze",83,4.9434187016081
+2024,"Massey University","nz","diamond",67,3.99047051816557
+2024,"University of Canterbury","nz","closed",516,31.6758747697974
+2024,"University of Canterbury","nz","hybrid",509,31.2461632903622
+2024,"University of Canterbury","nz","gold",340,20.8717004297115
+2024,"University of Canterbury","nz","green",159,9.76058931860037
+2024,"University of Canterbury","nz","diamond",53,3.25352977286679
+2024,"University of Canterbury","nz","bronze",52,3.19214241866176
+2024,"University of Waikato","nz","hybrid",374,36.2754607177498
+2024,"University of Waikato","nz","closed",356,34.529582929195
+2024,"University of Waikato","nz","gold",169,16.3918525703201
+2024,"University of Waikato","nz","green",74,7.17749757516974
+2024,"University of Waikato","nz","diamond",31,3.00678952473327
+2024,"University of Waikato","nz","bronze",27,2.6188166828322
+2024,"Auckland University of Technology","nz","closed",420,33.5195530726257
+2024,"Auckland University of Technology","nz","hybrid",338,26.975259377494
+2024,"Auckland University of Technology","nz","gold",324,25.8579409417398
+2024,"Auckland University of Technology","nz","green",90,7.18276137270551
+2024,"Auckland University of Technology","nz","diamond",46,3.67118914604948
+2024,"Auckland University of Technology","nz","bronze",35,2.79329608938547
+2024,"Lincoln University","nz","hybrid",156,34.6666666666667
+2024,"Lincoln University","nz","closed",127,28.2222222222222
+2024,"Lincoln University","nz","gold",120,26.6666666666667
+2024,"Lincoln University","nz","green",22,4.88888888888889
+2024,"Lincoln University","nz","bronze",14,3.11111111111111
+2024,"Lincoln University","nz","diamond",11,2.44444444444444
