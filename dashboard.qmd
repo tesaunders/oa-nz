@@ -8,7 +8,6 @@ format:
 logo: images/oa.png
 theme:
   - darkly
-  - custom.scss
 fig-width: 12
 ---
 
@@ -20,31 +19,16 @@ library(dplyr)
 library(purrr)
 library(ggplot2)
 library(ggthemes)
-library(DT)
+library(gt)
 library(tidyr)
 library(scales)
-
-theme_set(theme_minimal(base_size = 24, base_family = "Atkinson Hyperlegible"))
+library(forcats)
 ```
 
 ```{r}
-#| label: load-data
-#| message: false
-
-pub_data <- read.csv("data/publications.csv")
-cit_data <- read.csv("data/citations.csv")
-```
-
-```{r}
-#| label: define-values
-#| results: hide
+#| label: define-values-themes
 
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
-```
-
-```{r}
-#| label: define-plot-theme
-#| results: hide
 
 plot_theme <- function(base_size=20, base_family="sans") {
    library(ggthemes)
@@ -79,21 +63,24 @@ plot_theme <- function(base_size=20, base_family="sans") {
       ))
 }
 
-scale_oa <- scale_colour_manual(name = "Access Type",
-                      values = c("bronze" = "#A65628",
-                                 "hybrid" = "#377EB8",
-                                 "gold" = "#FFFF33",
-                                 "diamond" = "lightgrey",
-                                 "green" = "#4DAF4A",
-                                 "closed" = "#E41A1C"))
+plot_colours <- c("bronze" = "#A65628",
+                  "hybrid" = "#377EB8",
+                  "gold" = "#FFFF33",
+                 "diamond" = "lightgrey",
+                 "green" = "#4DAF4A",
+                 "closed" = "#E41A1C")
+```
 
-scale_oa_fill <- scale_fill_manual(name = "Access Type",
-                      values = c("bronze" = "#A65628",
-                                 "hybrid" = "#377EB8",
-                                 "gold" = "#FFFF33",
-                                 "diamond" = "lightgrey",
-                                 "green" = "#4DAF4A",
-                                 "closed" = "#E41A1C"))
+```{r}
+#| label: load-data
+
+pub_data <- read.csv("data/publications.csv")
+cit_data <- read.csv("data/citations.csv")
+
+pub_data$key <- factor(pub_data$key, levels = c("closed", "hybrid", "gold", "green", "diamond", "bronze"))
+pub_data$institution <- factor(pub_data$institution)
+
+cit_data$oa_status <- factor(cit_data$oa_status, levels = c("closed", "hybrid", "gold", "green", "diamond", "bronze"))
 ```
 
 #  {.sidebar}
@@ -102,7 +89,7 @@ This dashboard displays data relating to open access publication output from all
 
 ------------------------------------------------------------------------
 
-Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since 2010. Currently, data is only included up to the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
+Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since `r min(pub_data$year)`. Currently, data is only included up to the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
 
 ------------------------------------------------------------------------
 
@@ -119,9 +106,9 @@ Data includes all journal articles, books, and book chapters with an author affi
 
 ```{r}
 #| label: summarise-data
-#| message: false
 
-total <- pub_data |> 
+total <- 
+  pub_data |> 
   mutate(
     open = case_when(key != "closed" ~ "open", .default = key),
   ) |> 
@@ -134,7 +121,6 @@ total <- pub_data |>
   summarise(
     pc = mean(pc),
   )
-
 ```
 
 # New Zealand
@@ -144,9 +130,9 @@ total <- pub_data |>
 ```{r}
 #| content: valuebox
 #| title: "Current OA rate"
-#| message: false
 
-total_nz <- total |> 
+total_nz <- 
+  total |> 
   filter(country == "nz", year == prev_year) |> 
   pull(pc)
 
@@ -155,32 +141,27 @@ list(
   color = "success",
   value = paste0(round(total_nz), "%")
 )
-
 ```
 
 ```{r}
 #| content: valuebox
 #| title: "Universities NZ 2025 Target"
-#| message: false
 
 list(
   icon = "bullseye",
   color = "warning",
   value = print("70%")
 )
-
 ```
 
 ```{r}
 #| content: valuebox
 #| title: "Last Updated"
-#| message: false
 
 list(
   color = "light",
   value = format(file.info("data/publications.csv")$mtime, format = "%d %b %Y")
 )
-
 ```
 
 ## Row {height=80%}
@@ -188,12 +169,11 @@ list(
 ### Column {width=50%}
 
 ```{r}
-#| title: Total OA rate over time
+#| title: "Total OA rate over time"
 
-trend_nz <- total |> 
-  filter(country == "nz")
-
-ggplot(trend_nz, aes(x = year, y = pc)) +
+total |> 
+  filter(country == "nz") |> 
+  ggplot(aes(x = year, y = pc)) +
   geom_line(size = 1, colour = "#f3f2f2") +
   geom_hline(yintercept = 70, color = "#f39c12", linewidth = 1) +
   annotate("text", x = prev_year - 1, y = 73, label = "UNZ Target", colour = "#f39c12") +
@@ -205,21 +185,20 @@ ggplot(trend_nz, aes(x = year, y = pc)) +
 ```
 
 ```{r}
-#| title: Access type over time
+#| title: Access type over time (Combined)
 
-type_nz <- pub_data |> 
+pub_data |> 
   filter(country == "nz") |> 
   group_by(year, key) |> 
   summarise(
     pc = mean(pc),
-  )
-
-ggplot(type_nz, aes(x = year, y = pc, colour = key)) +
-  geom_line(size = 1) +
-  scale_oa +
+    count = sum(count)
+  ) |> 
+  ggplot(aes(x = year, y = pc, fill = key)) +
+  geom_area() +
+  scale_fill_manual(name = "Access Type", values = plot_colours) +
   xlab("") +
   ylab("Proportion (%)") +
-  ylim(0, 80) +
   scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
   plot_theme()
 ```
@@ -229,17 +208,18 @@ ggplot(type_nz, aes(x = year, y = pc, colour = key)) +
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
   
-recent_nz <- pub_data |> 
+pub_data |> 
   filter(country == "nz", year == max(year), key == "closed") |>
   summarise(
     institution = institution,
     percent = 1 - pc/100,
   ) |> 
-  arrange(desc(percent))
-
-recent_nz |> 
-  datatable(options = list(dom = 't', ordering = FALSE), rownames = FALSE, colnames=NULL) |> 
-  formatPercentage("percent")
+  arrange(desc(percent)) |> 
+  gt() |> 
+  fmt_percent(decimals = 0) |> 
+  tab_options(column_labels.hidden = TRUE,
+              table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
 ```
 
 # Australia G8
@@ -250,7 +230,8 @@ recent_nz |>
 #| content: valuebox
 #| title: "Current OA rate"
 
-total_au <- total |> 
+total_au <- 
+  total |> 
   filter(country == "au", year == prev_year) |> 
   pull(pc)
 
@@ -259,7 +240,6 @@ list(
   color = "success",
   value = paste0(round(total_au), "%")
 )
-
 ```
 
 ```{r}
@@ -271,7 +251,6 @@ list(
   color = "warning",
   value = print("—")
 )
-
 ```
 
 ```{r}
@@ -282,7 +261,6 @@ list(
   color = "light",
   value = format(file.info("data/publications.csv")$mtime, format = "%d %b %Y")
 )
-
 ```
 
 ## Row {height=80%}
@@ -292,10 +270,9 @@ list(
 ```{r}
 #| title: Total OA rate over time
 
-trend_au <- total |> 
-  filter(country == "au")
-
-ggplot(trend_au, aes(x = year, y = pc)) +
+total |> 
+  filter(country == "au") |> 
+  ggplot(aes(x = year, y = pc)) +
   geom_line(size = 1, colour = "#f3f2f2") +
   xlab("") +
   ylab("Open Access (%)") +
@@ -307,19 +284,17 @@ ggplot(trend_au, aes(x = year, y = pc)) +
 ```{r}
 #| title: Access type over time
 
-type_au <- pub_data |> 
+pub_data |> 
   filter(country == "au") |> 
   group_by(year, key) |> 
   summarise(
     pc = mean(pc),
-  )
-
-ggplot(type_au, aes(x = year, y = pc, colour = key)) +
-  geom_line(size = 1) +
-  scale_oa +
+  ) |> 
+  ggplot(aes(x = year, y = pc, fill = key)) +
+  geom_area() +
+  scale_fill_manual(name = "Access Type", values = plot_colours) +
   xlab("") +
   ylab("Proportion (%)") +
-  ylim(0, 80) +
   scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
   plot_theme()
 ```
@@ -329,18 +304,19 @@ ggplot(type_au, aes(x = year, y = pc, colour = key)) +
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
   
-recent_au <- pub_data |> 
+pub_data |> 
   filter(country == "au", year == max(year), key == "closed") |>
   summarise(
     institution = institution,
     percent = 1 - pc/100,
   ) |> 
-  arrange(desc(percent))
-
-recent_au |> 
-  datatable(options = list(dom = 't', ordering = FALSE), rownames = FALSE, colnames = NULL) |> 
-  formatPercentage("percent")
-
+  arrange(desc(percent)) |> 
+  gt() |> 
+  fmt_percent(decimals = 0) |> 
+  tab_options(column_labels.hidden = TRUE) |> 
+  tab_options(column_labels.hidden = TRUE,
+              table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
 ```
 
 # Comparison
@@ -350,42 +326,36 @@ recent_au |>
 ```{r}
 #| content: valuebox
 #| title: "Current OA rate (NZ)"
-#| message: false
 
 list(
   icon = "unlock",
   color = "success",
   value = paste0(round(total_nz), "%")
 )
-
 ```
 
 ```{r}
 #| content: valuebox
 #| title: "Current OA rate (AU)"
-#| message: false
 
 list(
   icon = "unlock",
   color = "success",
   value = paste0(round(total_au), "%")
 )
-
 ```
 
 ```{r}
 #| content: valuebox
 #| title: "Last Updated"
-#| message: false
 
 list(
   color = "light",
   value = format(file.info("data/publications.csv")$mtime, format = "%d %b %Y")
 )
-
 ```
 
-## Row {height="40%"}
+## Row {height=40%}
 
 ```{r}
 #| title: NZ vs AU OA rate over time
@@ -404,183 +374,74 @@ ggplot(total, aes(x = year, y = pc)) +
   plot_theme()
 ```
 
-## Row {height="40%"}
-
 ```{r}
 #| title: Institutional trend over time (NZ)
 
-unis_nz <- pub_data |>
+inst_lines_nz <- c("University of Auckland" = "#00467f",
+                   "Auckland University of Technology" = "#000000",
+                   "University of Waikato" = "#ffa400",
+                   "Massey University" = "#8998b9",
+                   "Victoria University of Wellington" = "#004b34",
+                   "University of Canterbury" = "#ce0818",
+                   "Lincoln University" = "#2d4ce5",
+                   "University of Otago" = "#f2b043")
+
+inst_lines_au <- c("University of Melbourne" = "#000c38",
+                   "Australian National University" = "#bf872b",
+                   "University of Sydney" = "#141414",
+                   "University of Queensland" = "#411d62",
+                   "University of Western Australia" = "#e2b600",
+                   "University of Adelaide" = "#005a9c",
+                   "Monash University" = "#004b34",
+                   "UNSW Sydney" = "#da4726")
+
+plot_trend <- 
+  function(x) {
+    ggplot(x, aes(x = year, y = percent, colour = institution)) +
+      geom_line(size = 1) +
+      xlab("") +
+      ylab("Proportion Open Access (%)") +
+      ylim(20, 70) +
+      scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
+      plot_theme() +
+      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+    }
+```
+
+## Row {height=40%}
+
+```{r}
+#| title: Institutional Trend (NZ)
+
+pub_data |>
   filter(country == "nz", key == "closed") |>
   summarise(
     institution = institution,
     year = year,
     percent = 100 - pc,
-  )
-
-ggplot(unis_nz, aes(x = year, y = percent, colour = institution)) +
-  geom_line(size = 1) +
-  scale_colour_manual(name = "Institution",
-                      values = c("University of Auckland" = "#00467f",
-                                 "Auckland University of Technology" = "#000000",
-                                 "University of Waikato" = "#ffa400",
-                                 "Massey University" = "#8998b9",
-                                 "Victoria University of Wellington" = "#004b34",
-                                 "University of Canterbury" = "#ce0818",
-                                 "Lincoln University" = "#2d4ce5",
-                                 "University of Otago" = "#f2b043")) +
-  theme_classic() +
-  xlab("") +
-  ylab("Proportion Open Access (%)") +
-  ylim(20, 70) +
-  scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
-  plot_theme() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  ) |>
+  plot_trend() + 
+  scale_colour_manual(name = "Institution", values = inst_lines_nz)
 ```
 
-```{r}
-#| title: Institutional trend over time (AU)
 
-unis_au <- pub_data |>
+```{r}
+#| title: Institutional Trend (AU)
+
+pub_data |>
   filter(country == "au", key == "closed") |>
   summarise(
     institution = institution,
     year = year,
     percent = 100 - pc,
-  )
-
-ggplot(unis_au, aes(x = year, y = percent, colour = institution)) +
-  geom_line(size = 1) +
-  scale_colour_manual(name = "Institution",
-                      values = c("University of Melbourne" = "#000c38",
-                                 "Australian National University" = "#bf872b",
-                                 "University of Sydney" = "#141414",
-                                 "University of Queensland" = "#411d62",
-                                 "University of Western Australia" = "#e2b600",
-                                 "University of Adelaide" = "#005a9c",
-                                 "Monash University" = "#004b34",
-                                 "UNSW Sydney" = "#da4726")) +
-  theme_classic() +
-  xlab("") +
-  ylab("Proportion Open Access (%)") +
-  ylim(20, 70) +
-  scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
-  plot_theme() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  ) |>
+  plot_trend() +
+  scale_colour_manual(name = "Institution", values = inst_lines_au)
 ```
 
 # Institutions 
 
-```{r}
-plot_inst <- function(pub_data) {
-  p <- ggplot(pub_data, aes(x = year, y = pc, colour = key)) +
-    geom_line(size = 1) +
-    scale_oa +
-    xlab("") +
-    ylab("Proportion (%)") +
-    ylim(0, 80) +
-    scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
-    ggtitle(paste0(unique(pub_data$institution), 
-                   ", ", min(pub_data$year), "-", prev_year)) +
-    plot_theme()
-  return(p)
-}
 
-plot_nz_list <- pub_data |>
-  filter(country == "nz") |> 
-  group_by(institution, .add = TRUE) |> 
-  group_split(institution) |> 
-  map(~ plot_inst(.x))
-
-plot_au_list <- pub_data |>
-  filter(country == "au") |> 
-  group_by(institution, .add = TRUE) |> 
-  group_split(institution) |> 
-  map(~ plot_inst(.x))
-```
-
-## Row {.tabset}
-
-```{r}
-cat("title=", sort(unique(plot_nz_list[[1]][["data"]][["institution"]])))
-plot_nz_list[[1]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_nz_list[[2]][["data"]][["institution"]])))
-plot_nz_list[[2]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_nz_list[[3]][["data"]][["institution"]])))
-plot_nz_list[[3]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_nz_list[[4]][["data"]][["institution"]])))
-plot_nz_list[[4]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_nz_list[[5]][["data"]][["institution"]])))
-plot_nz_list[[5]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_nz_list[[6]][["data"]][["institution"]])))
-plot_nz_list[[6]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_nz_list[[7]][["data"]][["institution"]])))
-plot_nz_list[[7]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_nz_list[[8]][["data"]][["institution"]])))
-plot_nz_list[[8]]
-```
-
-## Row {.tabset}
-
-```{r}
-cat("title=", sort(unique(plot_au_list[[1]][["data"]][["institution"]])))
-plot_au_list[[1]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_au_list[[2]][["data"]][["institution"]])))
-plot_au_list[[2]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_au_list[[3]][["data"]][["institution"]])))
-plot_au_list[[3]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_au_list[[4]][["data"]][["institution"]])))
-plot_au_list[[4]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_au_list[[5]][["data"]][["institution"]])))
-plot_au_list[[5]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_au_list[[6]][["data"]][["institution"]])))
-plot_au_list[[6]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_au_list[[7]][["data"]][["institution"]])))
-plot_au_list[[7]]
-```
-
-```{r}
-cat("title=", sort(unique(plot_au_list[[8]][["data"]][["institution"]])))
-plot_au_list[[8]]
-```
 
 # Citations (NZ)
 
@@ -588,10 +449,7 @@ plot_au_list[[8]]
 
 ```{r}
 #| content: valuebox
-#| message: false
 #| title: "Publications (2020-2024)"
-
-# cat("#| title:",'"',"Total Publications", paste0("(",min(cit_data$publication_year),"-",max(cit_data$publication_year),")", '"'))
 
 list(
   icon = "file-text",
@@ -602,10 +460,7 @@ list(
 
 ```{r}
 #| content: valuebox
-#| message: false
 #| title: "Citations (2020-2024)"
-
-# cat("#| title:",'"',"Total Citations", paste0("(",min(cit_data$publication_year),"-",max(cit_data$publication_year),")", '"'))
 
 list(
   icon = "blockquote-left",
@@ -617,7 +472,6 @@ list(
 ```{r}
 #| content: valuebox
 #| title: "OA Citation Advantage"
-#| message: false
 
 cit_advant <-
 cit_data |> 
@@ -641,13 +495,11 @@ list(
 ```{r}
 #| content: valuebox
 #| title: "Last Updated"
-#| message: false
 
 list(
   color = "light",
   value = format(file.info("data/citations.csv")$mtime, format = "%d %b %Y")
 )
-
 ```
 
 ## Row {height=80%}
@@ -689,7 +541,7 @@ cit_data |>
   geom_bar(position="dodge", stat="identity") +
   coord_flip() +
   plot_theme() +
-  scale_oa_fill +
+  scale_fill_manual(name = "Access Type", values = plot_colours) +
   xlab("") +
   ylab("Median Citations")
 ```
@@ -698,7 +550,7 @@ cit_data |>
 
 ```{r}
 #| title: "Citation Summary (Works Published 2020-2024)"
- 
+
 cit_data |> 
   group_by(publication_year) |> 
   summarise(
@@ -708,10 +560,11 @@ cit_data |>
     Max = format(max(cited_by_count), big.mark = ","),
     Median = median(cited_by_count),
     Average = round(mean(cited_by_count), digits = 1)
-  ) |> 
-  rename(Year = publication_year) |> 
-  datatable(options = list(dom = 't', ordering = FALSE), rownames = FALSE)
-
+  ) |>
+  gt() |> 
+  cols_label(publication_year = "Year") |> 
+  tab_options(table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
 ```
 
 ```{r}
@@ -719,11 +572,10 @@ cit_data |>
 
 cit_data |>
   ggplot(aes(x = cited_by_count)) +
-  stat_density(aes(y=..count..), color="black", fill="#f3f2f2") +
-  scale_x_continuous(breaks=c(0,1,2,3,4,5,10), trans="log1p", expand=c(0,0)) +
+  stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
+  scale_x_continuous(breaks=c(0,1,2,3,4,5,10), trans = "log1p", expand = c(0,0)) +
   plot_theme() +
   xlab("Citations (log1p)") +
   ylab("Works") +
   scale_y_continuous(labels = comma)
-
 ```
