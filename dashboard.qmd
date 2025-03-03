@@ -87,6 +87,13 @@ scale_oa <- scale_colour_manual(name = "Access Type",
                                  "green" = "#4DAF4A",
                                  "closed" = "#E41A1C"))
 
+scale_oa_fill <- scale_fill_manual(name = "Access Type",
+                      values = c("bronze" = "#A65628",
+                                 "hybrid" = "#377EB8",
+                                 "gold" = "#FFFF33",
+                                 "diamond" = "lightgrey",
+                                 "green" = "#4DAF4A",
+                                 "closed" = "#E41A1C"))
 ```
 
 #  {.sidebar}
@@ -648,35 +655,43 @@ list(
 ### Column {width=50%}
 
 ```{r}
-#| title: "Total Citations (Works Published 2020-2024)"
+#| title: "Median Citations: Open vs Closed (Works Published 2020-2024)"
 
 cit_data |> 
-  group_by(publication_year) |> 
+  group_by(publication_year, is_oa) |>
   summarise(
-    total = sum(cited_by_count)
+    median = median(cited_by_count)
   ) |> 
-  arrange(desc(publication_year)) |> 
-  ggplot(aes(x = publication_year, y = total)) +
-  geom_col(fill = "#f3f2f2") +
+  mutate(
+    access = case_when(is_oa == "TRUE" ~ "Open",
+                       .default = "Closed")
+  ) |> 
+  ggplot(aes(x = publication_year, y = median, fill = access)) +
+  geom_bar(position="dodge", stat="identity") +
+  coord_flip() +
   plot_theme() +
+  scale_fill_manual(name = "",
+                    values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C")) +
   xlab("") +
-  ylab("") +
-  scale_y_continuous(labels = comma)
-
+  ylab("Median Citations")
 ```
 
+
 ```{r}
-#| title: "Citation Spread (Works Published 2020-2024)"
+#| title: "Median Citations: Open Access Status (Works Published 2020-2024)"
 
-cit_data |>
-  ggplot(aes(x = cited_by_count)) +
-  stat_density(aes(y=..count..), color="black", fill="#f3f2f2") +
-  scale_x_continuous(breaks=c(0,1,2,3,4,5,10), trans="log1p", expand=c(0,0)) +
+cit_data |> 
+  group_by(publication_year, oa_status) |>
+  summarise(
+    median = median(cited_by_count)
+  ) |> 
+  ggplot(aes(x = publication_year, y = median, fill = oa_status)) +
+  geom_bar(position="dodge", stat="identity") +
+  coord_flip() +
   plot_theme() +
-  xlab("Citations (log1p)") +
-  ylab("Works") +
-  scale_y_continuous(labels = comma)
-
+  scale_oa_fill +
+  xlab("") +
+  ylab("Median Citations")
 ```
 
 ### Column {width=50%}
@@ -699,4 +714,16 @@ cit_data |>
 
 ```
 
+```{r}
+#| title: "Citation Spread (Works Published 2020-2024)"
 
+cit_data |>
+  ggplot(aes(x = cited_by_count)) +
+  stat_density(aes(y=..count..), color="black", fill="#f3f2f2") +
+  scale_x_continuous(breaks=c(0,1,2,3,4,5,10), trans="log1p", expand=c(0,0)) +
+  plot_theme() +
+  xlab("Citations (log1p)") +
+  ylab("Works") +
+  scale_y_continuous(labels = comma)
+
+```
