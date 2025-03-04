@@ -292,7 +292,8 @@ pub_data |>
   ) |> 
   ggplot(aes(x = year, y = pc, fill = key)) +
   geom_area() +
-  scale_fill_manual(name = "Access Type", values = plot_colours) +
+  scale_fill_manual(name = "Access Type", values = plot_colours,
+                    guide = guide_legend(reverse = TRUE)) +
   xlab("") +
   ylab("Proportion (%)") +
   scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
@@ -364,9 +365,8 @@ ggplot(total, aes(x = year, y = pc)) +
   geom_line(data = total |> filter(country == "nz"), size = 1, aes(colour = "NZ")) +
   geom_line(data = total |> filter(country == "au"), size = 1, aes(colour = "AU")) +
   theme_classic() +
-  scale_color_manual(name = "Country",
-                     values = c("NZ" = "#f3f2f2",
-                                "AU" = "gold")) +
+  scale_color_manual(name = "Country", values = c("NZ" = "#f3f2f2", "AU" = "gold"),
+                     guide = guide_legend(reverse = TRUE)) +
   xlab("") +
   ylab("Open Access (%)") +
   ylim(0, 80) +
@@ -441,7 +441,130 @@ pub_data |>
 
 # Institutions 
 
+```{r}
+plot_inst <- function(x) {
+    ggplot(x, aes(x = year, y = pc, fill = key)) +
+    geom_area() +
+    scale_fill_manual(name = "Access Type",
+                      values = plot_colours) +
+    xlab("") +
+    ylab("Proportion (%)") +
+    scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
+    plot_theme()
+}
 
+plot_nz_list <- pub_data |>
+  filter(country == "nz") |> 
+  group_by(institution, .add = TRUE) |> 
+  group_split(institution) |> 
+  map(~ plot_inst(.x))
+
+plot_titles_nz <- 
+  pub_data |> 
+  filter(country == "nz") |> 
+  group_by(institution) |> 
+  group_keys() |> 
+  pull(institution) |> 
+  as.character()
+
+plot_au_list <- pub_data |>
+  filter(country == "au") |> 
+  group_by(institution, .add = TRUE) |> 
+  group_split(institution) |> 
+  map(~ plot_inst(.x))
+
+plot_titles_au <- 
+  pub_data |> 
+  filter(country == "au") |> 
+  group_by(institution) |> 
+  group_keys() |> 
+  pull(institution) |> 
+  as.character()
+```
+
+## Row {.tabset}
+
+```{r}
+cat("title=", plot_titles_nz[1])
+plot_nz_list[[1]]
+```
+
+```{r}
+cat("title=", plot_titles_nz[2])
+plot_nz_list[[2]]
+```
+
+```{r}
+cat("title=", plot_titles_nz[3])
+plot_nz_list[[3]]
+```
+
+```{r}
+cat("title=", plot_titles_nz[4])
+plot_nz_list[[4]]
+```
+
+```{r}
+cat("title=", plot_titles_nz[5])
+plot_nz_list[[5]]
+```
+
+```{r}
+cat("title=", plot_titles_nz[6])
+plot_nz_list[[6]]
+```
+
+```{r}
+cat("title=", plot_titles_nz[7])
+plot_nz_list[[7]]
+```
+
+```{r}
+cat("title=", plot_titles_nz[8])
+plot_nz_list[[8]]
+```
+
+## Row {.tabset}
+
+```{r}
+cat("title=", plot_titles_au[1])
+plot_au_list[[1]]
+```
+
+```{r}
+cat("title=", plot_titles_au[2])
+plot_au_list[[2]]
+```
+
+```{r}
+cat("title=", plot_titles_au[3])
+plot_au_list[[3]]
+```
+
+```{r}
+cat("title=", plot_titles_au[4])
+plot_au_list[[4]]
+```
+
+```{r}
+cat("title=", plot_titles_au[5])
+plot_au_list[[5]]
+```
+
+```{r}
+cat("title=", plot_titles_au[6])
+plot_au_list[[6]]
+```
+
+```{r}
+cat("title=", plot_titles_au[7])
+plot_au_list[[7]]
+```
+
+```{r}
+cat("title=", plot_titles_au[8])
+plot_au_list[[8]]
+```
 
 # Citations (NZ)
 
@@ -522,8 +645,8 @@ cit_data |>
   geom_bar(position="dodge", stat="identity") +
   coord_flip() +
   plot_theme() +
-  scale_fill_manual(name = "",
-                    values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C")) +
+  scale_fill_manual(name = "", values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C"),
+                    guide = guide_legend(reverse = TRUE)) +
   xlab("") +
   ylab("Median Citations")
 ```
@@ -541,7 +664,8 @@ cit_data |>
   geom_bar(position="dodge", stat="identity") +
   coord_flip() +
   plot_theme() +
-  scale_fill_manual(name = "Access Type", values = plot_colours) +
+  scale_fill_manual(name = "Access Type", values = plot_colours, 
+                    guide = guide_legend(reverse = TRUE)) +
   xlab("") +
   ylab("Median Citations")
 ```
