@@ -31,6 +31,7 @@ universities <-
   )
 
 # Retrieve OpenAlex IDs and join to institutions --------------------------
+# Email address is stored as an environment variable ----------------------
 
 openalex_ids <-
   request("https://api.openalex.org/") |> 
@@ -48,7 +49,7 @@ universities <-
   bind_rows() |> 
   inner_join(universities, by = join_by(display_name == institution))
 
-# Build API request (using email address stored as environment variable) --
+# Build API request -------------------------------------------------------
 
 req_citation <-
   request("https://api.openalex.org/") |> 
@@ -89,5 +90,4 @@ data_citation <-
 
 # Export data as csv ------------------------------------------------------
 
-write.csv(data_citation, "data/citations.csv",
-          row.names = FALSE)
+write.csv(data_citation, "data/citations.csv", row.names = FALSE)
