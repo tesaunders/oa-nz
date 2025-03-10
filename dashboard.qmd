@@ -482,89 +482,59 @@ plot_titles_au <-
   as.character()
 ```
 
-## Row {.tabset}
+<!-- ## Column {.tabset} -->
 
+<!-- :::{.panel-tabset} -->
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- #| results: asis -->
+<!-- for (i in seq_along(plot_nz_list)) { -->
+<!--   cat("# ",plot_titles_nz[i],"\n") -->
+<!--   print(plot_nz_list[[i]]) -->
+<!--   cat('\n\n') -->
+<!-- } -->
+<!-- ``` -->
+<!-- ::: -->
+
+<!-- ## Column {.tabset} -->
+
+<!-- :::{.panel-tabset} -->
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- #| results: asis -->
+<!-- for (i in seq_along(plot_au_list)) { -->
+<!--   cat("# ",plot_titles_au[i],"\n") -->
+<!--   print(plot_au_list[[i]]) -->
+<!--   cat('\n\n') -->
+<!-- } -->
+<!-- ``` -->
+<!-- ::: -->
+
+## Column {.tabset}
+
+:::{.panel-tabset}
 ```{r}
-cat("title=", plot_titles_nz[1])
-plot_nz_list[[1]]
+#| warning: false
+#| results: asis
+for (i in seq_along(plot_nz_list)) {
+  cat("# ",plot_titles_nz[i],"\n")
+  print(plot_nz_list[[i]])
+  cat('\n\n')
+}
 ```
+:::
 
+:::{.panel-tabset}
 ```{r}
-cat("title=", plot_titles_nz[2])
-plot_nz_list[[2]]
+#| warning: false
+#| results: asis
+for (i in seq_along(plot_au_list)) {
+  cat("# ",plot_titles_au[i],"\n")
+  print(plot_au_list[[i]])
+  cat('\n\n')
+}
 ```
-
-```{r}
-cat("title=", plot_titles_nz[3])
-plot_nz_list[[3]]
-```
-
-```{r}
-cat("title=", plot_titles_nz[4])
-plot_nz_list[[4]]
-```
-
-```{r}
-cat("title=", plot_titles_nz[5])
-plot_nz_list[[5]]
-```
-
-```{r}
-cat("title=", plot_titles_nz[6])
-plot_nz_list[[6]]
-```
-
-```{r}
-cat("title=", plot_titles_nz[7])
-plot_nz_list[[7]]
-```
-
-```{r}
-cat("title=", plot_titles_nz[8])
-plot_nz_list[[8]]
-```
-
-## Row {.tabset}
-
-```{r}
-cat("title=", plot_titles_au[1])
-plot_au_list[[1]]
-```
-
-```{r}
-cat("title=", plot_titles_au[2])
-plot_au_list[[2]]
-```
-
-```{r}
-cat("title=", plot_titles_au[3])
-plot_au_list[[3]]
-```
-
-```{r}
-cat("title=", plot_titles_au[4])
-plot_au_list[[4]]
-```
-
-```{r}
-cat("title=", plot_titles_au[5])
-plot_au_list[[5]]
-```
-
-```{r}
-cat("title=", plot_titles_au[6])
-plot_au_list[[6]]
-```
-
-```{r}
-cat("title=", plot_titles_au[7])
-plot_au_list[[7]]
-```
-
-```{r}
-cat("title=", plot_titles_au[8])
-plot_au_list[[8]]
-```
+:::
 
 # Citations (NZ)
 
