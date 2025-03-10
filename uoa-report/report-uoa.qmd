@@ -1,0 +1,181 @@
+---
+title: "University of Auckland Citation Analysis: 2015-2024"
+author: "Tom Saunders"
+# date:
+output-file: "uoa-report.pdf"
+format:
+  typst:
+    margin:
+      x: 2cm
+      y: 2cm
+    # fig-width: 
+    # fig-height: 
+# bibliography: 
+# bibliographystyle:   
+execute:
+  echo: false
+---
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(tidyr)
+
+citations <- read.csv("uoa-citations.csv")
+```
+
+```{r}
+# Publication output over time by oa status
+
+citations$oa_status <- factor(citations$oa_status, levels = c("closed",
+                                                              "bronze",
+                                                              "hybrid",
+                                                              "gold",
+                                                              "green",
+                                                              "diamond"))
+
+citations |> 
+  group_by(publication_year, oa_status) |> 
+  tally() |> 
+  ggplot(aes(x = publication_year, y = n, fill = oa_status)) +
+  geom_area()
+  
+```
+
+
+```{r}
+# Number of different items in each type
+
+citations |> 
+  count(type) |> 
+  mutate(freq = n / sum(n)) |> 
+  arrange(desc(n))
+  
+```
+
+
+```{r}
+# Spread of citations for each year
+
+citations |> 
+  ggplot(aes(x = cited_by_count)) +
+  geom_histogram() +
+  xlim(0,1000) +
+  facet_wrap(vars(publication_year))
+```
+
+
+```{r}
+# Number of citations each year (table)
+
+citations |> 
+  group_by(publication_year) |> 
+  summarise(
+    total = sum(cited_by_count),
+    median = median(cited_by_count),
+    average = mean(cited_by_count)
+  ) |> 
+  arrange(desc(publication_year))
+```
+
+```{r}
+# Number of citations each year (plot)
+
+citations |> 
+  group_by(publication_year) |> 
+  summarise(
+    total = sum(cited_by_count),
+    median = median(cited_by_count),
+    average = mean(cited_by_count)
+  ) |> 
+  arrange(desc(publication_year)) |> 
+  ggplot(aes(x = publication_year, y = total)) +
+  geom_col()
+
+```
+
+
+```{r}
+# Cumulative number of citations over time
+
+citations |> 
+  group_by(publication_year) |> 
+  summarise(
+    total = sum(cited_by_count),
+    median = median(cited_by_count),
+    average = mean(cited_by_count)
+  ) |> 
+  arrange(desc(publication_year)) |> 
+  ggplot(aes(x = publication_year, y = cumsum(total))) +
+  geom_line()
+```
+
+```{r}
+# Overall, mean & median citations, OA vs closed
+
+citations |> 
+  group_by(is_oa) |> 
+  summarise(
+    avg_citations = mean(cited_by_count),
+    med_citations = median(cited_by_count)
+  )
+```
+
+```{r}
+# Each year, median citation OA vs closed
+
+citations |> 
+  group_by(publication_year, is_oa) |> 
+  summarise(
+    med_citations = median(cited_by_count)
+  ) |> 
+  ggplot(aes(x = publication_year, y = med_citations, fill = is_oa)) +
+  geom_bar(position="dodge", stat="identity")
+```
+
+```{r}
+# Difference in citations each year between open vs closed
+
+cit_diff_oa <-
+citations |> 
+  group_by(publication_year, is_oa) |> 
+  summarise(
+    med_citations = median(cited_by_count),
+  ) |>
+  pivot_wider(names_from = is_oa, values_from = med_citations) |> 
+  mutate(
+    difference = `FALSE` / `TRUE`,
+  )
+
+cat("Each year, open access items enjoy median citation rates between", scales::percent(min(cit_diff_oa$difference, na.rm = TRUE)), "and",  scales::percent(max(cit_diff_oa$difference, na.rm = TRUE)), "higher than closed items.")
+```
+
+
+```{r}
+# Overall, median citations for each type of OA vs closed
+
+citations |> 
+  group_by(oa_status) |> 
+  summarise(
+    med_citations = median(cited_by_count)
+  ) |> 
+  ggplot(aes(x = reorder(oa_status, -med_citations), y = med_citations)) +
+  geom_col()
+```
+
+```{r}
+# Each year, median citations for each type of OA vs closed
+
+citations |> 
+  filter(publication_year != 2024) |> 
+  group_by(publication_year, oa_status) |> 
+  summarise(
+    med_citations = median(cited_by_count),
+  ) |> 
+  ggplot(aes(x = publication_year, y = med_citations, fill = oa_status)) +
+  geom_bar(position="fill", stat="identity")
+
+
+```
+
