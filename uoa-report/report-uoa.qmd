@@ -48,7 +48,7 @@ library(tidyr)
 library(ggthemes)
 library(gt)
 
-citations <- read.csv("uoa-citations.csv")
+uoa_data <- read.csv("uoa-data.csv")
 
 plot_colours <- c("bronze" = "#A65628",
                   "hybrid" = "#377EB8",
@@ -97,14 +97,14 @@ General OA publication stats, comparisons with other unis
 
 # Publication output over time by oa status
 
-citations$oa_status <- factor(citations$oa_status, levels = c("closed",
+uoa_data$oa_status <- factor(uoa_data$oa_status, levels = c("closed",
                                                               "bronze",
                                                               "hybrid",
                                                               "gold",
                                                               "green",
                                                               "diamond"))
 
-citations |> 
+uoa_data |> 
   group_by(publication_year, oa_status) |> 
   summarise(
     n = n(),
@@ -120,7 +120,7 @@ citations |>
   xlab("") +
   ylab("Proportion (%)") +
   scale_y_continuous(labels = label_percent()) +
-  scale_x_continuous(breaks = unique(citations$publication_year))
+  scale_x_continuous(breaks = unique(uoa_data$publication_year))
   
   
 ```
@@ -129,7 +129,7 @@ citations |>
 ```{r}
 # Number of different items in each type
 
-citations |> 
+uoa_data |> 
   count(type) |> 
   mutate(freq = n / sum(n)) |> 
   arrange(desc(n)) |> 
@@ -144,7 +144,7 @@ citations |>
 ```{r}
 # Number of citations each year (table)
 
-citations |> 
+uoa_data |> 
   group_by(publication_year) |> 
   summarise(
     Works = format(n(), big.mark = ","),
@@ -161,7 +161,7 @@ citations |>
 ```{r}
 # Spread of citations
 
-citations |>
+uoa_data |>
   ggplot(aes(x = cited_by_count)) +
   stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
   scale_x_continuous(breaks = c(0, 1, 2, 3, 4, 5, 10, 100, 1000), trans = "log1p", expand = c(0, 0)) +
@@ -174,7 +174,7 @@ citations |>
 ```{r}
 # Number of citations each year (plot)
 
-citations |> 
+uoa_data |> 
   group_by(publication_year) |> 
   summarise(
     total = sum(cited_by_count),
@@ -185,7 +185,7 @@ citations |>
   ggplot(aes(x = publication_year, y = total)) +
   geom_col(fill = "#377EB8") +
   plot_theme() +
-  scale_x_continuous(breaks = unique(citations$publication_year)) +
+  scale_x_continuous(breaks = unique(uoa_data$publication_year)) +
   ylab("Citations") +
   xlab("")
 
@@ -196,7 +196,7 @@ citations |>
 #| message: false
 # Overall, mean & median citations, OA vs closed
 
-citations |> 
+uoa_data |> 
   group_by(is_oa) |> 
   summarise(
     avg_citations = round(mean(cited_by_count)),
@@ -215,9 +215,9 @@ citations |>
 
 # Each year, median citation OA vs closed
 
-citations$is_oa <- factor(citations$is_oa, levels = c(TRUE, FALSE))
+uoa_data$is_oa <- factor(uoa_data$is_oa, levels = c(TRUE, FALSE))
 
-citations |> 
+uoa_data |> 
   group_by(publication_year, is_oa) |> 
   summarise(
     med_citations = median(cited_by_count)
@@ -225,7 +225,7 @@ citations |>
   ggplot(aes(x = publication_year, y = med_citations, fill = is_oa)) +
   geom_bar(position="dodge", stat="identity") +
   plot_theme() +
-  scale_x_continuous(breaks = unique(citations$publication_year)) +
+  scale_x_continuous(breaks = unique(uoa_data$publication_year)) +
   ylab("Median Citations") +
   xlab("") +
   scale_fill_manual(name = "Access Type",
@@ -237,7 +237,7 @@ citations |>
 # Difference in citations each year between open vs closed
 
 cit_diff_oa <-
-citations |> 
+uoa_data |> 
   group_by(publication_year, is_oa) |> 
   summarise(
     med_citations = median(cited_by_count),
@@ -256,7 +256,7 @@ cat("Each year, open access items enjoy median citation rates between", scales::
 
 # Overall, median citations for each type of OA vs closed
 
-citations |> 
+uoa_data |> 
   group_by(oa_status) |> 
   summarise(
     med_citations = median(cited_by_count)
@@ -272,7 +272,7 @@ citations |>
 ```{r}
 # Each year, median citations for each type of OA vs closed
 
-citations |> 
+uoa_data |> 
   filter(publication_year != 2024) |> 
   group_by(publication_year, oa_status) |> 
   summarise(
@@ -281,7 +281,7 @@ citations |>
   ggplot(aes(x = publication_year, y = med_citations, fill = oa_status)) +
   geom_bar(position="fill", stat="identity") +
   plot_theme() +
-  scale_x_continuous(breaks = unique(citations$publication_year)) +
+  scale_x_continuous(breaks = unique(uoa_data$publication_year)) +
   ylab("Median Citations") +
   xlab("") +
   scale_fill_manual(name = "Access Type",
@@ -289,6 +289,26 @@ citations |>
   scale_y_continuous(labels = label_percent())
   
 
+
+```
+
+```{r}
+uoa_data |>
+  drop_na(field) |> 
+  group_by(field, is_oa) |> 
+  tally() |> 
+  mutate(
+    pc = n / sum(n)
+    ) |>
+  filter(is_oa == TRUE) |>
+  ggplot(aes(x = reorder(field, pc), y = pc)) +
+  geom_bar(position="dodge", stat="identity", fill = "#4DAF4A") +
+  coord_flip() +
+  plot_theme() +
+  ylab("") +
+  xlab("") +
+  scale_y_continuous(labels = label_percent(),
+                     limits = c(0, 0.8))
 
 ```
 
