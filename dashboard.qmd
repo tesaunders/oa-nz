@@ -185,7 +185,7 @@ total |>
 ```
 
 ```{r}
-#| title: Access type over time (Combined)
+#| title: Access type over time
 
 pub_data |> 
   filter(country == "nz") |> 
@@ -386,12 +386,12 @@ inst_lines_nz <- c("University of Auckland" = "#00467f",
                    "Lincoln University" = "#2d4ce5",
                    "University of Otago" = "#f2b043")
 
-inst_lines_au <- c("University of Melbourne" = "#000c38",
+inst_lines_au <- c("The University of Melbourne" = "#000c38",
                    "Australian National University" = "#bf872b",
-                   "University of Sydney" = "#141414",
-                   "University of Queensland" = "#411d62",
-                   "University of Western Australia" = "#e2b600",
-                   "University of Adelaide" = "#005a9c",
+                   "The University of Sydney" = "#141414",
+                   "The University of Queensland" = "#411d62",
+                   "The University of Western Australia" = "#e2b600",
+                   "The University of Adelaide" = "#005a9c",
                    "Monash University" = "#004b34",
                    "UNSW Sydney" = "#da4726")
 
@@ -401,7 +401,7 @@ plot_trend <-
       geom_line(size = 1) +
       xlab("") +
       ylab("Proportion Open Access (%)") +
-      ylim(20, 70) +
+      ylim(20, 80) +
       scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
       plot_theme() +
       theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
@@ -421,7 +421,7 @@ pub_data |>
     percent = 100 - pc,
   ) |>
   plot_trend() + 
-  scale_colour_manual(name = "Institution", values = inst_lines_nz)
+  scale_colour_manual(values = inst_lines_nz)
 ```
 
 
@@ -436,7 +436,7 @@ pub_data |>
     percent = 100 - pc,
   ) |>
   plot_trend() +
-  scale_colour_manual(name = "Institution", values = inst_lines_au)
+  scale_colour_manual(values = inst_lines_au)
 ```
 
 # Institutions 
@@ -572,7 +572,7 @@ plot_au_list[[8]]
 
 ```{r}
 #| content: valuebox
-#| title: "Publications (2020-2024)"
+#| title: "Publications (2015-2024)"
 
 list(
   icon = "file-text",
@@ -583,7 +583,7 @@ list(
 
 ```{r}
 #| content: valuebox
-#| title: "Citations (2020-2024)"
+#| title: "Citations (2015-2024)"
 
 list(
   icon = "blockquote-left",
@@ -630,7 +630,7 @@ list(
 ### Column {width=50%}
 
 ```{r}
-#| title: "Median Citations: Open vs Closed (Works Published 2020-2024)"
+#| title: "Median Citations: Open vs Closed (2015-2024)"
 
 cit_data |> 
   group_by(publication_year, is_oa) |>
@@ -647,13 +647,14 @@ cit_data |>
   plot_theme() +
   scale_fill_manual(name = "", values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C"),
                     guide = guide_legend(reverse = TRUE)) +
+  scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
   xlab("") +
   ylab("Median Citations")
 ```
 
 
 ```{r}
-#| title: "Median Citations: Open Access Status (Works Published 2020-2024)"
+#| title: "Median Citations: Open Access Status (2015-2024)"
 
 cit_data |> 
   group_by(publication_year, oa_status) |>
@@ -666,6 +667,7 @@ cit_data |>
   plot_theme() +
   scale_fill_manual(name = "Access Type", values = plot_colours, 
                     guide = guide_legend(reverse = TRUE)) +
+  scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
   xlab("") +
   ylab("Median Citations")
 ```
@@ -673,7 +675,7 @@ cit_data |>
 ### Column {width=50%}
 
 ```{r}
-#| title: "Citation Summary (Works Published 2020-2024)"
+#| title: "Citation Summary (2015-2024)"
 
 cit_data |> 
   group_by(publication_year) |> 
@@ -692,12 +694,12 @@ cit_data |>
 ```
 
 ```{r}
-#| title: "Citation Spread (Works Published 2020-2024)"
+#| title: "Citation Spread (2015-2024)"
 
 cit_data |>
   ggplot(aes(x = cited_by_count)) +
   stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
-  scale_x_continuous(breaks=c(0,1,2,3,4,5,10), trans = "log1p", expand = c(0,0)) +
+  scale_x_continuous(breaks = c(0,1,2,5,10,100,1000), trans = "log1p", expand = c(0,0)) +
   plot_theme() +
   xlab("Citations (log1p)") +
   ylab("Works") +

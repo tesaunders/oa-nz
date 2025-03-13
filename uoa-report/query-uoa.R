@@ -20,7 +20,7 @@ req_uoa <-
                                 ",", 
                                 "authorships.institutions.lineage:i154130895")) |> 
   req_url_query(select = c("id", "publication_year", "type", "cited_by_count", "open_access",
-                           "fwci", "primary_topic"), .multi = "comma") |>
+                           "primary_topic"), .multi = "comma") |>
   req_url_query(mailto = Sys.getenv("EMAIL_ADDRESS")) |> 
   req_url_query("per-page" = "200") |>
   req_url_query(cursor = "*")
