@@ -51,7 +51,7 @@ universities <-
 
 # Build API request -------------------------------------------------------
 
-req_citation <-
+req_nz <-
   request("https://api.openalex.org/") |> 
   req_url_path_append("works") |> 
   req_url_query(filter = paste0("is_paratext:false,is_retracted:false,type:article|book|book-chapter,",
@@ -60,16 +60,42 @@ req_citation <-
                                 ",", 
                                 "authorships.institutions.lineage:",
                                 paste0(filter(universities, country_code == "NZ") |> pull(id), collapse = "|"))) |> 
-  req_url_query(select = c("id", "publication_year", "type", "cited_by_count", "open_access"), .multi = "comma") |>
+  req_url_query(select = c("id", "publication_year", "type", "cited_by_count", 
+                           "open_access", "primary_topic"), .multi = "comma") |>
+  req_url_query(mailto = Sys.getenv("EMAIL_ADDRESS")) |> 
+  req_url_query("per-page" = "200") |>
+  req_url_query(cursor = "*")
+
+req_au <-
+  request("https://api.openalex.org/") |> 
+  req_url_path_append("works") |> 
+  req_url_query(filter = paste0("is_paratext:false,is_retracted:false,type:article|book|book-chapter,",
+                                "publication_year:", 
+                                paste0(pub_years, collapse = "|"), 
+                                ",", 
+                                "authorships.institutions.lineage:",
+                                paste0(filter(universities, country_code == "AU") |> pull(id), collapse = "|"))) |> 
+  req_url_query(select = c("id", "publication_year", "type", "cited_by_count", 
+                           "open_access", "primary_topic"), .multi = "comma") |>
   req_url_query(mailto = Sys.getenv("EMAIL_ADDRESS")) |> 
   req_url_query("per-page" = "200") |>
   req_url_query(cursor = "*")
 
 # Make request, retrieving publication data with cursor-based pagination --
 
-resp_citation <- 
+resp_nz <- 
   req_perform_iterative(
-    req = req_citation,
+    req = req_nz,
+    next_req = iterate_with_cursor(
+      param_name = "cursor",
+      resp_param_value = \(resp) resp_body_json(resp)$meta$next_cursor
+    ),
+    max_reqs = Inf
+  )
+
+resp_au <- 
+  req_perform_iterative(
+    req = req_au,
     next_req = iterate_with_cursor(
       param_name = "cursor",
       resp_param_value = \(resp) resp_body_json(resp)$meta$next_cursor
@@ -79,15 +105,39 @@ resp_citation <-
 
 # Process the json into a dataframe ---------------------------------------
 
-data_citation <-
-  resp_citation |> 
+data_nz <-
+  resp_nz |> 
   map(resp_body_json) |>
   map("results") |>
   list_flatten() |> 
-  map(bind_cols) |> 
-  bind_rows() |> 
-  select(-oa_url, -any_repository_has_fulltext)
+  map(~ tibble(
+    id = .x$id,
+    publication_year = .x$publication_year,
+    type = .x$type,
+    cited_by_count = .x$cited_by_count,
+    is_oa = .x$open_access$is_oa,
+    oa_status = .x$open_access$oa_status,
+    field = .x$primary_topic$field$display_name
+  )) |>
+  bind_rows()
+
+data_au <-
+  resp_au |> 
+  map(resp_body_json) |>
+  map("results") |>
+  list_flatten() |> 
+  map(~ tibble(
+    id = .x$id,
+    publication_year = .x$publication_year,
+    type = .x$type,
+    cited_by_count = .x$cited_by_count,
+    is_oa = .x$open_access$is_oa,
+    oa_status = .x$open_access$oa_status,
+    field = .x$primary_topic$field$display_name
+  )) |>
+  bind_rows()
 
 # Export data as csv ------------------------------------------------------
 
-write.csv(data_citation, "data/citations.csv", row.names = FALSE)
+write.csv(data_nz, "data/citations-nz.csv", row.names = FALSE)
+write.csv(data_au, "data/citations-au.csv", row.names = FALSE)
