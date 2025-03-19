@@ -31,36 +31,34 @@ library(forcats)
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
 
 plot_theme <- function(base_size=20, base_family="sans") {
-   library(ggthemes)
-   (theme_foundation(base_size=base_size, base_family=base_family)
-      + theme(plot.title = element_text(face = "bold", colour = '#ffffb3',
-                                        size = rel(1.2), hjust = 0.5, margin = margin(0,0,20,0)),
-              text = element_text(),
-              panel.background = element_rect(colour = NA, fill = 'grey20'),
-              plot.background = element_rect(colour = NA, fill = '#2d2d2d'),
-              panel.border = element_rect(colour = NA),
-              axis.title = element_text(face = "bold",size = rel(1), colour = 'white'),
-              axis.title.y = element_text(angle=90,vjust =2),
-              axis.title.x = element_text(vjust = -0.2),
-              axis.text = element_text(colour = 'grey70'), 
-              axis.line.x = element_line(colour="grey70"),
-              axis.line.y = element_line(colour="grey70"),
-              axis.ticks = element_line(colour="grey70"),
-              panel.grid.major = element_line(colour="#262626"),
-              panel.grid.minor = element_blank(),
-              legend.background = element_rect(fill ='#262626'),
-              legend.text = element_text(color = 'white'),
-              legend.key = element_rect(colour = NA, fill = '#262626'),
-              legend.position = "right",
-              legend.direction = "vertical",
-              legend.box = "vertical",
-              legend.key.size= unit(0.5, "cm"),
-              #legend.margin = unit(0, "cm"),
-              legend.title = element_blank(),
-              plot.margin=unit(c(10,5,5,5),"mm"),
-              strip.background=element_rect(colour="#2D3A4C",fill="#2D3A4C"),
-              strip.text = element_text(face="bold", colour = 'white')
-      ))
+  (theme_foundation(base_size=base_size, base_family=base_family)
+   + theme(plot.title = element_text(face = "bold", colour = '#ffffb3',
+                                    size = rel(1.2), hjust = 0.5, 
+                                    margin = margin(0,0,20,0)),
+           text = element_text(),
+           panel.background = element_rect(colour = NA, fill = 'grey20'),
+           plot.background = element_rect(colour = NA, fill = '#2d2d2d'),
+           panel.border = element_rect(colour = NA),
+           axis.title = element_text(face = "bold",size = rel(1), colour = 'white'),
+           axis.title.y = element_text(angle=90,vjust =2),
+           axis.title.x = element_text(vjust = -0.2),
+           axis.text = element_text(colour = 'grey70'), 
+           axis.line.x = element_line(colour="grey70"),
+           axis.line.y = element_line(colour="grey70"),
+           axis.ticks = element_line(colour="grey70"),
+           panel.grid.major = element_line(colour="#262626"),
+           panel.grid.minor = element_blank(),
+           legend.background = element_rect(fill ='#262626'),
+           legend.text = element_text(color = 'white'),
+           legend.key = element_rect(colour = NA, fill = '#262626'),
+           legend.position = "right",
+           legend.direction = "vertical",
+           legend.box = "vertical",
+           legend.key.size= unit(0.5, "cm"),
+           legend.title = element_blank(),
+           plot.margin=unit(c(10,5,5,5),"mm"),
+           strip.background=element_rect(colour="#2D3A4C",fill="#2D3A4C"),
+           strip.text = element_text(face="bold", colour = 'white')))
 }
 
 plot_colours <- c("bronze" = "#A65628",
@@ -75,12 +73,16 @@ plot_colours <- c("bronze" = "#A65628",
 #| label: load-data
 
 pub_data <- read.csv("data/publications.csv")
-cit_data <- read.csv("data/citations.csv")
+cit_nz <- read.csv("data/citations-nz.csv")
+cit_au <- read.csv("data/citations-au.csv")
 
-pub_data$key <- factor(pub_data$key, levels = c("closed", "hybrid", "gold", "green", "diamond", "bronze"))
+oa_levels <- c("closed", "hybrid", "gold", "green", "diamond", "bronze")
+
+pub_data$key <- factor(pub_data$key, levels = oa_levels)
 pub_data$institution <- factor(pub_data$institution)
 
-cit_data$oa_status <- factor(cit_data$oa_status, levels = c("closed", "hybrid", "gold", "green", "diamond", "bronze"))
+cit_nz$oa_status <- factor(cit_nz$oa_status, levels = oa_levels)
+cit_au$oa_status <- factor(cit_au$oa_status, levels = oa_levels)
 ```
 
 #  {.sidebar}
@@ -89,7 +91,7 @@ This dashboard displays data relating to open access publication output from all
 
 ------------------------------------------------------------------------
 
-Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since `r min(pub_data$year)`. Currently, data is only included up to the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
+Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication trends since `r min(pub_data$year)`, and citation trends since `r min(cit_nz$publication_year)`. Currently, data is only included up to the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
 
 ------------------------------------------------------------------------
 
@@ -123,7 +125,7 @@ total <-
   )
 ```
 
-# New Zealand
+# NZ
 
 ## Row {height="20%"}
 
@@ -222,7 +224,7 @@ pub_data |>
               table.font.color.light = "white")
 ```
 
-# Australia G8
+# AU
 
 ## Row {height="20%"}
 
@@ -408,38 +410,7 @@ plot_trend <-
     }
 ```
 
-## Row {height=40%}
-
-```{r}
-#| title: Institutional Trend (NZ)
-
-pub_data |>
-  filter(country == "nz", key == "closed") |>
-  summarise(
-    institution = institution,
-    year = year,
-    percent = 100 - pc,
-  ) |>
-  plot_trend() + 
-  scale_colour_manual(values = inst_lines_nz)
-```
-
-
-```{r}
-#| title: Institutional Trend (AU)
-
-pub_data |>
-  filter(country == "au", key == "closed") |>
-  summarise(
-    institution = institution,
-    year = year,
-    percent = 100 - pc,
-  ) |>
-  plot_trend() +
-  scale_colour_manual(values = inst_lines_au)
-```
-
-# Institutions 
+# Institutions
 
 ```{r}
 plot_inst <- function(x) {
@@ -482,7 +453,23 @@ plot_titles_au <-
   as.character()
 ```
 
-## Row {.tabset}
+## Column {width=50%}
+
+```{r}
+#| title: Institutional Trend (NZ)
+
+pub_data |>
+  filter(country == "nz", key == "closed") |>
+  summarise(
+    institution = institution,
+    year = year,
+    percent = 100 - pc,
+  ) |>
+  plot_trend() + 
+  scale_colour_manual(values = inst_lines_nz)
+```
+
+### Row {.tabset}
 
 ```{r}
 cat("title=", plot_titles_nz[1])
@@ -524,7 +511,23 @@ cat("title=", plot_titles_nz[8])
 plot_nz_list[[8]]
 ```
 
-## Row {.tabset}
+## Column {width=50%}
+
+```{r}
+#| title: Institutional Trend (AU)
+
+pub_data |>
+  filter(country == "au", key == "closed") |>
+  summarise(
+    institution = institution,
+    year = year,
+    percent = 100 - pc,
+  ) |>
+  plot_trend() +
+  scale_colour_manual(values = inst_lines_au)
+```
+
+### Row {.tabset}
 
 ```{r}
 cat("title=", plot_titles_au[1])
@@ -566,29 +569,87 @@ cat("title=", plot_titles_au[8])
 plot_au_list[[8]]
 ```
 
+# Field (NZ)
+
+```{r}
+#| title: "OA Rate By Field (NZ)"
+
+cit_nz |>
+  drop_na(field) |> 
+  group_by(field, is_oa) |> 
+  tally() |> 
+  mutate(
+    pc = n / sum(n)
+    ) |>
+  filter(is_oa == TRUE) |>
+  ggplot(aes(x = reorder(field, pc), y = pc)) +
+  geom_bar(position = "dodge", stat = "identity", fill = "#4DAF4A") +
+  geom_text(aes(label = n, y = pc - 0.02),
+            vjust = 0.5,
+            colour = "white",
+            size = 3) +
+  coord_flip() +
+  plot_theme() +
+  ylab("") +
+  xlab("") +
+  scale_y_continuous(labels = label_percent(),
+                     limits = c(0, 0.8)) +
+  theme(text = element_text(size = 10))
+
+```
+
+# Field (AU)
+
+```{r}
+#| title: "OA Rate By Field (AU)"
+
+cit_au |>
+  drop_na(field) |> 
+  group_by(field, is_oa) |> 
+  tally() |> 
+  mutate(
+    pc = n / sum(n)
+    ) |>
+  filter(is_oa == TRUE) |>
+  ggplot(aes(x = reorder(field, pc), y = pc)) +
+  geom_bar(position = "dodge", stat = "identity", fill = "#4DAF4A") +
+  geom_text(aes(label = n, y = pc - 0.02),
+            vjust = 0.5,
+            colour = "white",
+            size = 3) +
+  coord_flip() +
+  plot_theme() +
+  ylab("") +
+  xlab("") +
+  scale_y_continuous(labels = label_percent(),
+                     limits = c(0, 0.8)) +
+  theme(text = element_text(size = 10))
+
+```
+
 # Citations (NZ)
 
 ## Row {height="20%"}
 
 ```{r}
 #| content: valuebox
-#| title: "Publications (2015-2024)"
+#| title: "Publications (2020-2024)"
 
 list(
   icon = "file-text",
   color = "info",
-  value = format(nrow(cit_data), big.mark = ",")
+  value = format(nrow(cit_nz), big.mark = ",")
 )
 ```
 
 ```{r}
 #| content: valuebox
-#| title: "Citations (2015-2024)"
+#| title: "Citations (2020-2024)"
 
 list(
   icon = "blockquote-left",
   color = "info",
-  value = format(sum(cit_data$cited_by_count), big.mark = ",")
+  value = format(sum(cit_nz$cited_by_count), big.mark = ",")
 )
 ```
 
@@ -597,7 +658,7 @@ list(
 #| title: "OA Citation Advantage"
 
 cit_advant <-
-cit_data |> 
+cit_nz |> 
   group_by(is_oa) |> 
   summarise(
     med_citations = median(cited_by_count)
@@ -621,7 +682,7 @@ list(
 
 list(
   color = "light",
-  value = format(file.info("data/citations.csv")$mtime, format = "%d %b %Y")
+  value = format(file.info("data/citations-nz.csv")$mtime, format = "%d %b %Y")
 )
 ```
 
@@ -630,9 +691,9 @@ list(
 ### Column {width=50%}
 
 ```{r}
-#| title: "Median Citations: Open vs Closed (2015-2024)"
+#| title: "Open vs Closed (2020-2024)"
 
-cit_data |> 
+cit_nz |> 
   group_by(publication_year, is_oa) |>
   summarise(
     median = median(cited_by_count)
@@ -647,16 +708,15 @@ cit_data |>
   plot_theme() +
   scale_fill_manual(name = "", values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C"),
                     guide = guide_legend(reverse = TRUE)) +
-  scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
   xlab("") +
   ylab("Median Citations")
 ```
 
 
 ```{r}
-#| title: "Median Citations: Open Access Status (2015-2024)"
+#| title: "Open Access Status (2020-2024)"
 
-cit_data |> 
+cit_nz |> 
   group_by(publication_year, oa_status) |>
   summarise(
     median = median(cited_by_count)
@@ -667,7 +727,6 @@ cit_data |>
   plot_theme() +
   scale_fill_manual(name = "Access Type", values = plot_colours, 
                     guide = guide_legend(reverse = TRUE)) +
-  scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
   xlab("") +
   ylab("Median Citations")
 ```
@@ -675,9 +734,9 @@ cit_data |>
 ### Column {width=50%}
 
 ```{r}
-#| title: "Citation Summary (2015-2024)"
+#| title: "Citation Summary (2020-2024)"
 
-cit_data |> 
+cit_nz |> 
   group_by(publication_year) |> 
   summarise(
     Works = format(n(), big.mark = ","),
@@ -694,9 +753,9 @@ cit_data |>
 ```
 
 ```{r}
-#| title: "Citation Spread (2015-2024)"
+#| title: "Citation Spread (2020-2024)"
 
-cit_data |>
+cit_nz |>
   ggplot(aes(x = cited_by_count)) +
   stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
   scale_x_continuous(breaks = c(0,1,2,5,10,100,1000), trans = "log1p", expand = c(0,0)) +
@@ -705,3 +764,143 @@ cit_data |>
   ylab("Works") +
   scale_y_continuous(labels = comma)
 ```
+
+# Citations (AU)
+
+## Row {height="20%"}
+
+```{r}
+#| content: valuebox
+#| title: "Publications (2020-2024)"
+
+list(
+  icon = "file-text",
+  color = "info",
+  value = format(nrow(cit_au), big.mark = ",")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Citations (2020-2024)"
+
+list(
+  icon = "blockquote-left",
+  color = "info",
+  value = format(sum(cit_au$cited_by_count), big.mark = ",")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "OA Citation Advantage"
+
+cit_advant_au <-
+cit_au |> 
+  group_by(is_oa) |> 
+  summarise(
+    med_citations = median(cited_by_count)
+  ) |> 
+  pivot_wider(names_from = is_oa, values_from = med_citations) |> 
+  mutate(
+    difference = `FALSE` / `TRUE`,
+  )
+
+list(
+  icon = "bar-chart",
+  color = "success",
+  value = paste0("+", scales::percent(1-cit_advant_au$difference))
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Last Updated"
+
+list(
+  color = "light",
+  value = format(file.info("data/citations-au.csv")$mtime, format = "%d %b %Y")
+)
+```
+
+## Row {height=80%}
+
+### Column {width=50%}
+
+```{r}
+#| title: "Open vs Closed (2020-2024)"
+
+cit_au |> 
+  group_by(publication_year, is_oa) |>
+  summarise(
+    median = median(cited_by_count)
+  ) |> 
+  mutate(
+    access = case_when(is_oa == "TRUE" ~ "Open",
+                       .default = "Closed")
+  ) |> 
+  ggplot(aes(x = publication_year, y = median, fill = access)) +
+  geom_bar(position="dodge", stat="identity") +
+  coord_flip() +
+  plot_theme() +
+  scale_fill_manual(name = "", values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C"),
+                    guide = guide_legend(reverse = TRUE)) +
+  xlab("") +
+  ylab("Median Citations")
+```
+
+
+```{r}
+#| title: "Open Access Status (2020-2024)"
+
+cit_au |> 
+  group_by(publication_year, oa_status) |>
+  summarise(
+    median = median(cited_by_count)
+  ) |> 
+  ggplot(aes(x = publication_year, y = median, fill = oa_status)) +
+  geom_bar(position="dodge", stat="identity") +
+  coord_flip() +
+  plot_theme() +
+  scale_fill_manual(name = "Access Type", values = plot_colours, 
+                    guide = guide_legend(reverse = TRUE)) +
+  xlab("") +
+  ylab("Median Citations")
+```
+
+### Column {width=50%}
+
+```{r}
+#| title: "Citation Summary (2020-2024)"
+
+cit_au |> 
+  group_by(publication_year) |> 
+  summarise(
+    Works = format(n(), big.mark = ","),
+    Citations = format(sum(cited_by_count), big.mark = ","),
+    Min = min(cited_by_count),
+    Max = format(max(cited_by_count), big.mark = ","),
+    Median = median(cited_by_count),
+    Average = round(mean(cited_by_count), digits = 1)
+  ) |>
+  gt() |> 
+  cols_label(publication_year = "Year") |> 
+  tab_options(table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
+```
+
+```{r}
+#| title: "Citation Spread (2020-2024)"
+
+cit_au |>
+  ggplot(aes(x = cited_by_count)) +
+  stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
+  scale_x_continuous(breaks = c(0,1,2,5,10,100,1000), trans = "log1p", expand = c(0,0)) +
+  plot_theme() +
+  xlab("Citations (log1p)") +
+  ylab("Works") +
+  scale_y_continuous(labels = comma)
+```
+
+
