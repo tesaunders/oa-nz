@@ -125,9 +125,13 @@ total <-
   )
 ```
 
-# NZ
+# Publications 
 
-## Row {height="20%"}
+## Row {.tabset}
+
+### NZ
+
+#### Row {height=20%}
 
 ```{r}
 #| content: valuebox
@@ -166,9 +170,9 @@ list(
 )
 ```
 
-## Row {height=80%}
+#### Row {height=80%}
 
-### Column {width=50%}
+##### Column {width=50%}
 
 ```{r}
 #| title: "Total OA rate over time"
@@ -205,7 +209,7 @@ pub_data |>
   plot_theme()
 ```
 
-### Column {width=50%}
+##### Column {width=50%}
 
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
@@ -224,9 +228,9 @@ pub_data |>
               table.font.color.light = "white")
 ```
 
-# AU
+### AU
 
-## Row {height="20%"}
+#### Row {height=20%}
 
 ```{r}
 #| content: valuebox
@@ -265,9 +269,9 @@ list(
 )
 ```
 
-## Row {height=80%}
+#### Row {height=80%}
 
-### Column {width=50%}
+##### Column {width=50%}
 
 ```{r}
 #| title: Total OA rate over time
@@ -302,7 +306,7 @@ pub_data |>
   plot_theme()
 ```
 
-### Column {width=50%}
+##### Column {width=50%}
 
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
@@ -324,7 +328,7 @@ pub_data |>
 
 # Comparison
 
-## Row {height="20%"}
+## Row {height=20%}
 
 ```{r}
 #| content: valuebox
