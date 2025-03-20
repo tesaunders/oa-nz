@@ -27,9 +27,6 @@ date-format: long
 output-file: "uoa-report.pdf"
 format:
   typst:
-    margin:
-      x: 2cm
-      y: 2cm
     fig-width: 8
     # fig-height: 
 # bibliography: 
@@ -90,41 +87,77 @@ plot_theme <- function(base_size=14, base_family="sans") {
 
 {{< pagebreak >}}
 
-General OA publication stats, comparisons with other unis
+# Executive Summary
+
+The University of Auckland produces a significant proportion of Aotearoa New Zealand's research output ...
+
+OA policy and fund introduced in X ...
+
+... alongside regional initiatives the University participates in through membership in CAUL
+
+Headline numbers
+
+# Background
+
+
+Regional highlights include:
+
+2013 and 2014 ARC and then the NHMRC developed OA policies.
+2020 CAUL signs first R&P agreements - mention coalition S (rationale, failure)
+2022 UNZ endorses pan-university statement on open access - 70% commitment by 2025
+2023 MBIE open research policy
+2024 AU Chief Scientist releases recommendations 
+
+
+Author awareness of OA has historically been low, and even librarians struggle to keep up with developments, terminology, options [Kingsley 2022].
+
+All major stakeholders in Aotearoa New Zealand's research sector agree that open access to publicly-funded research is a desirable outcome, but the complexities and entanglements between academic publishing, research evaluation, and research funding make it difficult to change one part without creating adverse or unintended consequences for the others. [Saunders report]
+
+
+New Zealand universities have made significant progress in moving towards higher rates of OA, but this progress has come at the cost of ballooning article processing charges (APCs), a stagnation of repository-based OA, and a reduction in bibliodiversity caused by the relentless consolidation of academic publishing into fewer publishing houses [Tairi/Barbour]. 
+
+# Publication/Access analysis
+
+uoa oa trend plot
+
+![University of Auckland Access Trend](../docs/dashboard_files/figure-html/unnamed-chunk-27-1.png)
+
+
 
 ```{r}
-#| message: false
+#| fig-height: 8
 
-# Publication output over time by oa status
-
-uoa_data$oa_status <- factor(uoa_data$oa_status, levels = c("closed",
-                                                              "bronze",
-                                                              "hybrid",
-                                                              "gold",
-                                                              "green",
-                                                              "diamond"))
-
-uoa_data |> 
-  group_by(publication_year, oa_status) |> 
-  summarise(
-    n = n(),
-  ) |> 
+uoa_data |>
+  drop_na(field) |> 
+  group_by(field, is_oa) |> 
+  tally() |> 
   mutate(
-    percent = n / sum(n),
-  ) |> 
-  ggplot(aes(x = publication_year, y = percent, fill = oa_status)) +
-  geom_area() +
-  scale_fill_manual(name = "Access Type",
-                      values = plot_colours) +
+    pc = n / sum(n)
+    ) |>
+  filter(is_oa == TRUE) |>
+  ggplot(aes(x = reorder(field, pc), y = pc)) +
+  geom_bar(position="dodge", stat="identity", fill = "#4DAF4A") +
+  geom_text(aes(label = n, y = pc - 0.04),
+            vjust = 0.5,
+            colour = "white",
+            size = 3) +
+  coord_flip() +
   plot_theme() +
+  ylab("") +
   xlab("") +
-  ylab("Proportion (%)") +
-  scale_y_continuous(labels = label_percent()) +
-  scale_x_continuous(breaks = unique(uoa_data$publication_year))
-  
-  
+  scale_y_continuous(labels = label_percent(),
+                     limits = c(0, 0.8))
+
 ```
 
+
+
+![NZ University OA Trend](../docs/dashboard_files/figure-html/unnamed-chunk-23-1.png)
+
+
+# Citation analysis
+
+- Years of coverage, item types
 
 ```{r}
 # Number of different items in each type
@@ -141,6 +174,8 @@ uoa_data |>
   
 ```
 
+- citations each year
+
 ```{r}
 # Number of citations each year (table)
 
@@ -149,14 +184,15 @@ uoa_data |>
   summarise(
     Works = format(n(), big.mark = ","),
     Citations = format(sum(cited_by_count), big.mark = ","),
-    Min = min(cited_by_count),
-    Max = format(max(cited_by_count), big.mark = ","),
     Median = median(cited_by_count),
     Average = round(mean(cited_by_count), digits = 1)
   ) |>
   gt() |> 
   cols_label(publication_year = "Year")
 ```
+
+
+- Spread of citations indicates median is more appropriate for comparisons 
 
 ```{r}
 # Spread of citations
@@ -171,6 +207,8 @@ uoa_data |>
   scale_y_continuous(labels = comma)
 ```
 
+- Number of citations each year - issue going further back than 2019?
+
 ```{r}
 # Number of citations each year (plot)
 
@@ -183,14 +221,16 @@ uoa_data |>
   ) |> 
   arrange(desc(publication_year)) |> 
   ggplot(aes(x = publication_year, y = total)) +
-  geom_col(fill = "#377EB8") +
+  geom_col(fill = "#00447b") +
   plot_theme() +
   scale_x_continuous(breaks = unique(uoa_data$publication_year)) +
+  scale_y_continuous(labels = scales::comma) +
   ylab("Citations") +
   xlab("")
 
 ```
 
+- Impact of OA status on citations
 
 ```{r}
 #| message: false
@@ -224,6 +264,7 @@ uoa_data |>
   ) |> 
   ggplot(aes(x = publication_year, y = med_citations, fill = is_oa)) +
   geom_bar(position="dodge", stat="identity") +
+  coord_flip() +
   plot_theme() +
   scale_x_continuous(breaks = unique(uoa_data$publication_year)) +
   ylab("Median Citations") +
@@ -234,6 +275,7 @@ uoa_data |>
 ```
 
 ```{r}
+#| message: false
 # Difference in citations each year between open vs closed
 
 cit_diff_oa <-
@@ -246,30 +288,12 @@ uoa_data |>
   mutate(
     difference = `FALSE` / `TRUE`,
   )
-
-cat("Each year, open access items enjoy median citation rates between", scales::percent(min(cit_diff_oa$difference, na.rm = TRUE)), "and",  scales::percent(max(cit_diff_oa$difference, na.rm = TRUE)), "higher than closed items.")
 ```
 
+Each year, open access items enjoy median citation rates between `r scales::percent(min(cit_diff_oa$difference, na.rm = TRUE))` and `r scales::percent(max(cit_diff_oa$difference, na.rm = TRUE))` higher than closed items.
 
 ```{r}
 #| message: false
-
-# Overall, median citations for each type of OA vs closed
-
-uoa_data |> 
-  group_by(oa_status) |> 
-  summarise(
-    med_citations = median(cited_by_count)
-  ) |> 
-  ggplot(aes(x = reorder(oa_status, -med_citations), y = med_citations)) +
-  geom_col(fill = "#377EB8") +
-  plot_theme() +
-  ylab("Median Citations") +
-  xlab("")
-  
-```
-
-```{r}
 # Each year, median citations for each type of OA vs closed
 
 uoa_data |> 
@@ -287,28 +311,28 @@ uoa_data |>
   scale_fill_manual(name = "Access Type",
                       values = plot_colours) +
   scale_y_continuous(labels = label_percent())
-  
-
-
 ```
 
 ```{r}
-uoa_data |>
-  drop_na(field) |> 
-  group_by(field, is_oa) |> 
-  tally() |> 
-  mutate(
-    pc = n / sum(n)
-    ) |>
-  filter(is_oa == TRUE) |>
-  ggplot(aes(x = reorder(field, pc), y = pc)) +
-  geom_bar(position="dodge", stat="identity", fill = "#4DAF4A") +
-  coord_flip() +
+#| message: false
+
+# Overall, median citations for each type of OA vs closed
+
+uoa_data |> 
+  group_by(oa_status) |> 
+  summarise(
+    med_citations = median(cited_by_count)
+  ) |> 
+  ggplot(aes(x = reorder(oa_status, -med_citations), y = med_citations, fill = oa_status)) +
+  geom_col(show.legend = FALSE) +
+  scale_fill_manual(values = plot_colours) +
   plot_theme() +
-  ylab("") +
-  xlab("") +
-  scale_y_continuous(labels = label_percent(),
-                     limits = c(0, 0.8))
+  ylab("Median Citations") +
+  xlab("")
+
 
 ```
+
+
+
 
