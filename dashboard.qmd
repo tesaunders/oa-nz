@@ -32,9 +32,8 @@ prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
 
 plot_theme <- function(base_size=20, base_family="sans") {
   (theme_foundation(base_size=base_size, base_family=base_family)
-   + theme(plot.title = element_text(face = "bold", colour = '#ffffb3',
-                                    size = rel(1.2), hjust = 0.5, 
-                                    margin = margin(0,0,20,0)),
+   + theme(plot.title = element_text(face = "bold", colour = 'white',
+                                    hjust = 0.5, margin = margin(0,0,20,0)),
            text = element_text(),
            panel.background = element_rect(colour = NA, fill = 'grey20'),
            plot.background = element_rect(colour = NA, fill = '#2d2d2d'),
@@ -79,7 +78,6 @@ cit_au <- read.csv("data/citations-au.csv")
 oa_levels <- c("closed", "hybrid", "gold", "green", "diamond", "bronze")
 
 pub_data$key <- factor(pub_data$key, levels = oa_levels)
-pub_data$institution <- factor(pub_data$institution)
 
 cit_nz$oa_status <- factor(cit_nz$oa_status, levels = oa_levels)
 cit_au$oa_status <- factor(cit_au$oa_status, levels = oa_levels)
@@ -125,9 +123,9 @@ total <-
   )
 ```
 
-# NZ
+# Publications (NZ)
 
-## Row {height="20%"}
+## Row {height=20%}
 
 ```{r}
 #| content: valuebox
@@ -224,9 +222,9 @@ pub_data |>
               table.font.color.light = "white")
 ```
 
-# AU
+# Publications (AU)
 
-## Row {height="20%"}
+#### Row {height=20%}
 
 ```{r}
 #| content: valuebox
@@ -265,9 +263,9 @@ list(
 )
 ```
 
-## Row {height=80%}
+#### Row {height=80%}
 
-### Column {width=50%}
+##### Column {width=50%}
 
 ```{r}
 #| title: Total OA rate over time
@@ -302,7 +300,7 @@ pub_data |>
   plot_theme()
 ```
 
-### Column {width=50%}
+##### Column {width=50%}
 
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
@@ -324,7 +322,7 @@ pub_data |>
 
 # Comparison
 
-## Row {height="20%"}
+## Row {height=20%}
 
 ```{r}
 #| content: valuebox
@@ -414,7 +412,9 @@ plot_trend <-
 
 ```{r}
 plot_inst <- function(x) {
-    ggplot(x, aes(x = year, y = pc, fill = key)) +
+  plot_title <- (x$institution) 
+  
+  plot <- ggplot(x, aes(x = year, y = pc, fill = key)) +
     geom_area() +
     scale_fill_manual(name = "Access Type",
                       values = plot_colours) +
@@ -422,6 +422,10 @@ plot_inst <- function(x) {
     ylab("Proportion (%)") +
     scale_x_continuous(n.breaks = prev_year-min(pub_data$year)) +
     plot_theme()
+  
+  plot_final <- plot + ggtitle(plot_title)
+  
+  return(plot_final)
 }
 
 plot_nz_list <- pub_data |>
@@ -433,9 +437,9 @@ plot_nz_list <- pub_data |>
 plot_titles_nz <- 
   pub_data |> 
   filter(country == "nz") |> 
-  group_by(institution) |> 
+  group_by(abbrev) |> 
   group_keys() |> 
-  pull(institution) |> 
+  pull(abbrev) |> 
   as.character()
 
 plot_au_list <- pub_data |>
@@ -447,9 +451,9 @@ plot_au_list <- pub_data |>
 plot_titles_au <- 
   pub_data |> 
   filter(country == "au") |> 
-  group_by(institution) |> 
+  group_by(abbrev) |> 
   group_keys() |> 
-  pull(institution) |> 
+  pull(abbrev) |> 
   as.character()
 ```
 
@@ -472,42 +476,42 @@ pub_data |>
 ### Row {.tabset}
 
 ```{r}
-cat("title=", plot_titles_nz[1])
+cat("title=", unique(plot_nz_list[[1]]$labels$title))
 plot_nz_list[[1]]
 ```
 
 ```{r}
-cat("title=", plot_titles_nz[2])
+cat("title=", unique(plot_nz_list[[2]]$labels$title))
 plot_nz_list[[2]]
 ```
 
 ```{r}
-cat("title=", plot_titles_nz[3])
+cat("title=", unique(plot_nz_list[[3]]$labels$title))
 plot_nz_list[[3]]
 ```
 
 ```{r}
-cat("title=", plot_titles_nz[4])
+cat("title=", unique(plot_nz_list[[4]]$labels$title))
 plot_nz_list[[4]]
 ```
 
 ```{r}
-cat("title=", plot_titles_nz[5])
+cat("title=", unique(plot_nz_list[[5]]$labels$title))
 plot_nz_list[[5]]
 ```
 
 ```{r}
-cat("title=", plot_titles_nz[6])
+cat("title=", unique(plot_nz_list[[6]]$labels$title))
 plot_nz_list[[6]]
 ```
 
 ```{r}
-cat("title=", plot_titles_nz[7])
+cat("title=", unique(plot_nz_list[[7]]$labels$title))
 plot_nz_list[[7]]
 ```
 
 ```{r}
-cat("title=", plot_titles_nz[8])
+cat("title=", unique(plot_nz_list[[8]]$labels$title))
 plot_nz_list[[8]]
 ```
 
@@ -530,42 +534,42 @@ pub_data |>
 ### Row {.tabset}
 
 ```{r}
-cat("title=", plot_titles_au[1])
+cat("title=", unique(plot_au_list[[1]]$labels$title))
 plot_au_list[[1]]
 ```
 
 ```{r}
-cat("title=", plot_titles_au[2])
+cat("title=", unique(plot_au_list[[2]]$labels$title))
 plot_au_list[[2]]
 ```
 
 ```{r}
-cat("title=", plot_titles_au[3])
+cat("title=", unique(plot_au_list[[3]]$labels$title))
 plot_au_list[[3]]
 ```
 
 ```{r}
-cat("title=", plot_titles_au[4])
+cat("title=", unique(plot_au_list[[4]]$labels$title))
 plot_au_list[[4]]
 ```
 
 ```{r}
-cat("title=", plot_titles_au[5])
+cat("title=", unique(plot_au_list[[5]]$labels$title))
 plot_au_list[[5]]
 ```
 
 ```{r}
-cat("title=", plot_titles_au[6])
+cat("title=", unique(plot_au_list[[6]]$labels$title))
 plot_au_list[[6]]
 ```
 
 ```{r}
-cat("title=", plot_titles_au[7])
+cat("title=", unique(plot_au_list[[7]]$labels$title))
 plot_au_list[[7]]
 ```
 
 ```{r}
-cat("title=", plot_titles_au[8])
+cat("title=", unique(plot_au_list[[8]]$labels$title))
 plot_au_list[[8]]
 ```
 
