@@ -21,14 +21,30 @@ universities <-
                              "University of Canterbury",
                              "Lincoln University",
                              "University of Otago",
-                             "University of Melbourne",
+                             "The University of Melbourne",
                              "Australian National University",
-                             "University of Sydney",
-                             "University of Queensland",
-                             "University of Western Australia",
-                             "University of Adelaide",
+                             "The University of Sydney",
+                             "The University of Queensland",
+                             "The University of Western Australia",
+                             "The University of Adelaide",
                              "Monash University",
-                             "UNSW Sydney")
+                             "UNSW Sydney"),
+             abbrev = c("UOA",
+                        "AUT",
+                        "UOW",
+                        "MU",
+                        "VUW",
+                        "UC",
+                        "LU",
+                        "UO",
+                        "UM",
+                        "ANU",
+                        "US",
+                        "UQ",
+                        "UWA",
+                        "UA",
+                        "MAU",
+                        "UNSWS")
              )
 
 # Retrieve OpenAlex IDs and join to institutions --------------------------
@@ -89,7 +105,9 @@ pub_data <-
   mutate(
     pc = (count / sum(count) * 100),
   ) |> 
-  select(year, institution, country, key, count, pc)
+  select(year, institution, country, key, count, pc) |> 
+  left_join(select(universities, display_name, abbrev), by = join_by(institution == display_name)) |> 
+  relocate(abbrev, .after = institution)
 
 # Export data as csv ------------------------------------------------------
 
