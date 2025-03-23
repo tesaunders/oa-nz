@@ -41,7 +41,7 @@ plot_theme <- function(base_size=20, base_family="sans") {
            axis.title = element_text(face = "bold",size = rel(1), colour = 'white'),
            axis.title.y = element_text(angle=90,vjust =2),
            axis.title.x = element_text(vjust = -0.2),
-           axis.text = element_text(colour = 'grey70'), 
+           axis.text = element_text(colour = 'grey70'),
            axis.line.x = element_line(colour="grey70"),
            axis.line.y = element_line(colour="grey70"),
            axis.ticks = element_line(colour="grey70"),
@@ -434,27 +434,11 @@ plot_nz_list <- pub_data |>
   group_split(institution) |> 
   map(~ plot_inst(.x))
 
-plot_titles_nz <- 
-  pub_data |> 
-  filter(country == "nz") |> 
-  group_by(abbrev) |> 
-  group_keys() |> 
-  pull(abbrev) |> 
-  as.character()
-
 plot_au_list <- pub_data |>
   filter(country == "au") |> 
   group_by(institution, .add = TRUE) |> 
   group_split(institution) |> 
   map(~ plot_inst(.x))
-
-plot_titles_au <- 
-  pub_data |> 
-  filter(country == "au") |> 
-  group_by(abbrev) |> 
-  group_keys() |> 
-  pull(abbrev) |> 
-  as.character()
 ```
 
 ## Column {width=50%}
@@ -476,42 +460,42 @@ pub_data |>
 ### Row {.tabset}
 
 ```{r}
-cat("title=", unique(plot_nz_list[[1]]$labels$title))
+cat("title=", plot_nz_list[[1]][["data"]][["abbrev"]][1])
 plot_nz_list[[1]]
 ```
 
 ```{r}
-cat("title=", unique(plot_nz_list[[2]]$labels$title))
+cat("title=", plot_nz_list[[2]][["data"]][["abbrev"]][1])
 plot_nz_list[[2]]
 ```
 
 ```{r}
-cat("title=", unique(plot_nz_list[[3]]$labels$title))
+cat("title=", plot_nz_list[[3]][["data"]][["abbrev"]][1])
 plot_nz_list[[3]]
 ```
 
 ```{r}
-cat("title=", unique(plot_nz_list[[4]]$labels$title))
+cat("title=", plot_nz_list[[4]][["data"]][["abbrev"]][1])
 plot_nz_list[[4]]
 ```
 
 ```{r}
-cat("title=", unique(plot_nz_list[[5]]$labels$title))
+cat("title=", plot_nz_list[[5]][["data"]][["abbrev"]][1])
 plot_nz_list[[5]]
 ```
 
 ```{r}
-cat("title=", unique(plot_nz_list[[6]]$labels$title))
+cat("title=", plot_nz_list[[6]][["data"]][["abbrev"]][1])
 plot_nz_list[[6]]
 ```
 
 ```{r}
-cat("title=", unique(plot_nz_list[[7]]$labels$title))
+cat("title=", plot_nz_list[[7]][["data"]][["abbrev"]][1])
 plot_nz_list[[7]]
 ```
 
 ```{r}
-cat("title=", unique(plot_nz_list[[8]]$labels$title))
+cat("title=", plot_nz_list[[8]][["data"]][["abbrev"]][1])
 plot_nz_list[[8]]
 ```
 
@@ -534,42 +518,42 @@ pub_data |>
 ### Row {.tabset}
 
 ```{r}
-cat("title=", unique(plot_au_list[[1]]$labels$title))
+cat("title=", plot_au_list[[1]][["data"]][["abbrev"]][1])
 plot_au_list[[1]]
 ```
 
 ```{r}
-cat("title=", unique(plot_au_list[[2]]$labels$title))
+cat("title=", plot_au_list[[2]][["data"]][["abbrev"]][1])
 plot_au_list[[2]]
 ```
 
 ```{r}
-cat("title=", unique(plot_au_list[[3]]$labels$title))
+cat("title=", plot_au_list[[3]][["data"]][["abbrev"]][1])
 plot_au_list[[3]]
 ```
 
 ```{r}
-cat("title=", unique(plot_au_list[[4]]$labels$title))
+cat("title=", plot_au_list[[4]][["data"]][["abbrev"]][1])
 plot_au_list[[4]]
 ```
 
 ```{r}
-cat("title=", unique(plot_au_list[[5]]$labels$title))
+cat("title=", plot_au_list[[5]][["data"]][["abbrev"]][1])
 plot_au_list[[5]]
 ```
 
 ```{r}
-cat("title=", unique(plot_au_list[[6]]$labels$title))
+cat("title=", plot_au_list[[6]][["data"]][["abbrev"]][1])
 plot_au_list[[6]]
 ```
 
 ```{r}
-cat("title=", unique(plot_au_list[[7]]$labels$title))
+cat("title=", plot_au_list[[7]][["data"]][["abbrev"]][1])
 plot_au_list[[7]]
 ```
 
 ```{r}
-cat("title=", unique(plot_au_list[[8]]$labels$title))
+cat("title=", plot_au_list[[8]][["data"]][["abbrev"]][1])
 plot_au_list[[8]]
 ```
 
