@@ -19,8 +19,6 @@ This dashboard is an attempt to monitor rates of open access across New Zealand 
 
 Data is parsed from the [Open Alex API](https://docs.openalex.org/). Publications are included if they have an author affiliated with an NZ or Australian 'group of 8' university. Publications include peer reviewed articles, books, and book chapters, but exclude paratext (material about the journal such as covers, editorial board, or issue information) and retracted items.
 
-Citation data was collected manually from OpenAlex for each institution for articles, books, book chapters, and reviews.
-
 ## Licence
 
 All code in this repository is licensed under the MIT license.
