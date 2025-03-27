@@ -131,12 +131,16 @@ data_all <-
 # Summarise data grouped by year, institution, and OA status --------------
 
 data_summary <-
-  data_all |> 
-  group_by(publication_year, institution, oa_status) |> 
-  tally() |> 
+  data_all |>
+  group_by(publication_year, institution, oa_status) |>
+  tally() |>
   mutate(
-    proportion = n / sum(n)
-  )
+    pc = n / sum(n)
+  ) |> 
+  left_join(universities[2:4], 
+            by = join_by(institution == display_name), 
+            keep = FALSE) |> 
+  relocate(c(abbrev, country_code), .after = institution)
 
 # Export data -------------------------------------------------------------
 
