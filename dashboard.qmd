@@ -24,42 +24,15 @@ library(gt)
 library(tidyr)
 library(scales)
 library(forcats)
+library(stringr)
+
+source("r/functions.r")
 ```
 
 ```{r}
 #| label: define-values-themes
 
 prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
-
-plot_theme <- function(base_size=20, base_family="sans") {
-  (theme_foundation(base_size=base_size, base_family=base_family)
-   + theme(plot.title = element_text(face = "bold", colour = 'white',
-                                    hjust = 0.5, margin = margin(0,0,20,0)),
-           text = element_text(),
-           panel.background = element_rect(colour = NA, fill = 'grey20'),
-           plot.background = element_rect(colour = NA, fill = '#2d2d2d'),
-           panel.border = element_rect(colour = NA),
-           axis.title = element_text(face = "bold",size = rel(1), colour = 'white'),
-           axis.title.y = element_text(angle=90,vjust =2),
-           axis.title.x = element_text(vjust = -0.2),
-           axis.text = element_text(colour = 'grey70'),
-           axis.line.x = element_line(colour="grey70"),
-           axis.line.y = element_line(colour="grey70"),
-           axis.ticks = element_line(colour="grey70"),
-           panel.grid.major = element_line(colour="#262626"),
-           panel.grid.minor = element_blank(),
-           legend.background = element_rect(fill ='#262626'),
-           legend.text = element_text(color = 'white'),
-           legend.key = element_rect(colour = NA, fill = '#262626'),
-           legend.position = "right",
-           legend.direction = "vertical",
-           legend.box = "vertical",
-           legend.key.size= unit(0.5, "cm"),
-           legend.title = element_blank(),
-           plot.margin=unit(c(10,5,5,5),"mm"),
-           strip.background=element_rect(colour="#2D3A4C",fill="#2D3A4C"),
-           strip.text = element_text(face="bold", colour = 'white')))
-}
 
 plot_colours <- c("bronze" = "#A65628",
                   "hybrid" = "#377EB8",
@@ -69,6 +42,13 @@ plot_colours <- c("bronze" = "#A65628",
                  "closed" = "#E41A1C")
 
 oa_levels <- c("closed", "hybrid", "gold", "green", "diamond", "bronze")
+
+publisher_colours <- c("Elsevier" = "#e43d04",
+                       "Wiley" = "black",
+                       "Taylor & Francis" = "#181b82",
+                       "Springer" = "#102b53",
+                       "MDPI" = "#606b84",
+                       "Other" = "gold")
 
 inst_lines_nz <- c("University of Auckland" = "#00467f",
                    "Auckland University of Technology" = "#000000",
@@ -90,81 +70,11 @@ inst_lines_au <- c("The University of Melbourne" = "#000c38",
 ```
 
 ```{r}
-#| label: define-functions
-
-make_valuebox <- function(icon, color, value) {
-  list(
-    icon = icon,
-    color = color,
-    value = value
-    )
-}
-
-get_open <- function(country) {
-  pubs_summary |>
-  filter(country_code == country,
-         publication_year == prev_year) |> 
-  mutate(
-    is_oa = case_when(oa_status != "closed" ~ TRUE, .default = FALSE),
-  ) |> 
-  filter(is_oa == TRUE) |> 
-  group_by(institution) |> 
-  summarise(
-    pc = sum(pc)
-  ) |> 
-  arrange(desc(pc))
-}
-
-annual_open <- function(country) {
-  pubs_summary |>
-  filter(country_code == country) |> 
-  mutate(
-    is_oa = case_when(oa_status != "closed" ~ TRUE, .default = FALSE),
-  ) |> 
-  filter(is_oa == TRUE) |> 
-  group_by(institution, publication_year) |> 
-  summarise(
-    pc = sum(pc)
-  ) |> 
-  group_by(publication_year) |> 
-  summarise(
-    pc = mean(pc)
-  )
-}
-
-plot_trend <- function(x) {
-    ggplot(x, aes(x = publication_year, y = percent, colour = institution)) +
-      geom_line(size = 1) +
-      xlab("") +
-      ylab("Proportion Open Access (%)") +
-      scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
-      plot_theme() +
-      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-}
-
-plot_inst <- function(x) {
-  plot_title <- (x$institution) 
-  
-  plot <- ggplot(x, aes(x = publication_year, y = pc, fill = oa_status)) +
-    geom_area() +
-    scale_fill_manual(name = "Access Type",
-                      values = plot_colours) +
-    xlab("") +
-    ylab("Proportion (%)") +
-    scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
-    plot_theme()
-  
-  plot_final <- plot + ggtitle(plot_title)
-  
-  return(plot_final)
-}
-```
-
-```{r}
 #| label: load-data
 
-pubs_all <- read.csv("data/pubs-all.csv")
+pubs_all <- readRDS("data/pubs-all.rds")
 pubs_summary <- read.csv("data/pubs-summary.csv")
+
 pubs_summary$oa_status <- factor(pubs_summary$oa_status, levels = oa_levels)
 ```
 
@@ -187,6 +97,8 @@ Created and maintained by [Tom Saunders](https://tomsaunders.me).
 
 Data includes all journal articles, books, and book chapters with an author affiliated with at least one of the institutions named above. Works about the publication venue ("paratext") have been excluded (e.g. covers, table of contents, editorial board listing, issue information), as have retracted works.
 
+Works are counted more than once if their authors are affiliated with more than one of the universities examined here. 'Current OA Rates' for NZ and AU universities are calculated by first finding the OA rate for each university for the last full year, and taking the mean of these for each respective region. 
+
 :::
 
 ```{r}
@@ -206,7 +118,6 @@ open_au <- get_open("AU")
 
 make_valuebox("unlock", "success", percent(mean(open_nz$pc)))
 ```
-
 
 ```{r}
 #| content: valuebox
@@ -260,6 +171,7 @@ pubs_summary |>
   xlab("") +
   ylab("Proportion (%)") +
   scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
+  scale_y_continuous(labels = scales::label_percent()) +
   plot_theme()
 ```
 
@@ -894,4 +806,177 @@ pubs_all |>
   scale_y_continuous(labels = comma)
 ```
 
+# Publishers (NZ)
+
+```{r}
+#| label: clean-publishers
+
+pubs_all <-
+  pubs_all |> 
+  mutate(
+    publisher_clean = case_when(
+      str_detect(publisher, "Elsevier|RELX|Cell Press") ~ "Elsevier",
+      str_detect(publisher, "Wiley") ~ "Wiley",
+      str_detect(publisher, "Multidisciplinary Digital Publishing Institute") ~ "MDPI",
+      str_detect(publisher, "Taylor & Francis|Routledge|Informa") ~ "Taylor & Francis",
+      str_detect(publisher, "Springer|Nature Portfolio") ~ "Springer",
+      str_detect(publisher, "Frontiers") ~ "Frontiers Media",
+      str_detect(publisher, "IEEE") ~ "Institute of Electrical and Electronics Engineers",
+      str_detect(publisher, "De Gruyter|Brill") ~ "De Gruyter Brill",
+      str_detect(publisher, "Q15088586") ~ "Magnolia Press",
+      str_detect(publisher, "Oxford") ~ "Oxford University Press",
+      str_detect(publisher, "Wolters|Lippincott") ~ "Wolters Kluwer",
+      str_detect(publisher, "Massachusetts Institute of Technology|MIT Press") ~ "The MIT Press",
+      .default = publisher)
+    )
+```
+
+## Row
+
+### Column {width=50%}
+
+```{r}
+#| title: Top 5 Share Over Time
+
+top5 <- 
+  pubs_all |> 
+  filter(country_code == "NZ", type == "article") |> 
+  drop_na(publisher_clean) |> 
+  group_by(publisher_clean) |> 
+  tally() |> 
+  arrange(desc(n)) |> 
+  slice_head(n = 5) |> 
+  pull(publisher_clean)
+
+pubs_all |> 
+  filter(country_code == "NZ", type == "article") |> 
+  mutate(
+    publisher_clean2 = case_when(
+      publisher_clean %in% top5 ~ publisher_clean,
+      .default = "Other"
+    )
+  ) |> 
+  group_by(publication_year, publisher_clean2) |> 
+  tally() |> 
+  mutate(
+    pc = n / sum(n),
+  ) |> 
+  select(-n) |>
+  ggplot(aes(x = publication_year, y = pc, fill = publisher_clean2)) +
+  geom_area() +
+  xlab("") +
+  ylab("Article Share (%)") +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = publisher_colours) +
+  plot_theme()
+```
+
+### Column {width=50%}
+
+```{r}
+#| title: Top 20 by Article Share
+
+pubs_all |> 
+  filter(country_code == "NZ", type == "article") |> 
+  drop_na(publisher_clean) |> 
+  group_by(publisher_clean) |> 
+  tally() |> 
+  arrange(desc(n)) |> 
+  slice_head(n = 20) |> 
+  mutate(
+    pc = n / sum(n),
+    rank = row_number()
+  ) |>
+  relocate(rank) |> 
+  gt() |> 
+  fmt_number(columns = n, decimals = 0) |> 
+  fmt_percent(columns = pc, decimals = 0) |> 
+  tab_options(column_labels.hidden = TRUE,
+              table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
+```
+
+# Journals (NZ)
+
+```{r}
+# Get country codes for each pubisher (add to original query)
+
+# Get unique publisher ids
+
+publisher_ids <- unique(pubs_all$publisher_id)
+
+# Strip publisher ids to only the ID
+
+
+
+# Query OpenAlex for the country code
+
+req_publishers <-
+  request("https://api.openalex.org/") |> 
+  req_url_path_append("publishers") |> 
+  req_url_query(search = ) |> 
+  req_url_query(select = c("id", "display_name", "country_codes"), .multi = "comma") |> 
+  req_url_query(mailto = Sys.getenv("EMAIL_ADDRESS")) |> 
+  req_perform() |>
+  resp_body_json()
+
+# Process into df and join to pubs_all
+
+test <-
+  req_publishers$results |> 
+  map(as.data.frame) |> 
+  bind_rows() |> 
+  left_join()
+
+```
+
+```{r}
+
+pubs_all |> 
+  drop_na(journal) |> 
+  filter(country_code == "NZ", type == "article") |> 
+  group_by(journal) |> 
+  tally() |> 
+  arrange(desc(n))
+```
+
+# Collaboration
+
+```{r}
+sum(duplicated(pubs_all$item_id)) / length(pubs_all$item_id)
+
+# Add column to denote works with more than one NZ affiliation
+
+pubs_all <-
+pubs_all |> 
+  group_by(item_id) |> 
+  mutate(
+    collab = n() > 1,
+  ) |> 
+  ungroup()
+
+works_all <-
+pubs_all |> 
+  group_by(is_oa) |> 
+  tally() |> 
+  mutate(
+    sample = "ALL",
+    pc = n / sum(n)
+    )
+
+works_collab <-
+  pubs_all |> 
+  filter(collab == TRUE) |> 
+  group_by(is_oa) |> 
+  tally() |> 
+  mutate(
+    sample = "COLLAB",
+    pc = n / sum(n)
+    )
+
+bind_rows(works_all, works_collab)
+
+
+```
 

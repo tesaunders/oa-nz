@@ -105,7 +105,8 @@ get_pubs <- function(inst) {
       oa_status = .x$open_access$oa_status,
       field = .x$primary_topic$field$display_name,
       journal = .x$primary_location$source$display_name,
-      publisher = .x$primary_location$source$host_organization_name
+      publisher = .x$primary_location$source$host_organization_name,
+      publisher_id = .x$primary_location$source$host_organization
     )) |>
     bind_rows()
 }
