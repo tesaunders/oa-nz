@@ -831,3 +831,179 @@ pubs_all |>
 ::::
 
 ::::::
+
+# Publishers (NZ)
+
+```{r}
+#| label: clean-publishers
+
+pubs_all <-
+  pubs_all |> 
+  mutate(
+    publisher_clean = case_when(
+      str_detect(publisher, "Elsevier|RELX|Cell Press") ~ "Elsevier",
+      str_detect(publisher, "Wiley") ~ "Wiley",
+      str_detect(publisher, "Multidisciplinary Digital Publishing Institute") ~ "MDPI",
+      str_detect(publisher, "Taylor & Francis|Routledge|Informa") ~ "Taylor & Francis",
+      str_detect(publisher, "Springer|Nature Portfolio") ~ "Springer",
+      str_detect(publisher, "Frontiers") ~ "Frontiers Media",
+      str_detect(publisher, "IEEE") ~ "IEEE",
+      str_detect(publisher, "Institute of Electrical and Electronics Engineers") ~ "IEEE",
+      str_detect(publisher, "De Gruyter|Brill") ~ "De Gruyter Brill",
+      str_detect(publisher, "Q15088586") ~ "Magnolia Press",
+      str_detect(publisher, "Oxford") ~ "Oxford University Press",
+      str_detect(publisher, "Wolters|Lippincott") ~ "Wolters Kluwer",
+      str_detect(publisher, "Massachusetts Institute of Technology|MIT Press") ~ "The MIT Press",
+      .default = publisher)
+    )
+```
+
+## Row
+
+### Column {width=50%}
+
+```{r}
+#| title: Top 5 Share Over Time
+
+top5 <- 
+  pubs_all |> 
+  filter(country_code == "NZ", type == "article") |> 
+  drop_na(publisher_clean) |> 
+  group_by(publisher_clean) |> 
+  tally() |> 
+  arrange(desc(n)) |> 
+  slice_head(n = 5) |> 
+  pull(publisher_clean)
+
+pubs_all |> 
+  filter(country_code == "NZ", type == "article") |> 
+  mutate(
+    publisher_clean2 = case_when(
+      publisher_clean %in% top5 ~ publisher_clean,
+      .default = "Other"
+    )
+  ) |> 
+  group_by(publication_year, publisher_clean2) |> 
+  tally() |> 
+  mutate(
+    pc = n / sum(n),
+  ) |> 
+  select(-n) |>
+  ggplot(aes(x = publication_year, y = pc, fill = publisher_clean2)) +
+  geom_area() +
+  xlab("") +
+  ylab("Article Share (%)") +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = publisher_colours) +
+  plot_theme()
+```
+
+### Column {width=50%}
+
+```{r}
+#| title: Top 20 by Article Share
+
+publisher_rates <-
+pubs_all |> 
+  drop_na(publisher_clean) |> 
+  filter(country_code == "NZ", type == "article") |> 
+  group_by(publisher_clean, is_oa) |> 
+  tally() |> 
+  mutate(
+    percent_open = n / sum(n)
+  ) |> 
+  filter(is_oa == TRUE) |> 
+  arrange(desc(n))
+
+publisher_citations <-
+pubs_all |> 
+  drop_na(publisher_clean) |> 
+  filter(country_code == "NZ", type == "article") |> 
+  group_by(publisher_clean) |> 
+  summarise(
+    citations = sum(cited_by_count),
+    articles = n(),
+    median_citations = median(cited_by_count)
+  ) |> 
+  filter(articles > 20) |> 
+  arrange(desc(median_citations))
+
+nz_articles <- nrow(filter(pubs_all, country_code == "NZ", type == "article"))
+
+left_join(publisher_rates, publisher_citations) |> 
+  rename(Publisher = publisher_clean,
+         Articles = articles,
+         "Percent OA" = percent_open,
+         "Median Citations" = median_citations) |> 
+  select(-is_oa, -n, -citations) |> 
+  relocate(c(Articles, "Percent OA", "Median Citations"), .after = Publisher) |>
+  arrange(desc(Articles)) |>
+  mutate(
+    "Article Share" = Articles / nz_articles
+  ) |> 
+  ungroup() |> 
+  slice_head(n = 20) |> 
+  mutate(
+    Rank = row_number()
+  ) |>
+  relocate(Rank) |> 
+  relocate("Article Share", .after = Articles) |> 
+  gt() |> 
+  fmt_number(columns = c(Articles, "Median Citations"), 
+             sep_mark = ",", decimals = 0) |> 
+  fmt_percent(columns = c("Percent OA", "Article Share"), decimals = 0) |> 
+  tab_options(table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
+```
+
+# Journals (NZ)
+
+```{r}
+
+pubs_all |> 
+  drop_na(journal) |> 
+  filter(country_code == "NZ", type == "article") |> 
+  group_by(journal) |> 
+  tally() |> 
+  arrange(desc(n))
+```
+
+# Collaboration
+
+```{r}
+sum(duplicated(pubs_all$item_id)) / length(pubs_all$item_id)
+
+# Add column to denote works with more than one NZ affiliation
+
+pubs_all <-
+pubs_all |> 
+  group_by(item_id) |> 
+  mutate(
+    collab = n() > 1,
+  ) |> 
+  ungroup()
+
+works_all <-
+pubs_all |> 
+  group_by(is_oa) |> 
+  tally() |> 
+  mutate(
+    sample = "ALL",
+    pc = n / sum(n)
+    )
+
+works_collab <-
+  pubs_all |> 
+  filter(collab == TRUE) |> 
+  group_by(is_oa) |> 
+  tally() |> 
+  mutate(
+    sample = "COLLAB",
+    pc = n / sum(n)
+    )
+
+bind_rows(works_all, works_collab)
+
+
+```
