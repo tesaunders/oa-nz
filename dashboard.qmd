@@ -108,9 +108,15 @@ open_nz <- get_open("NZ")
 open_au <- get_open("AU")
 ```
 
-# Publications (NZ)
+# Publications
 
-## Row {height=20%}
+## Row {.tabset}
+
+### NZ
+
+:::::: {.rows}
+
+::::: {.columns}
 
 ```{r}
 #| content: valuebox
@@ -134,9 +140,11 @@ make_valuebox("clock-history", "light",
               format(file.info("data/pubs-summary.csv")$mtime, format = "%b %Y"))
 ```
 
-## Row {height=80%}
+:::::
 
-### Column {width=50%}
+:::: {.columns}
+
+::: {.rows}
 
 ```{r}
 #| title: "Total OA rate over time"
@@ -175,7 +183,7 @@ pubs_summary |>
   plot_theme()
 ```
 
-### Column {width=50%}
+:::
 
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
@@ -196,9 +204,15 @@ pubs_summary |>
               table.font.color.light = "white")
 ```
 
-# Publications (AU)
+::::
 
-#### Row {height=20%}
+::::::
+
+### AU
+
+:::::: {.rows}
+
+::::: {.columns}
 
 ```{r}
 #| content: valuebox
@@ -222,9 +236,11 @@ make_valuebox("clock-history", "light",
               format(file.info("data/pubs-summary.csv")$mtime, format = "%b %Y"))
 ```
 
-#### Row {height=80%}
+:::::
 
-##### Column {width=50%}
+:::: {.columns}
+
+::: {.rows}
 
 ```{r}
 #| title: Total OA rate over time
@@ -260,7 +276,7 @@ pubs_summary |>
   plot_theme()
 ```
 
-##### Column {width=50%}
+:::
 
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
@@ -281,33 +297,13 @@ pubs_summary |>
               table.font.color.light = "white")
 ```
 
-# Comparison
+::::
 
-## Row {height=20%}
+::::::
 
-```{r}
-#| content: valuebox
-#| title: "Current OA rate (NZ)"
+### Comparison
 
-make_valuebox("unlock", "success", percent(mean(open_nz$pc)))
-```
-
-```{r}
-#| content: valuebox
-#| title: "Current OA rate (AU)"
-
-make_valuebox("unlock", "success", percent(mean(open_au$pc)))
-```
-
-```{r}
-#| content: valuebox
-#| title: "Last Updated"
-
-make_valuebox("clock-history", "light", 
-              format(file.info("data/pubs-summary.csv")$mtime, format = "%b %Y"))
-```
-
-## Row {height=40%}
+:::::: {.rows}
 
 ```{r}
 #| title: NZ vs AU OA rate over time
@@ -331,6 +327,8 @@ ggplot(annual_compare, aes(x = publication_year, y = pc)) +
   scale_x_continuous(n.breaks = prev_year-min(annual_compare$publication_year)) +
   plot_theme()
 ```
+
+::::::
 
 # Institutions
 
@@ -365,8 +363,6 @@ plot_nz_list <-
 ```
 
 ```{r}
-# HERE (Add abbrev to pubs_summary)
-
 cat("title=", plot_nz_list[[1]][["data"]][["abbrev"]][1])
 plot_nz_list[[1]]
 ```
@@ -476,7 +472,11 @@ cat("title=", plot_au_list[[8]][["data"]][["abbrev"]][1])
 plot_au_list[[8]]
 ```
 
-# Field (NZ)
+# Field
+
+## Row {.tabset}
+
+### NZ
 
 ```{r}
 #| title: "OA Rate By Field (NZ)"
@@ -505,7 +505,7 @@ pubs_all |>
   theme(text = element_text(size = 10))
 ```
 
-# Field (AU)
+### AU
 
 ```{r}
 #| title: "OA Rate By Field (AU)"
@@ -534,9 +534,15 @@ pubs_all |>
   theme(text = element_text(size = 10))
 ```
 
-# Citations (NZ)
+# Citations
 
-## Row {height="20%"}
+## Row {.tabset}
+
+### NZ
+
+:::::: {.rows}
+
+::::: {.columns}
 
 ```{r}
 #| content: valuebox
@@ -585,9 +591,11 @@ make_valuebox("bar-chart", "success", scales::percent(1 - cit_advant_nz$differen
 make_valuebox("clock-history", "light", format(file.info("data/pubs-all.csv")$mtime, format = "%b %Y"))
 ```
 
-## Row {height=80%}
+:::::
 
-### Column {width=50%}
+:::: {.columns}
+
+::: {.rows}
 
 ```{r}
 #| title: "Open vs Closed"
@@ -613,7 +621,6 @@ pubs_all |>
   ylab("Median Citations")
 ```
 
-
 ```{r}
 #| title: "Open Access Status"
 
@@ -634,7 +641,9 @@ pubs_all |>
   ylab("Median Citations")
 ```
 
-### Column {width=50%}
+:::
+
+::: {.rows}
 
 ```{r}
 #| title: "Citation Summary"
@@ -670,9 +679,17 @@ pubs_all |>
   scale_y_continuous(labels = comma)
 ```
 
-# Citations (AU)
+:::
 
-## Row {height="20%"}
+::::
+
+::::::
+
+### AU
+
+:::::: {.rows}
+
+::::: {.columns}
 
 ```{r}
 #| content: valuebox
@@ -721,9 +738,11 @@ make_valuebox("bar-chart", "success", scales::percent(1 - cit_advant_nz$differen
 make_valuebox("clock-history", "light", format(file.info("data/pubs-all.csv")$mtime, format = "%b %Y"))
 ```
 
-## Row {height=80%}
+:::::
 
-### Column {width=50%}
+:::: {.columns}
+
+::: {.rows}
 
 ```{r}
 #| title: "Open vs Closed"
@@ -749,7 +768,6 @@ pubs_all |>
   ylab("Median Citations")
 ```
 
-
 ```{r}
 #| title: "Open Access Status"
 
@@ -770,7 +788,9 @@ pubs_all |>
   ylab("Median Citations")
 ```
 
-### Column {width=50%}
+:::
+
+::: {.rows}
 
 ```{r}
 #| title: "Citation Summary"
@@ -793,7 +813,7 @@ pubs_all |>
 ```
 
 ```{r}
-#| title: "Citation Spread (2020-2024)"
+#| title: "Citation Spread"
 
 pubs_all |>
   filter(country_code == "AU") |> 
@@ -806,177 +826,8 @@ pubs_all |>
   scale_y_continuous(labels = comma)
 ```
 
-# Publishers (NZ)
+:::
 
-```{r}
-#| label: clean-publishers
+::::
 
-pubs_all <-
-  pubs_all |> 
-  mutate(
-    publisher_clean = case_when(
-      str_detect(publisher, "Elsevier|RELX|Cell Press") ~ "Elsevier",
-      str_detect(publisher, "Wiley") ~ "Wiley",
-      str_detect(publisher, "Multidisciplinary Digital Publishing Institute") ~ "MDPI",
-      str_detect(publisher, "Taylor & Francis|Routledge|Informa") ~ "Taylor & Francis",
-      str_detect(publisher, "Springer|Nature Portfolio") ~ "Springer",
-      str_detect(publisher, "Frontiers") ~ "Frontiers Media",
-      str_detect(publisher, "IEEE") ~ "Institute of Electrical and Electronics Engineers",
-      str_detect(publisher, "De Gruyter|Brill") ~ "De Gruyter Brill",
-      str_detect(publisher, "Q15088586") ~ "Magnolia Press",
-      str_detect(publisher, "Oxford") ~ "Oxford University Press",
-      str_detect(publisher, "Wolters|Lippincott") ~ "Wolters Kluwer",
-      str_detect(publisher, "Massachusetts Institute of Technology|MIT Press") ~ "The MIT Press",
-      .default = publisher)
-    )
-```
-
-## Row
-
-### Column {width=50%}
-
-```{r}
-#| title: Top 5 Share Over Time
-
-top5 <- 
-  pubs_all |> 
-  filter(country_code == "NZ", type == "article") |> 
-  drop_na(publisher_clean) |> 
-  group_by(publisher_clean) |> 
-  tally() |> 
-  arrange(desc(n)) |> 
-  slice_head(n = 5) |> 
-  pull(publisher_clean)
-
-pubs_all |> 
-  filter(country_code == "NZ", type == "article") |> 
-  mutate(
-    publisher_clean2 = case_when(
-      publisher_clean %in% top5 ~ publisher_clean,
-      .default = "Other"
-    )
-  ) |> 
-  group_by(publication_year, publisher_clean2) |> 
-  tally() |> 
-  mutate(
-    pc = n / sum(n),
-  ) |> 
-  select(-n) |>
-  ggplot(aes(x = publication_year, y = pc, fill = publisher_clean2)) +
-  geom_area() +
-  xlab("") +
-  ylab("Article Share (%)") +
-  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
-  scale_y_continuous(labels = scales::label_percent()) +
-  scale_fill_manual(values = publisher_colours) +
-  plot_theme()
-```
-
-### Column {width=50%}
-
-```{r}
-#| title: Top 20 by Article Share
-
-pubs_all |> 
-  filter(country_code == "NZ", type == "article") |> 
-  drop_na(publisher_clean) |> 
-  group_by(publisher_clean) |> 
-  tally() |> 
-  arrange(desc(n)) |> 
-  slice_head(n = 20) |> 
-  mutate(
-    pc = n / sum(n),
-    rank = row_number()
-  ) |>
-  relocate(rank) |> 
-  gt() |> 
-  fmt_number(columns = n, decimals = 0) |> 
-  fmt_percent(columns = pc, decimals = 0) |> 
-  tab_options(column_labels.hidden = TRUE,
-              table.background.color = "#2d2d2d",
-              table.font.color.light = "white")
-```
-
-# Journals (NZ)
-
-```{r}
-# Get country codes for each pubisher (add to original query)
-
-# Get unique publisher ids
-
-publisher_ids <- unique(pubs_all$publisher_id)
-
-# Strip publisher ids to only the ID
-
-
-
-# Query OpenAlex for the country code
-
-req_publishers <-
-  request("https://api.openalex.org/") |> 
-  req_url_path_append("publishers") |> 
-  req_url_query(search = ) |> 
-  req_url_query(select = c("id", "display_name", "country_codes"), .multi = "comma") |> 
-  req_url_query(mailto = Sys.getenv("EMAIL_ADDRESS")) |> 
-  req_perform() |>
-  resp_body_json()
-
-# Process into df and join to pubs_all
-
-test <-
-  req_publishers$results |> 
-  map(as.data.frame) |> 
-  bind_rows() |> 
-  left_join()
-
-```
-
-```{r}
-
-pubs_all |> 
-  drop_na(journal) |> 
-  filter(country_code == "NZ", type == "article") |> 
-  group_by(journal) |> 
-  tally() |> 
-  arrange(desc(n))
-```
-
-# Collaboration
-
-```{r}
-sum(duplicated(pubs_all$item_id)) / length(pubs_all$item_id)
-
-# Add column to denote works with more than one NZ affiliation
-
-pubs_all <-
-pubs_all |> 
-  group_by(item_id) |> 
-  mutate(
-    collab = n() > 1,
-  ) |> 
-  ungroup()
-
-works_all <-
-pubs_all |> 
-  group_by(is_oa) |> 
-  tally() |> 
-  mutate(
-    sample = "ALL",
-    pc = n / sum(n)
-    )
-
-works_collab <-
-  pubs_all |> 
-  filter(collab == TRUE) |> 
-  group_by(is_oa) |> 
-  tally() |> 
-  mutate(
-    sample = "COLLAB",
-    pc = n / sum(n)
-    )
-
-bind_rows(works_all, works_collab)
-
-
-```
-
+::::::
