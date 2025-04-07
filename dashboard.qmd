@@ -43,12 +43,19 @@ plot_colours <- c("bronze" = "#A65628",
 
 oa_levels <- c("closed", "hybrid", "gold", "green", "diamond", "bronze")
 
-publisher_colours <- c("Elsevier" = "#e43d04",
-                       "Wiley" = "black",
-                       "Taylor & Francis" = "#181b82",
-                       "Springer" = "#102b53",
-                       "MDPI" = "#606b84",
-                       "Other" = "gold")
+publisher_colours_nz <- c("Elsevier" = "#e43d04",
+                          "Wiley" = "black",
+                          "Taylor & Francis" = "#181b82",
+                          "Springer" = "#102b53",
+                          "MDPI" = "#606b84",
+                          "Other" = "gold")
+
+publisher_colours_au <- c("Elsevier" = "#e43d04",
+                          "Wiley" = "black",
+                          "Taylor & Francis" = "#181b82",
+                          "Springer" = "#102b53",
+                          "Oxford University Press" = "#606b84",
+                          "Other" = "gold")
 
 inst_lines_nz <- c("University of Auckland" = "#00467f",
                    "Auckland University of Technology" = "#000000",
@@ -80,11 +87,7 @@ pubs_summary$oa_status <- factor(pubs_summary$oa_status, levels = oa_levels)
 
 #  {.sidebar}
 
-This dashboard displays data relating to open access publication output from all 8 Aotearoa New Zealand universities and the Australian 'Group of 8' universities.
-
-------------------------------------------------------------------------
-
-Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication and citation trends since `r min(pubs_all$publication_year)`. Currently, data is only included up to the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
+This dashboard displays data relating to open access publication output from all 8 Aotearoa New Zealand universities and the Australian 'Group of 8' universities. Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication and citation trends since `r min(pubs_all$publication_year)` up to `r prev_year`. Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
 
 ------------------------------------------------------------------------
 
@@ -194,7 +197,7 @@ pubs_summary |>
          oa_status == "closed") |>
   summarise(
     institution = institution,
-    percent = 1- pc,
+    percent = 1 - pc,
   ) |> 
   arrange(desc(percent)) |> 
   gt() |> 
@@ -831,3 +834,285 @@ pubs_all |>
 ::::
 
 ::::::
+
+# Publishers
+
+## Row {.tabset}
+
+### NZ
+
+:::: {.columns}
+
+::: {.rows}
+
+```{r}
+#| label: clean-publishers
+
+pubs_all <-
+  pubs_all |> 
+  mutate(
+    publisher_clean = case_when(
+      str_detect(publisher, "Elsevier|RELX|Cell Press") ~ "Elsevier",
+      str_detect(publisher, "Wiley") ~ "Wiley",
+      str_detect(publisher, "Multidisciplinary Digital Publishing Institute") ~ "MDPI",
+      str_detect(publisher, "Taylor & Francis|Routledge|Informa") ~ "Taylor & Francis",
+      str_detect(publisher, "Springer|Nature Portfolio") ~ "Springer",
+      str_detect(publisher, "Frontiers") ~ "Frontiers Media",
+      str_detect(publisher, "IEEE") ~ "IEEE",
+      str_detect(publisher, "Institute of Electrical and Electronics Engineers") ~ "IEEE",
+      str_detect(publisher, "De Gruyter|Brill") ~ "De Gruyter Brill",
+      str_detect(publisher, "Q15088586") ~ "Magnolia Press",
+      str_detect(publisher, "Oxford") ~ "Oxford University Press",
+      str_detect(publisher, "Wolters|Lippincott") ~ "Wolters Kluwer",
+      str_detect(publisher, "Massachusetts Institute of Technology|MIT Press") ~ "The MIT Press",
+      .default = publisher)
+    )
+```
+
+```{r}
+#| title: Top 5 Share Over Time
+
+top5 <- 
+  pubs_all |> 
+  filter(country_code == "NZ", type == "article") |> 
+  drop_na(publisher_clean) |> 
+  group_by(publisher_clean) |> 
+  tally() |> 
+  arrange(desc(n)) |> 
+  slice_head(n = 5) |> 
+  pull(publisher_clean)
+
+pubs_all |> 
+  filter(country_code == "NZ", type == "article") |> 
+  mutate(
+    publisher_clean2 = case_when(
+      publisher_clean %in% top5 ~ publisher_clean,
+      .default = "Other"
+    )
+  ) |> 
+  group_by(publication_year, publisher_clean2) |> 
+  tally() |> 
+  mutate(
+    pc = n / sum(n),
+  ) |> 
+  select(-n) |>
+  ggplot(aes(x = publication_year, y = pc, fill = publisher_clean2)) +
+  geom_area() +
+  xlab("") +
+  ylab("Article Share (%)") +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = publisher_colours_nz) +
+  plot_theme()
+```
+
+```{r}
+#| title: Top 5 By Field
+
+pubs_all |>
+  filter(country_code == "NZ", type == "article") |>
+  drop_na(field) |>
+  filter(publisher_clean %in% top5) |>
+  group_by(publisher_clean, field) |>
+  summarise(
+    n = n()
+  ) |>
+  mutate(
+    pc = n/ sum(n)
+  ) |>
+  ggplot(aes(x = field, y = pc, fill = publisher_clean)) +
+  geom_bar(position = "fill", stat = "identity") +
+  coord_flip() +
+  xlab("") +
+  ylab("") +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = publisher_colours_nz[1:5]) +
+  plot_theme()
+```
+
+:::
+
+```{r}
+#| title: Top 20 by Article Share
+
+publisher_rates <-
+pubs_all |> 
+  drop_na(publisher_clean) |> 
+  filter(country_code == "NZ", type == "article") |> 
+  group_by(publisher_clean, is_oa) |> 
+  tally() |> 
+  mutate(
+    percent_open = n / sum(n)
+  ) |> 
+  filter(is_oa == TRUE) |> 
+  arrange(desc(n))
+
+publisher_citations <-
+pubs_all |> 
+  drop_na(publisher_clean) |> 
+  filter(country_code == "NZ", type == "article") |> 
+  group_by(publisher_clean) |> 
+  summarise(
+    citations = sum(cited_by_count),
+    articles = n(),
+    median_citations = median(cited_by_count)
+  ) |> 
+  filter(articles > 20) |> 
+  arrange(desc(median_citations))
+
+nz_articles <- nrow(filter(pubs_all, country_code == "NZ", type == "article"))
+
+left_join(publisher_rates, publisher_citations) |> 
+  rename(Publisher = publisher_clean,
+         Articles = articles,
+         "Percent OA" = percent_open,
+         "Median Citations" = median_citations) |> 
+  select(-is_oa, -n, -citations) |> 
+  relocate(c(Articles, "Percent OA", "Median Citations"), .after = Publisher) |>
+  arrange(desc(Articles)) |>
+  mutate(
+    "Article Share" = Articles / nz_articles
+  ) |> 
+  ungroup() |> 
+  slice_head(n = 20) |> 
+  mutate(
+    Rank = row_number()
+  ) |>
+  relocate(Rank) |> 
+  relocate("Article Share", .after = Articles) |> 
+  gt() |> 
+  fmt_number(columns = c(Articles, "Median Citations"), 
+             sep_mark = ",", decimals = 0) |> 
+  fmt_percent(columns = c("Percent OA", "Article Share"), decimals = 0) |> 
+  tab_options(table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
+```
+
+::::
+
+### AU
+
+:::: {.columns}
+
+::: {.rows}
+
+```{r}
+#| title: Top 5 Share Over Time
+
+top5 <- 
+  pubs_all |> 
+  filter(country_code == "AU", type == "article") |> 
+  drop_na(publisher_clean) |> 
+  group_by(publisher_clean) |> 
+  tally() |> 
+  arrange(desc(n)) |> 
+  slice_head(n = 5) |> 
+  pull(publisher_clean)
+
+pubs_all |> 
+  filter(country_code == "AU", type == "article") |> 
+  mutate(
+    publisher_clean2 = case_when(
+      publisher_clean %in% top5 ~ publisher_clean,
+      .default = "Other"
+    )
+  ) |> 
+  group_by(publication_year, publisher_clean2) |> 
+  tally() |> 
+  mutate(
+    pc = n / sum(n),
+  ) |> 
+  select(-n) |>
+  ggplot(aes(x = publication_year, y = pc, fill = publisher_clean2)) +
+  geom_area() +
+  xlab("") +
+  ylab("Article Share (%)") +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = publisher_colours_au) +
+  plot_theme()
+```
+
+```{r}
+#| title: Top 5 By Field
+
+pubs_all |>
+  filter(country_code == "AU", type == "article") |>
+  drop_na(field) |>
+  filter(publisher_clean %in% top5) |>
+  group_by(publisher_clean, field) |>
+  summarise(
+    n = n()
+  ) |>
+  mutate(
+    pc = n/ sum(n)
+  ) |>
+  ggplot(aes(x = field, y = pc, fill = publisher_clean)) +
+  geom_bar(position = "fill", stat = "identity") +
+  coord_flip() +
+  xlab("") +
+  ylab("") +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = publisher_colours_au[1:5]) +
+  plot_theme()
+```
+
+:::
+
+```{r}
+#| title: Top 20 by Article Share
+
+publisher_rates <-
+pubs_all |> 
+  drop_na(publisher_clean) |> 
+  filter(country_code == "AU", type == "article") |> 
+  group_by(publisher_clean, is_oa) |> 
+  tally() |> 
+  mutate(
+    percent_open = n / sum(n)
+  ) |> 
+  filter(is_oa == TRUE) |> 
+  arrange(desc(n))
+
+publisher_citations <-
+pubs_all |> 
+  drop_na(publisher_clean) |> 
+  filter(country_code == "AU", type == "article") |> 
+  group_by(publisher_clean) |> 
+  summarise(
+    citations = sum(cited_by_count),
+    articles = n(),
+    median_citations = median(cited_by_count)
+  ) |> 
+  filter(articles > 20) |> 
+  arrange(desc(median_citations))
+
+nz_articles <- nrow(filter(pubs_all, country_code == "AU", type == "article"))
+
+left_join(publisher_rates, publisher_citations) |> 
+  rename(Publisher = publisher_clean,
+         Articles = articles,
+         "Percent OA" = percent_open,
+         "Median Citations" = median_citations) |> 
+  select(-is_oa, -n, -citations) |> 
+  relocate(c(Articles, "Percent OA", "Median Citations"), .after = Publisher) |>
+  arrange(desc(Articles)) |>
+  mutate(
+    "Article Share" = Articles / nz_articles
+  ) |> 
+  ungroup() |> 
+  slice_head(n = 20) |> 
+  mutate(
+    Rank = row_number()
+  ) |>
+  relocate(Rank) |> 
+  relocate("Article Share", .after = Articles) |> 
+  gt() |> 
+  fmt_number(columns = c(Articles, "Median Citations"), 
+             sep_mark = ",", decimals = 0) |> 
+  fmt_percent(columns = c("Percent OA", "Article Share"), decimals = 0) |> 
+  tab_options(table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
+```
+
+::::
