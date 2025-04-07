@@ -43,12 +43,19 @@ plot_colours <- c("bronze" = "#A65628",
 
 oa_levels <- c("closed", "hybrid", "gold", "green", "diamond", "bronze")
 
-publisher_colours <- c("Elsevier" = "#e43d04",
-                       "Wiley" = "black",
-                       "Taylor & Francis" = "#181b82",
-                       "Springer" = "#102b53",
-                       "MDPI" = "#606b84",
-                       "Other" = "gold")
+publisher_colours_nz <- c("Elsevier" = "#e43d04",
+                          "Wiley" = "black",
+                          "Taylor & Francis" = "#181b82",
+                          "Springer" = "#102b53",
+                          "MDPI" = "#606b84",
+                          "Other" = "gold")
+
+publisher_colours_au <- c("Elsevier" = "#e43d04",
+                          "Wiley" = "black",
+                          "Taylor & Francis" = "#181b82",
+                          "Springer" = "#102b53",
+                          "Oxford University Press" = "#606b84",
+                          "Other" = "gold")
 
 inst_lines_nz <- c("University of Auckland" = "#00467f",
                    "Auckland University of Technology" = "#000000",
@@ -80,11 +87,7 @@ pubs_summary$oa_status <- factor(pubs_summary$oa_status, levels = oa_levels)
 
 #  {.sidebar}
 
-This dashboard displays data relating to open access publication output from all 8 Aotearoa New Zealand universities and the Australian 'Group of 8' universities.
-
-------------------------------------------------------------------------
-
-Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication and citation trends since `r min(pubs_all$publication_year)`. Currently, data is only included up to the most recent full year (`r prev_year`). Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
+This dashboard displays data relating to open access publication output from all 8 Aotearoa New Zealand universities and the Australian 'Group of 8' universities. Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication and citation trends since `r min(pubs_all$publication_year)` up to `r prev_year`. Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
 
 ------------------------------------------------------------------------
 
@@ -832,7 +835,15 @@ pubs_all |>
 
 ::::::
 
-# Publishers (NZ)
+# Publishers
+
+## Row {.tabset}
+
+### NZ
+
+:::: {.columns}
+
+::: {.rows}
 
 ```{r}
 #| label: clean-publishers
@@ -857,10 +868,6 @@ pubs_all <-
       .default = publisher)
     )
 ```
-
-## Row
-
-### Column {width=50%}
 
 ```{r}
 #| title: Top 5 Share Over Time
@@ -895,7 +902,7 @@ pubs_all |>
   ylab("Article Share (%)") +
   scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
   scale_y_continuous(labels = scales::label_percent()) +
-  scale_fill_manual(values = publisher_colours) +
+  scale_fill_manual(values = publisher_colours_nz) +
   plot_theme()
 ```
 
@@ -903,6 +910,7 @@ pubs_all |>
 #| title: Top 5 By Field
 
 pubs_all |>
+  filter(country_code == "NZ", type == "article") |>
   drop_na(field) |>
   filter(publisher_clean %in% top5) |>
   group_by(publisher_clean, field) |>
@@ -918,50 +926,11 @@ pubs_all |>
   xlab("") +
   ylab("") +
   scale_y_continuous(labels = scales::label_percent()) +
-  scale_fill_manual(values = publisher_colours[1:5]) +
+  scale_fill_manual(values = publisher_colours_nz[1:5]) +
   plot_theme()
-
-# pubs_all |>
-#   drop_na(field) |>
-#   filter(publisher_clean %in% top5) |>
-#   group_by(publisher_clean, field) |>
-#   summarise(
-#     n = n()
-#   ) |>
-#   mutate(
-#     pc = n/ sum(n)
-#   ) |>
-#   ggplot(aes(x = publisher_clean, y = pc, fill = field)) +
-#   geom_bar(position = "fill", stat = "identity", show.legend = FALSE) +
-#   coord_flip() +
-#   xlab("") +
-#   ylab("") +
-#   scale_y_continuous(labels = scales::label_percent()) +
-#   plot_theme()
-
-# pubs_all |>
-#   drop_na(field) |>
-#   filter(publisher_clean %in% top5) |>
-#   group_by(publisher_clean, field) |>
-#   summarise(
-#     n = n()
-#   ) |>
-#   mutate(
-#     pc = n/ sum(n)
-#   ) |>
-#   ggplot(aes(x = field, y = pc)) +
-#   geom_bar(stat = "identity", show.legend = FALSE) +
-#   coord_flip() +
-#   xlab("") +
-#   ylab("") +
-#   scale_y_continuous(labels = scales::label_percent()) +
-#   facet_wrap(vars(publisher_clean), nrow = 1)
-#   plot_theme()
-
 ```
 
-
-### Column {width=50%}
+:::
 
 ```{r}
 #| title: Top 20 by Article Share
@@ -1019,30 +988,85 @@ left_join(publisher_rates, publisher_citations) |>
               table.font.color.light = "white")
 ```
 
-# Journals (NZ)
+::::
 
-## Row
+### AU
 
-### Column {width=50%}
+:::: {.columns}
+
+::: {.rows}
 
 ```{r}
-print("Placeholder")
+#| title: Top 5 Share Over Time
+
+top5 <- 
+  pubs_all |> 
+  filter(country_code == "AU", type == "article") |> 
+  drop_na(publisher_clean) |> 
+  group_by(publisher_clean) |> 
+  tally() |> 
+  arrange(desc(n)) |> 
+  slice_head(n = 5) |> 
+  pull(publisher_clean)
+
+pubs_all |> 
+  filter(country_code == "AU", type == "article") |> 
+  mutate(
+    publisher_clean2 = case_when(
+      publisher_clean %in% top5 ~ publisher_clean,
+      .default = "Other"
+    )
+  ) |> 
+  group_by(publication_year, publisher_clean2) |> 
+  tally() |> 
+  mutate(
+    pc = n / sum(n),
+  ) |> 
+  select(-n) |>
+  ggplot(aes(x = publication_year, y = pc, fill = publisher_clean2)) +
+  geom_area() +
+  xlab("") +
+  ylab("Article Share (%)") +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = publisher_colours_au) +
+  plot_theme()
 ```
 
 ```{r}
-print("Placeholder")
+#| title: Top 5 By Field
+
+pubs_all |>
+  filter(country_code == "AU", type == "article") |>
+  drop_na(field) |>
+  filter(publisher_clean %in% top5) |>
+  group_by(publisher_clean, field) |>
+  summarise(
+    n = n()
+  ) |>
+  mutate(
+    pc = n/ sum(n)
+  ) |>
+  ggplot(aes(x = field, y = pc, fill = publisher_clean)) +
+  geom_bar(position = "fill", stat = "identity") +
+  coord_flip() +
+  xlab("") +
+  ylab("") +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = publisher_colours_au[1:5]) +
+  plot_theme()
 ```
 
-### Column {width=50%}
+:::
 
 ```{r}
 #| title: Top 20 by Article Share
 
-journal_rates <-
+publisher_rates <-
 pubs_all |> 
-  drop_na(journal) |> 
-  filter(country_code == "NZ", type == "article") |> 
-  group_by(journal, is_oa) |> 
+  drop_na(publisher_clean) |> 
+  filter(country_code == "AU", type == "article") |> 
+  group_by(publisher_clean, is_oa) |> 
   tally() |> 
   mutate(
     percent_open = n / sum(n)
@@ -1050,11 +1074,11 @@ pubs_all |>
   filter(is_oa == TRUE) |> 
   arrange(desc(n))
 
-journal_citations <-
+publisher_citations <-
 pubs_all |> 
-  drop_na(journal) |> 
-  filter(country_code == "NZ", type == "article") |> 
-  group_by(journal) |> 
+  drop_na(publisher_clean) |> 
+  filter(country_code == "AU", type == "article") |> 
+  group_by(publisher_clean) |> 
   summarise(
     citations = sum(cited_by_count),
     articles = n(),
@@ -1063,13 +1087,15 @@ pubs_all |>
   filter(articles > 20) |> 
   arrange(desc(median_citations))
 
-left_join(journal_rates, journal_citations) |> 
-  rename(Journal = journal,
+nz_articles <- nrow(filter(pubs_all, country_code == "AU", type == "article"))
+
+left_join(publisher_rates, publisher_citations) |> 
+  rename(Publisher = publisher_clean,
          Articles = articles,
          "Percent OA" = percent_open,
-         "Median Citations" = median_citations) |>
+         "Median Citations" = median_citations) |> 
   select(-is_oa, -n, -citations) |> 
-  relocate(c(Articles, "Percent OA", "Median Citations"), .after = Journal) |>
+  relocate(c(Articles, "Percent OA", "Median Citations"), .after = Publisher) |>
   arrange(desc(Articles)) |>
   mutate(
     "Article Share" = Articles / nz_articles
@@ -1084,48 +1110,9 @@ left_join(journal_rates, journal_citations) |>
   gt() |> 
   fmt_number(columns = c(Articles, "Median Citations"), 
              sep_mark = ",", decimals = 0) |> 
-  fmt_percent(columns = "Percent OA", decimals = 0) |> 
-  fmt_percent(columns = "Article Share", decimals = 2) |> 
+  fmt_percent(columns = c("Percent OA", "Article Share"), decimals = 0) |> 
   tab_options(table.background.color = "#2d2d2d",
               table.font.color.light = "white")
 ```
 
-
-# Collaboration
-
-```{r}
-sum(duplicated(pubs_all$item_id)) / length(pubs_all$item_id)
-
-# Add column to denote works with more than one NZ affiliation
-
-pubs_all <-
-pubs_all |> 
-  group_by(item_id) |> 
-  mutate(
-    collab = n() > 1,
-  ) |> 
-  ungroup()
-
-works_all <-
-pubs_all |> 
-  group_by(is_oa) |> 
-  tally() |> 
-  mutate(
-    sample = "ALL",
-    pc = n / sum(n)
-    )
-
-works_collab <-
-  pubs_all |> 
-  filter(collab == TRUE) |> 
-  group_by(is_oa) |> 
-  tally() |> 
-  mutate(
-    sample = "COLLAB",
-    pc = n / sum(n)
-    )
-
-bind_rows(works_all, works_collab)
-
-
-```
+::::

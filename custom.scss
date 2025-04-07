@@ -2,3 +2,8 @@
 .quarto-dashboard .value-box-value {
 	font-size: clamp(.1em,10cqw,5em) !important;
 }
+
+.callout.callout-style-default .callout-body {
+	font-size: .8rem;
+	font-weight: 400;
+}
