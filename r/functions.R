@@ -1,31 +1,105 @@
-plot_theme <- function(base_size=20, base_family="sans") {
-  (theme_foundation(base_size=base_size, base_family=base_family)
-   + theme(plot.title = element_text(face = "bold", colour = 'white',
-                                     hjust = 0.5, margin = margin(0,0,20,0)),
-           text = element_text(),
-           panel.background = element_rect(colour = NA, fill = 'grey20'),
-           plot.background = element_rect(colour = NA, fill = '#2d2d2d'),
-           panel.border = element_rect(colour = NA),
-           axis.title = element_text(face = "bold",size = rel(1), colour = 'white'),
-           axis.title.y = element_text(angle=90,vjust =2),
-           axis.title.x = element_text(vjust = -0.2),
-           axis.text = element_text(colour = 'grey70'),
-           axis.line.x = element_line(colour="grey70"),
-           axis.line.y = element_line(colour="grey70"),
-           axis.ticks = element_line(colour="grey70"),
-           panel.grid.major = element_line(colour="#262626"),
-           panel.grid.minor = element_blank(),
-           legend.background = element_rect(fill ='#262626'),
-           legend.text = element_text(color = 'white'),
-           legend.key = element_rect(colour = NA, fill = '#262626'),
-           legend.position = "right",
-           legend.direction = "vertical",
-           legend.box = "vertical",
-           legend.key.size= unit(0.5, "cm"),
-           legend.title = element_blank(),
-           plot.margin=unit(c(10,5,5,5),"mm"),
-           strip.background=element_rect(colour="#2D3A4C",fill="#2D3A4C"),
-           strip.text = element_text(face="bold", colour = 'white')))
+plot_theme <- function(dark = TRUE) {
+  dark <- if (isTRUE(dark)) {
+    theme_foundation(
+      base_family = "sans",
+      base_size = 20
+    ) +
+      theme(
+        plot.title = element_text(
+          face = "bold", 
+          colour = 'white',
+          hjust = 0.5, 
+          margin = margin(0,0,20,0)),
+        panel.background = element_rect(
+          colour = NA, 
+          fill = 'grey20'),
+        plot.background = element_rect(
+          colour = NA, 
+          fill = '#2d2d2d'),
+        panel.border = element_rect(
+          colour = NA),
+        axis.title = element_text(
+          face = "bold", size = rel(1), colour = 'white'),
+        axis.title.y = element_text(
+          angle = 90, vjust = 2),
+        axis.title.x = element_text(
+          vjust = -0.2),
+        axis.text = element_text(
+          colour = 'grey70'),
+        axis.line.x = element_line(
+          colour="grey70"),
+        axis.line.y = element_line(
+          colour="grey70"),
+        axis.ticks = element_line(
+          colour="grey70"),
+        panel.grid.major = element_line(
+          colour="#262626"),
+        panel.grid.minor = element_blank(),
+        legend.background = element_rect(
+          fill ='#262626'),
+        legend.text = element_text(
+          color = 'white'),
+        legend.key = element_rect(
+          colour = NA, fill = '#262626'),
+        legend.position = "right",
+        legend.direction = "vertical",
+        legend.box = "vertical",
+        legend.key.size= unit(0.5, "cm"),
+        legend.title = element_blank(),
+        plot.margin = unit(c(10,5,5,5),"mm"),
+        strip.background=element_rect(
+          colour="#2D3A4C",fill="#2D3A4C"),
+        strip.text = element_text(
+          face="bold", colour = 'white')
+      )
+  } else {
+    theme_foundation(
+      base_family = "sans",
+      base_size = 20
+    ) +
+      theme(
+        plot.title = element_text(
+          face = "bold", 
+          colour = 'white',
+          hjust = 0.5, 
+          margin = margin(0,0,20,0)),
+        panel.background = element_rect(
+          colour = NA),
+        plot.background = element_rect(
+          colour = NA),
+        panel.border = element_rect(
+          colour = NA),
+        axis.title = element_text(
+          face = "bold", size = rel(1)),
+        axis.title.y = element_text(
+          angle = 90, vjust = 2),
+        axis.title.x = element_text(
+          vjust = -0.2),
+        axis.text = element_text(),
+        axis.line.x = element_line(
+          colour="black"),
+        axis.line.y = element_line(
+          colour="black"),
+        axis.ticks = element_line(),
+        panel.grid.major = element_line(
+          colour="#f0f0f0"),
+        panel.grid.minor = element_blank(),
+        legend.background = element_rect(),
+        legend.text = element_text(),
+        legend.key = element_rect(
+          colour = NA),
+        legend.position = "right",
+        legend.direction = "vertical",
+        legend.box = "vertical",
+        legend.key.size= unit(0.5, "cm"),
+        legend.title = element_blank(),
+        plot.margin = unit(c(10,5,5,5),"mm"),
+        strip.background=element_rect(
+          colour="#f0f0f0",fill="#f0f0f0"),
+        strip.text = element_text(
+          face="bold")
+      )
+  }
 }
 
 make_valuebox <- function(icon, color, value) {
