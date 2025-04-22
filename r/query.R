@@ -145,6 +145,6 @@ data_summary <-
 
 # Export data -------------------------------------------------------------
 
-write.csv(data_all, "data/pubs-all.csv", row.names = FALSE)
-saveRDS(data_all, "data/pubs-all.rds")
-write.csv(data_summary, "data/pubs-summary.csv", row.names = FALSE)
+write.csv(data_all, "./data/pubs-all.csv", row.names = FALSE)
+saveRDS(data_all, "./data/pubs-all.rds")
+write.csv(data_summary, "./data/pubs-summary.csv", row.names = FALSE)

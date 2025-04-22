@@ -163,7 +163,7 @@ annual_open("NZ") |>
   scale_y_continuous(labels = scales::label_percent(),
                      limits = c(0, 0.8),
                      breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 ```{r}
@@ -183,7 +183,7 @@ pubs_summary |>
   ylab("Proportion (%)") +
   scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
   scale_y_continuous(labels = scales::label_percent()) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 :::
@@ -257,7 +257,7 @@ annual_open("AU") |>
   scale_y_continuous(labels = scales::label_percent(),
                      limits = c(0, 0.8),
                      breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 ```{r}
@@ -276,7 +276,7 @@ pubs_summary |>
   xlab("") +
   ylab("Proportion (%)") +
   scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 :::
@@ -328,7 +328,7 @@ ggplot(annual_compare, aes(x = publication_year, y = pc)) +
                      limits = c(0, 0.8),
                      breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
   scale_x_continuous(n.breaks = prev_year-min(annual_compare$publication_year)) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 ::::::
@@ -347,11 +347,13 @@ pubs_summary |>
     publication_year = publication_year,
     percent = 1 - pc,
   ) |>
-  plot_trend() + 
+  plot_trend() +
   scale_colour_manual(values = inst_lines_nz) +
   scale_y_continuous(labels = scales::label_percent(),
                      limits = c(0, 0.8),
-                     breaks = c(0, 0.2, 0.4, 0.6, 0.8))
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
+  plot_theme("dark") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 ```
 
 ### Row {.tabset}
@@ -362,7 +364,7 @@ plot_nz_list <-
   filter(country_code == "NZ") |> 
   group_by(institution, .add = TRUE) |> 
   group_split(institution) |> 
-  map(~ plot_inst(.x))
+  map(~ plot_inst(.x, "dark"))
 ```
 
 ```{r}
@@ -413,7 +415,7 @@ plot_au_list <-
   filter(country_code == "AU") |> 
   group_by(institution, .add = TRUE) |> 
   group_split(institution) |> 
-  map(~ plot_inst(.x))
+  map(~ plot_inst(.x, "dark"))
 ```
 
 ```{r}
@@ -430,7 +432,9 @@ pubs_summary |>
   scale_colour_manual(values = inst_lines_au) +
   scale_y_continuous(labels = scales::label_percent(),
                      limits = c(0, 0.8),
-                     breaks = c(0, 0.2, 0.4, 0.6, 0.8))
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
+  plot_theme("dark") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 ```
 
 ### Row {.tabset}
@@ -500,9 +504,10 @@ pubs_all |>
             colour = "white",
             size = 3) +
   coord_flip() +
-  plot_theme() +
+  plot_theme("dark") +
   ylab("") +
   xlab("") +
+  labs(caption = "Numbers on bars are counts of open works.") +
   scale_y_continuous(labels = label_percent(),
                      limits = c(0, 0.8)) +
   theme(text = element_text(size = 10))
@@ -529,9 +534,10 @@ pubs_all |>
             colour = "white",
             size = 3) +
   coord_flip() +
-  plot_theme() +
+  plot_theme("dark") +
   ylab("") +
   xlab("") +
+  labs(caption = "Numbers on bars are counts of open works.") +
   scale_y_continuous(labels = label_percent(),
                      limits = c(0, 0.9)) +
   theme(text = element_text(size = 10))
@@ -616,7 +622,7 @@ pubs_all |>
   ggplot(aes(x = publication_year, y = median, fill = access)) +
   geom_bar(position="dodge", stat="identity") +
   coord_flip() +
-  plot_theme() +
+  plot_theme("dark") +
   scale_fill_manual(name = "", values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C"),
                     guide = guide_legend(reverse = TRUE)) +
   scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
@@ -636,7 +642,7 @@ pubs_all |>
   ggplot(aes(x = publication_year, y = median, fill = oa_status)) +
   geom_bar(position="dodge", stat="identity") +
   coord_flip() +
-  plot_theme() +
+  plot_theme("dark") +
   scale_fill_manual(name = "Access Type", values = plot_colours, 
                     guide = guide_legend(reverse = TRUE)) +
   scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
@@ -676,7 +682,7 @@ pubs_all |>
   ggplot(aes(x = cited_by_count)) +
   stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
   scale_x_continuous(breaks = c(0,1,2,5,10,100,1000), trans = "log1p", expand = c(0,0)) +
-  plot_theme() +
+  plot_theme("dark") +
   xlab("Citations (log1p)") +
   ylab("Works") +
   scale_y_continuous(labels = comma)
@@ -763,7 +769,7 @@ pubs_all |>
   ggplot(aes(x = publication_year, y = median, fill = access)) +
   geom_bar(position="dodge", stat="identity") +
   coord_flip() +
-  plot_theme() +
+  plot_theme("dark") +
   scale_fill_manual(name = "", values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C"),
                     guide = guide_legend(reverse = TRUE)) +
   scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
@@ -783,7 +789,7 @@ pubs_all |>
   ggplot(aes(x = publication_year, y = median, fill = oa_status)) +
   geom_bar(position="dodge", stat="identity") +
   coord_flip() +
-  plot_theme() +
+  plot_theme("dark") +
   scale_fill_manual(name = "Access Type", values = plot_colours, 
                     guide = guide_legend(reverse = TRUE)) +
   scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
@@ -823,7 +829,7 @@ pubs_all |>
   ggplot(aes(x = cited_by_count)) +
   stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
   scale_x_continuous(breaks = c(0,1,2,5,10,100,1000), trans = "log1p", expand = c(0,0)) +
-  plot_theme() +
+  plot_theme("dark") +
   xlab("Citations (log1p)") +
   ylab("Works") +
   scale_y_continuous(labels = comma)
@@ -903,7 +909,7 @@ pubs_all |>
   scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
   scale_y_continuous(labels = scales::label_percent()) +
   scale_fill_manual(values = publisher_colours_nz) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 ```{r}
@@ -927,7 +933,7 @@ pubs_all |>
   ylab("") +
   scale_y_continuous(labels = scales::label_percent()) +
   scale_fill_manual(values = publisher_colours_nz[1:5]) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 :::
@@ -1030,7 +1036,7 @@ pubs_all |>
   scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
   scale_y_continuous(labels = scales::label_percent()) +
   scale_fill_manual(values = publisher_colours_au) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 ```{r}
@@ -1054,7 +1060,7 @@ pubs_all |>
   ylab("") +
   scale_y_continuous(labels = scales::label_percent()) +
   scale_fill_manual(values = publisher_colours_au[1:5]) +
-  plot_theme()
+  plot_theme("dark")
 ```
 
 :::
