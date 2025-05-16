@@ -47,13 +47,16 @@ Created and maintained by [Tom Saunders](https://tomsaunders.me).
 
 Data includes all journal articles, books, and book chapters with an author affiliated with at least one of the institutions named above. Works about the publication venue ("paratext") have been excluded (e.g. covers, table of contents, editorial board listing, issue information), as have retracted works.
 
-Works are counted more than once if their authors are affiliated with more than one of the universities examined here. 'Current OA Rates' for NZ and AU universities are calculated by first finding the OA rate for each university for the last full year, and taking the mean of these for each respective region. 
+*Current open access rates:
+
+- count each work only once, whereas open access rates by institution will count a work under multiple institutions if those institutions are represented in the author affiliations. 
+- are based on works published in the previous full year.
 
 :::
 
 ```{r get-open-rates}
-open_nz <- get_open("NZ")
-open_au <- get_open("AU")
+open_overall_nz <- get_overall_open("NZ")
+open_overall_au <- get_overall_open("AU")
 ```
 
 # Publications
@@ -70,7 +73,7 @@ open_au <- get_open("AU")
 #| content: valuebox
 #| title: "Current OA rate"
 
-make_valuebox("unlock", "success", percent(mean(open_nz$pc)))
+make_valuebox("unlock", "success", paste0(percent(open_overall_nz), "*"))
 ```
 
 ```{r}
@@ -85,7 +88,7 @@ make_valuebox("bullseye", "warning", "70%")
 #| title: "Last Updated"
 
 make_valuebox("clock-history", "light", 
-              format(file.info("data/pubs-summary.csv")$mtime, format = "%b %Y"))
+              format(file.info("data/pubs-all.rds")$mtime, format = "%b %Y"))
 ```
 
 :::::
@@ -97,8 +100,8 @@ make_valuebox("clock-history", "light",
 ```{r}
 #| title: "Total OA rate over time"
 
-annual_open("NZ") |> 
-  ggplot(aes(x = publication_year, y = pc)) +
+get_annual_open("NZ") |> 
+  ggplot(aes(x = publication_year, y = freq)) +
   geom_line(size = 1, colour = "#f3f2f2") +
   geom_hline(yintercept = 0.7, color = "#f39c12", linewidth = 1) +
   annotate("text", x = prev_year - 1, y = 0.73, label = "UNZ Target", colour = "#f39c12") +
@@ -113,6 +116,24 @@ annual_open("NZ") |>
 
 ```{r}
 #| title: Access type over time
+
+# pubs_all |>
+#   filter(country_code == "NZ") |>
+#   group_by(item_id) |> 
+#   mutate(duplicate = n()) |> 
+#   filter(duplicate == 1) |>
+#   group_by(oa_status, publication_year) |> 
+#   summarise(n = n()) |>
+#   group_by(publication_year) |> 
+#   mutate(freq = n / sum(n)) |> 
+#   ggplot(aes(x = publication_year, y = freq, fill = oa_status)) +
+#   geom_area() +
+#   scale_fill_manual(name = "Access Type", values = plot_colours) +
+#   xlab("") +
+#   ylab("Proportion (%)") +
+#   scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
+#   scale_y_continuous(labels = scales::label_percent()) +
+#   plot_theme("dark")
 
 pubs_summary |> 
   filter(country_code == "NZ") |> 
@@ -166,7 +187,7 @@ pubs_summary |>
 #| content: valuebox
 #| title: "Current OA rate"
 
-make_valuebox("unlock", "success", percent(mean(open_au$pc)))
+make_valuebox("unlock", "success", paste0(percent(open_overall_au), "*"))
 ```
 
 ```{r}
@@ -181,7 +202,7 @@ make_valuebox("bullseye", "warning", print("—"))
 #| title: "Last Updated"
 
 make_valuebox("clock-history", "light", 
-              format(file.info("data/pubs-summary.csv")$mtime, format = "%b %Y"))
+              format(file.info("data/pubs-all.rds")$mtime, format = "%b %Y"))
 ```
 
 :::::
@@ -193,8 +214,8 @@ make_valuebox("clock-history", "light",
 ```{r}
 #| title: Total OA rate over time
 
-annual_open("AU") |> 
-  ggplot(aes(x = publication_year, y = pc)) +
+get_annual_open("AU") |> 
+  ggplot(aes(x = publication_year, y = freq)) +
   geom_line(size = 1, colour = "#f3f2f2") +
   xlab("") +
   ylab("Open Access (%)") +
@@ -256,10 +277,10 @@ pubs_summary |>
 ```{r}
 #| title: NZ vs AU OA rate over time
 
-annual_compare <- full_join(annual_open("NZ"), annual_open("AU")) |> 
+annual_compare <- full_join(get_annual_open("NZ"), get_annual_open("AU")) |> 
   mutate(country_code = case_when(row_number() %in% 1:10 ~ "NZ", .default = "AU"))
 
-ggplot(annual_compare, aes(x = publication_year, y = pc)) +
+ggplot(annual_compare, aes(x = publication_year, y = freq)) +
   geom_line(data = annual_compare |> filter(country_code == "NZ"), 
             size = 1, aes(colour = "NZ")) +
   geom_line(data = annual_compare |> filter(country_code == "AU"), 
@@ -543,7 +564,7 @@ make_valuebox("bar-chart", "success", scales::percent(1 - cit_advant_nz$differen
 #| title: "Last Updated"
 
 make_valuebox("clock-history", "light", 
-              format(file.info("data/pubs-all.csv")$mtime, format = "%b %Y"))
+              format(file.info("data/pubs-all.rds")$mtime, format = "%b %Y"))
 ```
 
 :::::
@@ -690,7 +711,7 @@ make_valuebox("bar-chart", "success", scales::percent(1 - cit_advant_nz$differen
 #| content: valuebox
 #| title: "Last Updated"
 
-make_valuebox("clock-history", "light", format(file.info("data/pubs-all.csv")$mtime, format = "%b %Y"))
+make_valuebox("clock-history", "light", format(file.info("data/pubs-all.rds")$mtime, format = "%b %Y"))
 ```
 
 :::::

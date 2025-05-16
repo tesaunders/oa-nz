@@ -64,36 +64,32 @@ make_valuebox <- function(icon, color, value) {
   )
 }
 
-get_open <- function(country) {
-  pubs_summary |>
+get_overall_open <- function(country) {
+  pubs_all |>
     filter(country_code == country,
-           publication_year == prev_year) |> 
-    mutate(
-      is_oa = case_when(oa_status != "closed" ~ TRUE, .default = FALSE),
-    ) |> 
+           publication_year == prev_year) |>
+    group_by(item_id) |> 
+    mutate(duplicate = n()) |> 
+    filter(duplicate == 1) |> 
+    group_by(is_oa) |> 
+    summarise(n = n()) |> 
+    mutate(freq = n / sum(n)) |>
     filter(is_oa == TRUE) |> 
-    group_by(institution) |> 
-    summarise(
-      pc = sum(pc)
-    ) |> 
-    arrange(desc(pc))
+    select(freq) |> 
+    pull()
 }
 
-annual_open <- function(country) {
-  pubs_summary |>
+get_annual_open <- function(country) {
+  pubs_all |>
     filter(country_code == country) |> 
-    mutate(
-      is_oa = case_when(oa_status != "closed" ~ TRUE, .default = FALSE),
-    ) |> 
-    filter(is_oa == TRUE) |> 
-    group_by(institution, publication_year) |> 
-    summarise(
-      pc = sum(pc)
-    ) |> 
+    group_by(item_id) |> 
+    mutate(duplicate = n()) |> 
+    filter(duplicate == 1) |>
+    group_by(is_oa, publication_year) |> 
+    summarise(n = n()) |>
     group_by(publication_year) |> 
-    summarise(
-      pc = mean(pc)
-    )
+    mutate(freq = n / sum(n)) |> 
+    filter(is_oa == TRUE)
 }
 
 plot_trend <- function(x) {
