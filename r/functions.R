@@ -93,11 +93,11 @@ get_annual_open <- function(country) {
 }
 
 plot_trend <- function(x) {
-  ggplot(x, aes(x = publication_year, y = percent, colour = institution)) +
+  ggplot(x, aes(x = publication_year, y = pc_open, colour = institution)) +
     geom_line(size = 1) +
     xlab("") +
     ylab("Proportion Open Access (%)") +
-    scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year))
+    scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year))
 }
 
 plot_inst <- function(x, plot_theme) {
@@ -108,8 +108,9 @@ plot_inst <- function(x, plot_theme) {
     scale_fill_manual(name = "Access Type",
                       values = plot_colours) +
     xlab("") +
-    ylab("Proportion (%)") +
-    scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
+    ylab("") +
+    scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
+    scale_y_continuous(labels = label_percent()) +
     plot_theme(plot_theme)
   
   plot_final <- plot + ggtitle(plot_title)

@@ -28,8 +28,7 @@ source("r/objects.r")
 
 ```{r load-data}
 pubs_all <- readRDS("data/pubs-all.rds")
-pubs_summary <- read.csv("data/pubs-summary.csv")
-pubs_summary$oa_status <- factor(pubs_summary$oa_status, levels = oa_levels)
+pubs_all$oa_status <- factor(pubs_all$oa_status, c("closed", "hybrid", "gold", "green", "diamond", "bronze"))
 ```
 
 #  {.sidebar}
@@ -102,12 +101,12 @@ make_valuebox("clock-history", "light",
 
 get_annual_open("NZ") |> 
   ggplot(aes(x = publication_year, y = freq)) +
-  geom_line(size = 1, colour = "#f3f2f2") +
+  geom_line(linewidth = 1, colour = "#f3f2f2") +
   geom_hline(yintercept = 0.7, color = "#f39c12", linewidth = 1) +
   annotate("text", x = prev_year - 1, y = 0.73, label = "UNZ Target", colour = "#f39c12") +
   xlab("") +
   ylab("Open Access (%)") +
-  scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
   scale_y_continuous(labels = scales::label_percent(),
                      limits = c(0, 0.8),
                      breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
@@ -117,37 +116,21 @@ get_annual_open("NZ") |>
 ```{r}
 #| title: Access type over time
 
-# pubs_all |>
-#   filter(country_code == "NZ") |>
-#   group_by(item_id) |> 
-#   mutate(duplicate = n()) |> 
-#   filter(duplicate == 1) |>
-#   group_by(oa_status, publication_year) |> 
-#   summarise(n = n()) |>
-#   group_by(publication_year) |> 
-#   mutate(freq = n / sum(n)) |> 
-#   ggplot(aes(x = publication_year, y = freq, fill = oa_status)) +
-#   geom_area() +
-#   scale_fill_manual(name = "Access Type", values = plot_colours) +
-#   xlab("") +
-#   ylab("Proportion (%)") +
-#   scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
-#   scale_y_continuous(labels = scales::label_percent()) +
-#   plot_theme("dark")
-
-pubs_summary |> 
-  filter(country_code == "NZ") |> 
-  group_by(publication_year, oa_status) |> 
-  summarise(
-    pc = mean(pc),
-    count = sum(n)
-  ) |> 
-  ggplot(aes(x = publication_year, y = pc, fill = oa_status)) +
+pubs_all |>
+  filter(country_code == "NZ") |>
+  group_by(item_id) |>
+  mutate(duplicate = n()) |>
+  filter(duplicate == 1) |>
+  group_by(oa_status, publication_year) |>
+  summarise(n = n()) |>
+  group_by(publication_year) |>
+  mutate(freq = n / sum(n)) |>
+  ggplot(aes(x = publication_year, y = freq, fill = oa_status)) +
   geom_area() +
   scale_fill_manual(name = "Access Type", values = plot_colours) +
   xlab("") +
   ylab("Proportion (%)") +
-  scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
   scale_y_continuous(labels = scales::label_percent()) +
   plot_theme("dark")
 ```
@@ -157,15 +140,16 @@ pubs_summary |>
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
   
-pubs_summary |> 
+pubs_all |> 
   filter(country_code == "NZ", 
-         publication_year == max(publication_year), 
-         oa_status == "closed") |>
-  summarise(
-    institution = institution,
-    percent = 1 - pc,
-  ) |> 
-  arrange(desc(percent)) |> 
+         publication_year == max(publication_year)) |>
+  group_by(institution, is_oa) |> 
+  tally() |> 
+  pivot_wider(names_from = is_oa, values_from = n) |> 
+  mutate(pc_open = `TRUE` / (`TRUE` + `FALSE`)) |> 
+  arrange(desc(pc_open)) |> 
+  select(-`FALSE`, -`TRUE`) |>
+  ungroup() |> 
   gt() |> 
   fmt_percent(decimals = 0) |> 
   tab_options(column_labels.hidden = TRUE,
@@ -219,7 +203,7 @@ get_annual_open("AU") |>
   geom_line(size = 1, colour = "#f3f2f2") +
   xlab("") +
   ylab("Open Access (%)") +
-  scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
   scale_y_continuous(labels = scales::label_percent(),
                      limits = c(0, 0.8),
                      breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
@@ -229,19 +213,22 @@ get_annual_open("AU") |>
 ```{r}
 #| title: Access type over time
 
-pubs_summary |> 
-  filter(country_code == "AU") |> 
-  group_by(publication_year, oa_status) |> 
-  summarise(
-    pc = mean(pc),
-    count = sum(n)
-  ) |> 
-  ggplot(aes(x = publication_year, y = pc, fill = oa_status)) +
+pubs_all |>
+  filter(country_code == "AU") |>
+  group_by(item_id) |>
+  mutate(duplicate = n()) |>
+  filter(duplicate == 1) |>
+  group_by(oa_status, publication_year) |>
+  summarise(n = n()) |>
+  group_by(publication_year) |>
+  mutate(freq = n / sum(n)) |>
+  ggplot(aes(x = publication_year, y = freq, fill = oa_status)) +
   geom_area() +
   scale_fill_manual(name = "Access Type", values = plot_colours) +
   xlab("") +
   ylab("Proportion (%)") +
-  scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
+  scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
+  scale_y_continuous(labels = scales::label_percent()) +
   plot_theme("dark")
 ```
 
@@ -250,15 +237,16 @@ pubs_summary |>
 ```{r}
 cat("title=", "OA rate by institution", paste0("(", prev_year, ")"))
   
-pubs_summary |> 
+pubs_all |> 
   filter(country_code == "AU", 
-         publication_year == max(publication_year), 
-         oa_status == "closed") |>
-  summarise(
-    institution = institution,
-    percent = 1- pc,
-  ) |> 
-  arrange(desc(percent)) |> 
+         publication_year == max(publication_year)) |>
+  group_by(institution, is_oa) |> 
+  tally() |> 
+  pivot_wider(names_from = is_oa, values_from = n) |> 
+  mutate(pc_open = `TRUE` / (`TRUE` + `FALSE`)) |> 
+  arrange(desc(pc_open)) |> 
+  select(-`FALSE`, -`TRUE`) |>
+  ungroup() |> 
   gt() |> 
   fmt_percent(decimals = 0) |> 
   tab_options(column_labels.hidden = TRUE,
@@ -277,8 +265,12 @@ pubs_summary |>
 ```{r}
 #| title: NZ vs AU OA rate over time
 
-annual_compare <- full_join(get_annual_open("NZ"), get_annual_open("AU")) |> 
-  mutate(country_code = case_when(row_number() %in% 1:10 ~ "NZ", .default = "AU"))
+annual_compare <- 
+  full_join(get_annual_open("NZ"), 
+            get_annual_open("AU")) |> 
+  mutate(
+    country_code = case_when(row_number() %% 2 == 0 ~ "AU", .default = "NZ")
+    )
 
 ggplot(annual_compare, aes(x = publication_year, y = freq)) +
   geom_line(data = annual_compare |> filter(country_code == "NZ"), 
@@ -306,13 +298,12 @@ ggplot(annual_compare, aes(x = publication_year, y = freq)) +
 ```{r}
 #| title: Institutional Trend (NZ)
 
-pubs_summary |>
-  filter(country_code == "NZ", oa_status == "closed") |>
-  reframe(
-    institution = institution,
-    publication_year = publication_year,
-    percent = 1 - pc,
-  ) |>
+pubs_all |> 
+  filter(country_code == "NZ") |> 
+  group_by(publication_year, institution, is_oa) |>
+  tally() |>
+  pivot_wider(names_from = is_oa, values_from = n) |>
+  mutate(pc_open = `TRUE` / (`TRUE` + `FALSE`)) |> 
   plot_trend() +
   scale_colour_manual(values = inst_lines_nz) +
   scale_y_continuous(labels = scales::label_percent(),
@@ -325,11 +316,20 @@ pubs_summary |>
 ### Row {.tabset}
 
 ```{r}
+inst_nz <- data.frame(institution = unique(pubs_all$institution),
+                   abbrev = unique(pubs_all$abbrev))
+
 plot_nz_list <- 
-  pubs_summary |>
+  pubs_all |>
   filter(country_code == "NZ") |> 
-  group_by(institution, .add = TRUE) |> 
-  group_split(institution) |> 
+  group_by(publication_year, institution, oa_status) |>
+  tally() |>
+  mutate(
+    pc = n / sum(n)
+  ) |> 
+  left_join(.x, y = inst_nz, by = join_by(institution)) |> 
+  group_by(institution) |>
+  group_split() |>
   map(~ plot_inst(.x, "dark"))
 ```
 
@@ -376,25 +376,33 @@ plot_nz_list[[8]]
 ## Column {width=50%}
 
 ```{r}
+inst_au <- data.frame(institution = unique(pubs_all$institution),
+                   abbrev = unique(pubs_all$abbrev))
+
 plot_au_list <- 
-  pubs_summary |>
+  pubs_all |>
   filter(country_code == "AU") |> 
-  group_by(institution, .add = TRUE) |> 
-  group_split(institution) |> 
+  group_by(publication_year, institution, oa_status) |>
+  tally() |>
+  mutate(
+    pc = n / sum(n)
+  ) |> 
+  left_join(.x, y = inst_au, by = join_by(institution)) |> 
+  group_by(institution) |>
+  group_split() |>
   map(~ plot_inst(.x, "dark"))
 ```
 
 ```{r}
 #| title: Institutional Trend (AU)
 
-pubs_summary |>
-  filter(country_code == "AU", oa_status == "closed") |>
-  reframe(
-    institution = institution,
-    publication_year = publication_year,
-    percent = 1 - pc,
-  ) |>
-  plot_trend() + 
+pubs_all |> 
+  filter(country_code == "AU") |> 
+  group_by(publication_year, institution, is_oa) |>
+  tally() |>
+  pivot_wider(names_from = is_oa, values_from = n) |>
+  mutate(pc_open = `TRUE` / (`TRUE` + `FALSE`)) |> 
+  plot_trend() +
   scale_colour_manual(values = inst_lines_au) +
   scale_y_continuous(labels = scales::label_percent(),
                      limits = c(0, 0.8),
