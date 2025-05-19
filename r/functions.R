@@ -64,44 +64,40 @@ make_valuebox <- function(icon, color, value) {
   )
 }
 
-get_open <- function(country) {
-  pubs_summary |>
+get_overall_open <- function(country) {
+  pubs_all |>
     filter(country_code == country,
-           publication_year == prev_year) |> 
-    mutate(
-      is_oa = case_when(oa_status != "closed" ~ TRUE, .default = FALSE),
-    ) |> 
+           publication_year == prev_year) |>
+    group_by(item_id) |> 
+    mutate(duplicate = n()) |> 
+    filter(duplicate == 1) |> 
+    group_by(is_oa) |> 
+    summarise(n = n()) |> 
+    mutate(freq = n / sum(n)) |>
     filter(is_oa == TRUE) |> 
-    group_by(institution) |> 
-    summarise(
-      pc = sum(pc)
-    ) |> 
-    arrange(desc(pc))
+    select(freq) |> 
+    pull()
 }
 
-annual_open <- function(country) {
-  pubs_summary |>
+get_annual_open <- function(country) {
+  pubs_all |>
     filter(country_code == country) |> 
-    mutate(
-      is_oa = case_when(oa_status != "closed" ~ TRUE, .default = FALSE),
-    ) |> 
-    filter(is_oa == TRUE) |> 
-    group_by(institution, publication_year) |> 
-    summarise(
-      pc = sum(pc)
-    ) |> 
+    group_by(item_id) |> 
+    mutate(duplicate = n()) |> 
+    filter(duplicate == 1) |>
+    group_by(is_oa, publication_year) |> 
+    summarise(n = n()) |>
     group_by(publication_year) |> 
-    summarise(
-      pc = mean(pc)
-    )
+    mutate(freq = n / sum(n)) |> 
+    filter(is_oa == TRUE)
 }
 
 plot_trend <- function(x) {
-  ggplot(x, aes(x = publication_year, y = percent, colour = institution)) +
+  ggplot(x, aes(x = publication_year, y = pc_open, colour = institution)) +
     geom_line(size = 1) +
     xlab("") +
     ylab("Proportion Open Access (%)") +
-    scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year))
+    scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year))
 }
 
 plot_inst <- function(x, plot_theme) {
@@ -112,8 +108,9 @@ plot_inst <- function(x, plot_theme) {
     scale_fill_manual(name = "Access Type",
                       values = plot_colours) +
     xlab("") +
-    ylab("Proportion (%)") +
-    scale_x_continuous(n.breaks = prev_year-min(pubs_summary$publication_year)) +
+    ylab("") +
+    scale_x_continuous(n.breaks = prev_year-min(pubs_all$publication_year)) +
+    scale_y_continuous(labels = label_percent()) +
     plot_theme(plot_theme)
   
   plot_final <- plot + ggtitle(plot_title)

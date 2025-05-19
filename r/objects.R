@@ -7,8 +7,6 @@ plot_colours <- c("bronze" = "#A65628",
                   "green" = "#4DAF4A",
                   "closed" = "#E41A1C")
 
-oa_levels <- c("closed", "hybrid", "gold", "green", "diamond", "bronze")
-
 publisher_colours_nz <- c("Elsevier" = "#e43d04",
                           "Wiley" = "black",
                           "Taylor & Francis" = "#181b82",
