@@ -72,7 +72,7 @@ fetch_single_institution <- function(ror, year_filter, base_req) {
 #' Main Function with Real-Time Checkpointing
 fetch_publications <- function(
   full_retrieval = TRUE,
-  output_dir = "data_raw",
+  output_dir = "data/raw",
   mailto = Sys.getenv("EMAIL_ADDRESS"),
   api_key = Sys.getenv("OPENALEX_API_KEY")
 ) {

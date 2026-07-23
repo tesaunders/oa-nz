@@ -1,6 +1,6 @@
 library(dplyr)
 
-pubs <- readRDS(file = "data_raw/university_publications.rds")
+pubs <- readRDS(file = "data/raw/university_publications.rds")
 
 pubs <- pubs |> 
   mutate(
@@ -20,9 +20,11 @@ pubs <- pubs |>
 
 # Export cleaned data
 
-if (!dir.exists("data")) dir.create("data", recursive = TRUE)
+out_folder <- "data/processed"
 
-write.csv(pubs, "data/all-data.csv", row.names = FALSE)
+if (!dir.exists(out_folder)) dir.create(out_folder, recursive = TRUE)
+
+write.csv(pubs, file.path(out_folder, "all-data.csv"), row.names = FALSE)
 
 # Summarise open access status by institution and publication year
 
@@ -30,7 +32,7 @@ pubs |>
   count(institution_name, publication_year, oa_status, name = "count") |> 
   group_by(institution_name, publication_year) |> 
   mutate(percent = round(count / sum(count), 4)) |> 
-  write.csv("data/oa-institution-year.csv", row.names = FALSE)
+  write.csv(file.path(out_folder, "oa-institution-year.csv"), row.names = FALSE)
 
 # Summarise open access rate by field
 
@@ -41,7 +43,7 @@ pubs |>
     percent_open = sum(oa_status != "closed") / n()
   ) |> 
   arrange(desc(percent_open)) |> 
-  write.csv("data/oa-field.csv", row.names = FALSE)
+  write.csv(file.path(out_folder, "oa-field.csv"), row.names = FALSE)
 
 # Summarise citations by open access status
 
@@ -56,7 +58,7 @@ pubs |>
     med_citations = median(cited_by_count),
     avg_citations = mean(cited_by_count)
   ) |> 
-  write.csv("data/citations-oa-year.csv", row.names = FALSE)
+  write.csv(file.path(out_folder, "citations-oa-year.csv"), row.names = FALSE)
 
 # Summarise citations by open or closed
 
@@ -67,4 +69,4 @@ pubs |>
     med_citations = median(cited_by_count, na.rm = TRUE),
     .by = c(country, publication_year, open)
   ) |> 
-  write.csv("data/citations-open-year.csv", row.names = FALSE)
+  write.csv(file.path(out_folder, "citations-open-year.csv"), row.names = FALSE)
