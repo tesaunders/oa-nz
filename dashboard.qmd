@@ -1,0 +1,14 @@
+---
+title: "OA Dashboard"
+format: 
+  dashboard:
+    nav-buttons: [github]
+    github: https://github.com/tesaunders/oa-nz
+    output-file: index.html
+logo: assets/oa.png
+theme:
+  - darkly
+  - custom.scss
+# fig-width: 12
+---
+
