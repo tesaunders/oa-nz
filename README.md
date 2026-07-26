@@ -10,17 +10,16 @@ The Ministry of Business, Innovation, and Employment (MBIE) released an [Open Re
 
 Universities NZ released a [Pan-University Statement on Open Access](https://www.universitiesnz.ac.nz/sites/default/files/uni-nz/documents/Open%20Access%20Statement.pdf) which includes a goal to:
 
-> Increase open access across our university repositories from 48% of published research (current)
-to 70% by 2025.
+> Increase open access across our university repositories from 48% of published research (current) to 70% by 2025.
 
 This dashboard is an attempt to monitor rates of open access across New Zealand universities.
 
 ## Data
 
-Data is parsed from the [Open Alex API](https://docs.openalex.org/). Publications are included if they have an author affiliated with an NZ or Australian 'group of 8' university. Publications include peer reviewed articles, books, and book chapters, but exclude paratext (material about the journal such as covers, editorial board, or issue information) and retracted items.
+Data is retrieved from the [OpenAlex API](https://docs.openalex.org/). Publications are included if they have an author affiliated with an NZ or Australian 'group of 8' university. Publications include peer reviewed articles, books, and book chapters, but exclude paratext (material about the journal such as covers, editorial board, or issue information) and retracted items.
 
 ## Licence
 
-All code in this repository is licensed under the MIT license.
+All data is C0 public domain. All code is licensed under the MIT license.
 
 [Open Access logo image](https://en.m.wikipedia.org/wiki/File:Open_Access_PLoS.svg) by 'art designer at PLoS' is licensed under the [Creative Commons Attribution-Share Alike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license. No changes were made.
