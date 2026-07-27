@@ -5,11 +5,13 @@ format:
     nav-buttons: [github]
     github: https://github.com/tesaunders/oa-nz
     output-file: index.html
+    fig-width: 10
+    fig-height: 4.5
+    fig-format: svg
 logo: assets/oa.png
 theme:
   - darkly
   - assets/custom.scss
-# fig-width: 12
 ---
 
 ```{r setup, include = FALSE}
