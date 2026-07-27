@@ -73,7 +73,6 @@ fetch_single_institution <- function(ror, year_filter, base_req) {
 fetch_publications <- function(
   full_retrieval = TRUE,
   output_dir = "data/raw",
-  mailto = Sys.getenv("EMAIL_ADDRESS"),
   api_key = Sys.getenv("OPENALEX_API_KEY")
 ) {
   
@@ -128,7 +127,6 @@ fetch_publications <- function(
       is_transient = \(resp) resp_status(resp) %in% c(429, 500, 502, 503, 504)
     )
   
-  if (!is.null(mailto) && mailto != "")   base_req <- base_req |> req_url_query(mailto = mailto)
   if (!is.null(api_key) && api_key != "") base_req <- base_req |> req_url_query(api_key = api_key)
   
   for (ror in institution_rors) {
