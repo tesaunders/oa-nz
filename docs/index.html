@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>OA Dashboard</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,14 +38,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-45f1b0ff1d4cc3a7254517856a1ac8d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-dark-45f1b0ff1d4cc3a7254517856a1ac8d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-45f1b0ff1d4cc3a7254517856a1ac8d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-6aaed5795ceba9ad10e1cbf9c00adddc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-dark-6aaed5795ceba9ad10e1cbf9c00adddc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-6aaed5795ceba9ad10e1cbf9c00adddc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-dashboard/quarto-dashboard.js"></script>
 <script src="site_libs/quarto-dashboard/stickythead.js"></script>
 
@@ -92,15 +95,16 @@ ul.task-list li input[type="checkbox"] {
     </button>    
 
 
-    <div class="navbar-brand-container">       
-    <a href="#"><img src="images/oa.png" alt="" class="navbar-logo d-inline-block"></a>
+    <div class="navbar-brand-container">
+    <a href="#"><img src="assets/oa.png" alt="" class="navbar-logo light-content d-inline-block"></a>
+    <a href="#"><img src="assets/oa.png" alt="" class="navbar-logo dark-content d-inline-block"></a>
       <div class="navbar-title">
         <div class="navbar-title-text"><a href="#">OA Dashboard</a></div>
         
         
       </div>
     </div>
-<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-publications" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#publications" data-scrolling="false" href="#publications" aria-controls="publications" aria-selected="true"><span class="nav-link-text">Publications</span></a></li><li class="nav-item" role="presentation"><a id="tab-institutions" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#institutions" data-scrolling="false" href="#institutions" aria-controls="institutions" aria-selected="false"><span class="nav-link-text">Institutions</span></a></li><li class="nav-item" role="presentation"><a id="tab-field" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#field" data-scrolling="false" href="#field" aria-controls="field" aria-selected="false"><span class="nav-link-text">Field</span></a></li><li class="nav-item" role="presentation"><a id="tab-citations" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#citations" data-scrolling="false" href="#citations" aria-controls="citations" aria-selected="false"><span class="nav-link-text">Citations</span></a></li><li class="nav-item" role="presentation"><a id="tab-publishers" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#publishers" data-scrolling="false" href="#publishers" aria-controls="publishers" aria-selected="false"><span class="nav-link-text">Publishers</span></a></li></ul><div class="quarto-dashboard-links"><a class="quarto-dashboard-link" href="https://github.com/tesaunders/oa-nz/" title="GitHub"><i class="bi bi-github"></i></a></div></div></div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-publications" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#publications" data-scrolling="false" href="#publications" aria-controls="publications" aria-selected="true"><span class="nav-link-text">Publications</span></a></li><li class="nav-item" role="presentation"><a id="tab-institutions" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#institutions" data-scrolling="false" href="#institutions" aria-controls="institutions" aria-selected="false"><span class="nav-link-text">Institutions</span></a></li><li class="nav-item" role="presentation"><a id="tab-field" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#field" data-scrolling="false" href="#field" aria-controls="field" aria-selected="false"><span class="nav-link-text">Field</span></a></li><li class="nav-item" role="presentation"><a id="tab-citations" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#citations" data-scrolling="false" href="#citations" aria-controls="citations" aria-selected="false"><span class="nav-link-text">Citations</span></a></li></ul><div class="quarto-dashboard-links"><a class="quarto-dashboard-link" href="https://github.com/tesaunders/oa-nz/" title="GitHub"><i class="bi bi-github"></i></a></div></div></div>
 </nav>
 </header>
 <div id="quarto-search-results"></div>
@@ -139,7 +143,7 @@ grid-auto-rows: minmax(0, 1fr);">
 Current OA rate
 </p>
 <p class="value-box-value">
-62%*
+70%*
 </p>
 </div>
 </div>
@@ -171,7 +175,7 @@ Universities NZ 2025 Target
 Last Updated
 </p>
 <p class="value-box-value">
-Jul 2025
+Jul 2026
 </p>
 </div>
 </div>
@@ -187,7 +191,7 @@ Total OA rate over time
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-4-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -202,7 +206,7 @@ Access type over time
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-5-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -211,29 +215,29 @@ Access type over time
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="OA rate by institution (2024)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+</div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="OA rate by institution (2026)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-OA rate by institution (2024)
+OA rate by institution (2026)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div id="aczdlzyfsf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
-<style>#aczdlzyfsf table {
+<div id="ksjeejtusa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#ksjeejtusa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#aczdlzyfsf thead, #aczdlzyfsf tbody, #aczdlzyfsf tfoot, #aczdlzyfsf tr, #aczdlzyfsf td, #aczdlzyfsf th {
+#ksjeejtusa thead, #ksjeejtusa tbody, #ksjeejtusa tfoot, #ksjeejtusa tr, #ksjeejtusa td, #ksjeejtusa th {
   border-style: none;
 }
 
-#aczdlzyfsf p {
+#ksjeejtusa p {
   margin: 0;
   padding: 0;
 }
 
-#aczdlzyfsf .gt_table {
+#ksjeejtusa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -259,12 +263,12 @@ OA rate by institution (2024)
   border-left-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_caption {
+#ksjeejtusa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#aczdlzyfsf .gt_title {
+#ksjeejtusa .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -276,7 +280,7 @@ OA rate by institution (2024)
   border-bottom-width: 0;
 }
 
-#aczdlzyfsf .gt_subtitle {
+#ksjeejtusa .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -288,7 +292,7 @@ OA rate by institution (2024)
   border-top-width: 0;
 }
 
-#aczdlzyfsf .gt_heading {
+#ksjeejtusa .gt_heading {
   background-color: #2D2D2D;
   text-align: center;
   border-bottom-color: #2D2D2D;
@@ -300,13 +304,13 @@ OA rate by institution (2024)
   border-right-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_bottom_border {
+#ksjeejtusa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_col_headings {
+#ksjeejtusa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -321,7 +325,7 @@ OA rate by institution (2024)
   border-right-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_col_heading {
+#ksjeejtusa .gt_col_heading {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -341,7 +345,7 @@ OA rate by institution (2024)
   overflow-x: hidden;
 }
 
-#aczdlzyfsf .gt_column_spanner_outer {
+#ksjeejtusa .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -353,15 +357,15 @@ OA rate by institution (2024)
   padding-right: 4px;
 }
 
-#aczdlzyfsf .gt_column_spanner_outer:first-child {
+#ksjeejtusa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#aczdlzyfsf .gt_column_spanner_outer:last-child {
+#ksjeejtusa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#aczdlzyfsf .gt_column_spanner {
+#ksjeejtusa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -373,11 +377,11 @@ OA rate by institution (2024)
   width: 100%;
 }
 
-#aczdlzyfsf .gt_spanner_row {
+#ksjeejtusa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#aczdlzyfsf .gt_group_heading {
+#ksjeejtusa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -403,7 +407,7 @@ OA rate by institution (2024)
   text-align: left;
 }
 
-#aczdlzyfsf .gt_empty_group_heading {
+#ksjeejtusa .gt_empty_group_heading {
   padding: 0.5px;
   color: #FFFFFF;
   background-color: #2D2D2D;
@@ -418,15 +422,15 @@ OA rate by institution (2024)
   vertical-align: middle;
 }
 
-#aczdlzyfsf .gt_from_md > :first-child {
+#ksjeejtusa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#aczdlzyfsf .gt_from_md > :last-child {
+#ksjeejtusa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#aczdlzyfsf .gt_row {
+#ksjeejtusa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -445,7 +449,7 @@ OA rate by institution (2024)
   overflow-x: hidden;
 }
 
-#aczdlzyfsf .gt_stub {
+#ksjeejtusa .gt_stub {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -458,7 +462,7 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#aczdlzyfsf .gt_stub_row_group {
+#ksjeejtusa .gt_stub_row_group {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -472,15 +476,15 @@ OA rate by institution (2024)
   vertical-align: top;
 }
 
-#aczdlzyfsf .gt_row_group_first td {
+#ksjeejtusa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#aczdlzyfsf .gt_row_group_first th {
+#ksjeejtusa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#aczdlzyfsf .gt_summary_row {
+#ksjeejtusa .gt_summary_row {
   color: #FFFFFF;
   background-color: #2D2D2D;
   text-transform: inherit;
@@ -490,16 +494,16 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#aczdlzyfsf .gt_first_summary_row {
+#ksjeejtusa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_first_summary_row.thick {
+#ksjeejtusa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#aczdlzyfsf .gt_last_summary_row {
+#ksjeejtusa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -509,7 +513,7 @@ OA rate by institution (2024)
   border-bottom-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_grand_summary_row {
+#ksjeejtusa .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #2D2D2D;
   text-transform: inherit;
@@ -519,7 +523,7 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#aczdlzyfsf .gt_first_grand_summary_row {
+#ksjeejtusa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -529,7 +533,7 @@ OA rate by institution (2024)
   border-top-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_last_grand_summary_row_top {
+#ksjeejtusa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -539,11 +543,11 @@ OA rate by institution (2024)
   border-bottom-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_striped {
+#ksjeejtusa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#aczdlzyfsf .gt_table_body {
+#ksjeejtusa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -552,7 +556,7 @@ OA rate by institution (2024)
   border-bottom-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_footnotes {
+#ksjeejtusa .gt_footnotes {
   color: #FFFFFF;
   background-color: #2D2D2D;
   border-bottom-style: none;
@@ -566,7 +570,7 @@ OA rate by institution (2024)
   border-right-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_footnote {
+#ksjeejtusa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -575,7 +579,7 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#aczdlzyfsf .gt_sourcenotes {
+#ksjeejtusa .gt_sourcenotes {
   color: #FFFFFF;
   background-color: #2D2D2D;
   border-bottom-style: none;
@@ -589,7 +593,7 @@ OA rate by institution (2024)
   border-right-color: #D3D3D3;
 }
 
-#aczdlzyfsf .gt_sourcenote {
+#ksjeejtusa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -597,109 +601,109 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#aczdlzyfsf .gt_left {
+#ksjeejtusa .gt_left {
   text-align: left;
 }
 
-#aczdlzyfsf .gt_center {
+#ksjeejtusa .gt_center {
   text-align: center;
 }
 
-#aczdlzyfsf .gt_right {
+#ksjeejtusa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#aczdlzyfsf .gt_font_normal {
+#ksjeejtusa .gt_font_normal {
   font-weight: normal;
 }
 
-#aczdlzyfsf .gt_font_bold {
+#ksjeejtusa .gt_font_bold {
   font-weight: bold;
 }
 
-#aczdlzyfsf .gt_font_italic {
+#ksjeejtusa .gt_font_italic {
   font-style: italic;
 }
 
-#aczdlzyfsf .gt_super {
+#ksjeejtusa .gt_super {
   font-size: 65%;
 }
 
-#aczdlzyfsf .gt_footnote_marks {
+#ksjeejtusa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#aczdlzyfsf .gt_asterisk {
+#ksjeejtusa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#aczdlzyfsf .gt_indent_1 {
+#ksjeejtusa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#aczdlzyfsf .gt_indent_2 {
+#ksjeejtusa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#aczdlzyfsf .gt_indent_3 {
+#ksjeejtusa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#aczdlzyfsf .gt_indent_4 {
+#ksjeejtusa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#aczdlzyfsf .gt_indent_5 {
+#ksjeejtusa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#aczdlzyfsf .katex-display {
+#ksjeejtusa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#aczdlzyfsf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ksjeejtusa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="institution">Lincoln University</td>
-<td class="gt_row gt_right" headers="pc_open">74%</td>
+<td class="gt_row gt_left" headers="institution_name">Victoria University of Wellington</td>
+<td class="gt_row gt_right" headers="pc_open">75%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="institution">Massey University</td>
+<td class="gt_row gt_left" headers="institution_name">Auckland University of Technology</td>
+<td class="gt_row gt_right" headers="pc_open">74%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="institution_name">Lincoln University</td>
+<td class="gt_row gt_right" headers="pc_open">72%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="institution_name">University of Otago</td>
 <td class="gt_row gt_right" headers="pc_open">72%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="institution">University of Otago</td>
-<td class="gt_row gt_right" headers="pc_open">67%</td>
+<td class="gt_row gt_left" headers="institution_name">Massey University</td>
+<td class="gt_row gt_right" headers="pc_open">72%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="institution">University of Canterbury</td>
-<td class="gt_row gt_right" headers="pc_open">67%</td>
+<td class="gt_row gt_left" headers="institution_name">University of Canterbury</td>
+<td class="gt_row gt_right" headers="pc_open">71%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="institution">University of Waikato</td>
-<td class="gt_row gt_right" headers="pc_open">66%</td>
+<td class="gt_row gt_left" headers="institution_name">University of Waikato</td>
+<td class="gt_row gt_right" headers="pc_open">70%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="institution">Auckland University of Technology</td>
-<td class="gt_row gt_right" headers="pc_open">64%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="institution">University of Auckland</td>
-<td class="gt_row gt_right" headers="pc_open">62%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="institution">Victoria University of Wellington</td>
-<td class="gt_row gt_right" headers="pc_open">59%</td>
+<td class="gt_row gt_left" headers="institution_name">University of Auckland</td>
+<td class="gt_row gt_right" headers="pc_open">68%</td>
 </tr>
 </tbody>
 </table>
@@ -733,7 +737,7 @@ grid-auto-rows: minmax(0, 1fr);">
 Current OA rate
 </p>
 <p class="value-box-value">
-62%*
+71%*
 </p>
 </div>
 </div>
@@ -765,7 +769,7 @@ OA target
 Last Updated
 </p>
 <p class="value-box-value">
-Jul 2025
+Jul 2026
 </p>
 </div>
 </div>
@@ -781,7 +785,7 @@ Total OA rate over time
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-10-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -796,7 +800,7 @@ Access type over time
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-11-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -805,29 +809,29 @@ Access type over time
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="OA rate by institution (2024)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+</div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="OA rate by institution (2026)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-OA rate by institution (2024)
+OA rate by institution (2026)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div id="cmqmpdeqqs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
-<style>#cmqmpdeqqs table {
+<div id="hjctraoeiw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#hjctraoeiw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cmqmpdeqqs thead, #cmqmpdeqqs tbody, #cmqmpdeqqs tfoot, #cmqmpdeqqs tr, #cmqmpdeqqs td, #cmqmpdeqqs th {
+#hjctraoeiw thead, #hjctraoeiw tbody, #hjctraoeiw tfoot, #hjctraoeiw tr, #hjctraoeiw td, #hjctraoeiw th {
   border-style: none;
 }
 
-#cmqmpdeqqs p {
+#hjctraoeiw p {
   margin: 0;
   padding: 0;
 }
 
-#cmqmpdeqqs .gt_table {
+#hjctraoeiw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -853,12 +857,12 @@ OA rate by institution (2024)
   border-left-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_caption {
+#hjctraoeiw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cmqmpdeqqs .gt_title {
+#hjctraoeiw .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -870,7 +874,7 @@ OA rate by institution (2024)
   border-bottom-width: 0;
 }
 
-#cmqmpdeqqs .gt_subtitle {
+#hjctraoeiw .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -882,7 +886,7 @@ OA rate by institution (2024)
   border-top-width: 0;
 }
 
-#cmqmpdeqqs .gt_heading {
+#hjctraoeiw .gt_heading {
   background-color: #2D2D2D;
   text-align: center;
   border-bottom-color: #2D2D2D;
@@ -894,13 +898,13 @@ OA rate by institution (2024)
   border-right-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_bottom_border {
+#hjctraoeiw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_col_headings {
+#hjctraoeiw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -915,7 +919,7 @@ OA rate by institution (2024)
   border-right-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_col_heading {
+#hjctraoeiw .gt_col_heading {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -935,7 +939,7 @@ OA rate by institution (2024)
   overflow-x: hidden;
 }
 
-#cmqmpdeqqs .gt_column_spanner_outer {
+#hjctraoeiw .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -947,15 +951,15 @@ OA rate by institution (2024)
   padding-right: 4px;
 }
 
-#cmqmpdeqqs .gt_column_spanner_outer:first-child {
+#hjctraoeiw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cmqmpdeqqs .gt_column_spanner_outer:last-child {
+#hjctraoeiw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cmqmpdeqqs .gt_column_spanner {
+#hjctraoeiw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -967,11 +971,11 @@ OA rate by institution (2024)
   width: 100%;
 }
 
-#cmqmpdeqqs .gt_spanner_row {
+#hjctraoeiw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cmqmpdeqqs .gt_group_heading {
+#hjctraoeiw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -997,7 +1001,7 @@ OA rate by institution (2024)
   text-align: left;
 }
 
-#cmqmpdeqqs .gt_empty_group_heading {
+#hjctraoeiw .gt_empty_group_heading {
   padding: 0.5px;
   color: #FFFFFF;
   background-color: #2D2D2D;
@@ -1012,15 +1016,15 @@ OA rate by institution (2024)
   vertical-align: middle;
 }
 
-#cmqmpdeqqs .gt_from_md > :first-child {
+#hjctraoeiw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cmqmpdeqqs .gt_from_md > :last-child {
+#hjctraoeiw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cmqmpdeqqs .gt_row {
+#hjctraoeiw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1039,7 +1043,7 @@ OA rate by institution (2024)
   overflow-x: hidden;
 }
 
-#cmqmpdeqqs .gt_stub {
+#hjctraoeiw .gt_stub {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -1052,7 +1056,7 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#cmqmpdeqqs .gt_stub_row_group {
+#hjctraoeiw .gt_stub_row_group {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -1066,15 +1070,15 @@ OA rate by institution (2024)
   vertical-align: top;
 }
 
-#cmqmpdeqqs .gt_row_group_first td {
+#hjctraoeiw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cmqmpdeqqs .gt_row_group_first th {
+#hjctraoeiw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cmqmpdeqqs .gt_summary_row {
+#hjctraoeiw .gt_summary_row {
   color: #FFFFFF;
   background-color: #2D2D2D;
   text-transform: inherit;
@@ -1084,16 +1088,16 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#cmqmpdeqqs .gt_first_summary_row {
+#hjctraoeiw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_first_summary_row.thick {
+#hjctraoeiw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cmqmpdeqqs .gt_last_summary_row {
+#hjctraoeiw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1103,7 +1107,7 @@ OA rate by institution (2024)
   border-bottom-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_grand_summary_row {
+#hjctraoeiw .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #2D2D2D;
   text-transform: inherit;
@@ -1113,7 +1117,7 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#cmqmpdeqqs .gt_first_grand_summary_row {
+#hjctraoeiw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1123,7 +1127,7 @@ OA rate by institution (2024)
   border-top-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_last_grand_summary_row_top {
+#hjctraoeiw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1133,11 +1137,11 @@ OA rate by institution (2024)
   border-bottom-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_striped {
+#hjctraoeiw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cmqmpdeqqs .gt_table_body {
+#hjctraoeiw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1146,7 +1150,7 @@ OA rate by institution (2024)
   border-bottom-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_footnotes {
+#hjctraoeiw .gt_footnotes {
   color: #FFFFFF;
   background-color: #2D2D2D;
   border-bottom-style: none;
@@ -1160,7 +1164,7 @@ OA rate by institution (2024)
   border-right-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_footnote {
+#hjctraoeiw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1169,7 +1173,7 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#cmqmpdeqqs .gt_sourcenotes {
+#hjctraoeiw .gt_sourcenotes {
   color: #FFFFFF;
   background-color: #2D2D2D;
   border-bottom-style: none;
@@ -1183,7 +1187,7 @@ OA rate by institution (2024)
   border-right-color: #D3D3D3;
 }
 
-#cmqmpdeqqs .gt_sourcenote {
+#hjctraoeiw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1191,109 +1195,109 @@ OA rate by institution (2024)
   padding-right: 5px;
 }
 
-#cmqmpdeqqs .gt_left {
+#hjctraoeiw .gt_left {
   text-align: left;
 }
 
-#cmqmpdeqqs .gt_center {
+#hjctraoeiw .gt_center {
   text-align: center;
 }
 
-#cmqmpdeqqs .gt_right {
+#hjctraoeiw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cmqmpdeqqs .gt_font_normal {
+#hjctraoeiw .gt_font_normal {
   font-weight: normal;
 }
 
-#cmqmpdeqqs .gt_font_bold {
+#hjctraoeiw .gt_font_bold {
   font-weight: bold;
 }
 
-#cmqmpdeqqs .gt_font_italic {
+#hjctraoeiw .gt_font_italic {
   font-style: italic;
 }
 
-#cmqmpdeqqs .gt_super {
+#hjctraoeiw .gt_super {
   font-size: 65%;
 }
 
-#cmqmpdeqqs .gt_footnote_marks {
+#hjctraoeiw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cmqmpdeqqs .gt_asterisk {
+#hjctraoeiw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cmqmpdeqqs .gt_indent_1 {
+#hjctraoeiw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cmqmpdeqqs .gt_indent_2 {
+#hjctraoeiw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cmqmpdeqqs .gt_indent_3 {
+#hjctraoeiw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cmqmpdeqqs .gt_indent_4 {
+#hjctraoeiw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cmqmpdeqqs .gt_indent_5 {
+#hjctraoeiw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cmqmpdeqqs .katex-display {
+#hjctraoeiw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cmqmpdeqqs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hjctraoeiw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="institution">Australian National University</td>
-<td class="gt_row gt_right" headers="pc_open">67%</td>
+<td class="gt_row gt_left" headers="institution_name">Australian National University</td>
+<td class="gt_row gt_right" headers="pc_open">75%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="institution">The University of Queensland</td>
-<td class="gt_row gt_right" headers="pc_open">66%</td>
+<td class="gt_row gt_left" headers="institution_name">The University of Melbourne</td>
+<td class="gt_row gt_right" headers="pc_open">75%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="institution">The University of Melbourne</td>
-<td class="gt_row gt_right" headers="pc_open">66%</td>
+<td class="gt_row gt_left" headers="institution_name">Monash University</td>
+<td class="gt_row gt_right" headers="pc_open">74%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="institution">Monash University</td>
-<td class="gt_row gt_right" headers="pc_open">65%</td>
+<td class="gt_row gt_left" headers="institution_name">The University of Sydney</td>
+<td class="gt_row gt_right" headers="pc_open">72%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="institution">The University of Western Australia</td>
-<td class="gt_row gt_right" headers="pc_open">65%</td>
+<td class="gt_row gt_left" headers="institution_name">Adelaide University</td>
+<td class="gt_row gt_right" headers="pc_open">71%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="institution">The University of Sydney</td>
-<td class="gt_row gt_right" headers="pc_open">64%</td>
+<td class="gt_row gt_left" headers="institution_name">The University of Western Australia</td>
+<td class="gt_row gt_right" headers="pc_open">71%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="institution">UNSW Sydney</td>
-<td class="gt_row gt_right" headers="pc_open">62%</td>
+<td class="gt_row gt_left" headers="institution_name">UNSW Sydney</td>
+<td class="gt_row gt_right" headers="pc_open">71%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="institution">The University of Adelaide</td>
-<td class="gt_row gt_right" headers="pc_open">61%</td>
+<td class="gt_row gt_left" headers="institution_name">The University of Queensland</td>
+<td class="gt_row gt_right" headers="pc_open">71%</td>
 </tr>
 </tbody>
 </table>
@@ -1320,7 +1324,7 @@ NZ vs AU OA rate over time
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-13-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -1348,7 +1352,7 @@ Institutional Trend (NZ)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-14-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -1359,7 +1363,7 @@ Institutional Trend (NZ)
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card tabset html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-header dashboard-card-no-title bslib-navs-card-title">
 
-<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-16"><li class="nav-item" role="presentation"><a href="#card-tabset-16-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="AUT" aria-selected="true" class="nav-link active">AUT</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="LU" aria-selected="false" class="nav-link">LU</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-3" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="MU" aria-selected="false" class="nav-link">MU</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-4" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UOA" aria-selected="false" class="nav-link">UOA</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-5" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UC" aria-selected="false" class="nav-link">UC</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-6" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UO" aria-selected="false" class="nav-link">UO</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-7" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UOW" aria-selected="false" class="nav-link">UOW</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-8" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="VUW" aria-selected="false" class="nav-link">VUW</a></li></ul></div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-16"><li class="nav-item" role="presentation"><a href="#card-tabset-16-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="AUT" aria-selected="true" class="nav-link active">AUT</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Lincoln" aria-selected="false" class="nav-link">Lincoln</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-3" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Massey" aria-selected="false" class="nav-link">Massey</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-4" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UoA" aria-selected="false" class="nav-link">UoA</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-5" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UC" aria-selected="false" class="nav-link">UC</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-6" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Otago" aria-selected="false" class="nav-link">Otago</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-7" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Waikato" aria-selected="false" class="nav-link">Waikato</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-16-8" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Vic" aria-selected="false" class="nav-link">Vic</a></li></ul></div>
 
 
 
@@ -1369,36 +1373,108 @@ Institutional Trend (NZ)
 
 
 <div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-16"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-1"><div class="card-body html-fill-item html-fill-container" data-title="AUT">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-dashboard-img-contain">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-16-1.svg" class="img-fluid">
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-2"><div class="card-body html-fill-item html-fill-container" data-title="LU">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-dashboard-img-contain">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-3"><div class="card-body html-fill-item html-fill-container" data-title="MU">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-2"><div class="card-body html-fill-item html-fill-container" data-title="Lincoln">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-16-2.svg" class="img-fluid">
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-4"><div class="card-body html-fill-item html-fill-container" data-title="UOA">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid quarto-dashboard-img-contain">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-3"><div class="card-body html-fill-item html-fill-container" data-title="Massey">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-16-3.svg" class="img-fluid">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-4"><div class="card-body html-fill-item html-fill-container" data-title="UoA">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-16-4.svg" class="img-fluid">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
 </div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-5"><div class="card-body html-fill-item html-fill-container" data-title="UC">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-dashboard-img-contain">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-16-5.svg" class="img-fluid">
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-6"><div class="card-body html-fill-item html-fill-container" data-title="UO">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-dashboard-img-contain">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-7"><div class="card-body html-fill-item html-fill-container" data-title="UOW">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-6"><div class="card-body html-fill-item html-fill-container" data-title="Otago">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-16-6.svg" class="img-fluid">
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-8"><div class="card-body html-fill-item html-fill-container" data-title="VUW">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid quarto-dashboard-img-contain">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-7"><div class="card-body html-fill-item html-fill-container" data-title="Waikato">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-16-7.svg" class="img-fluid">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-16-8"><div class="card-body html-fill-item html-fill-container" data-title="Vic">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-16-8.svg" class="img-fluid">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
 </div></div></div><bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
     <template>Expand</template>
@@ -1415,7 +1491,7 @@ Institutional Trend (AU)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-17-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -1426,7 +1502,7 @@ Institutional Trend (AU)
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card tabset html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-header dashboard-card-no-title bslib-navs-card-title">
 
-<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-18"><li class="nav-item" role="presentation"><a href="#card-tabset-18-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="ANU" aria-selected="true" class="nav-link active">ANU</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-18-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="MAU" aria-selected="false" class="nav-link">MAU</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-18-3" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UA" aria-selected="false" class="nav-link">UA</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-18-4" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UM" aria-selected="false" class="nav-link">UM</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-18-5" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UQ" aria-selected="false" class="nav-link">UQ</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-18-6" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="US" aria-selected="false" class="nav-link">US</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-18-7" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UWA" aria-selected="false" class="nav-link">UWA</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-18-8" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UNSWS" aria-selected="false" class="nav-link">UNSWS</a></li></ul></div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-26"><li class="nav-item" role="presentation"><a href="#card-tabset-26-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Adelaide" aria-selected="true" class="nav-link active">Adelaide</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-26-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="ANU" aria-selected="false" class="nav-link">ANU</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-26-3" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Monash" aria-selected="false" class="nav-link">Monash</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-26-4" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Melbourne" aria-selected="false" class="nav-link">Melbourne</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-26-5" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UQ" aria-selected="false" class="nav-link">UQ</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-26-6" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Sydney" aria-selected="false" class="nav-link">Sydney</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-26-7" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UWA" aria-selected="false" class="nav-link">UWA</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-26-8" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="UNSW Syd" aria-selected="false" class="nav-link">UNSW Syd</a></li></ul></div>
 
 
 
@@ -1435,37 +1511,109 @@ Institutional Trend (AU)
 
 
 
-<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-18"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-18-1"><div class="card-body html-fill-item html-fill-container" data-title="ANU">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid quarto-dashboard-img-contain">
+<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-26"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-26-1"><div class="card-body html-fill-item html-fill-container" data-title="Adelaide">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-19-1.svg" class="img-fluid">
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-18-2"><div class="card-body html-fill-item html-fill-container" data-title="MAU">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid quarto-dashboard-img-contain">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-18-3"><div class="card-body html-fill-item html-fill-container" data-title="UA">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-26-2"><div class="card-body html-fill-item html-fill-container" data-title="ANU">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-19-2.svg" class="img-fluid">
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-18-4"><div class="card-body html-fill-item html-fill-container" data-title="UM">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid quarto-dashboard-img-contain">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-18-5"><div class="card-body html-fill-item html-fill-container" data-title="UQ">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-26-3"><div class="card-body html-fill-item html-fill-container" data-title="Monash">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-19-3.svg" class="img-fluid">
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-18-6"><div class="card-body html-fill-item html-fill-container" data-title="US">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid quarto-dashboard-img-contain">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-18-7"><div class="card-body html-fill-item html-fill-container" data-title="UWA">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-26-4"><div class="card-body html-fill-item html-fill-container" data-title="Melbourne">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-19-4.svg" class="img-fluid">
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-18-8"><div class="card-body html-fill-item html-fill-container" data-title="UNSWS">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid quarto-dashboard-img-contain">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-26-5"><div class="card-body html-fill-item html-fill-container" data-title="UQ">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-19-5.svg" class="img-fluid">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-26-6"><div class="card-body html-fill-item html-fill-container" data-title="Sydney">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-19-6.svg" class="img-fluid">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-26-7"><div class="card-body html-fill-item html-fill-container" data-title="UWA">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-19-7.svg" class="img-fluid">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-26-8"><div class="card-body html-fill-item html-fill-container" data-title="UNSW Syd">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-19-8.svg" class="img-fluid">
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
 </div></div></div><bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
     <template>Expand</template>
@@ -1480,10 +1628,10 @@ Institutional Trend (AU)
 <div class="card tabset html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-header dashboard-card-no-title bslib-navs-card-title">
 
-<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-19"><li class="nav-item" role="presentation"><a href="#card-tabset-19-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="NZ" aria-selected="true" class="nav-link active">NZ</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-19-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="AU" aria-selected="false" class="nav-link">AU</a></li></ul></div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-35"><li class="nav-item" role="presentation"><a href="#card-tabset-35-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="NZ" aria-selected="true" class="nav-link active">NZ</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-35-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="AU" aria-selected="false" class="nav-link">AU</a></li></ul></div>
 
 
-<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-19"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-19-1"><div class="card-body html-fill-item html-fill-container" data-title="NZ">
+<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-35"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-35-1"><div class="card-body html-fill-item html-fill-container" data-title="NZ">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="OA Rate By Field (NZ)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
@@ -1492,7 +1640,7 @@ OA Rate By Field (NZ)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-20-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -1502,7 +1650,7 @@ OA Rate By Field (NZ)
     </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-19-2"><div class="card-body html-fill-item html-fill-container" data-title="AU">
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-35-2"><div class="card-body html-fill-item html-fill-container" data-title="AU">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="OA Rate By Field (AU)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
@@ -1511,7 +1659,7 @@ OA Rate By Field (AU)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-21-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -1533,10 +1681,10 @@ OA Rate By Field (AU)
 <div class="card tabset html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-header dashboard-card-no-title bslib-navs-card-title">
 
-<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-22"><li class="nav-item" role="presentation"><a href="#card-tabset-22-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="NZ" aria-selected="true" class="nav-link active">NZ</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-22-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="AU" aria-selected="false" class="nav-link">AU</a></li></ul></div>
+<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-38"><li class="nav-item" role="presentation"><a href="#card-tabset-38-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="NZ" aria-selected="true" class="nav-link active">NZ</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-38-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="AU" aria-selected="false" class="nav-link">AU</a></li></ul></div>
 
 
-<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-22"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-22-1"><div class="card-body html-fill-item html-fill-container" data-title="NZ">
+<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-38"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-38-1"><div class="card-body html-fill-item html-fill-container" data-title="NZ">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
@@ -1553,7 +1701,7 @@ grid-auto-rows: minmax(0, 1fr);">
 Publications
 </p>
 <p class="value-box-value">
-168,734
+97,290
 </p>
 </div>
 </div>
@@ -1569,7 +1717,7 @@ Publications
 Citations
 </p>
 <p class="value-box-value">
-3,239,941
+967,193
 </p>
 </div>
 </div>
@@ -1585,7 +1733,7 @@ Citations
 OA Citation Advantage
 </p>
 <p class="value-box-value">
-29%
+33%
 </p>
 </div>
 </div>
@@ -1601,7 +1749,7 @@ OA Citation Advantage
 Last Updated
 </p>
 <p class="value-box-value">
-Jul 2025
+Jul 2026
 </p>
 </div>
 </div>
@@ -1617,7 +1765,7 @@ Open vs Closed
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-26-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -1632,7 +1780,7 @@ Open Access Status
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-27-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -1648,23 +1796,23 @@ Citation Summary
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div id="wzskvrigyu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
-<style>#wzskvrigyu table {
+<div id="ixuahszhpp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#ixuahszhpp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wzskvrigyu thead, #wzskvrigyu tbody, #wzskvrigyu tfoot, #wzskvrigyu tr, #wzskvrigyu td, #wzskvrigyu th {
+#ixuahszhpp thead, #ixuahszhpp tbody, #ixuahszhpp tfoot, #ixuahszhpp tr, #ixuahszhpp td, #ixuahszhpp th {
   border-style: none;
 }
 
-#wzskvrigyu p {
+#ixuahszhpp p {
   margin: 0;
   padding: 0;
 }
 
-#wzskvrigyu .gt_table {
+#ixuahszhpp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1690,12 +1838,12 @@ Citation Summary
   border-left-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_caption {
+#ixuahszhpp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wzskvrigyu .gt_title {
+#ixuahszhpp .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -1707,7 +1855,7 @@ Citation Summary
   border-bottom-width: 0;
 }
 
-#wzskvrigyu .gt_subtitle {
+#ixuahszhpp .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -1719,7 +1867,7 @@ Citation Summary
   border-top-width: 0;
 }
 
-#wzskvrigyu .gt_heading {
+#ixuahszhpp .gt_heading {
   background-color: #2D2D2D;
   text-align: center;
   border-bottom-color: #2D2D2D;
@@ -1731,13 +1879,13 @@ Citation Summary
   border-right-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_bottom_border {
+#ixuahszhpp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_col_headings {
+#ixuahszhpp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1752,7 +1900,7 @@ Citation Summary
   border-right-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_col_heading {
+#ixuahszhpp .gt_col_heading {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -1772,7 +1920,7 @@ Citation Summary
   overflow-x: hidden;
 }
 
-#wzskvrigyu .gt_column_spanner_outer {
+#ixuahszhpp .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -1784,15 +1932,15 @@ Citation Summary
   padding-right: 4px;
 }
 
-#wzskvrigyu .gt_column_spanner_outer:first-child {
+#ixuahszhpp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wzskvrigyu .gt_column_spanner_outer:last-child {
+#ixuahszhpp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wzskvrigyu .gt_column_spanner {
+#ixuahszhpp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1804,11 +1952,11 @@ Citation Summary
   width: 100%;
 }
 
-#wzskvrigyu .gt_spanner_row {
+#ixuahszhpp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wzskvrigyu .gt_group_heading {
+#ixuahszhpp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1834,7 +1982,7 @@ Citation Summary
   text-align: left;
 }
 
-#wzskvrigyu .gt_empty_group_heading {
+#ixuahszhpp .gt_empty_group_heading {
   padding: 0.5px;
   color: #FFFFFF;
   background-color: #2D2D2D;
@@ -1849,15 +1997,15 @@ Citation Summary
   vertical-align: middle;
 }
 
-#wzskvrigyu .gt_from_md > :first-child {
+#ixuahszhpp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wzskvrigyu .gt_from_md > :last-child {
+#ixuahszhpp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wzskvrigyu .gt_row {
+#ixuahszhpp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1876,7 +2024,7 @@ Citation Summary
   overflow-x: hidden;
 }
 
-#wzskvrigyu .gt_stub {
+#ixuahszhpp .gt_stub {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -1889,7 +2037,7 @@ Citation Summary
   padding-right: 5px;
 }
 
-#wzskvrigyu .gt_stub_row_group {
+#ixuahszhpp .gt_stub_row_group {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -1903,15 +2051,15 @@ Citation Summary
   vertical-align: top;
 }
 
-#wzskvrigyu .gt_row_group_first td {
+#ixuahszhpp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wzskvrigyu .gt_row_group_first th {
+#ixuahszhpp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wzskvrigyu .gt_summary_row {
+#ixuahszhpp .gt_summary_row {
   color: #FFFFFF;
   background-color: #2D2D2D;
   text-transform: inherit;
@@ -1921,16 +2069,16 @@ Citation Summary
   padding-right: 5px;
 }
 
-#wzskvrigyu .gt_first_summary_row {
+#ixuahszhpp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_first_summary_row.thick {
+#ixuahszhpp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wzskvrigyu .gt_last_summary_row {
+#ixuahszhpp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1940,7 +2088,7 @@ Citation Summary
   border-bottom-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_grand_summary_row {
+#ixuahszhpp .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #2D2D2D;
   text-transform: inherit;
@@ -1950,7 +2098,7 @@ Citation Summary
   padding-right: 5px;
 }
 
-#wzskvrigyu .gt_first_grand_summary_row {
+#ixuahszhpp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1960,7 +2108,7 @@ Citation Summary
   border-top-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_last_grand_summary_row_top {
+#ixuahszhpp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1970,11 +2118,11 @@ Citation Summary
   border-bottom-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_striped {
+#ixuahszhpp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wzskvrigyu .gt_table_body {
+#ixuahszhpp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1983,7 +2131,7 @@ Citation Summary
   border-bottom-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_footnotes {
+#ixuahszhpp .gt_footnotes {
   color: #FFFFFF;
   background-color: #2D2D2D;
   border-bottom-style: none;
@@ -1997,7 +2145,7 @@ Citation Summary
   border-right-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_footnote {
+#ixuahszhpp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2006,7 +2154,7 @@ Citation Summary
   padding-right: 5px;
 }
 
-#wzskvrigyu .gt_sourcenotes {
+#ixuahszhpp .gt_sourcenotes {
   color: #FFFFFF;
   background-color: #2D2D2D;
   border-bottom-style: none;
@@ -2020,7 +2168,7 @@ Citation Summary
   border-right-color: #D3D3D3;
 }
 
-#wzskvrigyu .gt_sourcenote {
+#ixuahszhpp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2028,77 +2176,77 @@ Citation Summary
   padding-right: 5px;
 }
 
-#wzskvrigyu .gt_left {
+#ixuahszhpp .gt_left {
   text-align: left;
 }
 
-#wzskvrigyu .gt_center {
+#ixuahszhpp .gt_center {
   text-align: center;
 }
 
-#wzskvrigyu .gt_right {
+#ixuahszhpp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wzskvrigyu .gt_font_normal {
+#ixuahszhpp .gt_font_normal {
   font-weight: normal;
 }
 
-#wzskvrigyu .gt_font_bold {
+#ixuahszhpp .gt_font_bold {
   font-weight: bold;
 }
 
-#wzskvrigyu .gt_font_italic {
+#ixuahszhpp .gt_font_italic {
   font-style: italic;
 }
 
-#wzskvrigyu .gt_super {
+#ixuahszhpp .gt_super {
   font-size: 65%;
 }
 
-#wzskvrigyu .gt_footnote_marks {
+#ixuahszhpp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wzskvrigyu .gt_asterisk {
+#ixuahszhpp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wzskvrigyu .gt_indent_1 {
+#ixuahszhpp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wzskvrigyu .gt_indent_2 {
+#ixuahszhpp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wzskvrigyu .gt_indent_3 {
+#ixuahszhpp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wzskvrigyu .gt_indent_4 {
+#ixuahszhpp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wzskvrigyu .gt_indent_5 {
+#ixuahszhpp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wzskvrigyu .katex-display {
+#ixuahszhpp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wzskvrigyu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ixuahszhpp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="publication_year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Year</th>
@@ -2112,94 +2260,58 @@ Citation Summary
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2015</td>
-<td class="gt_row gt_right" headers="Works">14,608</td>
-<td class="gt_row gt_right" headers="Citations">441,302</td>
+<td class="gt_row gt_right" headers="publication_year">2026</td>
+<td class="gt_row gt_right" headers="Works">9,240</td>
+<td class="gt_row gt_right" headers="Citations">2,883</td>
 <td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">5,461</td>
-<td class="gt_row gt_right" headers="Median">11</td>
-<td class="gt_row gt_right" headers="Average">30.2</td>
+<td class="gt_row gt_right" headers="Max">62</td>
+<td class="gt_row gt_right" headers="Median">0</td>
+<td class="gt_row gt_right" headers="Average">0.3</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2016</td>
-<td class="gt_row gt_right" headers="Works">15,622</td>
-<td class="gt_row gt_right" headers="Citations">417,962</td>
+<td class="gt_row gt_right" headers="publication_year">2025</td>
+<td class="gt_row gt_right" headers="Works">17,331</td>
+<td class="gt_row gt_right" headers="Citations">40,832</td>
 <td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">3,639</td>
-<td class="gt_row gt_right" headers="Median">11</td>
-<td class="gt_row gt_right" headers="Average">26.8</td>
+<td class="gt_row gt_right" headers="Max">606</td>
+<td class="gt_row gt_right" headers="Median">1</td>
+<td class="gt_row gt_right" headers="Average">2.4</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2017</td>
-<td class="gt_row gt_right" headers="Works">17,227</td>
-<td class="gt_row gt_right" headers="Citations">452,207</td>
+<td class="gt_row gt_right" headers="publication_year">2024</td>
+<td class="gt_row gt_right" headers="Works">17,008</td>
+<td class="gt_row gt_right" headers="Citations">115,357</td>
 <td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">5,836</td>
-<td class="gt_row gt_right" headers="Median">10</td>
-<td class="gt_row gt_right" headers="Average">26.2</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2018</td>
-<td class="gt_row gt_right" headers="Works">16,729</td>
-<td class="gt_row gt_right" headers="Citations">434,751</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">16,839</td>
-<td class="gt_row gt_right" headers="Median">10</td>
-<td class="gt_row gt_right" headers="Average">26.0</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2019</td>
-<td class="gt_row gt_right" headers="Works">17,667</td>
-<td class="gt_row gt_right" headers="Citations">468,461</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">11,224</td>
-<td class="gt_row gt_right" headers="Median">9</td>
-<td class="gt_row gt_right" headers="Average">26.5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2020</td>
-<td class="gt_row gt_right" headers="Works">18,778</td>
-<td class="gt_row gt_right" headers="Citations">408,387</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">5,955</td>
-<td class="gt_row gt_right" headers="Median">9</td>
-<td class="gt_row gt_right" headers="Average">21.7</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2021</td>
-<td class="gt_row gt_right" headers="Works">19,266</td>
-<td class="gt_row gt_right" headers="Citations">283,147</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">5,235</td>
-<td class="gt_row gt_right" headers="Median">7</td>
-<td class="gt_row gt_right" headers="Average">14.7</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2022</td>
-<td class="gt_row gt_right" headers="Works">17,842</td>
-<td class="gt_row gt_right" headers="Citations">185,205</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">2,542</td>
-<td class="gt_row gt_right" headers="Median">4</td>
-<td class="gt_row gt_right" headers="Average">10.4</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2023</td>
-<td class="gt_row gt_right" headers="Works">17,121</td>
-<td class="gt_row gt_right" headers="Citations">109,937</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">2,373</td>
+<td class="gt_row gt_right" headers="Max">3,774</td>
 <td class="gt_row gt_right" headers="Median">2</td>
-<td class="gt_row gt_right" headers="Average">6.4</td>
+<td class="gt_row gt_right" headers="Average">6.8</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2024</td>
-<td class="gt_row gt_right" headers="Works">13,874</td>
-<td class="gt_row gt_right" headers="Citations">38,582</td>
+<td class="gt_row gt_right" headers="publication_year">2023</td>
+<td class="gt_row gt_right" headers="Works">17,289</td>
+<td class="gt_row gt_right" headers="Citations">186,684</td>
 <td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">1,595</td>
-<td class="gt_row gt_right" headers="Median">1</td>
-<td class="gt_row gt_right" headers="Average">2.8</td>
+<td class="gt_row gt_right" headers="Max">3,789</td>
+<td class="gt_row gt_right" headers="Median">4</td>
+<td class="gt_row gt_right" headers="Average">10.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="publication_year">2022</td>
+<td class="gt_row gt_right" headers="Works">17,700</td>
+<td class="gt_row gt_right" headers="Citations">263,545</td>
+<td class="gt_row gt_right" headers="Min">0</td>
+<td class="gt_row gt_right" headers="Max">5,222</td>
+<td class="gt_row gt_right" headers="Median">6</td>
+<td class="gt_row gt_right" headers="Average">14.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="publication_year">2021</td>
+<td class="gt_row gt_right" headers="Works">18,722</td>
+<td class="gt_row gt_right" headers="Citations">357,892</td>
+<td class="gt_row gt_right" headers="Min">0</td>
+<td class="gt_row gt_right" headers="Max">7,690</td>
+<td class="gt_row gt_right" headers="Median">8</td>
+<td class="gt_row gt_right" headers="Average">19.1</td>
 </tr>
 </tbody>
 </table>
@@ -2219,7 +2331,7 @@ Citation Spread
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-29-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -2232,7 +2344,7 @@ Citation Spread
 </div>
 </div>
 </div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-22-2"><div class="card-body html-fill-item html-fill-container" data-title="AU">
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-38-2"><div class="card-body html-fill-item html-fill-container" data-title="AU">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
@@ -2249,7 +2361,7 @@ grid-auto-rows: minmax(0, 1fr);">
 Publications
 </p>
 <p class="value-box-value">
-691,018
+410,813
 </p>
 </div>
 </div>
@@ -2265,7 +2377,7 @@ Publications
 Citations
 </p>
 <p class="value-box-value">
-17,172,615
+6,094,754
 </p>
 </div>
 </div>
@@ -2281,7 +2393,7 @@ Citations
 OA Citation Advantage
 </p>
 <p class="value-box-value">
-44%
+40%
 </p>
 </div>
 </div>
@@ -2297,7 +2409,7 @@ OA Citation Advantage
 Last Updated
 </p>
 <p class="value-box-value">
-Jul 2025
+Jul 2026
 </p>
 </div>
 </div>
@@ -2313,7 +2425,7 @@ Open vs Closed
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-34-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -2328,7 +2440,7 @@ Open Access Status
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-35-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -2344,23 +2456,23 @@ Citation Summary
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div id="tdgriaylca" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
-<style>#tdgriaylca table {
+<div id="dgbdeuiorm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#dgbdeuiorm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tdgriaylca thead, #tdgriaylca tbody, #tdgriaylca tfoot, #tdgriaylca tr, #tdgriaylca td, #tdgriaylca th {
+#dgbdeuiorm thead, #dgbdeuiorm tbody, #dgbdeuiorm tfoot, #dgbdeuiorm tr, #dgbdeuiorm td, #dgbdeuiorm th {
   border-style: none;
 }
 
-#tdgriaylca p {
+#dgbdeuiorm p {
   margin: 0;
   padding: 0;
 }
 
-#tdgriaylca .gt_table {
+#dgbdeuiorm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2386,12 +2498,12 @@ Citation Summary
   border-left-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_caption {
+#dgbdeuiorm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tdgriaylca .gt_title {
+#dgbdeuiorm .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -2403,7 +2515,7 @@ Citation Summary
   border-bottom-width: 0;
 }
 
-#tdgriaylca .gt_subtitle {
+#dgbdeuiorm .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -2415,7 +2527,7 @@ Citation Summary
   border-top-width: 0;
 }
 
-#tdgriaylca .gt_heading {
+#dgbdeuiorm .gt_heading {
   background-color: #2D2D2D;
   text-align: center;
   border-bottom-color: #2D2D2D;
@@ -2427,13 +2539,13 @@ Citation Summary
   border-right-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_bottom_border {
+#dgbdeuiorm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_col_headings {
+#dgbdeuiorm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2448,7 +2560,7 @@ Citation Summary
   border-right-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_col_heading {
+#dgbdeuiorm .gt_col_heading {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -2468,7 +2580,7 @@ Citation Summary
   overflow-x: hidden;
 }
 
-#tdgriaylca .gt_column_spanner_outer {
+#dgbdeuiorm .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -2480,15 +2592,15 @@ Citation Summary
   padding-right: 4px;
 }
 
-#tdgriaylca .gt_column_spanner_outer:first-child {
+#dgbdeuiorm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tdgriaylca .gt_column_spanner_outer:last-child {
+#dgbdeuiorm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tdgriaylca .gt_column_spanner {
+#dgbdeuiorm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2500,11 +2612,11 @@ Citation Summary
   width: 100%;
 }
 
-#tdgriaylca .gt_spanner_row {
+#dgbdeuiorm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tdgriaylca .gt_group_heading {
+#dgbdeuiorm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2530,7 +2642,7 @@ Citation Summary
   text-align: left;
 }
 
-#tdgriaylca .gt_empty_group_heading {
+#dgbdeuiorm .gt_empty_group_heading {
   padding: 0.5px;
   color: #FFFFFF;
   background-color: #2D2D2D;
@@ -2545,15 +2657,15 @@ Citation Summary
   vertical-align: middle;
 }
 
-#tdgriaylca .gt_from_md > :first-child {
+#dgbdeuiorm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tdgriaylca .gt_from_md > :last-child {
+#dgbdeuiorm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tdgriaylca .gt_row {
+#dgbdeuiorm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2572,7 +2684,7 @@ Citation Summary
   overflow-x: hidden;
 }
 
-#tdgriaylca .gt_stub {
+#dgbdeuiorm .gt_stub {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -2585,7 +2697,7 @@ Citation Summary
   padding-right: 5px;
 }
 
-#tdgriaylca .gt_stub_row_group {
+#dgbdeuiorm .gt_stub_row_group {
   color: #FFFFFF;
   background-color: #2D2D2D;
   font-size: 100%;
@@ -2599,15 +2711,15 @@ Citation Summary
   vertical-align: top;
 }
 
-#tdgriaylca .gt_row_group_first td {
+#dgbdeuiorm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tdgriaylca .gt_row_group_first th {
+#dgbdeuiorm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tdgriaylca .gt_summary_row {
+#dgbdeuiorm .gt_summary_row {
   color: #FFFFFF;
   background-color: #2D2D2D;
   text-transform: inherit;
@@ -2617,16 +2729,16 @@ Citation Summary
   padding-right: 5px;
 }
 
-#tdgriaylca .gt_first_summary_row {
+#dgbdeuiorm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_first_summary_row.thick {
+#dgbdeuiorm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tdgriaylca .gt_last_summary_row {
+#dgbdeuiorm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2636,7 +2748,7 @@ Citation Summary
   border-bottom-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_grand_summary_row {
+#dgbdeuiorm .gt_grand_summary_row {
   color: #FFFFFF;
   background-color: #2D2D2D;
   text-transform: inherit;
@@ -2646,7 +2758,7 @@ Citation Summary
   padding-right: 5px;
 }
 
-#tdgriaylca .gt_first_grand_summary_row {
+#dgbdeuiorm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2656,7 +2768,7 @@ Citation Summary
   border-top-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_last_grand_summary_row_top {
+#dgbdeuiorm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2666,11 +2778,11 @@ Citation Summary
   border-bottom-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_striped {
+#dgbdeuiorm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tdgriaylca .gt_table_body {
+#dgbdeuiorm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2679,7 +2791,7 @@ Citation Summary
   border-bottom-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_footnotes {
+#dgbdeuiorm .gt_footnotes {
   color: #FFFFFF;
   background-color: #2D2D2D;
   border-bottom-style: none;
@@ -2693,7 +2805,7 @@ Citation Summary
   border-right-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_footnote {
+#dgbdeuiorm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2702,7 +2814,7 @@ Citation Summary
   padding-right: 5px;
 }
 
-#tdgriaylca .gt_sourcenotes {
+#dgbdeuiorm .gt_sourcenotes {
   color: #FFFFFF;
   background-color: #2D2D2D;
   border-bottom-style: none;
@@ -2716,7 +2828,7 @@ Citation Summary
   border-right-color: #D3D3D3;
 }
 
-#tdgriaylca .gt_sourcenote {
+#dgbdeuiorm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2724,77 +2836,77 @@ Citation Summary
   padding-right: 5px;
 }
 
-#tdgriaylca .gt_left {
+#dgbdeuiorm .gt_left {
   text-align: left;
 }
 
-#tdgriaylca .gt_center {
+#dgbdeuiorm .gt_center {
   text-align: center;
 }
 
-#tdgriaylca .gt_right {
+#dgbdeuiorm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tdgriaylca .gt_font_normal {
+#dgbdeuiorm .gt_font_normal {
   font-weight: normal;
 }
 
-#tdgriaylca .gt_font_bold {
+#dgbdeuiorm .gt_font_bold {
   font-weight: bold;
 }
 
-#tdgriaylca .gt_font_italic {
+#dgbdeuiorm .gt_font_italic {
   font-style: italic;
 }
 
-#tdgriaylca .gt_super {
+#dgbdeuiorm .gt_super {
   font-size: 65%;
 }
 
-#tdgriaylca .gt_footnote_marks {
+#dgbdeuiorm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tdgriaylca .gt_asterisk {
+#dgbdeuiorm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tdgriaylca .gt_indent_1 {
+#dgbdeuiorm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tdgriaylca .gt_indent_2 {
+#dgbdeuiorm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tdgriaylca .gt_indent_3 {
+#dgbdeuiorm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tdgriaylca .gt_indent_4 {
+#dgbdeuiorm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tdgriaylca .gt_indent_5 {
+#dgbdeuiorm .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tdgriaylca .katex-display {
+#dgbdeuiorm .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tdgriaylca div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#dgbdeuiorm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="publication_year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Year</th>
@@ -2808,94 +2920,58 @@ Citation Summary
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2015</td>
-<td class="gt_row gt_right" headers="Works">60,135</td>
-<td class="gt_row gt_right" headers="Citations">2,422,310</td>
+<td class="gt_row gt_right" headers="publication_year">2026</td>
+<td class="gt_row gt_right" headers="Works">39,993</td>
+<td class="gt_row gt_right" headers="Citations">16,488</td>
 <td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">33,434</td>
-<td class="gt_row gt_right" headers="Median">15</td>
-<td class="gt_row gt_right" headers="Average">40.3</td>
+<td class="gt_row gt_right" headers="Max">705</td>
+<td class="gt_row gt_right" headers="Median">0</td>
+<td class="gt_row gt_right" headers="Average">0.4</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2016</td>
-<td class="gt_row gt_right" headers="Works">62,454</td>
-<td class="gt_row gt_right" headers="Citations">2,388,655</td>
+<td class="gt_row gt_right" headers="publication_year">2025</td>
+<td class="gt_row gt_right" headers="Works">73,005</td>
+<td class="gt_row gt_right" headers="Citations">264,494</td>
 <td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">22,002</td>
-<td class="gt_row gt_right" headers="Median">14</td>
-<td class="gt_row gt_right" headers="Average">38.2</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2017</td>
-<td class="gt_row gt_right" headers="Works">65,561</td>
-<td class="gt_row gt_right" headers="Citations">2,378,037</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">8,360</td>
-<td class="gt_row gt_right" headers="Median">13</td>
-<td class="gt_row gt_right" headers="Average">36.3</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2018</td>
-<td class="gt_row gt_right" headers="Works">67,864</td>
-<td class="gt_row gt_right" headers="Citations">2,303,813</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">27,388</td>
-<td class="gt_row gt_right" headers="Median">13</td>
-<td class="gt_row gt_right" headers="Average">33.9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2019</td>
-<td class="gt_row gt_right" headers="Works">72,711</td>
-<td class="gt_row gt_right" headers="Citations">2,117,768</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">8,620</td>
-<td class="gt_row gt_right" headers="Median">11</td>
-<td class="gt_row gt_right" headers="Average">29.1</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2020</td>
-<td class="gt_row gt_right" headers="Works">76,996</td>
-<td class="gt_row gt_right" headers="Citations">2,185,706</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">12,358</td>
-<td class="gt_row gt_right" headers="Median">11</td>
-<td class="gt_row gt_right" headers="Average">28.4</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2021</td>
-<td class="gt_row gt_right" headers="Works">78,853</td>
-<td class="gt_row gt_right" headers="Citations">1,623,529</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">54,403</td>
-<td class="gt_row gt_right" headers="Median">8</td>
-<td class="gt_row gt_right" headers="Average">20.6</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2022</td>
-<td class="gt_row gt_right" headers="Works">72,828</td>
-<td class="gt_row gt_right" headers="Citations">985,514</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">5,928</td>
-<td class="gt_row gt_right" headers="Median">6</td>
-<td class="gt_row gt_right" headers="Average">13.5</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="publication_year">2023</td>
-<td class="gt_row gt_right" headers="Works">71,263</td>
-<td class="gt_row gt_right" headers="Citations">562,396</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">2,373</td>
-<td class="gt_row gt_right" headers="Median">3</td>
-<td class="gt_row gt_right" headers="Average">7.9</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="publication_year">2024</td>
-<td class="gt_row gt_right" headers="Works">62,353</td>
-<td class="gt_row gt_right" headers="Citations">204,887</td>
-<td class="gt_row gt_right" headers="Min">0</td>
-<td class="gt_row gt_right" headers="Max">910</td>
+<td class="gt_row gt_right" headers="Max">1,381</td>
 <td class="gt_row gt_right" headers="Median">1</td>
-<td class="gt_row gt_right" headers="Average">3.3</td>
+<td class="gt_row gt_right" headers="Average">3.6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="publication_year">2024</td>
+<td class="gt_row gt_right" headers="Works">72,137</td>
+<td class="gt_row gt_right" headers="Citations">703,273</td>
+<td class="gt_row gt_right" headers="Min">0</td>
+<td class="gt_row gt_right" headers="Max">3,123</td>
+<td class="gt_row gt_right" headers="Median">4</td>
+<td class="gt_row gt_right" headers="Average">9.7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="publication_year">2023</td>
+<td class="gt_row gt_right" headers="Works">72,482</td>
+<td class="gt_row gt_right" headers="Citations">1,139,748</td>
+<td class="gt_row gt_right" headers="Min">0</td>
+<td class="gt_row gt_right" headers="Max">3,820</td>
+<td class="gt_row gt_right" headers="Median">6</td>
+<td class="gt_row gt_right" headers="Average">15.7</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="publication_year">2022</td>
+<td class="gt_row gt_right" headers="Works">74,113</td>
+<td class="gt_row gt_right" headers="Citations">1,629,567</td>
+<td class="gt_row gt_right" headers="Min">0</td>
+<td class="gt_row gt_right" headers="Max">6,286</td>
+<td class="gt_row gt_right" headers="Median">9</td>
+<td class="gt_row gt_right" headers="Average">22.0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="publication_year">2021</td>
+<td class="gt_row gt_right" headers="Works">79,083</td>
+<td class="gt_row gt_right" headers="Citations">2,341,184</td>
+<td class="gt_row gt_right" headers="Min">0</td>
+<td class="gt_row gt_right" headers="Max">9,888</td>
+<td class="gt_row gt_right" headers="Median">12</td>
+<td class="gt_row gt_right" headers="Average">29.6</td>
 </tr>
 </tbody>
 </table>
@@ -2915,7 +2991,7 @@ Citation Spread
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid quarto-dashboard-img-contain">
+<img src="dashboard_files/figure-html/unnamed-chunk-37-1.svg" class="img-fluid quarto-dashboard-img-contain">
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -2926,1377 +3002,6 @@ Citation Spread
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
 </div>
-</div>
-</div>
-</div></div></div><bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-</div><div id="publishers" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-publishers">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="card tabset html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header dashboard-card-no-title bslib-navs-card-title">
-
-<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-39"><li class="nav-item" role="presentation"><a href="#card-tabset-39-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="NZ" aria-selected="true" class="nav-link active">NZ</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-39-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="AU" aria-selected="false" class="nav-link">AU</a></li></ul></div>
-
-
-<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-39"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-39-1"><div class="card-body html-fill-item html-fill-container" data-title="NZ">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Top 5 Share Over Time" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Top 5 Share Over Time
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid quarto-dashboard-img-contain">
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Top 5 By Field" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Top 5 By Field
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid quarto-dashboard-img-contain">
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="Top 20 by Article Share" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Top 20 by Article Share
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<div id="njpvwiugwt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
-<style>#njpvwiugwt table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#njpvwiugwt thead, #njpvwiugwt tbody, #njpvwiugwt tfoot, #njpvwiugwt tr, #njpvwiugwt td, #njpvwiugwt th {
-  border-style: none;
-}
-
-#njpvwiugwt p {
-  margin: 0;
-  padding: 0;
-}
-
-#njpvwiugwt .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #2D2D2D;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#njpvwiugwt .gt_title {
-  color: #FFFFFF;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #2D2D2D;
-  border-bottom-width: 0;
-}
-
-#njpvwiugwt .gt_subtitle {
-  color: #FFFFFF;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #2D2D2D;
-  border-top-width: 0;
-}
-
-#njpvwiugwt .gt_heading {
-  background-color: #2D2D2D;
-  text-align: center;
-  border-bottom-color: #2D2D2D;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_col_heading {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#njpvwiugwt .gt_column_spanner_outer {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#njpvwiugwt .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#njpvwiugwt .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#njpvwiugwt .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#njpvwiugwt .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#njpvwiugwt .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#njpvwiugwt .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#njpvwiugwt .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#njpvwiugwt .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#njpvwiugwt .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#njpvwiugwt .gt_stub {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#njpvwiugwt .gt_stub_row_group {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#njpvwiugwt .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#njpvwiugwt .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#njpvwiugwt .gt_summary_row {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#njpvwiugwt .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#njpvwiugwt .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_grand_summary_row {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#njpvwiugwt .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#njpvwiugwt .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_footnotes {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#njpvwiugwt .gt_sourcenotes {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#njpvwiugwt .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#njpvwiugwt .gt_left {
-  text-align: left;
-}
-
-#njpvwiugwt .gt_center {
-  text-align: center;
-}
-
-#njpvwiugwt .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#njpvwiugwt .gt_font_normal {
-  font-weight: normal;
-}
-
-#njpvwiugwt .gt_font_bold {
-  font-weight: bold;
-}
-
-#njpvwiugwt .gt_font_italic {
-  font-style: italic;
-}
-
-#njpvwiugwt .gt_super {
-  font-size: 65%;
-}
-
-#njpvwiugwt .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#njpvwiugwt .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#njpvwiugwt .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#njpvwiugwt .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#njpvwiugwt .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#njpvwiugwt .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#njpvwiugwt .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#njpvwiugwt .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#njpvwiugwt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="Rank" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Rank</th>
-<th id="Publisher" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Publisher</th>
-<th id="Articles" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Articles</th>
-<th id="Article-Share" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Article Share</th>
-<th id="Percent-OA" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent OA</th>
-<th id="Median-Citations" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Median Citations</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">1</td>
-<td class="gt_row gt_left" headers="Publisher">Elsevier</td>
-<td class="gt_row gt_right" headers="Articles">31,855</td>
-<td class="gt_row gt_right" headers="Article Share">21%</td>
-<td class="gt_row gt_right" headers="Percent OA">40%</td>
-<td class="gt_row gt_right" headers="Median Citations">11</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">2</td>
-<td class="gt_row gt_left" headers="Publisher">Wiley</td>
-<td class="gt_row gt_right" headers="Articles">15,356</td>
-<td class="gt_row gt_right" headers="Article Share">10%</td>
-<td class="gt_row gt_right" headers="Percent OA">54%</td>
-<td class="gt_row gt_right" headers="Median Citations">9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">3</td>
-<td class="gt_row gt_left" headers="Publisher">Taylor &amp; Francis</td>
-<td class="gt_row gt_right" headers="Articles">13,365</td>
-<td class="gt_row gt_right" headers="Article Share">9%</td>
-<td class="gt_row gt_right" headers="Percent OA">36%</td>
-<td class="gt_row gt_right" headers="Median Citations">6</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">4</td>
-<td class="gt_row gt_left" headers="Publisher">Springer</td>
-<td class="gt_row gt_right" headers="Articles">11,559</td>
-<td class="gt_row gt_right" headers="Article Share">8%</td>
-<td class="gt_row gt_right" headers="Percent OA">53%</td>
-<td class="gt_row gt_right" headers="Median Citations">10</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">5</td>
-<td class="gt_row gt_left" headers="Publisher">MDPI</td>
-<td class="gt_row gt_right" headers="Articles">6,232</td>
-<td class="gt_row gt_right" headers="Article Share">4%</td>
-<td class="gt_row gt_right" headers="Percent OA">100%</td>
-<td class="gt_row gt_right" headers="Median Citations">8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">6</td>
-<td class="gt_row gt_left" headers="Publisher">SAGE Publishing</td>
-<td class="gt_row gt_right" headers="Articles">5,480</td>
-<td class="gt_row gt_right" headers="Article Share">4%</td>
-<td class="gt_row gt_right" headers="Percent OA">44%</td>
-<td class="gt_row gt_right" headers="Median Citations">7</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">7</td>
-<td class="gt_row gt_left" headers="Publisher">Oxford University Press</td>
-<td class="gt_row gt_right" headers="Articles">4,036</td>
-<td class="gt_row gt_right" headers="Article Share">3%</td>
-<td class="gt_row gt_right" headers="Percent OA">75%</td>
-<td class="gt_row gt_right" headers="Median Citations">9</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">8</td>
-<td class="gt_row gt_left" headers="Publisher">Frontiers Media</td>
-<td class="gt_row gt_right" headers="Articles">2,560</td>
-<td class="gt_row gt_right" headers="Article Share">2%</td>
-<td class="gt_row gt_right" headers="Percent OA">100%</td>
-<td class="gt_row gt_right" headers="Median Citations">10</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">9</td>
-<td class="gt_row gt_left" headers="Publisher">Emerald Publishing Limited</td>
-<td class="gt_row gt_right" headers="Articles">2,378</td>
-<td class="gt_row gt_right" headers="Article Share">2%</td>
-<td class="gt_row gt_right" headers="Percent OA">25%</td>
-<td class="gt_row gt_right" headers="Median Citations">12</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">10</td>
-<td class="gt_row gt_left" headers="Publisher">Cambridge University Press</td>
-<td class="gt_row gt_right" headers="Articles">2,201</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">61%</td>
-<td class="gt_row gt_right" headers="Median Citations">5</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">11</td>
-<td class="gt_row gt_left" headers="Publisher">IEEE</td>
-<td class="gt_row gt_right" headers="Articles">2,037</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">42%</td>
-<td class="gt_row gt_right" headers="Median Citations">13</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">12</td>
-<td class="gt_row gt_left" headers="Publisher">American Chemical Society</td>
-<td class="gt_row gt_right" headers="Articles">2,024</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">27%</td>
-<td class="gt_row gt_right" headers="Median Citations">16</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">13</td>
-<td class="gt_row gt_left" headers="Publisher">BioMed Central</td>
-<td class="gt_row gt_right" headers="Articles">1,877</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">100%</td>
-<td class="gt_row gt_right" headers="Median Citations">13</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">14</td>
-<td class="gt_row gt_left" headers="Publisher">American Physical Society</td>
-<td class="gt_row gt_right" headers="Articles">1,877</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">87%</td>
-<td class="gt_row gt_right" headers="Median Citations">13</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">15</td>
-<td class="gt_row gt_left" headers="Publisher">Wolters Kluwer</td>
-<td class="gt_row gt_right" headers="Articles">1,684</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">40%</td>
-<td class="gt_row gt_right" headers="Median Citations">6</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">16</td>
-<td class="gt_row gt_left" headers="Publisher">BMJ</td>
-<td class="gt_row gt_right" headers="Articles">1,631</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">73%</td>
-<td class="gt_row gt_right" headers="Median Citations">8</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">17</td>
-<td class="gt_row gt_left" headers="Publisher">Public Library of Science</td>
-<td class="gt_row gt_right" headers="Articles">1,436</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">100%</td>
-<td class="gt_row gt_right" headers="Median Citations">16</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">18</td>
-<td class="gt_row gt_left" headers="Publisher">Royal Society of Chemistry</td>
-<td class="gt_row gt_right" headers="Articles">1,255</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">39%</td>
-<td class="gt_row gt_right" headers="Median Citations">13</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">19</td>
-<td class="gt_row gt_left" headers="Publisher">IOP Publishing</td>
-<td class="gt_row gt_right" headers="Articles">1,217</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">84%</td>
-<td class="gt_row gt_right" headers="Median Citations">10</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">20</td>
-<td class="gt_row gt_left" headers="Publisher">National Institutes of Health</td>
-<td class="gt_row gt_right" headers="Articles">1,120</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">0%</td>
-<td class="gt_row gt_right" headers="Median Citations">5</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-</div>
-</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-39-2"><div class="card-body html-fill-item html-fill-container" data-title="AU">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Top 5 Share Over Time" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Top 5 Share Over Time
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid quarto-dashboard-img-contain">
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Top 5 By Field" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Top 5 By Field
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="dashboard_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid quarto-dashboard-img-contain">
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="Top 20 by Article Share" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Top 20 by Article Share
-</span></div></div>
-<div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<div id="dcrsslmqrd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
-<style>#dcrsslmqrd table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#dcrsslmqrd thead, #dcrsslmqrd tbody, #dcrsslmqrd tfoot, #dcrsslmqrd tr, #dcrsslmqrd td, #dcrsslmqrd th {
-  border-style: none;
-}
-
-#dcrsslmqrd p {
-  margin: 0;
-  padding: 0;
-}
-
-#dcrsslmqrd .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #2D2D2D;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#dcrsslmqrd .gt_title {
-  color: #FFFFFF;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #2D2D2D;
-  border-bottom-width: 0;
-}
-
-#dcrsslmqrd .gt_subtitle {
-  color: #FFFFFF;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #2D2D2D;
-  border-top-width: 0;
-}
-
-#dcrsslmqrd .gt_heading {
-  background-color: #2D2D2D;
-  text-align: center;
-  border-bottom-color: #2D2D2D;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_col_heading {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#dcrsslmqrd .gt_column_spanner_outer {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#dcrsslmqrd .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#dcrsslmqrd .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#dcrsslmqrd .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#dcrsslmqrd .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#dcrsslmqrd .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#dcrsslmqrd .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#dcrsslmqrd .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#dcrsslmqrd .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#dcrsslmqrd .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#dcrsslmqrd .gt_stub {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dcrsslmqrd .gt_stub_row_group {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#dcrsslmqrd .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#dcrsslmqrd .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#dcrsslmqrd .gt_summary_row {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dcrsslmqrd .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#dcrsslmqrd .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_grand_summary_row {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dcrsslmqrd .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#dcrsslmqrd .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_footnotes {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dcrsslmqrd .gt_sourcenotes {
-  color: #FFFFFF;
-  background-color: #2D2D2D;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#dcrsslmqrd .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#dcrsslmqrd .gt_left {
-  text-align: left;
-}
-
-#dcrsslmqrd .gt_center {
-  text-align: center;
-}
-
-#dcrsslmqrd .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#dcrsslmqrd .gt_font_normal {
-  font-weight: normal;
-}
-
-#dcrsslmqrd .gt_font_bold {
-  font-weight: bold;
-}
-
-#dcrsslmqrd .gt_font_italic {
-  font-style: italic;
-}
-
-#dcrsslmqrd .gt_super {
-  font-size: 65%;
-}
-
-#dcrsslmqrd .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#dcrsslmqrd .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#dcrsslmqrd .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#dcrsslmqrd .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#dcrsslmqrd .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#dcrsslmqrd .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#dcrsslmqrd .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#dcrsslmqrd .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#dcrsslmqrd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="Rank" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Rank</th>
-<th id="Publisher" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Publisher</th>
-<th id="Articles" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Articles</th>
-<th id="Article-Share" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Article Share</th>
-<th id="Percent-OA" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent OA</th>
-<th id="Median-Citations" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Median Citations</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">1</td>
-<td class="gt_row gt_left" headers="Publisher">Elsevier</td>
-<td class="gt_row gt_right" headers="Articles">154,393</td>
-<td class="gt_row gt_right" headers="Article Share">24%</td>
-<td class="gt_row gt_right" headers="Percent OA">44%</td>
-<td class="gt_row gt_right" headers="Median Citations">11</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">2</td>
-<td class="gt_row gt_left" headers="Publisher">Wiley</td>
-<td class="gt_row gt_right" headers="Articles">78,320</td>
-<td class="gt_row gt_right" headers="Article Share">12%</td>
-<td class="gt_row gt_right" headers="Percent OA">64%</td>
-<td class="gt_row gt_right" headers="Median Citations">9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">3</td>
-<td class="gt_row gt_left" headers="Publisher">Springer</td>
-<td class="gt_row gt_right" headers="Articles">49,729</td>
-<td class="gt_row gt_right" headers="Article Share">8%</td>
-<td class="gt_row gt_right" headers="Percent OA">59%</td>
-<td class="gt_row gt_right" headers="Median Citations">13</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">4</td>
-<td class="gt_row gt_left" headers="Publisher">Taylor &amp; Francis</td>
-<td class="gt_row gt_right" headers="Articles">34,255</td>
-<td class="gt_row gt_right" headers="Article Share">5%</td>
-<td class="gt_row gt_right" headers="Percent OA">35%</td>
-<td class="gt_row gt_right" headers="Median Citations">6</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">5</td>
-<td class="gt_row gt_left" headers="Publisher">Oxford University Press</td>
-<td class="gt_row gt_right" headers="Articles">28,098</td>
-<td class="gt_row gt_right" headers="Article Share">4%</td>
-<td class="gt_row gt_right" headers="Percent OA">83%</td>
-<td class="gt_row gt_right" headers="Median Citations">11</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">6</td>
-<td class="gt_row gt_left" headers="Publisher">MDPI</td>
-<td class="gt_row gt_right" headers="Articles">18,474</td>
-<td class="gt_row gt_right" headers="Article Share">3%</td>
-<td class="gt_row gt_right" headers="Percent OA">100%</td>
-<td class="gt_row gt_right" headers="Median Citations">8</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">7</td>
-<td class="gt_row gt_left" headers="Publisher">SAGE Publishing</td>
-<td class="gt_row gt_right" headers="Articles">18,381</td>
-<td class="gt_row gt_right" headers="Article Share">3%</td>
-<td class="gt_row gt_right" headers="Percent OA">46%</td>
-<td class="gt_row gt_right" headers="Median Citations">7</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">8</td>
-<td class="gt_row gt_left" headers="Publisher">Wolters Kluwer</td>
-<td class="gt_row gt_right" headers="Articles">12,770</td>
-<td class="gt_row gt_right" headers="Article Share">2%</td>
-<td class="gt_row gt_right" headers="Percent OA">42%</td>
-<td class="gt_row gt_right" headers="Median Citations">5</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">9</td>
-<td class="gt_row gt_left" headers="Publisher">IEEE</td>
-<td class="gt_row gt_right" headers="Articles">12,324</td>
-<td class="gt_row gt_right" headers="Article Share">2%</td>
-<td class="gt_row gt_right" headers="Percent OA">42%</td>
-<td class="gt_row gt_right" headers="Median Citations">17</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">10</td>
-<td class="gt_row gt_left" headers="Publisher">BioMed Central</td>
-<td class="gt_row gt_right" headers="Articles">11,827</td>
-<td class="gt_row gt_right" headers="Article Share">2%</td>
-<td class="gt_row gt_right" headers="Percent OA">100%</td>
-<td class="gt_row gt_right" headers="Median Citations">14</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">11</td>
-<td class="gt_row gt_left" headers="Publisher">American Chemical Society</td>
-<td class="gt_row gt_right" headers="Articles">11,024</td>
-<td class="gt_row gt_right" headers="Article Share">2%</td>
-<td class="gt_row gt_right" headers="Percent OA">31%</td>
-<td class="gt_row gt_right" headers="Median Citations">20</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">12</td>
-<td class="gt_row gt_left" headers="Publisher">BMJ</td>
-<td class="gt_row gt_right" headers="Articles">9,837</td>
-<td class="gt_row gt_right" headers="Article Share">2%</td>
-<td class="gt_row gt_right" headers="Percent OA">78%</td>
-<td class="gt_row gt_right" headers="Median Citations">8</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">13</td>
-<td class="gt_row gt_left" headers="Publisher">Frontiers Media</td>
-<td class="gt_row gt_right" headers="Articles">9,647</td>
-<td class="gt_row gt_right" headers="Article Share">2%</td>
-<td class="gt_row gt_right" headers="Percent OA">100%</td>
-<td class="gt_row gt_right" headers="Median Citations">11</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">14</td>
-<td class="gt_row gt_left" headers="Publisher">Cambridge University Press</td>
-<td class="gt_row gt_right" headers="Articles">9,378</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">62%</td>
-<td class="gt_row gt_right" headers="Median Citations">6</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">15</td>
-<td class="gt_row gt_left" headers="Publisher">Public Library of Science</td>
-<td class="gt_row gt_right" headers="Articles">8,350</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">100%</td>
-<td class="gt_row gt_right" headers="Median Citations">18</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">16</td>
-<td class="gt_row gt_left" headers="Publisher">Royal Society of Chemistry</td>
-<td class="gt_row gt_right" headers="Articles">6,797</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">38%</td>
-<td class="gt_row gt_right" headers="Median Citations">18</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">17</td>
-<td class="gt_row gt_left" headers="Publisher">IOP Publishing</td>
-<td class="gt_row gt_right" headers="Articles">6,471</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">88%</td>
-<td class="gt_row gt_right" headers="Median Citations">13</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">18</td>
-<td class="gt_row gt_left" headers="Publisher">American Physical Society</td>
-<td class="gt_row gt_right" headers="Articles">5,273</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">87%</td>
-<td class="gt_row gt_right" headers="Median Citations">16</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Rank">19</td>
-<td class="gt_row gt_left" headers="Publisher">CSIRO Publishing</td>
-<td class="gt_row gt_right" headers="Articles">5,127</td>
-<td class="gt_row gt_right" headers="Article Share">1%</td>
-<td class="gt_row gt_right" headers="Percent OA">41%</td>
-<td class="gt_row gt_right" headers="Median Citations">6</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Rank">20</td>
-<td class="gt_row gt_left" headers="Publisher">Emerald Publishing Limited</td>
-<td class="gt_row gt_right" headers="Articles">2,649</td>
-<td class="gt_row gt_right" headers="Article Share">0%</td>
-<td class="gt_row gt_right" headers="Percent OA">21%</td>
-<td class="gt_row gt_right" headers="Median Citations">12</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
 
 </div>
@@ -4311,17 +3016,17 @@ Top 20 by Article Share
 </div>
 </div>
 </div></div><aside id="bslib-sidebar-1" class="sidebar html-fill-container html-fill-item"><div class="html-fill-container html-fill-item">
-<p>This dashboard displays data relating to open access publication output from all 8 Aotearoa New Zealand universities and the Australian ‘Group of 8’ universities. Data is extracted from <a href="https://openalex.org/about">OpenAlex</a> via the <a href="https://docs.openalex.org/">API</a> to examine publication and citation trends since 2015 up to 2024. Data and code are available on <a href="https://github.com/tesaunders/oa-nz/">GitHub</a>.</p>
+<p>This dashboard displays data relating to open access publication output from all 8 Aotearoa New Zealand universities and the Australian ‘Group of 8’ universities. Data is extracted from <a href="https://openalex.org/about">OpenAlex</a> via the <a href="https://docs.openalex.org/">API</a> to examine publication and citation trends since 2021 up to 2026. Data and code are available on <a href="https://github.com/tesaunders/oa-nz/">GitHub</a>.</p>
 <hr>
 <p>Created and maintained by <a href="https://tomsaunders.me">Tom Saunders</a>.</p>
 <hr>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Notes on data
+<span class="screen-reader-only">Note</span>Notes on data
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -4331,7 +3036,7 @@ Notes on data
 <p>*Current open access rates:</p>
 <ul>
 <li>count each work only once, whereas open access rates by institution will count a work under multiple institutions if those institutions are represented in the author affiliations.</li>
-<li>are based on works published in the previous full year.</li>
+<li>are based on works published in the current year.</li>
 </ul>
 </div>
 </div>
@@ -4399,13 +3104,14 @@ bslib.Sidebar.initCollapsibleAll()
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

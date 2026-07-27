@@ -1,0 +1,55 @@
+"country","field","percent_open"
+"au","Immunology and Microbiology",0.796844181459566
+"au","Physics and Astronomy",0.789405684754522
+"au","Biochemistry, Genetics and Molecular Biology",0.767043508050702
+"au","Dentistry",0.761542957334892
+"au","Veterinary",0.749731471535983
+"au","Health Professions",0.749219021173204
+"nz","Dentistry",0.746073298429319
+"nz","Veterinary",0.739669421487603
+"nz","Immunology and Microbiology",0.739205526770294
+"au","Neuroscience",0.73049814836937
+"au","Nursing",0.728334956183057
+"au","Medicine",0.726118988482619
+"nz","Biochemistry, Genetics and Molecular Biology",0.725213154689403
+"nz","Earth and Planetary Sciences",0.716171617161716
+"nz","Environmental Science",0.715002953337271
+"nz","Physics and Astronomy",0.710824742268041
+"au","Agricultural and Biological Sciences",0.707603704568449
+"au","Psychology",0.704948815797444
+"nz","Medicine",0.704249253326093
+"au","Environmental Science",0.700026232948583
+"nz","Agricultural and Biological Sciences",0.689678434899933
+"nz","Nursing",0.683087027914614
+"nz","Health Professions",0.672792792792793
+"nz","Neuroscience",0.672009158557527
+"au","Mathematics",0.66921768707483
+"au","Earth and Planetary Sciences",0.661086754351003
+"au","Decision Sciences",0.651278644968449
+"au","Pharmacology, Toxicology and Pharmaceutics",0.649425287356322
+"nz","Pharmacology, Toxicology and Pharmaceutics",0.647058823529412
+"au","Economics, Econometrics and Finance",0.633479057960795
+"nz","Psychology",0.627365066719777
+"nz","Economics, Econometrics and Finance",0.605439495467087
+"au","Social Sciences",0.595719347980156
+"nz","Social Sciences",0.590651111461454
+"nz","Mathematics",0.587320574162679
+"nz","Decision Sciences",0.581799591002045
+"au","Business, Management and Accounting",0.571547884187082
+"au","Chemical Engineering",0.559693318729463
+"nz","Business, Management and Accounting",0.547359597652976
+"au","Chemistry",0.54248750367539
+"au","Materials Science",0.53923667968258
+"nz","Chemistry",0.512667660208644
+"au","Engineering",0.510889968119656
+"au","Computer Science",0.507271171941831
+"nz","Arts and Humanities",0.506861848124428
+"nz","Chemical Engineering",0.491329479768786
+"nz","Materials Science",0.484423676012461
+"au","Energy",0.484175458078845
+"nz","Engineering",0.482226258432797
+"au","Arts and Humanities",0.47785622593068
+"nz","Computer Science",0.467920978363123
+"nz","Energy",0.449685534591195
+"au",NA,0.369402985074627
+"nz",NA,0.344827586206897
