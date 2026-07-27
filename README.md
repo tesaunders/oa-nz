@@ -1,6 +1,16 @@
-# oa-nz
+# NZ/AU Open Access Dashboard
 
 A dashboard to display rates of open access for publications authored by researchers affiliated with NZ universities and Australian 'group of 8' universities, for comparison. 
+
+## Data
+
+Data is retrieved from the [OpenAlex API](https://docs.openalex.org/). Publications are included if they have an author affiliated with an NZ or Australian 'group of 8' university. Publications include peer reviewed articles, books, and book chapters, but exclude paratext (material about the journal such as covers, editorial board, or issue information) and retracted items.
+
+You will need a free [OpenAlex API key](https://developers.openalex.org/guides/authentication#getting-an-api-key) to run the code yourself. An API key can be set as an environment variable within R, otherwise you'll be restricted to the free limits which won't be enough to run the script. To set an API key:
+
+```
+Sys.getenv("YOUR_OPENALEX_API_KEY")
+```
 
 ## Background
 
@@ -14,12 +24,8 @@ Universities NZ released a [Pan-University Statement on Open Access](https://www
 
 This dashboard is an attempt to monitor rates of open access across New Zealand universities.
 
-## Data
-
-Data is retrieved from the [OpenAlex API](https://docs.openalex.org/). Publications are included if they have an author affiliated with an NZ or Australian 'group of 8' university. Publications include peer reviewed articles, books, and book chapters, but exclude paratext (material about the journal such as covers, editorial board, or issue information) and retracted items.
-
 ## Licence
 
-All data is C0 public domain. All code is licensed under the MIT license.
+All data is CC0 public domain. All code is licensed under the MIT license.
 
 [Open Access logo image](https://en.m.wikipedia.org/wiki/File:Open_Access_PLoS.svg) by 'art designer at PLoS' is licensed under the [Creative Commons Attribution-Share Alike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license. No changes were made.
