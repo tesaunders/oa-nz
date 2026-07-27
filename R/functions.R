@@ -63,35 +63,31 @@ make_valuebox <- function(icon, color, value) {
   )
 }
 
-get_overall_open <- function(country, data = pubs_all, year = prev_year) {
-  filtered_df <- data |>
-    filter(country_code == country, publication_year == year) |>
-    distinct(item_id, .keep_all = TRUE) 
-  
-  if (nrow(filtered_df) == 0) return(0)
-  
-  filtered_df |>
+get_overall_open <- function(country, data = pubs_all) {
+  data |> 
+  filter(country == {{ country }}, publication_year == max(publication_year)) |>
+    distinct(id, .keep_all = TRUE) |> 
     summarise(
-      oa_share = mean(is_oa == TRUE, na.rm = TRUE)
+      oa_share = mean(oa_status != "closed", na.rm = TRUE)
     ) |>
     pull(oa_share)
 }
 
 get_annual_open <- function(country, data = pubs_all) {
   data |>
-    filter(country_code == country) |>
-    distinct(item_id, .keep_all = TRUE) |>
+    filter(country == {{ country }}) |>
+    distinct(id, .keep_all = TRUE) |>
     group_by(publication_year) |>
     summarise(
       total_pubs = n(),
-      oa_pubs = sum(is_oa == TRUE, na.rm = TRUE),
-      freq = mean(is_oa == TRUE, na.rm = TRUE),
+      oa_pubs = sum(oa_status != "closed", na.rm = TRUE),
+      freq = oa_pubs / total_pubs,
       .groups = "drop"
     )
 }
 
 plot_trend <- function(x) {
-  ggplot(x, aes(x = publication_year, y = pc_open, colour = institution)) +
+  ggplot(x, aes(x = publication_year, y = pc_open, colour = institution_name)) +
     geom_line(size = 1) +
     xlab("") +
     ylab("Proportion Open Access (%)") +
@@ -99,7 +95,7 @@ plot_trend <- function(x) {
 }
 
 plot_inst <- function(x, plot_theme) {
-  plot_title <- (x$institution) 
+  plot_title <- (x$institution_name) 
   
   plot <- ggplot(x, aes(x = publication_year, y = pc, fill = oa_status)) +
     geom_area() +

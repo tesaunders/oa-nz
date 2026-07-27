@@ -1,3 +1,5 @@
+prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
+
 plot_colours <- c("bronze" = "#A65628",
                   "hybrid" = "#377EB8",
                   "gold" = "#FFFF33",

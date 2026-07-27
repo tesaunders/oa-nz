@@ -8,7 +8,805 @@ format:
 logo: assets/oa.png
 theme:
   - darkly
-  - custom.scss
+  - assets/custom.scss
 # fig-width: 12
 ---
 
+```{r setup, include = FALSE}
+library(dplyr)
+library(purrr)
+library(ggplot2)
+library(gt)
+library(tidyr)
+library(scales)
+library(forcats)
+library(stringr)
+
+source("r/functions.r")
+source("r/objects.r")
+```
+
+```{r load-data}
+pubs_all <- read.csv("data/processed/all-data.csv")
+pubs_all$oa_status <- factor(pubs_all$oa_status, c("closed", "hybrid", "gold", "green", "diamond", "bronze")) 
+```
+
+#  {.sidebar}
+
+This dashboard displays data relating to open access publication output from all 8 Aotearoa New Zealand universities and the Australian 'Group of 8' universities. Data is extracted from [OpenAlex](https://openalex.org/about) via the [API](https://docs.openalex.org/) to examine publication and citation trends since `r min(pubs_all$publication_year)` up to `r max(pubs_all$publication_year)`. Data and code are available on [GitHub](https://github.com/tesaunders/oa-nz/).
+
+------------------------------------------------------------------------
+
+Created and maintained by [Tom Saunders](https://tomsaunders.me).
+
+------------------------------------------------------------------------
+
+::: {.callout-note collapse="true"}
+## Notes on data
+
+Data includes all journal articles, books, and book chapters with an author affiliated with at least one of the institutions named above. Works about the publication venue ("paratext") have been excluded (e.g. covers, table of contents, editorial board listing, issue information), as have retracted works.
+
+*Current open access rates:
+
+- count each work only once, whereas open access rates by institution will count a work under multiple institutions if those institutions are represented in the author affiliations. 
+- are based on works published in the current year.
+
+:::
+
+```{r get-open-rates}
+prev_year <- as.numeric(format(Sys.Date(), "%Y"))-1
+open_overall_nz <- get_overall_open(country = "nz")
+open_overall_au <- get_overall_open(country = "au")
+```
+
+# Publications
+
+## Row {.tabset}
+
+### NZ
+
+:::::: {.rows}
+
+::::: {.columns}
+
+```{r}
+#| content: valuebox
+#| title: "Current OA rate"
+
+make_valuebox("unlock", "success", paste0(percent(open_overall_nz), "*"))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Universities NZ 2025 Target"
+
+make_valuebox("bullseye", "warning", "70%")
+```
+
+```{r}
+#| content: valuebox
+#| title: "Last Updated"
+
+make_valuebox("clock-history", "light", 
+              format(file.info("data/processed/all-data.csv")$mtime, format = "%b %Y"))
+```
+
+:::::
+
+:::: {.columns}
+
+::: {.rows}
+
+```{r}
+#| title: "Total OA rate over time"
+
+get_annual_open("nz") |> 
+  ggplot(aes(x = publication_year, y = freq)) +
+  geom_line(linewidth = 1, colour = "#f3f2f2") +
+  geom_hline(yintercept = 0.7, color = "#f39c12", linewidth = 1) +
+  annotate("text", x = prev_year - 1, y = 0.73, label = "UNZ Target", colour = "#f39c12") +
+  xlab("") +
+  ylab("Open Access (%)") +
+  scale_x_continuous(n.breaks = length(unique(pubs_all$publication_year))) +
+  scale_y_continuous(labels = scales::label_percent(),
+                     limits = c(0, 0.8),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
+  plot_theme("dark")
+```
+
+```{r}
+#| title: Access type over time
+
+pubs_all |>
+  filter(country == "nz") |>
+  distinct(id, .keep_all = TRUE) |> 
+  count(publication_year, oa_status) |> 
+  mutate(freq = n / sum(n), .by = publication_year) |>
+  ggplot(aes(x = publication_year, y = freq, fill = oa_status)) +
+  geom_area() +
+  scale_fill_manual(name = "Access Type", values = plot_colours) +
+  labs(x = NULL, y = "Proportion (%)") +
+  scale_x_continuous(breaks = scales::breaks_width(1)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  plot_theme("dark")
+```
+
+:::
+
+```{r}
+cat("title=", "OA rate by institution", paste0("(", max(pubs_all$publication_year), ")"))
+  
+pubs_all |> 
+  filter(country == "nz", publication_year == max(publication_year, na.rm = TRUE)) |>
+  summarise(
+    pc_open = mean(oa_status != "closed", na.rm = TRUE), 
+    .by = institution_name
+  ) |> 
+  arrange(desc(pc_open)) |> 
+  gt() |> 
+  fmt_percent(columns = pc_open, decimals = 0) |> 
+  tab_options(
+    column_labels.hidden = TRUE,
+    table.background.color = "#2d2d2d",
+    table.font.color.light = "white"
+  )
+```
+
+::::
+
+::::::
+
+### AU
+
+:::::: {.rows}
+
+::::: {.columns}
+
+```{r}
+#| content: valuebox
+#| title: "Current OA rate"
+
+make_valuebox("unlock", "success", paste0(percent(open_overall_au), "*"))
+```
+
+```{r}
+#| content: valuebox
+#| title: "OA target"
+
+make_valuebox("bullseye", "warning", print("—"))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Last Updated"
+
+make_valuebox("clock-history", "light", 
+              format(file.info("data/processed/all-data.csv")$mtime, format = "%b %Y"))
+```
+
+:::::
+
+:::: {.columns}
+
+::: {.rows}
+
+```{r}
+#| title: Total OA rate over time
+
+get_annual_open("au") |> 
+  ggplot(aes(x = publication_year, y = freq)) +
+  geom_line(linewidth = 1, colour = "#f3f2f2") +
+  xlab("") +
+  ylab("Open Access (%)") +
+  scale_x_continuous(n.breaks = length(unique(pubs_all$publication_year))) +
+  scale_y_continuous(labels = scales::label_percent(),
+                     limits = c(0, 0.8),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
+  plot_theme("dark")
+```
+
+```{r}
+#| title: Access type over time
+
+pubs_all |>
+  filter(country == "au") |>
+  distinct(id, .keep_all = TRUE) |> 
+  count(publication_year, oa_status) |> 
+  mutate(freq = n / sum(n), .by = publication_year) |>
+  ggplot(aes(x = publication_year, y = freq, fill = oa_status)) +
+  geom_area() +
+  scale_fill_manual(name = "Access Type", values = plot_colours) +
+  labs(x = NULL, y = "Proportion (%)") +
+  scale_x_continuous(breaks = scales::breaks_width(1)) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  plot_theme("dark")
+```
+
+:::
+
+```{r}
+cat("title=", "OA rate by institution", paste0("(", max(pubs_all$publication_year), ")"))
+  
+pubs_all |> 
+  filter(country == "au", publication_year == max(publication_year, na.rm = TRUE)) |>
+  summarise(
+    pc_open = mean(oa_status != "closed", na.rm = TRUE), 
+    .by = institution_name
+  ) |> 
+  arrange(desc(pc_open)) |> 
+  gt() |> 
+  fmt_percent(columns = pc_open, decimals = 0) |> 
+  tab_options(
+    column_labels.hidden = TRUE,
+    table.background.color = "#2d2d2d",
+    table.font.color.light = "white"
+  )
+```
+
+::::
+
+::::::
+
+### Comparison
+
+:::::: {.rows}
+
+```{r}
+#| title: NZ vs AU OA rate over time
+
+annual_compare <- 
+  full_join(get_annual_open("nz") |> mutate(country = "nz"), 
+            get_annual_open("au") |> mutate(country = "au"))
+
+ggplot(annual_compare, aes(x = publication_year, y = freq)) +
+  geom_line(data = annual_compare |> filter(country == "nz"), 
+            size = 1, aes(colour = "NZ")) +
+  geom_line(data = annual_compare |> filter(country == "au"), 
+            size = 1, aes(colour = "AU")) +
+  theme_classic() +
+  scale_color_manual(name = "Country", values = c("NZ" = "#f3f2f2", "AU" = "gold"),
+                     guide = guide_legend(reverse = TRUE)) +
+  xlab("") +
+  ylab("Open Access (%)") +
+  scale_y_continuous(labels = scales::label_percent(),
+                     limits = c(0, 0.8),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
+  scale_x_continuous(n.breaks = length(unique(annual_compare$publication_year))) +
+  plot_theme("dark")
+```
+
+::::::
+
+# Institutions
+
+## Column {width=50%}
+
+```{r}
+#| title: Institutional Trend (NZ)
+
+pubs_all |> 
+  filter(country == "nz") |>
+  mutate(is_oa = oa_status != "closed") |>
+  group_by(publication_year, institution_name, is_oa) |>
+  tally() |>
+  pivot_wider(names_from = is_oa, values_from = n) |>
+  mutate(pc_open = `TRUE` / (`TRUE` + `FALSE`)) |> 
+  plot_trend() +
+  scale_colour_manual(values = inst_lines_nz) +
+  scale_y_continuous(labels = scales::label_percent(),
+                     limits = c(0, 0.8),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
+  plot_theme("dark") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+```
+
+### Row {.tabset}
+
+```{r}
+#| include: false
+
+# Prepare lookup table safely
+inst_nz <- pubs_all |> 
+  filter(country == "nz") |> 
+  distinct(institution_name) |> 
+  mutate(
+    abbrev = case_when(
+      institution_name == "University of Auckland" ~ "UoA",
+      institution_name == "University of Otago" ~ "Otago",
+      institution_name == "University of Canterbury" ~ "UC",
+      institution_name == "Massey University" ~ "Massey",
+      institution_name == "Victoria University of Wellington" ~ "Vic",
+      institution_name == "University of Waikato" ~ "Waikato",
+      institution_name == "Lincoln University" ~ "Lincoln",
+      institution_name == "Auckland University of Technology" ~ "AUT"
+    )
+  )
+
+# Prepare plot list grouped by institution
+nz_plots <- pubs_all |>
+  filter(country == "nz") |> 
+  group_by(publication_year, institution_name, oa_status) |>
+  tally() |>
+  mutate(pc = n / sum(n)) |> 
+  left_join(inst_nz, by = "institution_name") |> 
+  group_by(institution_name) |>
+  group_split() |>
+  map(function(df) {
+    list(
+      abbrev = df$abbrev[1],
+      plot = plot_inst(df, "dark")
+    )
+  })
+```
+
+```{r}
+#| output: asis
+#| echo: false
+
+# Dynamically generate the tabset content
+iwalk(nz_plots, function(item, idx) {
+  cat("\n\n#### ", item$abbrev, "\n\n")
+  knitr::knit_print(item$plot)
+})
+```
+
+## Column {width=50%}
+
+```{r}
+#| title: Institutional Trend (AU)
+
+pubs_all |> 
+  filter(country == "au") |>
+  mutate(is_oa = oa_status != "closed") |>
+  group_by(publication_year, institution_name, is_oa) |>
+  tally() |>
+  pivot_wider(names_from = is_oa, values_from = n) |>
+  mutate(pc_open = `TRUE` / (`TRUE` + `FALSE`)) |> 
+  plot_trend() +
+  scale_colour_manual(values = inst_lines_au) +
+  scale_y_continuous(labels = scales::label_percent(),
+                     limits = c(0, 0.8),
+                     breaks = c(0, 0.2, 0.4, 0.6, 0.8)) +
+  plot_theme("dark") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+```
+
+### Row {.tabset}
+
+```{r}
+#| include: false
+
+# Prepare lookup table safely
+inst_au <- pubs_all |> 
+  filter(country == "au") |> 
+  distinct(institution_name) |> 
+  mutate(
+    abbrev = case_when(
+      institution_name == "Australian National University" ~ "ANU",
+      institution_name == "The University of Melbourne" ~ "Melbourne",
+      institution_name == "The University of Sydney" ~ "Sydney",
+      institution_name == "UNSW Sydney" ~ "UNSW Syd",
+      institution_name == "The University of Queensland" ~ "UQ",
+      institution_name == "Monash University" ~ "Monash",
+      institution_name == "The University of Western Australia" ~ "UWA",
+      institution_name == "Adelaide University" ~ "Adelaide"
+    )
+  )
+
+# Prepare plot list grouped by institution
+au_plots <- pubs_all |>
+  filter(country == "au") |> 
+  group_by(publication_year, institution_name, oa_status) |>
+  tally() |>
+  mutate(pc = n / sum(n)) |> 
+  left_join(inst_au, by = "institution_name") |> 
+  group_by(institution_name) |>
+  group_split() |>
+  map(function(df) {
+    list(
+      abbrev = df$abbrev[1],
+      plot = plot_inst(df, "dark")
+    )
+  })
+```
+
+```{r}
+#| output: asis
+#| echo: false
+
+# Dynamically generate the tabset content
+iwalk(au_plots, function(item, idx) {
+  cat("\n\n#### ", item$abbrev, "\n\n")
+  knitr::knit_print(item$plot)
+})
+```
+
+# Field
+
+## Row {.tabset}
+
+### NZ
+
+```{r}
+#| title: "OA Rate By Field (NZ)"
+
+pubs_all |>
+  filter(country == "nz") |> 
+  drop_na(field, oa_status) |> 
+  mutate(is_oa = oa_status != "closed") |> 
+  count(field, is_oa) |> 
+  mutate(pc = n / sum(n), .by = field) |> 
+  filter(is_oa) |> 
+  ggplot(aes(x = reorder(field, pc), y = pc)) +
+  geom_col(fill = "#4DAF4A") +
+  geom_text(
+    aes(label = scales::comma(n)), 
+    hjust = 1.1, 
+    colour = "white",
+    size = 3
+  ) +
+  coord_flip() +
+  scale_y_continuous(
+    labels = scales::label_percent(),
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  plot_theme("dark") +
+  labs(
+    x = NULL, 
+    y = NULL,
+    caption = "Numbers on bars are counts of open works."
+  ) +
+  theme(text = element_text(size = 10))
+```
+
+### AU
+
+```{r}
+#| title: "OA Rate By Field (AU)"
+
+pubs_all |>
+  filter(country == "au") |> 
+  drop_na(field, oa_status) |> 
+  mutate(is_oa = oa_status != "closed") |> 
+  count(field, is_oa) |> 
+  mutate(pc = n / sum(n), .by = field) |> 
+  filter(is_oa) |> 
+  ggplot(aes(x = reorder(field, pc), y = pc)) +
+  geom_col(fill = "#4DAF4A") +
+  geom_text(
+    aes(label = scales::comma(n)), 
+    hjust = 1.1, 
+    colour = "white",
+    size = 3
+  ) +
+  coord_flip() +
+  scale_y_continuous(
+    labels = scales::label_percent(),
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  plot_theme("dark") +
+  labs(
+    x = NULL, 
+    y = NULL,
+    caption = "Numbers on bars are counts of open works."
+  ) +
+  theme(text = element_text(size = 10))
+```
+
+# Citations
+
+## Row {.tabset}
+
+### NZ
+
+:::::: {.rows}
+
+::::: {.columns}
+
+```{r}
+#| content: valuebox
+#| title: "Publications"
+
+make_valuebox("file-text", "info", 
+              format(nrow(pubs_all |> filter(country == "nz")), big.mark = ","))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Citations"
+
+make_valuebox("blockquote-left", "info", 
+              format(
+                pubs_all |> 
+                  filter(country == "nz") |> 
+                  summarise(citations = sum(cited_by_count)) |> 
+                  pull(citations), 
+                big.mark = ","))
+```
+
+```{r}
+#| content: valuebox
+#| title: "OA Citation Advantage"
+
+cit_advant_nz <-
+pubs_all |> 
+  filter(country == "nz") |> 
+  summarise(
+    `FALSE` = median(cited_by_count[oa_status == "closed"], na.rm = TRUE),
+    `TRUE`  = median(cited_by_count[oa_status != "closed"], na.rm = TRUE),
+    difference = `FALSE` / `TRUE`
+  )
+
+make_valuebox("bar-chart", "success", scales::percent(1 - cit_advant_nz$difference))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Last Updated"
+
+make_valuebox("clock-history", "light", 
+              format(file.info("data/processed/all-data.csv")$mtime, format = "%b %Y"))
+```
+
+:::::
+
+:::: {.columns}
+
+::: {.rows}
+
+```{r}
+#| title: "Open vs Closed"
+
+pubs_all |>
+  filter(country == "nz") |> 
+  summarise(
+    Open = median(cited_by_count[oa_status != "closed"], na.rm = TRUE),
+    Closed = median(cited_by_count[oa_status == "closed"], na.rm = TRUE),
+    .by = publication_year
+  ) |> 
+  pivot_longer(
+    cols = c(Open, Closed),
+    names_to = "access",
+    values_to = "median_citations"
+  ) |> 
+  ggplot(aes(x = publication_year, y = median_citations, fill = access)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  scale_fill_manual(
+    values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C"),
+    guide = guide_legend(reverse = TRUE)
+  ) +
+  scale_x_continuous(breaks = scales::breaks_width(1)) +
+  plot_theme("dark") +
+  labs(x = NULL, y = "Median Citations", fill = NULL)
+```
+
+```{r}
+#| title: "Open Access Status"
+
+pubs_all |>
+  filter(country == "nz") |> 
+  drop_na(oa_status) |> 
+  summarise(
+    median = median(cited_by_count, na.rm = TRUE),
+    .by = c(publication_year, oa_status)
+  ) |> 
+  ggplot(aes(x = publication_year, y = median, fill = oa_status)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  scale_fill_manual(
+    values = plot_colours, 
+    guide = guide_legend(reverse = TRUE)
+  ) +
+  scale_x_continuous(breaks = scales::breaks_width(1)) +
+  plot_theme("dark") +
+  labs(
+    x = NULL, 
+    y = "Median Citations", 
+    fill = "Access Type"
+  )
+```
+
+:::
+
+::: {.rows}
+
+```{r}
+#| title: "Citation Summary"
+
+pubs_all |> 
+  filter(country == "nz") |> 
+  summarise(
+    Works = n(),
+    Citations = sum(cited_by_count, na.rm = TRUE),
+    Min = min(cited_by_count, na.rm = TRUE),
+    Max = max(cited_by_count, na.rm = TRUE),
+    Median = median(cited_by_count, na.rm = TRUE),
+    Average = mean(cited_by_count, na.rm = TRUE),
+    .by = publication_year
+  ) |>
+  arrange(desc(publication_year)) |> 
+  gt() |> 
+  cols_label(publication_year = "Year") |> 
+  fmt_integer(columns = c(Works, Citations, Min, Max, Median)) |> 
+  fmt_number(columns = Average, decimals = 1) |> 
+  tab_options(table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
+```
+
+```{r}
+#| title: "Citation Spread"
+
+pubs_all |>
+  filter(country == "nz") |> 
+  ggplot(aes(x = cited_by_count)) +
+  stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
+  scale_x_continuous(breaks = c(0,1,2,5,10,100,1000), trans = "log1p", expand = c(0,0)) +
+  plot_theme("dark") +
+  xlab("Citations (log1p)") +
+  ylab("Works") +
+  scale_y_continuous(labels = comma)
+```
+
+:::
+
+::::
+
+::::::
+
+### AU
+
+:::::: {.rows}
+
+::::: {.columns}
+
+```{r}
+#| content: valuebox
+#| title: "Publications"
+
+make_valuebox("file-text", "info", 
+              format(nrow(pubs_all |> filter(country == "au")), big.mark = ","))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Citations"
+
+make_valuebox("blockquote-left", "info", 
+              format(
+                pubs_all |> 
+                  filter(country == "au") |> 
+                  summarise(citations = sum(cited_by_count)) |> 
+                  pull(citations), 
+                big.mark = ","))
+```
+
+```{r}
+#| content: valuebox
+#| title: "OA Citation Advantage"
+
+cit_advant_au <-
+pubs_all |> 
+  filter(country == "au") |> 
+  summarise(
+    `FALSE` = median(cited_by_count[oa_status == "closed"], na.rm = TRUE),
+    `TRUE`  = median(cited_by_count[oa_status != "closed"], na.rm = TRUE),
+    difference = `FALSE` / `TRUE`
+  )
+
+make_valuebox("bar-chart", "success", scales::percent(1 - cit_advant_au$difference))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Last Updated"
+
+make_valuebox("clock-history", "light", 
+              format(file.info("data/processed/all-data.csv")$mtime, format = "%b %Y"))
+```
+
+:::::
+
+:::: {.columns}
+
+::: {.rows}
+
+```{r}
+#| title: "Open vs Closed"
+
+pubs_all |>
+  filter(country == "au") |> 
+  summarise(
+    Open = median(cited_by_count[oa_status != "closed"], na.rm = TRUE),
+    Closed = median(cited_by_count[oa_status == "closed"], na.rm = TRUE),
+    .by = publication_year
+  ) |> 
+  pivot_longer(
+    cols = c(Open, Closed),
+    names_to = "access",
+    values_to = "median_citations"
+  ) |> 
+  ggplot(aes(x = publication_year, y = median_citations, fill = access)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  scale_fill_manual(
+    values = c("Open" = "#4DAF4A", "Closed" = "#E41A1C"),
+    guide = guide_legend(reverse = TRUE)
+  ) +
+  scale_x_continuous(breaks = scales::breaks_width(1)) +
+  plot_theme("dark") +
+  labs(x = NULL, y = "Median Citations", fill = NULL)
+```
+
+```{r}
+#| title: "Open Access Status"
+
+pubs_all |>
+  filter(country == "au") |> 
+  drop_na(oa_status) |> 
+  summarise(
+    median = median(cited_by_count, na.rm = TRUE),
+    .by = c(publication_year, oa_status)
+  ) |> 
+  ggplot(aes(x = publication_year, y = median, fill = oa_status)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  scale_fill_manual(
+    values = plot_colours, 
+    guide = guide_legend(reverse = TRUE)
+  ) +
+  scale_x_continuous(breaks = scales::breaks_width(1)) +
+  plot_theme("dark") +
+  labs(
+    x = NULL, 
+    y = "Median Citations", 
+    fill = "Access Type"
+  )
+```
+
+:::
+
+::: {.rows}
+
+```{r}
+#| title: "Citation Summary"
+
+pubs_all |> 
+  filter(country == "au") |> 
+  summarise(
+    Works = n(),
+    Citations = sum(cited_by_count, na.rm = TRUE),
+    Min = min(cited_by_count, na.rm = TRUE),
+    Max = max(cited_by_count, na.rm = TRUE),
+    Median = median(cited_by_count, na.rm = TRUE),
+    Average = mean(cited_by_count, na.rm = TRUE),
+    .by = publication_year
+  ) |>
+  arrange(desc(publication_year)) |> 
+  gt() |> 
+  cols_label(publication_year = "Year") |> 
+  fmt_integer(columns = c(Works, Citations, Min, Max, Median)) |> 
+  fmt_number(columns = Average, decimals = 1) |> 
+  tab_options(table.background.color = "#2d2d2d",
+              table.font.color.light = "white")
+```
+
+```{r}
+#| title: "Citation Spread"
+
+pubs_all |>
+  filter(country == "au") |> 
+  ggplot(aes(x = cited_by_count)) +
+  stat_density(aes(y = after_stat(count)), color = "black", fill = "#f3f2f2") +
+  scale_x_continuous(breaks = c(0,1,2,5,10,100,1000), trans = "log1p", expand = c(0,0)) +
+  plot_theme("dark") +
+  xlab("Citations (log1p)") +
+  ylab("Works") +
+  scale_y_continuous(labels = comma)
+```
+
+:::
+
+::::
+
+::::::
